@@ -1,0 +1,20 @@
+<ngb-accordion [closeOthers]="true" [destroyOnHide]="false" activeIds="descCharaList">
+    <ngb-panel id="descHomepage">
+        <ng-template ngbPanelTitle>首頁</ng-template>
+        <ng-template ngbPanelContent>
+            <button class="w-100 list-group-item text-start">ShinyColorsDB</button>
+        </ng-template>
+    </ngb-panel>
+    <ngb-panel id="descCharaList" cardClass="p-0">
+        <ng-template ngbPanelTitle>角色列表</ng-template>
+        <ng-template ngbPanelContent>
+            <app-charlist></app-charlist>
+        </ng-template>
+    </ngb-panel>
+    <ngb-panel id="descSpineViewer">
+        <ng-template ngbPanelTitle>其他小玩具</ng-template>
+        <ng-template ngbPanelContent>
+            <button class="w-100 list-group-item text-start">SpineViewer</button>
+        </ng-template>
+    </ngb-panel>
+</ngb-accordion>

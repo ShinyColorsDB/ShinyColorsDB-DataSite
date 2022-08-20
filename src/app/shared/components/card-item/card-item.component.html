@@ -1,0 +1,15 @@
+<div class="card">
+  <a
+    [routerLink]="['/pcardinfo']"
+    [queryParams]="{ uuid: this.cardInfo.cardUuid }"
+  >
+    <img
+      [src]="'https://static.shinycolors.moe/pictures/bigPic/' + this.cardInfo.bigPic1 + '.jpg'"
+      alt=""
+      class="card-img-top"
+    />
+    <div class="card-body ps-0 pe-0">
+      <h5 class="card-text text-center">{{this.cardInfo.cardName.replace(this.regExp, '$1')}}</h5>
+    </div>
+  </a>
+</div>

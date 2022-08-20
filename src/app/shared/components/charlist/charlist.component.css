@@ -1,0 +1,8 @@
+.accordion-body{
+    padding: 0%;
+}
+
+::ng-deep button:focus, button:hover {
+    outline: none;
+    box-shadow: none;
+}

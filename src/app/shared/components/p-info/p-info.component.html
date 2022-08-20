@@ -1,0 +1,71 @@
+<div class="row" *ngIf="this.pCardInfo">
+  <div class="col-12">
+    <h2 class="pt-3">{{ this.pCardInfo.cardName }}</h2>
+  </div>
+
+  <div class="col-lg-6 col-md-12">
+    <ngb-carousel>
+      <ng-template ngbSlide>
+        <img
+          [src]="
+            this.staticUrl +
+            '/pictures/bigPic/' +
+            this.pCardInfo.bigPic1 +
+            '.jpg'
+          "
+          class="img-fluid"
+        />
+      </ng-template>
+      <ng-template ngbSlide>
+        <img
+          [src]="
+            this.staticUrl +
+            '/pictures/bigPic/' +
+            this.pCardInfo.bigPic2 +
+            '.jpg'
+          "
+          class="img-fluid"
+        />
+      </ng-template>
+    </ngb-carousel>
+    <div class="container pt-3 w-100">
+      <div class="w-50 d-inline-block">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">事件名稱</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let event of this.getIdolEvents()">
+              <td>{{ event.eventTitle }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="w-50 d-inline-block">
+        <table class="table table-hover w-50">
+          <thead>
+            <tr>
+              <th scope="col">True End</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let event of this.getTrueEnd()">
+              <td>{{ event.eventTitle }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-12">
+    <div>
+      <span>實裝日期: {{ this.pCardInfo.releaseDate }}</span
+      ><br />
+      <span>取得方式: {{ this.pCardInfo.getMethod }}</span
+      ><br />
+      <span>稀有度 : {{ this.pCardInfo.cardType }}</span>
+    </div>
+  </div>
+</div>
