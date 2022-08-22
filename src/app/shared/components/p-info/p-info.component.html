@@ -29,7 +29,7 @@
       </ng-template>
     </ngb-carousel>
     <div class="container pt-3 w-100">
-      <div class="w-50 d-inline-block">
+      <div class="w-50 d-inline-block p-1 align-top">
         <table class="table table-hover">
           <thead>
             <tr>
@@ -43,8 +43,8 @@
           </tbody>
         </table>
       </div>
-      <div class="w-50 d-inline-block">
-        <table class="table table-hover w-50">
+      <div class="w-50 d-inline-block p-1 align-top">
+        <table class="table table-hover">
           <thead>
             <tr>
               <th scope="col">True End</th>
@@ -65,7 +65,8 @@
       ><br />
       <span>取得方式: {{ this.pCardInfo.getMethod }}</span
       ><br />
-      <span>稀有度 : {{ this.pCardInfo.cardType }}</span>
+      <span>稀有度  : {{ this.pCardInfo.cardType }}</span>
     </div>
+    <app-panel-info></app-panel-info>
   </div>
 </div>

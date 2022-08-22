@@ -1,0 +1,56 @@
+<div class="row vh-100">
+  <div class="col-lg-3 pt-2 d-flex">
+    <h2 class="align-middle">最近更新</h2>
+  </div>
+  <div class="col-lg-9 container vh-100">
+    <div class="row d-flex" style="height: 5%;">
+      <h2 class="col m-2">最新卡面</h2>
+    </div>
+    <div class="row d-flex" style="height: 95%;">
+      <div class="h-100" *ngIf="this.latestP">
+        <div class="card ps-0 pe-0 h-100">
+          <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs">
+              <li class="nav-item">
+                <a
+                  href="javascript: void()"
+                  class="nav-link"
+                  (click)="togglePS = true"
+                  [ngClass]="{ disabled: togglePS, active: togglePS }"
+                >
+                  P卡列表
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  href="javascript: void()"
+                  class="nav-link"
+                  (click)="togglePS = false"
+                  [ngClass]="{ disabled: !togglePS, active: !togglePS }"
+                >
+                  S卡列表
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="card-body d-flex h-auto overflow-auto">
+            <div class="row" [ngClass]="{ 'd-none': !togglePS }">
+              <app-card-item
+                *ngFor="let card of this.latestP"
+                [cardInfo]="card"
+                class="col-md-6 col-lg-4 col-sm-12 pt-1 pb-1"
+              ></app-card-item>
+            </div>
+            <div class="row" [ngClass]="{ 'd-none': togglePS }">
+              <app-card-item
+                *ngFor="let card of this.latestS"
+                [cardInfo]="card"
+                class="col-md-6 col-lg-4 col-sm-12 pt-1 pb-1"
+              ></app-card-item>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

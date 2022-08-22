@@ -8,6 +8,5 @@ export interface Card {
     smlPic: string;
     cardType: string;
     getMethod: string;
-    cardHash: string;
     releaseDate: string;
 }

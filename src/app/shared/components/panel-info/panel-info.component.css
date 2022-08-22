@@ -1,0 +1,40 @@
+.hex {
+  float: left;
+  margin-right: -26px;
+  margin-bottom: -50px;
+}
+.hex .left {
+  float: left;
+  width: 0;
+  border-right: 30px solid #6c6;
+  border-top: 52px solid transparent;
+  border-bottom: 52px solid transparent;
+}
+.hex .middle {
+  float: left;
+  width: 60px;
+  height: 104px;
+  background: #6c6;
+}
+.hex .right {
+  float: left;
+  width: 0;
+  border-left: 30px solid #6c6;
+  border-top: 52px solid transparent;
+  border-bottom: 52px solid transparent;
+}
+.hex-row {
+  clear: left;
+}
+.hex.even {
+  margin-top: 53px;
+}
+.normal {
+  background-color: beige;
+}
+.gold {
+  background-color: #ffd700;
+}
+.nanairo {
+  background-color: #3d8f62;
+}

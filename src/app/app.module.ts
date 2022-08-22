@@ -11,10 +11,14 @@ import { PInfoComponent } from './shared/components/p-info/p-info.component';
 import { SInfoComponent } from './shared/components/s-info/s-info.component';
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
 import { CardItemComponent } from './shared/components/card-item/card-item.component';
+import { PanelInfoComponent } from './shared/components/panel-info/panel-info.component';
+import { HomeComponent } from './shared/components/home/home.component';
 
 import { ShinycolorsApiService } from './service/shinycolors-api/shinycolors-api.service';
+import { StorageService } from './service/storage/storage.service';
 
 const routes: Routes = [
+  { path: '', component: HomeComponent },
   { path: 'idolinfo', component: IInfoComponent },
   { path: 'pcardinfo', component: PInfoComponent },
 ];
@@ -29,14 +33,18 @@ const routes: Routes = [
     SInfoComponent,
     IInfoComponent,
     CharlistComponent,
+    PanelInfoComponent,
+    HomeComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     HttpClientModule,
     NgbModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, {
+    initialNavigation: 'enabledBlocking'
+}),
   ],
-  providers: [ShinycolorsApiService],
+  providers: [ShinycolorsApiService, StorageService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

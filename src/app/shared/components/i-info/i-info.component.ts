@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { subscribeOn, switchMap } from 'rxjs/operators';
 
 import { ShinycolorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
+import { StorageService } from 'src/app/service/storage/storage.service';
 import { Card } from '../../interfaces/card';
 import { Idol } from '../../interfaces/idol';
 
@@ -30,7 +31,8 @@ export class IInfoComponent implements OnInit {
 
   constructor(
     private scApiService: ShinycolorsApiService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private storageService: StorageService
   ) {}
 
   private classifyType(card: Card): void {
@@ -77,6 +79,8 @@ export class IInfoComponent implements OnInit {
 
       this.scApiService.getIdolInfo(this.idolId).subscribe((data) => {
         this.resetCards();
+
+        this.storageService.setIds(this.idolId, data.unitId);
 
         this.idolInfo = data;
         this.idolInfo.cardLists.forEach((card) => {
