@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  staticUrl: 'http://static.shinycolors.moe/',
-  apiUrl: 'http://localhost:3000/',
+  staticUrl: 'https://static.shinycolors.moe/',
+  apiUrl: 'https://api2.shinycolors.moe/',
 };
 
 /*

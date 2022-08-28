@@ -1,0 +1,36 @@
+<table class="table d-block h-50">
+  <thead>
+    <tr class="row">
+      <th class="col-1">#</th>
+      <th class="col-4">技能名稱</th>
+      <th class="col-7">技能敘述</th>
+    </tr>
+  </thead>
+  <tbody class="overflow-auto">
+    <tr
+      *ngFor="let slot of this.panelInfo; let i = index"
+      [attr.data-index]="i"
+      [ngClass]="{ 'bg-warning': i == this.highlited }"
+      [id]="i == this.highlited ? 'scrollMe' : ''"
+      class="row"
+    >
+      <td class="col-1">
+        <img
+          [src]="
+            'https://static.shinycolors.moe/pictures/skillIcon/' +
+            slot.panelIcon.toString() +
+            '.png'
+          "
+          alt=""
+          class="img-fluid"
+        />
+      </td>
+      <td class="col-4">
+        <span style="white-space: pre-line">{{ slot.skillTitle }}</span>
+      </td>
+      <td class="col-7">
+        <span style="white-space: pre-line">{{ slot.skillDesc }}</span>
+      </td>
+    </tr>
+  </tbody>
+</table>

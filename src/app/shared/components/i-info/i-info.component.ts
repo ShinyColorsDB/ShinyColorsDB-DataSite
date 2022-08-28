@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
-import { subscribeOn, switchMap } from 'rxjs/operators';
+import { Meta, Title } from '@angular/platform-browser';
 
 import { ShinycolorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
 import { StorageService } from 'src/app/service/storage/storage.service';
+import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
+
 import { Card } from '../../interfaces/card';
 import { Idol } from '../../interfaces/idol';
 
@@ -13,7 +14,7 @@ import { Idol } from '../../interfaces/idol';
   templateUrl: './i-info.component.html',
   styleUrls: ['./i-info.component.css'],
   host: {
-    class: 'col-lg-10 col-md-8 col-sm-12 h-100',
+    class: 'col-lg-10 col-md-8 col-sm-12 overflow-auto h-100',
   },
 })
 export class IInfoComponent implements OnInit {
@@ -31,8 +32,11 @@ export class IInfoComponent implements OnInit {
 
   constructor(
     private scApiService: ShinycolorsApiService,
+    private storageService: StorageService,
     private route: ActivatedRoute,
-    private storageService: StorageService
+    private utilsService: UtilitiesService,
+    private title: Title,
+    private meta: Meta
   ) {}
 
   private classifyType(card: Card): void {
@@ -80,9 +84,13 @@ export class IInfoComponent implements OnInit {
       this.scApiService.getIdolInfo(this.idolId).subscribe((data) => {
         this.resetCards();
 
+        this.idolInfo = data;
+
+        this.title.setTitle(this.idolInfo.idolName);
+        this.meta.addTags(this.utilsService.generateIdolMeta(this.idolInfo));
+
         this.storageService.setIds(this.idolId, data.unitId);
 
-        this.idolInfo = data;
         this.idolInfo.cardLists.forEach((card) => {
           this.classifyType(card);
         });

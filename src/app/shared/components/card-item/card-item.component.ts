@@ -10,6 +10,9 @@ export class CardItemComponent implements OnInit {
   @Input()
   cardInfo!: Card;
 
+  @Input()
+  pathType!: string;
+
   regExp: RegExp = /(【.*】).*/;
 
   constructor() {

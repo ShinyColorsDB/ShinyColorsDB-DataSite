@@ -3,10 +3,10 @@
     <h2 class="pt-3">{{ this.pCardInfo.cardName }}</h2>
   </div>
 
-  <div class="col-lg-6 col-md-12">
-    <ngb-carousel>
+  <div class="col-lg-6 col-md-12 row d-block">
+    <ngb-carousel class="col-12">
       <ng-template ngbSlide>
-        <img
+        <img #bigPic1
           [src]="
             this.staticUrl +
             '/pictures/bigPic/' +
@@ -17,7 +17,7 @@
         />
       </ng-template>
       <ng-template ngbSlide>
-        <img
+        <img #bigPic2
           [src]="
             this.staticUrl +
             '/pictures/bigPic/' +
@@ -28,8 +28,18 @@
         />
       </ng-template>
     </ngb-carousel>
-    <div class="container pt-3 w-100">
-      <div class="w-50 d-inline-block p-1 align-top">
+    <div class="container col-12 pt-3 w-100 row">
+      <div class="col-lg-4 col-md-12">
+        實裝日期: {{ this.pCardInfo.releaseDate }}
+      </div>
+      <div class="col-lg-4 col-md-12">
+        取得方式: {{ this.translateGetMethod() }}
+      </div>
+      <div class="col-lg-4 col-md-12">
+        稀有度 : {{ this.pCardInfo.cardType }}
+      </div>
+
+      <div class="col-lg-6 col-md-12 p-2">
         <table class="table table-hover">
           <thead>
             <tr>
@@ -43,7 +53,7 @@
           </tbody>
         </table>
       </div>
-      <div class="w-50 d-inline-block p-1 align-top">
+      <div class="col-lg-6 col-md-12 p-2">
         <table class="table table-hover">
           <thead>
             <tr>
@@ -57,16 +67,28 @@
           </tbody>
         </table>
       </div>
+      <div class="col-12">
+        <table class="table table-hover col-12">
+          <thead>
+            <tr>
+              <th scope="col">技能名稱</th>
+              <th scope="col">效果</th>
+              <th scope="col col-">Link</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let mem of this.getMemoryAppeal()">
+              <td >{{ mem.memoryTitle }}</td>
+              <td>{{ mem.memoryDesc }}</td>
+              <td>{{ mem.linkSkillDesc }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
-  <div class="col-lg-6 col-md-12">
-    <div>
-      <span>實裝日期: {{ this.pCardInfo.releaseDate }}</span
-      ><br />
-      <span>取得方式: {{ this.pCardInfo.getMethod }}</span
-      ><br />
-      <span>稀有度  : {{ this.pCardInfo.cardType }}</span>
-    </div>
-    <app-panel-info></app-panel-info>
+  <div class="col-lg-6 col-md-12 row">
+    <app-panel-info class="col-12" [panelInfo]="this.pCardInfo.cardPanels" (stateChanged)="updateState($event)"></app-panel-info>
+    <app-panel-list class="col-12" [panelInfo]="this.pCardInfo.cardPanels" [highlited]="this.highlight"></app-panel-list>
   </div>
 </div>

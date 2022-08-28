@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, QueryList, ViewChildren } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Meta, Title } from '@angular/platform-browser';
 
 import { environment } from 'src/environments/environment';
 
 import { ShinycolorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
+import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
 
 import { PCard } from '../../interfaces/pcard';
 
@@ -12,7 +14,7 @@ import { PCard } from '../../interfaces/pcard';
   templateUrl: './p-info.component.html',
   styleUrls: ['./p-info.component.css'],
   host: {
-    class: 'col-lg-10 col-md-8 col-sm-12 h-100',
+    class: 'col-lg-10 col-md-8 col-sm-12 overflow-auto h-100',
   },
 })
 export class PInfoComponent implements OnInit {
@@ -20,9 +22,14 @@ export class PInfoComponent implements OnInit {
   pCardInfo!: PCard;
   staticUrl: string;
 
+  highlight!: number;
+
   constructor(
     private scApiService: ShinycolorsApiService,
-    private route: ActivatedRoute
+    private utilsService: UtilitiesService,
+    private route: ActivatedRoute,
+    private meta: Meta,
+    private title: Title
   ) {
     this.staticUrl = environment.staticUrl;
   }
@@ -33,6 +40,7 @@ export class PInfoComponent implements OnInit {
 
       this.scApiService.getPCardInfo(this.pCardUuid).subscribe((data) => {
         this.pCardInfo = data;
+        this.title.setTitle(this.pCardInfo.cardName);
       });
     });
   }
@@ -47,5 +55,19 @@ export class PInfoComponent implements OnInit {
     return this.pCardInfo.cardIdolEvents.filter(
       (e) => e.eventCategory == 'アフターストーリー'
     );
+  }
+
+  getMemoryAppeal() {
+    return this.pCardInfo.cardMemoryAppeals.filter(
+      (e) => e.memoryDesc.match('Lv')
+    );
+  }
+
+  translateGetMethod(): string {
+    return this.utilsService.translateGetMethod(this.pCardInfo.getMethod);
+  }
+
+  updateState($event: number) {
+    this.highlight = $event
   }
 }

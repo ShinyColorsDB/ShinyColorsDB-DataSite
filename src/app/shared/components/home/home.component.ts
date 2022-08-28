@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 import { ShinycolorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
 
 import { Card } from '../../interfaces/card';
@@ -17,7 +18,11 @@ export class HomeComponent implements OnInit {
   latestP: Card[] = [];
   latestS: Card[] = [];
 
-  constructor(private scApiService: ShinycolorsApiService) {
+  constructor(
+    private scApiService: ShinycolorsApiService,
+    private title: Title,
+    private meta: Meta
+  ) {
     this.scApiService.getLatestPInfo().subscribe((data) => {
       this.latestP = data;
     });
@@ -26,5 +31,11 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.title.setTitle('ShinyColorsDB-DataSite');
+    this.meta.updateTag({
+      name: 'description',
+      content: 'ShinyColorsDB-DataSite',
+    });
+  }
 }

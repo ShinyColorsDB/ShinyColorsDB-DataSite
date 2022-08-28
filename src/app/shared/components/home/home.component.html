@@ -38,6 +38,7 @@
               <app-card-item
                 *ngFor="let card of this.latestP"
                 [cardInfo]="card"
+                [pathType]="'/pcardinfo'"
                 class="col-md-6 col-lg-4 col-sm-12 pt-1 pb-1"
               ></app-card-item>
             </div>
@@ -45,6 +46,7 @@
               <app-card-item
                 *ngFor="let card of this.latestS"
                 [cardInfo]="card"
+                [pathType]="'/scardinfo'"
                 class="col-md-6 col-lg-4 col-sm-12 pt-1 pb-1"
               ></app-card-item>
             </div>
