@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, OnInit, Output, QueryList, ViewChildren } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 
@@ -25,8 +25,8 @@ export class PInfoComponent implements OnInit {
   highlight!: number;
 
   constructor(
+    public utilsService: UtilitiesService,
     private scApiService: ShinycolorsApiService,
-    private utilsService: UtilitiesService,
     private route: ActivatedRoute,
     private meta: Meta,
     private title: Title
@@ -41,6 +41,8 @@ export class PInfoComponent implements OnInit {
       this.scApiService.getPCardInfo(this.pCardUuid).subscribe((data) => {
         this.pCardInfo = data;
         this.title.setTitle(this.pCardInfo.cardName);
+        this.utilsService.generateCardMeta(this.pCardInfo);
+        this.utilsService.emitActiveIds([this.pCardInfo.idol.idolId, this.pCardInfo.idol.unitId]);
       });
     });
   }
@@ -67,7 +69,7 @@ export class PInfoComponent implements OnInit {
     return this.utilsService.translateGetMethod(this.pCardInfo.getMethod);
   }
 
-  updateState($event: number) {
+  updateState($event: number): void {
     this.highlight = $event
   }
 }

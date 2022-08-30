@@ -3,13 +3,22 @@
     [routerLink]="[this.pathType]"
     [queryParams]="{ uuid: this.cardInfo.cardUuid }"
   >
+    <div class="card-header" *ngIf="this.isHome">
+      {{ this.cardInfo.releaseDate | date: "yyyy-MM-dd" }}
+    </div>
     <img
-      [src]="'https://static.shinycolors.moe/pictures/bigPic/' + this.cardInfo.bigPic1 + '.jpg'"
+      [src]="
+        'https://static.shinycolors.moe/pictures/bigPic/' +
+        this.cardInfo.bigPic1 +
+        '.jpg'
+      "
       alt=""
-      class="card-img-top"
+      [ngClass]="{ 'card-img-top': !this.isHome, 'card-img': this.isHome, 'rounded-0': this.isHome, 'p-0': this.isHome }"
     />
     <div class="card-body ps-0 pe-0">
-      <h5 class="card-text text-center">{{this.cardInfo.cardName.replace(this.regExp, '$1')}}</h5>
+      <h5 class="card-text text-center">
+        {{ this.cardInfo.cardName.replace(this.regExp, "$1") }}
+      </h5>
     </div>
   </a>
 </div>

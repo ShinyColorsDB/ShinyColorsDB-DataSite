@@ -1,14 +1,22 @@
-import { Injectable } from '@angular/core';
-import { Card } from 'src/app/shared/interfaces/card';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Idol } from 'src/app/shared/interfaces/idol';
+import { PCard } from 'src/app/shared/interfaces/pcard';
+import { SCard } from 'src/app/shared/interfaces/scard';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UtilitiesService {
-  constructor() {}
+  constructor() { }
 
-  generateIdolMeta(idolInfo: Idol) {
+  activeIds = new EventEmitter<number[]>();
+
+
+  emitActiveIds(ids: number[]) {
+    this.activeIds.emit(ids);
+  }
+
+  generateIdolMeta(idolInfo: Idol): { name: string; content: string }[] {
     return [
       { name: 'og:type', content: 'website' },
       { name: 'og:title', content: idolInfo.idolName },
@@ -42,7 +50,35 @@ export class UtilitiesService {
     ];
   }
 
-  generateCardMeta(card: Card) { }
+  generateCardMeta(card: PCard | SCard): { name: string; content: string }[] {
+    return [
+      { name: 'og:type', content: 'website' },
+      { name: 'og:title', content: card.cardName },
+      {
+        name: 'og:image',
+        content: `https://static.shinycolors.moe/pictures/icon/${card.idol.idolId
+          .toString()
+          .padStart(2, '0')}.jpg`,
+      },
+      { name: 'theme-color', content: card.idol.color1 },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:title', content: card.cardName },
+      {
+        name: 'twitter:url',
+        content: `https://shinycolors.moe/idolinfo?idolid=${card.idol.idolId}`,
+      },
+      {
+        name: 'twitter:image',
+        content: `https://static.shinycolors.moe/pictures/icon/${card.idol.idolId
+          .toString()
+          .padStart(2, '0')}.jpg`,
+      },
+    ];
+  }
+
+  isSrCard(theType: string): boolean {
+    return theType.match(/_SR/) !== null;
+  }
 
   translateGetMethod(method: string): string {
     switch (method) {
@@ -64,6 +100,55 @@ export class UtilitiesService {
         return '暮光卡池';
       case 'PayedGasha':
         return '有償卡池';
+      default:
+        return '';
+    }
+  }
+
+  translateIdeaNote(idea: string): string {
+    switch (idea) {
+      case 'vocal':
+        return "ボーカル";
+      case 'dance':
+        return "ダンス";
+      case 'visual':
+        return "ビジュアル";
+      case 'mental':
+        return "メンタル";
+      case 'skill_point':
+        return "アピール";
+      default:
+        return "";
+    }
+  }
+
+  convertHirameki(hirameki: string): string {
+    switch (hirameki) {
+      case 'Vo':
+        return 'vocal';
+      case 'Da':
+        return 'dance';
+      case 'Vi':
+        return 'visual';
+      case 'Me':
+        return 'mental';
+      default:
+        return '';
+    }
+  }
+
+  translateProficiency(proficiency: string): string {
+    switch (proficiency) {
+      case 'teamwork':
+        return '團結力';
+      case 'feel_stable':
+        return '安定感';
+      case 'expressive_power':
+        return '表現力';
+      case 'sing_ability':
+        return '歌唱力';
+      case 'concentration':
+        return '集中力';
       default:
         return '';
     }

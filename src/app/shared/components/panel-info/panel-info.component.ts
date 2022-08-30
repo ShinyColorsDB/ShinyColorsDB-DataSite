@@ -5,8 +5,14 @@ import {
   OnInit,
   Output,
   EventEmitter,
+  Inject,
 } from '@angular/core';
+import { PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+
 import { environment } from 'src/environments/environment';
+
+
 import * as PIXI from 'pixi.js';
 import * as Honeycomb from 'honeycomb-grid';
 
@@ -19,12 +25,60 @@ export class PanelInfoComponent implements OnInit {
   @Input()
   panelInfo!: any[];
 
+  @Input()
+  isSr: boolean = false;
+
   @Output()
   stateChanged = new EventEmitter<number>();
 
-  app: PIXI.Application;
+  app!: PIXI.Application;
+  cost: number[] = [20, 30, 30, 40, 40, 40, 50, 50, 50, 50, 60, 60, 60];
 
-  constructor(private elRef: ElementRef) {
+  //grid properties
+  hexProp = { size: 90, orientation: "flat" };
+  Hex = Honeycomb.extendHex(this.hexProp);
+  Grid = Honeycomb.defineGrid(this.Hex);
+
+  srAxis: [number, number][] = [
+    [5, 1.05],
+    [4, 2.05],
+    [4, 1.05],
+    [3, 2.05],
+    [3, 1.05],
+    [3, 0.05],
+    [2, 2.05],
+    [2, 1.05],
+    [2, 3.05],
+    [2, 0.05],
+    [1, 2.05],
+    [1, 1.05],
+    [1, 0.05],
+  ]
+
+  otherAxis: [number, number][] = [
+    [5, 1.05],
+    [4, 2.05],
+    [4, 1.05],
+    [3, 2.05],
+    [3, 1.05],
+    [3, 0.05],
+    [2, 3.05],
+    [2, 2.05],
+    [2, 1.05],
+    [2, 0.05],
+    [1, 2.05],
+    [1, 1.05],
+    [1, 0.05],
+  ]
+
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private elRef: ElementRef
+  ) {
+    if (!isPlatformBrowser(this.platformId)) {
+      console.log('platform is not browser');
+      return;
+    }
     this.app = new PIXI.Application({
       width: 1136,
       height: 640,
@@ -35,6 +89,9 @@ export class PanelInfoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
     this.panelInfo.forEach((e) => {
       if (!PIXI.Loader.shared.resources[`${e.panelIcon}.png`]) {
         PIXI.Loader.shared.add(
@@ -45,24 +102,12 @@ export class PanelInfoComponent implements OnInit {
     });
 
     PIXI.Loader.shared.load((loader, resources) => {
-      const Hex = Honeycomb.extendHex({ size: 90, orientation: 'flat' });
-      const Grid = Honeycomb.defineGrid(Hex);
 
-      Grid(
-        Hex(5, 1.05),
-        Hex(4, 1.05),
-        Hex(4, 2.05),
-        Hex(3, 0.05),
-        Hex(3, 1.05),
-        Hex(3, 2.05),
-        Hex(2, 0.05),
-        Hex(2, 1.05),
-        Hex(2, 2.05),
-        Hex(2, 3.05),
-        Hex(1, 0.05),
-        Hex(1, 1.05),
-        Hex(1, 2.05)
+      this.Grid(
+        ...this.getGrid()
       ).forEach((hex, index) => {
+        const cont = new PIXI.Container();
+
         const graphics = new PIXI.Graphics();
 
         graphics.lineStyle(2, 0x000);
@@ -71,7 +116,6 @@ export class PanelInfoComponent implements OnInit {
         const corners = hex.corners().map((corner) => corner.add(point));
         const [firstCorner, ...otherCorners] = corners;
 
-        const cont = new PIXI.Container();
         if (this.panelInfo.length > index) {
           //set slot color based on number
           switch (this.panelInfo[index].panelIsGold) {
@@ -86,7 +130,6 @@ export class PanelInfoComponent implements OnInit {
               break;
           }
 
-          // if slot used, change to interactive
           graphics.interactive = true;
           graphics.buttonMode = true;
           graphics.on('pointerdown', () => {
@@ -101,44 +144,96 @@ export class PanelInfoComponent implements OnInit {
           graphics.beginFill(0x787878, 1);
         }
 
-        graphics.on('mouseover', () => {
-          graphics.alpha = 1;
-        });
-        graphics.on('mouseout', () => {
-          graphics.alpha = 1;
-        });
-
         // move the "pencil" to the first corner
         graphics.moveTo(firstCorner.x, firstCorner.y);
         // draw lines to the other corners
         otherCorners.forEach(({ x, y }) => graphics.lineTo(x, y));
         // finish at the first corner
         graphics.lineTo(firstCorner.x, firstCorner.y);
-
         graphics.endFill();
 
         cont.addChild(graphics);
 
         if (this.panelInfo.length > index) {
+          const picX = hex.center().x + hex.toPoint().x, picY = hex.center().y + hex.toPoint().y;
+
+          // generate trapezoid
+          //const rect = this.generateRect(hex);
+          const rect = new PIXI.Graphics();
+          rect.beginFill(0xc7c0ad, 1);
+          rect.lineStyle(0, 0xc7c0ad);
+          rect.moveTo(hex.toPoint().x + hex.corners()[1].x, hex.toPoint().y + hex.corners()[1].y);
+          rect.lineTo(hex.toPoint().x + hex.corners()[2].x, hex.toPoint().y + hex.corners()[2].y);
+          rect.lineTo(
+            hex.toPoint().x + ((hex.corners()[2].x * 5) + (hex.corners()[3].x * 3)) / 8,
+            hex.toPoint().y + ((hex.corners()[2].y * 5) + (hex.corners()[3].y * 3)) / 8
+          );
+          rect.lineTo(
+            hex.toPoint().x + ((hex.corners()[0].x * 3) + (hex.corners()[1].x * 5)) / 8,
+            hex.toPoint().y + ((hex.corners()[0].y * 3) + (hex.corners()[1].y * 5)) / 8
+          );
+          rect.endFill();
+
+          rect.pivot.set(0.5, 0.5);
+
+          //generate icon
           const skillIcon = new PIXI.Sprite(
             resources[`${this.panelInfo[index].panelIcon}.png`]!.texture
           );
           skillIcon.scale.set(1.5);
           skillIcon.anchor.set(0.5);
-          skillIcon.position.set(
-            hex.center().x + hex.toPoint().x,
-            hex.center().y + hex.toPoint().y + 2
-          );
+          skillIcon.position.set(picX, picY - 10);
+
+          // slot cost
+          const slot = new PIXI.Text(String(this.cost[index]), { fontFamily: 'Meiryo' });
+          slot.anchor.set(0.5, 0.5);
+          slot.position.set(picX, picY + hex.width() / 2 * (5 / 8) + 5);
+
+          cont.addChild(rect);
           cont.addChild(skillIcon);
+          cont.addChild(slot);
         }
 
-        /**
-        const slot = new PIXI.Text(String(index), { fontFamily: 'Meiryo' });
-        slot.position.set(hex.toPoint().x, hex.toPoint().y);
-        cont.addChild(slot);
-        */
         this.app.stage.addChild(cont);
       });
     });
+  }
+
+  getGrid(): Honeycomb.Hex<{ size: number; orientation: string; }>[] {
+    const gridArray: Honeycomb.Hex<{ size: number; orientation: string; }>[] = [];
+
+    if (this.isSr) {
+      this.srAxis.forEach(e => {
+        gridArray.push(this.Hex(e[0], e[1]));
+      });
+    }
+    else {
+      this.otherAxis.forEach(e => {
+        gridArray.push(this.Hex(e[0], e[1]));
+      });
+    }
+
+    return gridArray;
+  }
+
+  generateRect(hex: Honeycomb.Hex<{ size: number; orientation: string; }>): PIXI.Graphics {
+    const rect = new PIXI.Graphics();
+    rect.beginFill(0xc7c0ad, 1);
+    rect.lineStyle(0, 0xc7c0ad);
+    rect.moveTo(hex.toPoint().x + hex.corners()[1].x, hex.toPoint().y + hex.corners()[1].y);
+    rect.lineTo(hex.toPoint().x + hex.corners()[2].x, hex.toPoint().y + hex.corners()[2].y);
+    rect.lineTo(
+      hex.toPoint().x + ((hex.corners()[2].x * 5) + (hex.corners()[3].x * 3)) / 8,
+      hex.toPoint().y + ((hex.corners()[2].y * 5) + (hex.corners()[3].y * 3)) / 8
+    );
+    rect.lineTo(
+      hex.toPoint().x + ((hex.corners()[0].x * 3) + (hex.corners()[1].x * 5)) / 8,
+      hex.toPoint().y + ((hex.corners()[0].y * 3) + (hex.corners()[1].y * 5)) / 8
+    );
+    rect.endFill();
+
+    rect.pivot.set(0.5, 0.5);
+
+    return rect;
   }
 }

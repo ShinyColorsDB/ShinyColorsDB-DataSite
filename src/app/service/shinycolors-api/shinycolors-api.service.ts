@@ -8,6 +8,7 @@ import { Unit } from 'src/app/shared/interfaces/unit';
 import { Idol } from 'src/app/shared/interfaces/idol';
 import { PCard } from 'src/app/shared/interfaces/pcard';
 import { Card } from 'src/app/shared/interfaces/card';
+import { SCard } from 'src/app/shared/interfaces/scard';
 
 @Injectable({
   providedIn: 'root',
@@ -35,6 +36,14 @@ export class ShinycolorsApiService {
         responseType: 'json',
       })
       .pipe(catchError(this.handleError<PCard>('getPCardInfo')));
+  }
+
+  getSCardInfo(cardId: string): Observable<SCard> {
+    return this.http
+      .get<SCard>(`${environment.apiUrl}info/scardinfo?cardId=${cardId}`, {
+        responseType: 'json',
+      })
+      .pipe(catchError(this.handleError<SCard>('getSCardInfo')));
   }
 
   getLatestPInfo(): Observable<Card[]> {

@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   staticUrl: 'https://static.shinycolors.moe/',
-  apiUrl: 'https://api2.shinycolors.moe/',
+  apiUrl: 'https://api.shinycolors.moe/',
 };
 
 /*

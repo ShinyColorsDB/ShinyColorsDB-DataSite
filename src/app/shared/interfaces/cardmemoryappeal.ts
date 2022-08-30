@@ -1,6 +1,5 @@
 export interface CardMemoryAppeal {
     memoryIndex: number;
-    enzaId: number;
     memoryId: number;
     memoryTitle: string;
     memoryDesc: string;

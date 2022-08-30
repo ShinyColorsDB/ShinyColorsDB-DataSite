@@ -1,6 +1,5 @@
 export interface CardIdolEvent {
     eventIndex: number;
-    enzaId: number;
     eventCategory: string;
     eventId: number;
     eventTitle: string;

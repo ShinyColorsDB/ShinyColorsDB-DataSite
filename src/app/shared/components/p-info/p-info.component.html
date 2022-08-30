@@ -6,7 +6,8 @@
   <div class="col-lg-6 col-md-12 row d-block">
     <ngb-carousel class="col-12">
       <ng-template ngbSlide>
-        <img #bigPic1
+        <img
+          #bigPic1
           [src]="
             this.staticUrl +
             '/pictures/bigPic/' +
@@ -17,7 +18,8 @@
         />
       </ng-template>
       <ng-template ngbSlide>
-        <img #bigPic2
+        <img
+          #bigPic2
           [src]="
             this.staticUrl +
             '/pictures/bigPic/' +
@@ -78,7 +80,7 @@
           </thead>
           <tbody>
             <tr *ngFor="let mem of this.getMemoryAppeal()">
-              <td >{{ mem.memoryTitle }}</td>
+              <td>{{ mem.memoryTitle }}</td>
               <td>{{ mem.memoryDesc }}</td>
               <td>{{ mem.linkSkillDesc }}</td>
             </tr>
@@ -88,7 +90,16 @@
     </div>
   </div>
   <div class="col-lg-6 col-md-12 row">
-    <app-panel-info class="col-12" [panelInfo]="this.pCardInfo.cardPanels" (stateChanged)="updateState($event)"></app-panel-info>
-    <app-panel-list class="col-12" [panelInfo]="this.pCardInfo.cardPanels" [highlited]="this.highlight"></app-panel-list>
+    <app-panel-info
+      class="col-12"
+      [panelInfo]="this.pCardInfo.cardPanels"
+      [isSr]="this.utilsService.isSrCard(this.pCardInfo.cardType)"
+      (stateChanged)="updateState($event)"
+    ></app-panel-info>
+    <app-panel-list
+      class="col-12"
+      [panelInfo]="this.pCardInfo.cardPanels"
+      [highlited]="this.highlight"
+    ></app-panel-list>
   </div>
 </div>

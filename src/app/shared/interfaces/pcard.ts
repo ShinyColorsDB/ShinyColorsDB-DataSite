@@ -5,7 +5,6 @@ import { PanelSlot } from "./panelslot";
 
 export interface PCard {
     cardIndex: number;
-    enzaId: number;
     cardName: string;
     cardUuid: string;
     bigPic1: string;

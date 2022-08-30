@@ -1,11 +1,11 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-panel-list',
   templateUrl: './panel-list.component.html',
   styleUrls: ['./panel-list.component.css'],
 })
-export class PanelListComponent implements OnInit, OnChanges {
+export class PanelListComponent implements OnInit {
   @Input()
   panelInfo!: any[];
 
@@ -14,11 +14,5 @@ export class PanelListComponent implements OnInit, OnChanges {
 
   constructor() { }
 
-  ngOnChanges(): void {
-
-  }
-
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void { }
 }

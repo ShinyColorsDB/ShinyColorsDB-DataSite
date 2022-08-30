@@ -1,6 +1,5 @@
 export interface PanelSlot {
     tableIndex: number;
-    enzaId: number;
     panelId: number;
     panelIcon: number;
     skillId: number;

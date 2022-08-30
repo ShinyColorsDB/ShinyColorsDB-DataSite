@@ -14,11 +14,12 @@ import { SInfoComponent } from './shared/components/s-info/s-info.component';
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
 import { CardItemComponent } from './shared/components/card-item/card-item.component';
 import { PanelInfoComponent } from './shared/components/panel-info/panel-info.component';
-import { HomeComponent } from './shared/components/home/home.component';
 import { PanelListComponent } from './shared/components/panel-list/panel-list.component';
+import { HomeComponent } from './shared/components/home/home.component';
+
+import { NotfoundComponent } from './shared/components/notfound/notfound.component';
 
 import { ShinycolorsApiService } from './service/shinycolors-api/shinycolors-api.service';
-import { StorageService } from './service/storage/storage.service';
 import { UtilitiesService } from './service/utilities/utilities.service';
 
 const routes: Routes = [
@@ -26,20 +27,23 @@ const routes: Routes = [
   { path: 'idolinfo', component: IInfoComponent },
   { path: 'pcardinfo', component: PInfoComponent },
   { path: 'scardinfo', component: SInfoComponent },
+  { path: 'notfound', redirectTo: '' },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    CardItemComponent,
     SidebarComponent,
+    CharlistComponent,
+    IInfoComponent,
     PInfoComponent,
     SInfoComponent,
-    IInfoComponent,
-    CharlistComponent,
+    CardItemComponent,
     PanelInfoComponent,
     PanelListComponent,
     HomeComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -50,7 +54,7 @@ const routes: Routes = [
       initialNavigation: 'enabledBlocking',
     }),
   ],
-  providers: [ShinycolorsApiService, StorageService, UtilitiesService],
+  providers: [ShinycolorsApiService,  UtilitiesService],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

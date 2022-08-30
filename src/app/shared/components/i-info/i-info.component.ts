@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 
 import { ShinycolorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
-import { StorageService } from 'src/app/service/storage/storage.service';
 import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
 
 import { Card } from '../../interfaces/card';
@@ -31,10 +30,9 @@ export class IInfoComponent implements OnInit {
   sN: Card[] = [];
 
   constructor(
-    private scApiService: ShinycolorsApiService,
-    private storageService: StorageService,
-    private route: ActivatedRoute,
     private utilsService: UtilitiesService,
+    private scApiService: ShinycolorsApiService,
+    private route: ActivatedRoute,
     private title: Title,
     private meta: Meta
   ) {}
@@ -89,7 +87,7 @@ export class IInfoComponent implements OnInit {
         this.title.setTitle(this.idolInfo.idolName);
         this.meta.addTags(this.utilsService.generateIdolMeta(this.idolInfo));
 
-        this.storageService.setIds(this.idolId, data.unitId);
+        this.utilsService.emitActiveIds([this.idolId, data.unitId]);
 
         this.idolInfo.cardLists.forEach((card) => {
           this.classifyType(card);

@@ -13,6 +13,9 @@ export class CardItemComponent implements OnInit {
   @Input()
   pathType!: string;
 
+  @Input()
+  isHome: boolean = false;
+
   regExp: RegExp = /(【.*】).*/;
 
   constructor() {

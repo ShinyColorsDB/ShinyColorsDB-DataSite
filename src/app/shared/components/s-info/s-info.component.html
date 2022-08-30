@@ -1,1 +1,151 @@
-<p>s-info works!</p>
+<div class="row" *ngIf="this.sCardInfo">
+  <div class="col-12">
+    <h2 class="pt-3">{{ this.sCardInfo.cardName }}</h2>
+  </div>
+
+  <div class="col-lg-6 col-md-12 row d-block">
+    <img
+      [src]="
+        this.staticUrl + '/pictures/bigPic/' + this.sCardInfo.bigPic1 + '.jpg'
+      "
+      alt=""
+      class="img-fluid col-12"
+    />
+    <div class="container col-12 pt-3 w-100 row">
+      <div class="col-lg-4 col-md-12">
+        實裝日期: {{ this.sCardInfo.releaseDate }}
+      </div>
+      <div class="col-lg-4 col-md-12">
+        取得方式: {{ this.translateGetMethod() }}
+      </div>
+      <div class="col-lg-4 col-md-12">
+        稀有度 : {{ this.sCardInfo.cardType }}
+      </div>
+
+      <div
+        class="col-lg-12 col-md-12 p-2"
+        *ngIf="this.sCardInfo.cardSupportEvents.length"
+      >
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">事件名稱</th>
+              <th scope="col">Vo</th>
+              <th scope="col">Da</th>
+              <th scope="col">Vi</th>
+              <th scope="col">Me</th>
+              <th scope="col">Sp</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let event of this.sCardInfo.cardSupportEvents">
+              <td>{{ event.eventName }}</td>
+              <td>{{ event.eventAddVo }}</td>
+              <td>{{ event.eventAddDa }}</td>
+              <td>{{ event.eventAddVi }}</td>
+              <td>{{ event.eventAddMe }}</td>
+              <td>{{ event.eventAddSp }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-12 p-2">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>アイデア</th>
+              <th>ひらめき</th>
+              <th>樂曲熟練度</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <img
+                  [src]="
+                    'https://static.shinycolors.moe/pictures/uiIcons/icon_idea_mark_' +
+                    this.sCardInfo.ideaMark +
+                    '_lv_1.png'
+                  "
+                  width="30"
+                  height="34"
+                  alt=""
+                  class="img-fluid"
+                />
+                {{ this.translateIdeaNote() }}
+              </td>
+              <td>
+                <img
+                  [src]="
+                    'https://static.shinycolors.moe/pictures/uiIcons/produce_inspiration_m_' +
+                    this.convertHirameki() +
+                    '.png'
+                  "
+                  alt=""
+                  width="30"
+                  height="30"
+                />
+                {{ this.sCardInfo.idol.hirameki }}
+              </td>
+              <td>
+                <ng-container
+                  *ngFor="let p of this.sCardInfo.cardProficiencies"
+                >
+                  <img
+                    [src]="
+                      'https://static.shinycolors.moe/pictures/uiIcons/icon_proficiency_' +
+                      p.proficiency +
+                      '.png'
+                    "
+                    alt=""
+                    width="30"
+                    height="30"
+                  />
+                  {{ this.translateProficiency(p.proficiency) }}
+                </ng-container>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <ngb-carousel class="col-12 d-block" *ngIf="this.boundedSkillList">
+        <ng-template
+          ngbSlide
+          *ngFor="
+            let bounded of this.boundedSkillList;
+            let indexOfelement = index
+          "
+        >
+          <h5>Level: {{ this.thisBound[indexOfelement] }}</h5>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>技能名稱</th>
+                <th>技能描述</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let skill of bounded | keyvalue">
+                <td>{{ skill.value.skillName }}</td>
+                <td>{{ skill.value.skillDesc }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </ng-template>
+      </ngb-carousel>
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-12 row">
+    <app-panel-info
+      class="col-12"
+      [panelInfo]="this.sCardInfo.cardPanels"
+      [isSr]="this.utilsService.isSrCard(this.sCardInfo.cardType)"
+      (stateChanged)="updateState($event)"
+    ></app-panel-info>
+    <app-panel-list
+      class="col-12"
+      [panelInfo]="this.sCardInfo.cardPanels"
+      [highlited]="this.highlight"
+    ></app-panel-list>
+  </div>
+</div>
