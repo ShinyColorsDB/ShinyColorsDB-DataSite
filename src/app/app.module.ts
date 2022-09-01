@@ -21,14 +21,15 @@ import { NotfoundComponent } from './shared/components/notfound/notfound.compone
 
 import { ShinycolorsApiService } from './service/shinycolors-api/shinycolors-api.service';
 import { UtilitiesService } from './service/utilities/utilities.service';
+import { TranslationService } from './service/translation/translation.service';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'idolinfo', component: IInfoComponent },
   { path: 'pcardinfo', component: PInfoComponent },
   { path: 'scardinfo', component: SInfoComponent },
-  { path: 'notfound', redirectTo: '' },
-  { path: '**', redirectTo: '' }
+  { path: 'notfound', component: NotfoundComponent },
+  { path: '**', redirectTo: 'notfound' }
 ];
 
 @NgModule({
@@ -54,7 +55,7 @@ const routes: Routes = [
       initialNavigation: 'enabledBlocking',
     }),
   ],
-  providers: [ShinycolorsApiService,  UtilitiesService],
+  providers: [ShinycolorsApiService, UtilitiesService, TranslationService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
