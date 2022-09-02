@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 
 import { environment } from 'src/environments/environment';
@@ -9,6 +9,7 @@ import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
 
 import { SCard } from '../../interfaces/scard';
 import { CardSupportSkill } from '../../interfaces/cardsupportskill';
+import { catchError, of } from 'rxjs';
 
 @Component({
   selector: 'app-s-info',
@@ -40,6 +41,7 @@ export class SInfoComponent implements OnInit {
     public utilsService: UtilitiesService,
     private scApiService: ShinycolorsApiService,
     private route: ActivatedRoute,
+    private router: Router,
     private meta: Meta,
     private title: Title
   ) { this.staticUrl = environment.staticUrl; }
@@ -48,13 +50,19 @@ export class SInfoComponent implements OnInit {
     this.route.queryParams.subscribe((params) => {
       this.sCardUuid = params['uuid'];
 
-      this.scApiService.getSCardInfo(this.sCardUuid).subscribe((data) => {
-        this.sCardInfo = data;
-        this.title.setTitle(this.sCardInfo.cardName);
-        this.utilsService.generateCardMeta(this.sCardInfo);
-        this.utilsService.emitActiveIds([this.sCardInfo.idol.idolId, this.sCardInfo.idol.unitId]);
-        this.generateSkillBound();
-      });
+      this.scApiService.getSCardInfo(this.sCardUuid)
+        .pipe(catchError(err => {
+          this.router.navigate(['/notfound'])
+          return of(null);
+        }))
+        .subscribe((data) => {
+          if (!data) return;
+          this.sCardInfo = data;
+          this.title.setTitle(this.sCardInfo.cardName);
+          this.meta.addTags(this.utilsService.generateCardMeta(this.sCardInfo));
+          this.utilsService.emitActiveIds([this.sCardInfo.idol.idolId, this.sCardInfo.idol.unitId]);
+          this.generateSkillBound();
+        });
     });
   }
 

@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+
 import { environment } from '../../../environments/environment';
 
 import { Observable, of, throwError } from 'rxjs';
@@ -14,7 +16,10 @@ import { SCard } from 'src/app/shared/interfaces/scard';
   providedIn: 'root',
 })
 export class ShinycolorsApiService {
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+  ) { }
 
   getUnitList(): Observable<Unit[]> {
     return this.http
@@ -60,8 +65,9 @@ export class ShinycolorsApiService {
 
   handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-      console.error(error);
+      console.error(error.status);
       console.log(`${operation} failed: ${error.message}`);
+      this.router.navigate(['/notfound']);
       return of(result as T);
     };
   }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 
 import { ShinycolorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
@@ -7,6 +7,7 @@ import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
 
 import { Card } from '../../interfaces/card';
 import { Idol } from '../../interfaces/idol';
+import { catchError, of } from 'rxjs';
 
 @Component({
   selector: 'app-i-info',
@@ -32,10 +33,11 @@ export class IInfoComponent implements OnInit {
   constructor(
     private utilsService: UtilitiesService,
     private scApiService: ShinycolorsApiService,
+    private router: Router,
     private route: ActivatedRoute,
     private title: Title,
     private meta: Meta
-  ) {}
+  ) { }
 
   private classifyType(card: Card): void {
     switch (card.cardType) {
@@ -79,20 +81,26 @@ export class IInfoComponent implements OnInit {
     this.route.queryParams.subscribe((params) => {
       this.idolId = Number(params['idolid']);
 
-      this.scApiService.getIdolInfo(this.idolId).subscribe((data) => {
-        this.resetCards();
+      this.scApiService.getIdolInfo(this.idolId)
+        .pipe(catchError(err => {
+          this.router.navigate(['/notfound'])
+          return of(null);
+        }))
+        .subscribe((data) => {
+          if (!data) return;
+          this.resetCards();
 
-        this.idolInfo = data;
+          this.idolInfo = data;
 
-        this.title.setTitle(this.idolInfo.idolName);
-        this.meta.addTags(this.utilsService.generateIdolMeta(this.idolInfo));
+          this.title.setTitle(this.idolInfo.idolName);
+          this.meta.addTags(this.utilsService.generateIdolMeta(this.idolInfo));
 
-        this.utilsService.emitActiveIds([this.idolId, data.unitId]);
+          this.utilsService.emitActiveIds([this.idolId, this.idolInfo.unitId]);
 
-        this.idolInfo.cardLists.forEach((card) => {
-          this.classifyType(card);
+          this.idolInfo.cardLists.forEach((card) => {
+            this.classifyType(card);
+          });
         });
-      });
     });
   }
 }

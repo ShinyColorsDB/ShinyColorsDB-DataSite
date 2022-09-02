@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 
 import { environment } from 'src/environments/environment';
@@ -8,6 +8,7 @@ import { ShinycolorsApiService } from 'src/app/service/shinycolors-api/shinycolo
 import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
 
 import { PCard } from '../../interfaces/pcard';
+import { catchError, of } from 'rxjs';
 
 @Component({
   selector: 'app-p-info',
@@ -28,6 +29,7 @@ export class PInfoComponent implements OnInit {
     public utilsService: UtilitiesService,
     private scApiService: ShinycolorsApiService,
     private route: ActivatedRoute,
+    private router: Router,
     private meta: Meta,
     private title: Title
   ) {
@@ -38,12 +40,18 @@ export class PInfoComponent implements OnInit {
     this.route.queryParams.subscribe((params) => {
       this.pCardUuid = params['uuid'];
 
-      this.scApiService.getPCardInfo(this.pCardUuid).subscribe((data) => {
-        this.pCardInfo = data;
-        this.title.setTitle(this.pCardInfo.cardName);
-        this.utilsService.generateCardMeta(this.pCardInfo);
-        this.utilsService.emitActiveIds([this.pCardInfo.idol.idolId, this.pCardInfo.idol.unitId]);
-      });
+      this.scApiService.getPCardInfo(this.pCardUuid)
+        .pipe(catchError(err => {
+          this.router.navigate(['/notfound'])
+          return of(null);
+        }))
+        .subscribe((data) => {
+          if (!data) return;
+          this.pCardInfo = data;
+          this.title.setTitle(this.pCardInfo.cardName);
+          this.meta.addTags(this.utilsService.generateCardMeta(this.pCardInfo));
+          this.utilsService.emitActiveIds([this.pCardInfo.idol.idolId, this.pCardInfo.idol.unitId]);
+        });
     });
   }
 

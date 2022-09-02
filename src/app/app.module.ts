@@ -55,7 +55,12 @@ const routes: Routes = [
       initialNavigation: 'enabledBlocking',
     }),
   ],
-  providers: [ShinycolorsApiService, UtilitiesService, TranslationService],
+  providers: [
+    ShinycolorsApiService,
+    UtilitiesService,
+    TranslationService,
+    //httpInterceptorProviders
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
