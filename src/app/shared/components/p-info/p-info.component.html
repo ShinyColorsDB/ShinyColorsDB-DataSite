@@ -50,7 +50,7 @@
           </thead>
           <tbody>
             <tr *ngFor="let event of this.getIdolEvents()">
-              <td>{{ event.eventTitle }}</td>
+              <td><a [href]="'https://event.shinycolors.moe/?eventId=' + event.eventId">{{ event.eventTitle }}</a></td>
             </tr>
           </tbody>
         </table>
@@ -64,7 +64,7 @@
           </thead>
           <tbody>
             <tr *ngFor="let event of this.getTrueEnd()">
-              <td>{{ event.eventTitle }}</td>
+              <td><a [href]="'https://event.shinycolors.moe/?eventId=' + event.eventId">{{ event.eventTitle }}</a></td>
             </tr>
           </tbody>
         </table>

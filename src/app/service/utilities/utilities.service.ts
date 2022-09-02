@@ -56,22 +56,18 @@ export class UtilitiesService {
       { name: 'og:title', content: card.cardName },
       {
         name: 'og:image',
-        content: `https://static.shinycolors.moe/pictures/icon/${card.idol.idolId
-          .toString()
-          .padStart(2, '0')}.jpg`,
+        content: `https://static.shinycolors.moe/pictures/bigPic/${card.bigPic1}.jpg`,
       },
       { name: 'theme-color', content: card.idol.color1 },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: card.cardName },
       {
         name: 'twitter:url',
-        content: `https://shinycolors.moe/idolinfo?idolid=${card.idol.idolId}`,
+        content: `https://shinycolors.moe/${card.cardType.match("P_") ? "pcardinfo" : "scardinfo"}?uuid=${card.cardUuid}`,
       },
       {
         name: 'twitter:image',
-        content: `https://static.shinycolors.moe/pictures/icon/${card.idol.idolId
-          .toString()
-          .padStart(2, '0')}.jpg`,
+        content: `https://static.shinycolors.moe/pictures/bigPic/${card.bigPic1}.jpg`,
       },
     ];
   }
