@@ -134,10 +134,13 @@ export class PanelInfoComponent implements OnInit {
           graphics.buttonMode = true;
           graphics.on('pointerdown', () => {
             this.stateChanged.emit(index);
-            document.getElementById('scrollMe')?.scrollIntoView({
-              behavior: 'smooth',
-              block: 'center',
-            });
+            const scrollMe = document.getElementById('scrollMe');
+            if (scrollMe) {
+              scrollMe.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center',
+              });
+            }
           });
         } else {
           //otherwise, simply color with grey

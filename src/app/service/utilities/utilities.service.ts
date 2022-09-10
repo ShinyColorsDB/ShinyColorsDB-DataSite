@@ -11,7 +11,6 @@ export class UtilitiesService {
 
   activeIds = new EventEmitter<number[]>();
 
-
   emitActiveIds(ids: number[]) {
     this.activeIds.emit(ids);
   }

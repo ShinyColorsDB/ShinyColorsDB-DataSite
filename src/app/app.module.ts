@@ -59,7 +59,6 @@ const routes: Routes = [
     ShinycolorsApiService,
     UtilitiesService,
     TranslationService,
-    //httpInterceptorProviders
   ],
   bootstrap: [AppComponent],
 })
