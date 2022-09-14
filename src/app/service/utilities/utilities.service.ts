@@ -75,6 +75,10 @@ export class UtilitiesService {
     return theType.match(/_SR/) !== null;
   }
 
+  isSsrCard(theType: string): boolean {
+    return theType.match(/_SSR/) !== null;
+  }
+
   translateGetMethod(method: string): string {
     switch (method) {
       case 'IdolRoad':

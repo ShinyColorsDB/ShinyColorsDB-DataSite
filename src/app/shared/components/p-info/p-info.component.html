@@ -7,7 +7,6 @@
     <ngb-carousel class="col-12">
       <ng-template ngbSlide>
         <img
-          #bigPic1
           [src]="
             this.staticUrl +
             '/pictures/bigPic/' +
@@ -17,9 +16,25 @@
           class="img-fluid"
         />
       </ng-template>
+      <ng-template ngbSlide *ngIf="this.isSsrCard()">
+        <video
+          class="img-fluid"
+          autoplay
+          loop
+          muted
+          playsinline
+          [src]="
+            'https://viewer.shinycolors.moe/movies/idols/card/' +
+            this.pCardInfo.enzaId +
+            '.mp4'
+          "
+          type="video/mp4"
+          oncanplay="this.play()"
+          onloadedmetadata="this.muted = true"
+        ></video>
+      </ng-template>
       <ng-template ngbSlide>
         <img
-          #bigPic2
           [src]="
             this.staticUrl +
             '/pictures/bigPic/' +
@@ -28,6 +43,23 @@
           "
           class="img-fluid"
         />
+      </ng-template>
+      <ng-template ngbSlide *ngIf="this.isSsrCard() || this.isSrCard()">
+        <video
+          class="img-fluid"
+          autoplay
+          loop
+          muted
+          playsinline
+          [src]="
+            'https://viewer.shinycolors.moe/movies/idols/card_costume/' +
+            this.pCardInfo.enzaId +
+            '.mp4'
+          "
+          type="video/mp4"
+          oncanplay="this.play()"
+          onloadedmetadata="this.muted = true"
+        ></video>
       </ng-template>
     </ngb-carousel>
     <div class="container col-12 pt-3 w-100 row">
@@ -50,7 +82,14 @@
           </thead>
           <tbody>
             <tr *ngFor="let event of this.getIdolEvents()">
-              <td><a [href]="'https://event.shinycolors.moe/?eventId=' + event.eventId">{{ event.eventTitle }}</a></td>
+              <td>
+                <a
+                  [href]="
+                    'https://event.shinycolors.moe/?eventId=' + event.eventId
+                  "
+                  >{{ event.eventTitle }}</a
+                >
+              </td>
             </tr>
           </tbody>
         </table>
@@ -64,7 +103,14 @@
           </thead>
           <tbody>
             <tr *ngFor="let event of this.getTrueEnd()">
-              <td><a [href]="'https://event.shinycolors.moe/?eventId=' + event.eventId">{{ event.eventTitle }}</a></td>
+              <td>
+                <a
+                  [href]="
+                    'https://event.shinycolors.moe/?eventId=' + event.eventId
+                  "
+                  >{{ event.eventTitle }}</a
+                >
+              </td>
             </tr>
           </tbody>
         </table>

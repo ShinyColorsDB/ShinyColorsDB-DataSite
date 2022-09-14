@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+
+import { PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,7 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
 
   ngOnInit(): void { }
+
+  toSpineViewer() {
+    if (!isPlatformBrowser(this.platformId)) {
+      console.log('platform is not browser');
+      return;
+    }
+    window.open('https://spine.shinycolors.moe/viewMode', '_blank');
+  }
 }

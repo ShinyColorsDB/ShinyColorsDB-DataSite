@@ -17,4 +17,5 @@ export interface PCard {
     cardIdolEvents: CardIdolEvent[];
     cardMemoryAppeals: CardMemoryAppeal[];
     cardPanels: PanelSlot[];
+    enzaId: number;
 }

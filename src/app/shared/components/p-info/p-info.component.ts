@@ -80,4 +80,12 @@ export class PInfoComponent implements OnInit {
   updateState($event: number): void {
     this.highlight = $event
   }
+
+  isSsrCard(): boolean {
+    return this.utilsService.isSsrCard(this.pCardInfo.cardType);
+  }
+
+  isSrCard(): boolean {
+    return this.utilsService.isSrCard(this.pCardInfo.cardType);
+  }
 }
