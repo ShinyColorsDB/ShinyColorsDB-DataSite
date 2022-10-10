@@ -6,13 +6,13 @@ import { isPlatformBrowser } from '@angular/common';
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css']
+  styleUrls: ['./sidebar.component.css'],
 })
 export class SidebarComponent implements OnInit {
+  public showSideBar = false;
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
-
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   toSpineViewer() {
     if (!isPlatformBrowser(this.platformId)) {
@@ -20,5 +20,9 @@ export class SidebarComponent implements OnInit {
       return;
     }
     window.open('https://spine.shinycolors.moe/viewMode', '_blank');
+  }
+
+  onSideBarClick() {
+    this.showSideBar = !this.showSideBar;
   }
 }

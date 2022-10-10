@@ -22,6 +22,7 @@ import { NotfoundComponent } from './shared/components/notfound/notfound.compone
 import { ShinycolorsApiService } from './service/shinycolors-api/shinycolors-api.service';
 import { UtilitiesService } from './service/utilities/utilities.service';
 import { TranslationService } from './service/translation/translation.service';
+import { IonicModule } from '@ionic/angular';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -54,6 +55,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes, {
       initialNavigation: 'enabledBlocking',
     }),
+    IonicModule.forRoot(),
   ],
   providers: [
     ShinycolorsApiService,
