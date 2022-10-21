@@ -1,4 +1,6 @@
 /* everywhere else */
 * {
-    font-family: Meiryo;
+  font-family: Meiryo;
+  margin: 0;
+  padding: 0;
 }

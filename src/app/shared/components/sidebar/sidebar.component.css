@@ -1,19 +1,55 @@
 ::ng-deep .accordion .accordion-item #descCharaList .accordion-body {
-    padding: 0;
+  padding: 0;
 }
 
 ::ng-deep .accordion .accordion-item {
-    border: 0;
+  border: 0;
 }
 
-::ng-deep .accordion .accordion-item #descCharaList .accordion-body .accordion .accordion-item {
-    border-left: 0;
-    border-right: 0;
-    border-top: 1px solid #e0e0e0;
+::ng-deep
+  .accordion
+  .accordion-item
+  #descCharaList
+  .accordion-body
+  .accordion
+  .accordion-item {
+  border-left: 0;
+  border-right: 0;
+  border-top: 1px solid #e0e0e0;
 }
 
 ::ng-deep div.list-group .list-group-item {
-    border-left: 0;
-    border-right: 0;
-    border-top: 1px, solid, #383837;
+  border-left: 0;
+  border-right: 0;
+  border-top: 1px, solid, #383837;
+}
+
+.menu-icon {
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+}
+
+.sidebar-container {
+}
+
+.sidebar {
+  position: absolute;
+  transition: all 0.3s;
+  width: 100%;
+  height: 100vh;
+  opacity: 0;
+  z-index: 1;
+  /* Make it unaccessable by mouse */
+  pointer-events: none;
+  /* Hide it from screen reader */
+  visibility: hidden;
+  transform: translateX(-100%);
+  background-color: white;
+}
+.sidebar.active {
+  opacity: 1;
+  transform: translateX(0%);
+  pointer-events: auto;
+  visibility: visible;
 }
