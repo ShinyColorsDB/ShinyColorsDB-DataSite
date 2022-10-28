@@ -1,14 +1,16 @@
-<div class="row vh-100">
-  <div class="col-lg-3 pt-2 d-flex">
-    <h2 class="align-middle">最近更新</h2>
+<div class="row overflow-auto">
+  <div class="col-lg-3 container overflow-auto">
+    <div class="row d-flex">
+      <h2 class="col m-2">最近更新</h2>
+    </div>
   </div>
-  <div class="col-lg-9 container vh-100">
-    <div class="row d-flex" style="height: 5%;">
+  <div class="col-lg-9 container overflow-auto">
+    <div class="row d-flex">
       <h2 class="col m-2">最新卡面</h2>
     </div>
-    <div class="row d-flex" style="height: 95%;">
-      <div class="h-100" *ngIf="this.latestP">
-        <div class="card ps-0 pe-0 h-100">
+    <div class="row d-flex">
+      <div *ngIf="this.latestP">
+        <div class="card ps-0 pe-0">
           <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs">
               <li class="nav-item">

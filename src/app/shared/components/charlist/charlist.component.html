@@ -28,6 +28,7 @@
       [ngClass]="{ active: this.currentIdolID === idol.idolId }"
       [routerLink]="['/idolinfo']"
       [queryParams]="{ idolid: idol.idolId }"
+      (click)="this.onIdolClicked()"
     >
       <img
         [src]="

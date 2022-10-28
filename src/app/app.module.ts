@@ -3,26 +3,27 @@ import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { IonicModule } from '@ionic/angular';
 
 import { TransferHttpCacheModule } from '@nguniversal/common';
 
 import { AppComponent } from './app.component';
+import { HomeComponent } from './shared/page/home/home.component';
+import { IInfoComponent } from './shared/page/i-info/i-info.component';
+import { PInfoComponent } from './shared/page/p-info/p-info.component';
+import { SInfoComponent } from './shared/page/s-info/s-info.component';
+
 import { CharlistComponent } from './shared/components/charlist/charlist.component';
-import { IInfoComponent } from './shared/components/i-info/i-info.component';
-import { PInfoComponent } from './shared/components/p-info/p-info.component';
-import { SInfoComponent } from './shared/components/s-info/s-info.component';
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
 import { CardItemComponent } from './shared/components/card-item/card-item.component';
 import { PanelInfoComponent } from './shared/components/panel-info/panel-info.component';
 import { PanelListComponent } from './shared/components/panel-list/panel-list.component';
-import { HomeComponent } from './shared/components/home/home.component';
 
-import { NotfoundComponent } from './shared/components/notfound/notfound.component';
+import { NotfoundComponent } from './shared/page/notfound/notfound.component';
 
 import { ShinycolorsApiService } from './service/shinycolors-api/shinycolors-api.service';
 import { UtilitiesService } from './service/utilities/utilities.service';
 import { TranslationService } from './service/translation/translation.service';
-import { IonicModule } from '@ionic/angular';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },

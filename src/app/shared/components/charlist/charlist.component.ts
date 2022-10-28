@@ -1,10 +1,9 @@
-import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, OnInit, Output, PLATFORM_ID } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Unit } from '../../interfaces/unit';
 
 import { ShinycolorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
-import { Observable } from 'rxjs';
 import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
 import { isPlatformBrowser } from '@angular/common';
 
@@ -18,6 +17,12 @@ export class CharlistComponent implements OnInit {
   collapseArray: Array<boolean> = new Array();
   currentIdolID!: number;
   currentUnitID!: number;
+
+  @Input()
+  public isBigScreen: boolean = false;
+
+  @Output()
+  public idolClicked: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
@@ -38,5 +43,11 @@ export class CharlistComponent implements OnInit {
       [this.currentIdolID, this.currentUnitID] = data;
       this.collapseArray[this.currentUnitID - 1] = false;
     });
+  }
+
+  onIdolClicked(): void {
+    if (isPlatformBrowser(this.platformId) && !this.isBigScreen) {
+      this.idolClicked.emit(true);
+    }
   }
 }

@@ -1,5 +1,5 @@
 <div class="sidebar-container">
-  <a (click)="onSideBarClick()">
+  <a (click)="onSideBarClick()" [ngClass]="{ 'd-none': isBigScreen }">
     <ion-icon
       *ngIf="!showSideBar"
       class="menu-icon"
@@ -11,7 +11,7 @@
       name="close-outline"
     ></ion-icon
   ></a>
-  <div class="sidebar" [ngClass]="{ active: showSideBar }">
+  <div class="" [ngClass]="{ active: showSideBar, sidebar: !isBigScreen }">
     <ngb-accordion
       [closeOthers]="true"
       [destroyOnHide]="false"
@@ -20,7 +20,11 @@
       <ngb-panel id="descHomepage">
         <ng-template ngbPanelTitle>首頁</ng-template>
         <ng-template ngbPanelContent>
-          <button class="w-100 list-group-item text-start" [routerLink]="['/']">
+          <button
+            class="list-group-item text-start"
+            [routerLink]="['/']"
+            (click)="onSideBarClick()"
+          >
             ShinyColorsDB
           </button>
         </ng-template>
@@ -28,18 +32,22 @@
       <ngb-panel id="descCharaList" cardClass="p-0">
         <ng-template ngbPanelTitle>角色列表</ng-template>
         <ng-template ngbPanelContent>
-          <app-charlist></app-charlist>
+          <app-charlist
+            (idolClicked)="onCharlistClick($event)"
+            [isBigScreen]="this.isBigScreen"
+          ></app-charlist>
         </ng-template>
       </ngb-panel>
       <ngb-panel id="descSpineViewer">
         <ng-template ngbPanelTitle>其他小玩具</ng-template>
         <ng-template ngbPanelContent>
           <button
-            class="w-100 list-group-item text-start"
+            class="list-group-item text-start"
             (click)="this.toSpineViewer()"
           >
             SpineViewer
           </button>
+
         </ng-template>
       </ngb-panel>
     </ngb-accordion>
