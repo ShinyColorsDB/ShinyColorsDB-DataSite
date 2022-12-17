@@ -2,6 +2,7 @@
   <a
     [routerLink]="[this.pathType]"
     [queryParams]="{ uuid: this.cardInfo.cardUuid }"
+    [title]="this.cardInfo.cardName.replace(this.regExp, '$2')"
   >
     <div class="card-header" *ngIf="this.isHome">
       {{ this.cardInfo.releaseDate | date: "yyyy-MM-dd" }}

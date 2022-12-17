@@ -16,7 +16,7 @@ export class CardItemComponent implements OnInit {
   @Input()
   isHome: boolean = false;
 
-  regExp: RegExp = /(【.*】).*/;
+  regExp: RegExp = /(【.*】)(.*)/;
 
   constructor() {
   }

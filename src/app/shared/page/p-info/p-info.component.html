@@ -4,8 +4,12 @@
   </div>
 
   <div class="col-lg-6 col-md-12 row d-block">
-    <ngb-carousel class="col-12">
-      <ng-template ngbSlide>
+    <ngb-carousel
+      class="col-12"
+      [interval]="5000"
+    >
+      <ng-template ngbSlide (slid)="onSlidingToStatic($event)">
+        <div class="d-none static"></div>
         <img
           [src]="
             this.staticUrl +
@@ -16,13 +20,13 @@
           class="img-fluid"
         />
       </ng-template>
-      <ng-template ngbSlide *ngIf="this.isSsrCard()">
+      <ng-template ngbSlide *ngIf="this.isSsrCard()" (slid)="onSlidingToMovie($event)">
+        <div class="d-none video"></div>
         <video
           class="img-fluid"
           autoplay
           loop
           muted
-          playsinline
           [src]="
             'https://viewer.shinycolors.moe/movies/idols/card/' +
             this.pCardInfo.enzaId +
@@ -31,9 +35,11 @@
           type="video/mp4"
           oncanplay="this.play()"
           onloadedmetadata="this.muted = true"
+          (ended)="this.onMovieEnded()"
         ></video>
       </ng-template>
-      <ng-template ngbSlide>
+      <ng-template ngbSlide (slid)="onSlidingToStatic($event)">
+        <div class="d-none static"></div>
         <img
           [src]="
             this.staticUrl +
@@ -44,13 +50,13 @@
           class="img-fluid"
         />
       </ng-template>
-      <ng-template ngbSlide *ngIf="this.isSsrCard() || this.isSrCard()">
+      <ng-template ngbSlide *ngIf="this.isSsrCard() || this.isSrCard()" (slid)="onSlidingToMovie($event)">
+        <div class="d-none video"></div>
         <video
           class="img-fluid"
           autoplay
           loop
           muted
-          playsinline
           [src]="
             'https://viewer.shinycolors.moe/movies/idols/card_costume/' +
             this.pCardInfo.enzaId +
@@ -59,6 +65,7 @@
           type="video/mp4"
           oncanplay="this.play()"
           onloadedmetadata="this.muted = true"
+          (ended)="onMovieEnded()"
         ></video>
       </ng-template>
     </ngb-carousel>

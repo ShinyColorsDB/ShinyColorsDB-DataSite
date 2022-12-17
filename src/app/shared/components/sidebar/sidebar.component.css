@@ -30,9 +30,6 @@
   cursor: pointer;
 }
 
-.sidebar-container {
-}
-
 .sidebar {
   position: absolute;
   transition: all 0.3s;
@@ -47,6 +44,7 @@
   transform: translateX(-100%);
   background-color: white;
 }
+
 .sidebar.active {
   opacity: 1;
   transform: translateX(0%);

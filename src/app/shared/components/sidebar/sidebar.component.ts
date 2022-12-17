@@ -21,7 +21,7 @@ export class SidebarComponent implements OnInit {
 
   toSpineViewer() {
     if (isPlatformBrowser(this.platformId)) {
-      window.open('https://spine.shinycolors.moe/viewMode', '_blank');
+      window.open('https://spine.shinycolors.moe/', '_blank');
     }
   }
 
