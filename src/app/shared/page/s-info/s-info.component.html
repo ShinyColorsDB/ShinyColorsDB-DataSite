@@ -1,9 +1,9 @@
-<div class="row" *ngIf="this.sCardInfo">
+<div class="row d-flex justify-content-center" *ngIf="this.sCardInfo">
   <div class="col-12">
-    <h2 class="pt-3">{{ this.sCardInfo.cardName }}</h2>
+    <h1 class="ps-1">{{ this.sCardInfo.cardName }}</h1>
   </div>
 
-  <div class="col-lg-6 col-md-12 row d-block">
+  <div class="col-lg-6 col-md-12 row d-block p-1">
     <img
       [src]="
         this.staticUrl + '/pictures/bigPic/' + this.sCardInfo.bigPic1 + '.jpg'
@@ -11,7 +11,7 @@
       alt=""
       class="img-fluid col-12"
     />
-    <div class="container col-12 pt-3 w-100 row">
+    <div class="container col-12 pt-3 row m-0">
       <div class="col-lg-4 col-md-12">
         實裝日期: {{ this.sCardInfo.releaseDate }}
       </div>
@@ -135,17 +135,19 @@
       </ngb-carousel>
     </div>
   </div>
-  <div class="col-lg-6 col-md-12 row">
+  <div class="col-lg-6 col-md-12 row p-1">
     <app-panel-info
       class="col-12"
       [panelInfo]="this.sCardInfo.cardPanels"
       [isSr]="this.utilsService.isSrCard(this.sCardInfo.cardType)"
       (stateChanged)="updateState($event)"
     ></app-panel-info>
-    <app-panel-list
-      class="col-12"
-      [panelInfo]="this.sCardInfo.cardPanels"
-      [highlited]="this.highlight"
-    ></app-panel-list>
+    <div class="container col-12 pt-3 w-100 row m-0">
+      <app-panel-list
+        class="col-12"
+        [panelInfo]="this.sCardInfo.cardPanels"
+        [highlited]="this.highlight"
+      ></app-panel-list>
+    </div>
   </div>
 </div>
