@@ -39,7 +39,7 @@
           </thead>
           <tbody>
             <tr *ngFor="let event of this.sCardInfo.cardSupportEvents">
-              <td><a [href]="'https://event.shinycolors.moe/?eventId=' + event.eventId">{{ event.eventName }}</a></td>
+              <td><a [href]="'https://event.shinycolors.moe/?eventId=' + event.eventId" target="_blank">{{ event.eventName }}</a></td>
               <td>{{ event.eventAddVo }}</td>
               <td>{{ event.eventAddDa }}</td>
               <td>{{ event.eventAddVi }}</td>
