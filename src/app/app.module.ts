@@ -18,6 +18,7 @@ import { SidebarComponent } from './shared/components/sidebar/sidebar.component'
 import { CardItemComponent } from './shared/components/card-item/card-item.component';
 import { PanelInfoComponent } from './shared/components/panel-info/panel-info.component';
 import { PanelListComponent } from './shared/components/panel-list/panel-list.component';
+import { TimetableComponent } from './shared/components/timetable/timetable.component';
 
 import { NotfoundComponent } from './shared/page/notfound/notfound.component';
 
@@ -31,6 +32,7 @@ const routes: Routes = [
   { path: 'pcardinfo', component: PInfoComponent },
   { path: 'scardinfo', component: SInfoComponent },
   { path: 'notfound', component: NotfoundComponent },
+  { path: 'timetable', component: TimetableComponent },
   { path: '**', redirectTo: 'notfound' }
 ];
 
@@ -46,6 +48,7 @@ const routes: Routes = [
     PanelInfoComponent,
     PanelListComponent,
     HomeComponent,
+    TimetableComponent,
     NotfoundComponent
   ],
   imports: [

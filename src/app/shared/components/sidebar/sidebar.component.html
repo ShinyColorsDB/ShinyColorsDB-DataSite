@@ -17,16 +17,24 @@
       [destroyOnHide]="false"
       activeIds="descCharaList"
     >
-      <ngb-panel id="descHomepage">
+      <ngb-panel id="descHomepage" cardClass="p-0">
         <ng-template ngbPanelTitle>首頁</ng-template>
         <ng-template ngbPanelContent>
-          <button
-            class="list-group-item text-start"
-            [routerLink]="['/']"
-            (click)="onSideBarClick()"
-          >
-            ShinyColorsDB
-          </button>
+          <div>
+            <button
+              class="text-start btn w-100 ps-4 btn-lg rounded-0 btn-light"
+              [routerLink]="['/']"
+              (click)="onSideBarClick()"
+            >
+              ShinyColorsDB
+            </button>
+            <button
+              class="text-start btn w-100 ps-4 btn-lg rounded-0 btn-light"
+              [routerLink]="['/timetable']"
+            >
+              上次出卡
+            </button>
+          </div>
         </ng-template>
       </ngb-panel>
       <ngb-panel id="descCharaList" cardClass="p-0">

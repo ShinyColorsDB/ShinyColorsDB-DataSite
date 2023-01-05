@@ -8,9 +8,10 @@ import { Observable, of, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { Unit } from 'src/app/shared/interfaces/unit';
 import { Idol } from 'src/app/shared/interfaces/idol';
-import { PCard } from 'src/app/shared/interfaces/pcard';
 import { Card } from 'src/app/shared/interfaces/card';
+import { PCard } from 'src/app/shared/interfaces/pcard';
 import { SCard } from 'src/app/shared/interfaces/scard';
+import { Timetable } from 'src/app/shared/interfaces/timetable';
 
 @Injectable({
   providedIn: 'root',
@@ -61,6 +62,24 @@ export class ShinycolorsApiService {
     return this.http
       .get<Card[]>(`${environment.apiUrl}info/latestsinfo`)
       .pipe(catchError(this.handleError<Card[]>('getLatestSInfo', [])));
+  }
+
+  getAllTable(): Observable<Timetable> {
+    return this.http
+      .get<Timetable>(`${environment.apiUrl}info/getAllTable`)
+      .pipe(catchError(this.handleError<Timetable>('getAllTable')));
+  }
+
+  getLimitedTable(): Observable<Timetable> {
+    return this.http
+      .get<Timetable>(`${environment.apiUrl}info/getLimitedTable`)
+      .pipe(catchError(this.handleError<Timetable>('getLimitedTable')));
+  }
+
+  getGeneralTable(): Observable<Timetable> {
+    return this.http
+      .get<Timetable>(`${environment.apiUrl}info/getGeneralTable`)
+      .pipe(catchError(this.handleError<Timetable>('getGeneralTable')));
   }
 
   handleError<T>(operation = 'operation', result?: T) {

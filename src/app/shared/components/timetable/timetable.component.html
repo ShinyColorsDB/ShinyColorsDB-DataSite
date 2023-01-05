@@ -1,0 +1,44 @@
+<div class="card ps-0 pe-0 mt-3">
+    <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+                <a
+                    href="javascript: void()"
+                    class="nav-link"
+                    (click)="changeDisplay(0);"
+                    [ngClass]="{ disabled: this.overview, active: this.overview }">
+                    概觀
+                </a>
+            </li>
+            <li class="nav-item">
+                <a
+                    href="javascript: void()"
+                    class="nav-link"
+                    (click)="changeDisplay(1);"
+                    [ngClass]="{ disabled: this.limited, active: this.limited }">
+                    限定
+                </a>
+            </li>
+            <li class="nav-item">
+                <a
+                    href="javascript: void()"
+                    class="nav-link"
+                    (click)="changeDisplay(2);"
+                    [ngClass]="{ disabled: this.general, active: this.general }">
+                    通常
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="card-body d-flex h-auto overflow-auto">
+        <div class="row" [ngClass]="{ 'd-none': this.overview }">
+
+        </div>
+        <div class="row" [ngClass]="{ 'd-none': this.limited }">
+
+        </div>
+        <div class="row" [ngClass]="{ 'd-none': this.general }">
+
+        </div>
+    </div>
+</div>

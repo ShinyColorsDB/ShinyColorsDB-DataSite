@@ -1,6 +1,6 @@
+import { Idol } from "./idol";
 import { CardIdolEvent } from "./cardidolevent";
 import { CardMemoryAppeal } from "./cardmemoryappeal";
-import { Idol } from "./idol";
 import { PanelSlot } from "./panelslot";
 
 export interface PCard {
