@@ -19,12 +19,6 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  toSpineViewer() {
-    if (isPlatformBrowser(this.platformId)) {
-      window.open('https://spine.shinycolors.moe/', '_blank');
-    }
-  }
-
   onSideBarClick() {
     this.showSideBar = !this.showSideBar;
     // flush expanded array in charlist

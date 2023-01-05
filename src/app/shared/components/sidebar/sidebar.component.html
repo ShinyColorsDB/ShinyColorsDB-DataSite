@@ -3,20 +3,16 @@
     <ion-icon
       *ngIf="!showSideBar"
       class="menu-icon"
-      name="menu-outline"
-    ></ion-icon>
+      name="menu-outline"></ion-icon>
     <ion-icon
       *ngIf="showSideBar"
       class="menu-icon"
-      name="close-outline"
-    ></ion-icon
-  ></a>
-  <div class="" [ngClass]="{ active: showSideBar, sidebar: !isBigScreen }">
+      name="close-outline"></ion-icon></a>
+  <div [ngClass]="{ active: showSideBar, sidebar: !isBigScreen }">
     <ngb-accordion
       [closeOthers]="true"
       [destroyOnHide]="false"
-      activeIds="descCharaList"
-    >
+      activeIds="descCharaList">
       <ngb-panel id="descHomepage" cardClass="p-0">
         <ng-template ngbPanelTitle>ShinyColorsDB</ng-template>
         <ng-template ngbPanelContent>
@@ -24,15 +20,13 @@
             <a
               class="text-start list-group-item list-group-item-action w-100 ps-4"
               [routerLink]="['/']"
-              (click)="onSideBarClick()"
-            >
+              (click)="onSideBarClick()">
               首頁
             </a>
             <a
               class="text-start list-group-item list-group-item-action w-100 ps-4"
               [routerLink]="['/timetable']"
-              (click)="onSideBarClick()"
-            >
+              (click)="onSideBarClick()">
               上次出卡
             </a>
           </div>
@@ -43,27 +37,26 @@
         <ng-template ngbPanelContent>
           <app-charlist
             (idolClicked)="onCharlistClick($event)"
-            [isBigScreen]="this.isBigScreen"
-          ></app-charlist>
+            [isBigScreen]="this.isBigScreen"></app-charlist>
         </ng-template>
       </ngb-panel>
       <ngb-panel id="descSpineViewer">
         <ng-template ngbPanelTitle>其他小玩具</ng-template>
         <ng-template ngbPanelContent>
-          <button
-            class="list-group-item text-start w-100 btn"
-            (click)="this.toSpineViewer()"
-          >
-            SpineViewer
-          </button>
-          <!--button
-            class="list-group-item text-start w-100 btn">
-            <ion-icon
-              name="logo-github"
-            >
-            </ion-icon>
-            Github Source Code
-          </button-->
+          <div class="list-group">
+            <a
+              href="https://spine.shinycolors.moe/"
+              class="text-start list-group-item list-group-item-action w-100 ps-4"
+              target="_blank">
+              SpineViewer
+            </a>
+            <a
+              href="https://github.com/ShinyColorsDB/ShinyColorsDB-DataSite"
+              class="text-start list-group-item list-group-item-action w-100 ps-4"
+              target="_blank">
+              Github
+            </a>
+          </div>
         </ng-template>
       </ngb-panel>
     </ngb-accordion>

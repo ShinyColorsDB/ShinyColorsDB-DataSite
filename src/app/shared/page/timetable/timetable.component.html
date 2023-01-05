@@ -1,182 +1,176 @@
 <div class="card ps-0 pe-0 mt-3">
-    <div class="card-header">
-        <ul class="nav nav-tabs card-header-tabs">
-            <li class="nav-item">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+        <a
+          href="javascript: void()"
+          class="nav-link"
+          (click)="changeDisplay(0);"
+          [ngClass]="{ disabled: this.overview, active: this.overview }">
+          概觀
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+          href="javascript: void()"
+          class="nav-link"
+          (click)="changeDisplay(1);"
+          [ngClass]="{ disabled: this.limited, active: this.limited }">
+          限定
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+          href="javascript: void()"
+          class="nav-link"
+          (click)="changeDisplay(2);"
+          [ngClass]="{ disabled: this.general, active: this.general }">
+          通常
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body d-flex h-auto overflow-auto container justify-content-center">
+    <div class="row justify-content-center container" [ngClass]="{ 'd-none': !this.overview }">
+      <div>概觀</div>
+      <div class="col-lg-6 col-md-12" *ngIf="this.allTimetable">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>距今</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let card of this.allTimetable.produce">
+              <td>
                 <a
-                    href="javascript: void()"
-                    class="nav-link"
-                    (click)="changeDisplay(0);"
-                    [ngClass]="{ disabled: this.overview, active: this.overview }">
-                    概觀
+                  [routerLink]="['/pcardinfo']"
+                  [queryParams]="{uuid: this.cardUuid}">
+                  {{ card.cardName }}
                 </a>
-            </li>
-            <li class="nav-item">
+              </td>
+              <td>{{ this.timeDuration(card.releaseDate) }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-lg-6 col-md-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>距今</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let card of this.allTimetable.support">
+              <td>
                 <a
-                    href="javascript: void()"
-                    class="nav-link"
-                    (click)="changeDisplay(1);"
-                    [ngClass]="{ disabled: this.limited, active: this.limited }">
-                    限定
+                  [routerLink]="['/scardinfo']"
+                  [queryParams]="{uuid: this.cardUuid}">
+                  {{ card.cardName }}
                 </a>
-            </li>
-            <li class="nav-item">
-                <a
-                    href="javascript: void()"
-                    class="nav-link"
-                    (click)="changeDisplay(2);"
-                    [ngClass]="{ disabled: this.general, active: this.general }">
-                    通常
-                </a>
-            </li>
-        </ul>
+              </td>
+              <td>{{ this.timeDuration(card.releaseDate) }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-    <div class="card-body d-flex h-auto overflow-auto container justify-content-center">
-        <div class="row justify-content-center container" [ngClass]="{ 'd-none': !this.overview }">
-            <div>概觀</div>
-            <div class="col-lg-6 col-md-12" *ngIf="this.allTimetable">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>距今</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let card of this.allTimetable.produce">
-                            <td>
-                                <a
-                                    [routerLink]="['/pcardinfo']"
-                                    [queryParams]="{uuid: this.cardUuid}"
-                                >
-                                    {{ card.cardName }}
-                                </a>
-                            </td>
-                            <td>{{ this.timeDuration(card.releaseDate) }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="col-lg-6 col-md-12">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>距今</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let card of this.allTimetable.support">
-                            <td>
-                                <a
-                                    [routerLink]="['/scardinfo']"
-                                    [queryParams]="{uuid: this.cardUuid}"
-                                >
-                                    {{ card.cardName }}
-                                </a>
-                            </td>
-                            <td>{{ this.timeDuration(card.releaseDate) }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="row justify-content-center container" [ngClass]="{ 'd-none': !this.limited }">
-            <div>限定</div>
-            <div class="col-lg-6 col-md-12" *ngIf="this.limitedTimetable">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>距今</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let card of this.limitedTimetable.produce">
-                            <td>
-                                <a
-                                    [routerLink]="['/pcardinfo']"
-                                    [queryParams]="{uuid: this.cardUuid}"
-                                >
-                                    {{ card.cardName }}
-                                </a>
-                            </td>
-                            <td>{{ this.timeDuration(card.releaseDate) }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="col-lg-6 col-md-12">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>距今</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let card of this.limitedTimetable.support">
-                            <td>
-                                <a
-                                    [routerLink]="['/scardinfo']"
-                                    [queryParams]="{uuid: this.cardUuid}"
-                                >
-                                    {{ card.cardName }}
-                                </a>
-                            </td>
-                            <td>{{ this.timeDuration(card.releaseDate) }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="row justify-content-center container" [ngClass]="{ 'd-none': !this.general }">
-            <div>常駐</div>
-            <div class="col-lg-6 col-md-12" *ngIf="this.generalTimetable">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>距今</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let card of this.generalTimetable.produce">
-                            <td>
-                                <a
-                                    [routerLink]="['/pcardinfo']"
-                                    [queryParams]="{uuid: this.cardUuid}"
-                                >
-                                    {{ card.cardName }}
-                                </a>
-                            </td>
-                            <td>{{ this.timeDuration(card.releaseDate) }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="col-lg-6 col-md-12">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>距今</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let card of this.generalTimetable.support">
-                            <td>
-                                <a
-                                    [routerLink]="['/scardinfo']"
-                                    [queryParams]="{uuid: this.cardUuid}"
-                                >
-                                    {{ card.cardName }}
-                                </a>
-                            </td>
-                            <td>{{ this.timeDuration(card.releaseDate) }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+    <div class="row justify-content-center container" [ngClass]="{ 'd-none': !this.limited }">
+      <div>限定</div>
+      <div class="col-lg-6 col-md-12" *ngIf="this.limitedTimetable">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>距今</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let card of this.limitedTimetable.produce">
+              <td>
+                <a
+                  [routerLink]="['/pcardinfo']"
+                  [queryParams]="{uuid: this.cardUuid}">
+                  {{ card.cardName }}
+                </a>
+              </td>
+              <td>{{ this.timeDuration(card.releaseDate) }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-lg-6 col-md-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>距今</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let card of this.limitedTimetable.support">
+              <td>
+                <a
+                  [routerLink]="['/scardinfo']"
+                  [queryParams]="{uuid: this.cardUuid}">
+                  {{ card.cardName }}
+                </a>
+              </td>
+              <td>{{ this.timeDuration(card.releaseDate) }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
+    <div class="row justify-content-center container" [ngClass]="{ 'd-none': !this.general }">
+      <div>常駐</div>
+      <div class="col-lg-6 col-md-12" *ngIf="this.generalTimetable">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>距今</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let card of this.generalTimetable.produce">
+              <td>
+                <a
+                  [routerLink]="['/pcardinfo']"
+                  [queryParams]="{uuid: this.cardUuid}">
+                  {{ card.cardName }}
+                </a>
+              </td>
+              <td>{{ this.timeDuration(card.releaseDate) }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-lg-6 col-md-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>距今</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let card of this.generalTimetable.support">
+              <td>
+                <a
+                  [routerLink]="['/scardinfo']"
+                  [queryParams]="{uuid: this.cardUuid}">
+                  {{ card.cardName }}
+                </a>
+              </td>
+              <td>{{ this.timeDuration(card.releaseDate) }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>
