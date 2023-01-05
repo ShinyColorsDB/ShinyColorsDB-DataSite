@@ -32,144 +32,60 @@
   </div>
   <div class="card-body d-flex h-auto overflow-auto container justify-content-center">
     <div class="row justify-content-center container" [ngClass]="{ 'd-none': !this.overview }">
-      <div>概觀</div>
+      <div>概覽</div>
       <div class="col-lg-6 col-md-12" *ngIf="this.allTimetable">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Produce</th>
-              <th>距今</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let card of this.allTimetable?.produce">
-              <td>
-                <a
-                  [routerLink]="['/pcardinfo']"
-                  [queryParams]="{uuid: card.cardUuid}">
-                  {{ card.cardName }}
-                </a>
-              </td>
-              <td>{{ this.timeDuration(card.releaseDate) }}</td>
-            </tr>
-          </tbody>
-        </table>
+        <app-timesubtable
+          [table]="this.allTimetable.produce"
+          [title]="'Produce'"
+          [typeRoute]="'/pcardinfo'"
+        >
+        </app-timesubtable>
       </div>
-      <div class="col-lg-6 col-md-12">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Support</th>
-              <th>距今</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let card of this.allTimetable?.support">
-              <td>
-                <a
-                  [routerLink]="['/scardinfo']"
-                  [queryParams]="{uuid: card.cardUuid}">
-                  {{ card.cardName }}
-                </a>
-              </td>
-              <td>{{ this.timeDuration(card.releaseDate) }}</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="col-lg-6 col-md-12" *ngIf="this.allTimetable">
+        <app-timesubtable
+          [table]="this.allTimetable.support"
+          [title]="'Support'"
+          [typeRoute]="'/scardinfo'"
+        >
+        </app-timesubtable>
       </div>
     </div>
     <div class="row justify-content-center container" [ngClass]="{ 'd-none': !this.limited }">
       <div>限定</div>
       <div class="col-lg-6 col-md-12" *ngIf="this.limitedTimetable">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Produce</th>
-              <th>距今</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let card of this.limitedTimetable?.produce">
-              <td>
-                <a
-                  [routerLink]="['/pcardinfo']"
-                  [queryParams]="{uuid: card.cardUuid}">
-                  {{ card.cardName }}
-                </a>
-              </td>
-              <td>{{ this.timeDuration(card.releaseDate) }}</td>
-            </tr>
-          </tbody>
-        </table>
+        <app-timesubtable
+          [table]="this.limitedTimetable.produce"
+          [title]="'Produce'"
+          [typeRoute]="'/pcardinfo'"
+        >
+        </app-timesubtable>
       </div>
-      <div class="col-lg-6 col-md-12">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Support</th>
-              <th>距今</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let card of this.limitedTimetable?.support">
-              <td>
-                <a
-                  [routerLink]="['/scardinfo']"
-                  [queryParams]="{uuid: card.cardUuid}">
-                  {{ card.cardName }}
-                </a>
-              </td>
-              <td>{{ this.timeDuration(card.releaseDate) }}</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="col-lg-6 col-md-12" *ngIf="this.limitedTimetable">
+        <app-timesubtable
+          [table]="this.limitedTimetable.support"
+          [title]="'Support'"
+          [typeRoute]="'/scardinfo'"
+        >
+        </app-timesubtable>
       </div>
     </div>
     <div class="row justify-content-center container" [ngClass]="{ 'd-none': !this.general }">
       <div>常駐</div>
       <div class="col-lg-6 col-md-12" *ngIf="this.generalTimetable">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Produce</th>
-              <th>距今</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let card of this.generalTimetable?.produce">
-              <td>
-                <a
-                  [routerLink]="['/pcardinfo']"
-                  [queryParams]="{uuid: card.cardUuid}">
-                  {{ card.cardName }}
-                </a>
-              </td>
-              <td>{{ this.timeDuration(card.releaseDate) }}</td>
-            </tr>
-          </tbody>
-        </table>
+        <app-timesubtable
+          [table]="this.generalTimetable.produce"
+          [title]="'Produce'"
+          [typeRoute]="'/pcardinfo'"
+        >
+        </app-timesubtable>
       </div>
-      <div class="col-lg-6 col-md-12">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Support</th>
-              <th>距今</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let card of this.generalTimetable?.support">
-              <td>
-                <a
-                  [routerLink]="['/scardinfo']"
-                  [queryParams]="{uuid: card.cardUuid}">
-                  {{ card.cardName }}
-                </a>
-              </td>
-              <td>{{ this.timeDuration(card.releaseDate) }}</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="col-lg-6 col-md-12" *ngIf="this.generalTimetable">
+        <app-timesubtable
+          [table]="this.generalTimetable.support"
+          [title]="'Support'"
+          [typeRoute]="'/scardinfo'"
+        >
+        </app-timesubtable>
       </div>
     </div>
   </div>

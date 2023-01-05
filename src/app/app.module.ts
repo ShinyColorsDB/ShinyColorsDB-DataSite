@@ -12,13 +12,14 @@ import { HomeComponent } from './shared/page/home/home.component';
 import { IInfoComponent } from './shared/page/i-info/i-info.component';
 import { PInfoComponent } from './shared/page/p-info/p-info.component';
 import { SInfoComponent } from './shared/page/s-info/s-info.component';
+import { TimetableComponent } from './shared/page/timetable/timetable.component';
 
 import { CharlistComponent } from './shared/components/charlist/charlist.component';
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
 import { CardItemComponent } from './shared/components/card-item/card-item.component';
 import { PanelInfoComponent } from './shared/components/panel-info/panel-info.component';
 import { PanelListComponent } from './shared/components/panel-list/panel-list.component';
-import { TimetableComponent } from './shared/page/timetable/timetable.component';
+import { TimesubtableComponent } from './shared/components/timesubtable/timesubtable.component';
 
 import { NotfoundComponent } from './shared/page/notfound/notfound.component';
 
@@ -50,6 +51,7 @@ const routes: Routes = [
     CardItemComponent,
     PanelInfoComponent,
     PanelListComponent,
+    TimesubtableComponent,
     HomeComponent,
     NotfoundComponent
   ],

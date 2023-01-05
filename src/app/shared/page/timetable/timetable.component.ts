@@ -3,8 +3,6 @@ import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, of } from 'rxjs';
 
-import { DateTime } from 'luxon';
-
 import { ShinyColorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
 import { Timetable } from '../../interfaces/timetable';
 
@@ -68,12 +66,6 @@ export class TimetableComponent implements OnInit {
       name: 'description',
       content: 'Timetable for history cards.',
     });
-  }
-
-  timeDuration(d: string) {
-    const date1 = DateTime.now().setZone('Asia/Taipei');
-    const date2 = DateTime.fromSQL(d, { zone: 'Asia/Taipei' });
-    return date1.diff(date2, ['days', 'hours']).toObject().days;
   }
 
   changeDisplay(type: number): void {
