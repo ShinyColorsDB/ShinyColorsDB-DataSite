@@ -30,15 +30,111 @@
             </li>
         </ul>
     </div>
-    <div class="card-body d-flex h-auto overflow-auto">
-        <div class="row" [ngClass]="{ 'd-none': this.overview }">
-
+    <div class="card-body d-flex h-auto overflow-auto container justify-content-center">
+        <div class="row justify-content-center container" [ngClass]="{ 'd-none': !this.overview }">
+            <div>概觀</div>
+            <div class="col-lg-6 col-md-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>卡名</th>
+                            <th>距今</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let card of this.allTimetable.produce">
+                            <td>{{ card.cardName }}</td>
+                            <td>{{ this.timeDuration(card.releaseDate) }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>卡名</th>
+                            <th>距今</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let card of this.allTimetable.support">
+                            <td>{{ card.cardName }}</td>
+                            <td>{{ this.timeDuration(card.releaseDate) }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div class="row" [ngClass]="{ 'd-none': this.limited }">
-
+        <div class="row justify-content-center container" [ngClass]="{ 'd-none': !this.limited }">
+            <div>限定</div>
+            <div class="col-lg-6 col-md-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>卡名</th>
+                            <th>距今</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let card of this.limitedTimetable.produce">
+                            <td>{{ card.cardName }}</td>
+                            <td>{{ this.timeDuration(card.releaseDate) }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>卡名</th>
+                            <th>距今</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let card of this.limitedTimetable.support">
+                            <td>{{ card.cardName }}</td>
+                            <td>{{ this.timeDuration(card.releaseDate) }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div class="row" [ngClass]="{ 'd-none': this.general }">
-
+        <div class="row justify-content-center container" [ngClass]="{ 'd-none': !this.general }">
+            <div>常駐</div>
+            <div class="col-lg-6 col-md-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>卡名</th>
+                            <th>距今</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let card of this.generalTimetable.produce">
+                            <td>{{ card.cardName }}</td>
+                            <td>{{ this.timeDuration(card.releaseDate) }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>卡名</th>
+                            <th>距今</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let card of this.generalTimetable.support">
+                            <td>{{ card.cardName }}</td>
+                            <td>{{ this.timeDuration(card.releaseDate) }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>

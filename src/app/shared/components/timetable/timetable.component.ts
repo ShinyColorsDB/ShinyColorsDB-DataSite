@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, of } from 'rxjs';
+
+import { DateTime } from 'luxon';
+
 import { ShinycolorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
 import { Timetable } from '../../interfaces/timetable';
 
@@ -22,6 +25,8 @@ export class TimetableComponent implements OnInit {
   limited = false;
   general = false;
 
+  regExp = RegExp(/(【.*】)(.*)/);
+
   constructor(
     private scApiService: ShinycolorsApiService,
     private router: Router,
@@ -38,7 +43,7 @@ export class TimetableComponent implements OnInit {
       }))
       .subscribe((data) => {
         if (!data) return;
-        this.limitedTimetable = data;
+        this.allTimetable = data;
       });
     this.scApiService.getLimitedTable()
       .pipe(catchError(err => {
@@ -60,6 +65,11 @@ export class TimetableComponent implements OnInit {
       });
   }
 
+  timeDuration(d: string) {
+    const date1 = DateTime.now().setZone('Asia/Taipei');
+    const date2 = DateTime.fromSQL(d, { zone: 'Asia/Taipei' });
+    return date1.diff(date2, ['days', 'hours']).toObject().days;
+  }
 
   changeDisplay(type: number): void {
     switch (type) {
