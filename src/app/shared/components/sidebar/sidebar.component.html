@@ -18,22 +18,23 @@
       activeIds="descCharaList"
     >
       <ngb-panel id="descHomepage" cardClass="p-0">
-        <ng-template ngbPanelTitle>首頁</ng-template>
+        <ng-template ngbPanelTitle>ShinyColorsDB</ng-template>
         <ng-template ngbPanelContent>
-          <div>
-            <button
-              class="text-start btn w-100 ps-4 btn-lg rounded-0 btn-light"
+          <div class="list-group">
+            <a
+              class="text-start list-group-item list-group-item-action w-100 ps-4"
               [routerLink]="['/']"
               (click)="onSideBarClick()"
             >
-              ShinyColorsDB
-            </button>
-            <button
-              class="text-start btn w-100 ps-4 btn-lg rounded-0 btn-light"
+              首頁
+            </a>
+            <a
+              class="text-start list-group-item list-group-item-action w-100 ps-4"
               [routerLink]="['/timetable']"
+              (click)="onSideBarClick()"
             >
               上次出卡
-            </button>
+            </a>
           </div>
         </ng-template>
       </ngb-panel>

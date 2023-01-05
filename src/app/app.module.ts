@@ -18,7 +18,7 @@ import { SidebarComponent } from './shared/components/sidebar/sidebar.component'
 import { CardItemComponent } from './shared/components/card-item/card-item.component';
 import { PanelInfoComponent } from './shared/components/panel-info/panel-info.component';
 import { PanelListComponent } from './shared/components/panel-list/panel-list.component';
-import { TimetableComponent } from './shared/components/timetable/timetable.component';
+import { TimetableComponent } from './shared/page/timetable/timetable.component';
 
 import { NotfoundComponent } from './shared/page/notfound/notfound.component';
 
@@ -44,11 +44,11 @@ const routes: Routes = [
     IInfoComponent,
     PInfoComponent,
     SInfoComponent,
+    TimetableComponent,
     CardItemComponent,
     PanelInfoComponent,
     PanelListComponent,
     HomeComponent,
-    TimetableComponent,
     NotfoundComponent
   ],
   imports: [

@@ -63,6 +63,7 @@ export class TimetableComponent implements OnInit {
         if (!data) return;
         this.generalTimetable = data;
       });
+    this.title.setTitle("時間表");
   }
 
   timeDuration(d: string) {
