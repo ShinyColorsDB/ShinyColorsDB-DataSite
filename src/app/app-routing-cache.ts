@@ -6,13 +6,11 @@ import {
 } from '@angular/router';
 
 export class AppRoutingCache implements RouteReuseStrategy {
-    public static handlers: { [key: string]: DetachedRouteHandle } = {};
+    private storedRoutes = new Map<String, DetachedRouteHandle>;
 
     // 判斷路由是否能重複使用
     public shouldDetach(route: ActivatedRouteSnapshot): boolean {
-        // 默認所有的路由設定都可以重複使用
-        // 可透過 route.data 的方式來設定重複使用的規則
-        return true;
+        return route.routeConfig?.path !== "notfound";
     }
 
     // 當路由離開時，會觸發此方法
@@ -20,22 +18,29 @@ export class AppRoutingCache implements RouteReuseStrategy {
         route: ActivatedRouteSnapshot,
         handle: DetachedRouteHandle
     ): void {
-        // 將目前路由內容暫存起來
-        AppRoutingCache.handlers[route.routeConfig.path] = handle;
+        if (route.routeConfig?.path) {
+            this.storedRoutes.set(route.routeConfig?.path, handle);
+        }
     }
 
     // 當路由進入時，可判斷是否還原路由的暫存內容
     public shouldAttach(route: ActivatedRouteSnapshot): boolean {
-        return (
-            !!route.routeConfig && !!AppRoutingCache.handlers[route.routeConfig.path]
-        );
+        if (route.routeConfig?.path) {
+            return !!route.routeConfig && !!this.storedRoutes.get(route.routeConfig?.path);
+        }
+        else {
+            return false;
+        }
     }
     // 從 Cache 中取得對應的暫存內容
     public retrieve(route: ActivatedRouteSnapshot): DetachedRouteHandle {
-        if (!route.routeConfig) {
-            return null;
+        if (route.routeConfig?.path && this.storedRoutes.has(route.routeConfig?.path)) {
+            return this.storedRoutes.get(route.routeConfig?.path)!;
         }
-        return AppRoutingCache.handlers[route.routeConfig.path];
+        else {
+            return null!;
+        }
+
     }
 
     // 判斷是否同一路由

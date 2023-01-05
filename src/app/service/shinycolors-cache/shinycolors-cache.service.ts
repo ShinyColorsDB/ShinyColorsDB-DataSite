@@ -16,18 +16,16 @@ import { Timetable } from 'src/app/shared/interfaces/timetable';
 })
 export class ShinyColorsCacheService {
 
-  unitInfo: Observable<Unit[]>;
+  //unitInfo: Observable<Unit[]>;
   idolInfo: Map<number, Observable<Idol>[]> = new Map();
 
-  allTable: Observable<Timetable>;
-  limitedTable: Observable<Timetable>;
-  generalTable: Observable<Timetable>;
+  //allTable: Observable<Timetable>;
+  //limitedTable: Observable<Timetable>;
+  //generalTable: Observable<Timetable>;
 
   constructor(
     private http: HttpClient,
     private router: Router,
   ) { }
-
-
 
 }

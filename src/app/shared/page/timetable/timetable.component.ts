@@ -63,7 +63,11 @@ export class TimetableComponent implements OnInit {
         if (!data) return;
         this.generalTimetable = data;
       });
-    this.title.setTitle("時間表");
+    this.title.setTitle('ShinyColorsDB-Timetable');
+    this.meta.updateTag({
+      name: 'description',
+      content: 'Timetable for history cards.',
+    });
   }
 
   timeDuration(d: string) {

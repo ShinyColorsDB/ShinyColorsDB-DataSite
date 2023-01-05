@@ -37,16 +37,16 @@
         <table class="table">
           <thead>
             <tr>
-              <th>#</th>
+              <th>Produce</th>
               <th>距今</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let card of this.allTimetable.produce">
+            <tr *ngFor="let card of this.allTimetable?.produce">
               <td>
                 <a
                   [routerLink]="['/pcardinfo']"
-                  [queryParams]="{uuid: this.cardUuid}">
+                  [queryParams]="{uuid: card.cardUuid}">
                   {{ card.cardName }}
                 </a>
               </td>
@@ -59,16 +59,16 @@
         <table class="table">
           <thead>
             <tr>
-              <th>#</th>
+              <th>Support</th>
               <th>距今</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let card of this.allTimetable.support">
+            <tr *ngFor="let card of this.allTimetable?.support">
               <td>
                 <a
                   [routerLink]="['/scardinfo']"
-                  [queryParams]="{uuid: this.cardUuid}">
+                  [queryParams]="{uuid: card.cardUuid}">
                   {{ card.cardName }}
                 </a>
               </td>
@@ -84,16 +84,16 @@
         <table class="table">
           <thead>
             <tr>
-              <th>#</th>
+              <th>Produce</th>
               <th>距今</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let card of this.limitedTimetable.produce">
+            <tr *ngFor="let card of this.limitedTimetable?.produce">
               <td>
                 <a
                   [routerLink]="['/pcardinfo']"
-                  [queryParams]="{uuid: this.cardUuid}">
+                  [queryParams]="{uuid: card.cardUuid}">
                   {{ card.cardName }}
                 </a>
               </td>
@@ -106,16 +106,16 @@
         <table class="table">
           <thead>
             <tr>
-              <th>#</th>
+              <th>Support</th>
               <th>距今</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let card of this.limitedTimetable.support">
+            <tr *ngFor="let card of this.limitedTimetable?.support">
               <td>
                 <a
                   [routerLink]="['/scardinfo']"
-                  [queryParams]="{uuid: this.cardUuid}">
+                  [queryParams]="{uuid: card.cardUuid}">
                   {{ card.cardName }}
                 </a>
               </td>
@@ -131,16 +131,16 @@
         <table class="table">
           <thead>
             <tr>
-              <th>#</th>
+              <th>Produce</th>
               <th>距今</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let card of this.generalTimetable.produce">
+            <tr *ngFor="let card of this.generalTimetable?.produce">
               <td>
                 <a
                   [routerLink]="['/pcardinfo']"
-                  [queryParams]="{uuid: this.cardUuid}">
+                  [queryParams]="{uuid: card.cardUuid}">
                   {{ card.cardName }}
                 </a>
               </td>
@@ -153,16 +153,16 @@
         <table class="table">
           <thead>
             <tr>
-              <th>#</th>
+              <th>Support</th>
               <th>距今</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let card of this.generalTimetable.support">
+            <tr *ngFor="let card of this.generalTimetable?.support">
               <td>
                 <a
                   [routerLink]="['/scardinfo']"
-                  [queryParams]="{uuid: this.cardUuid}">
+                  [queryParams]="{uuid: card.cardUuid}">
                   {{ card.cardName }}
                 </a>
               </td>

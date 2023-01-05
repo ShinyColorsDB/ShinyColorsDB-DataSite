@@ -18,13 +18,13 @@
         <ng-template ngbPanelContent>
           <div class="list-group">
             <a
-              class="text-start list-group-item list-group-item-action w-100 ps-4"
+              class="text-start list-group-item list-group-item-action w-100 ps-4 bg-light bg-gradient"
               [routerLink]="['/']"
               (click)="onSideBarClick()">
               首頁
             </a>
             <a
-              class="text-start list-group-item list-group-item-action w-100 ps-4"
+              class="text-start list-group-item list-group-item-action w-100 ps-4 bg-light bg-gradient"
               [routerLink]="['/timetable']"
               (click)="onSideBarClick()">
               上次出卡
@@ -40,19 +40,19 @@
             [isBigScreen]="this.isBigScreen"></app-charlist>
         </ng-template>
       </ngb-panel>
-      <ngb-panel id="descSpineViewer">
+      <ngb-panel id="descOthers">
         <ng-template ngbPanelTitle>其他小玩具</ng-template>
         <ng-template ngbPanelContent>
           <div class="list-group">
             <a
               href="https://spine.shinycolors.moe/"
-              class="text-start list-group-item list-group-item-action w-100 ps-4"
+              class="text-start list-group-item list-group-item-action w-100 ps-4 bg-light bg-gradient"
               target="_blank">
               SpineViewer
             </a>
             <a
               href="https://github.com/ShinyColorsDB/ShinyColorsDB-DataSite"
-              class="text-start list-group-item list-group-item-action w-100 ps-4"
+              class="text-start list-group-item list-group-item-action w-100 ps-4 bg-light bg-gradient"
               target="_blank">
               Github
             </a>

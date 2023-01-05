@@ -1,8 +1,6 @@
-::ng-deep .accordion .accordion-item #descHomepage .accordion-body {
-  padding: 0;
-}
-
-::ng-deep .accordion .accordion-item #descCharaList .accordion-body {
+::ng-deep .accordion .accordion-item #descHomepage .accordion-body,
+::ng-deep .accordion .accordion-item #descCharaList .accordion-body,
+::ng-deep .accordion .accordion-item #descOthers .accordion-body {
   padding: 0;
 }
 
