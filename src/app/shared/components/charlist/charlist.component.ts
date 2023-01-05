@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Unit } from '../../interfaces/unit';
 
-import { ShinycolorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
+import { ShinyColorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
 import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
 import { isPlatformBrowser } from '@angular/common';
 
@@ -27,7 +27,7 @@ export class CharlistComponent implements OnInit {
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     private utilsService: UtilitiesService,
-    private scApiService: ShinycolorsApiService,
+    private scApiService: ShinyColorsApiService,
     private route: ActivatedRoute,
   ) {
     this.scApiService.getUnitList().subscribe((data) => {

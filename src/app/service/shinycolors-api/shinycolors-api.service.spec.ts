@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ShinycolorsApiService } from './shinycolors-api.service';
+import { ShinyColorsApiService } from './shinycolors-api.service';
 
-describe('ShinycolorsApiService', () => {
-  let service: ShinycolorsApiService;
+describe('ShinyColorsApiService', () => {
+  let service: ShinyColorsApiService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(ShinycolorsApiService);
+    service = TestBed.inject(ShinyColorsApiService);
   });
 
   it('should be created', () => {

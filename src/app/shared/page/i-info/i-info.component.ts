@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 
-import { ShinycolorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
+import { ShinyColorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
 import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
 
 import { Card } from '../../interfaces/card';
@@ -32,7 +32,7 @@ export class IInfoComponent implements OnInit {
 
   constructor(
     private utilsService: UtilitiesService,
-    private scApiService: ShinycolorsApiService,
+    private scApiService: ShinyColorsApiService,
     private router: Router,
     private route: ActivatedRoute,
     private title: Title,

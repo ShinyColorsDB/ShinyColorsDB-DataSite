@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, RouteReuseStrategy } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -22,9 +22,11 @@ import { TimetableComponent } from './shared/page/timetable/timetable.component'
 
 import { NotfoundComponent } from './shared/page/notfound/notfound.component';
 
-import { ShinycolorsApiService } from './service/shinycolors-api/shinycolors-api.service';
+import { ShinyColorsApiService } from './service/shinycolors-api/shinycolors-api.service';
+import { ShinyColorsCacheService } from './service/shinycolors-cache/shinycolors-cache.service';
 import { UtilitiesService } from './service/utilities/utilities.service';
 import { TranslationService } from './service/translation/translation.service';
+import { AppRoutingCache } from './app-routing-cache';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -62,9 +64,11 @@ const routes: Routes = [
     IonicModule.forRoot(),
   ],
   providers: [
-    ShinycolorsApiService,
+    ShinyColorsApiService,
+    ShinyColorsCacheService,
     UtilitiesService,
     TranslationService,
+    { provide: RouteReuseStrategy, useClass: AppRoutingCache }
   ],
   bootstrap: [AppComponent],
 })

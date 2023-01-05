@@ -4,7 +4,7 @@ import { Meta, Title } from '@angular/platform-browser';
 
 import { environment } from 'src/environments/environment';
 
-import { ShinycolorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
+import { ShinyColorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
 import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
 
 import { SCard } from '../../interfaces/scard';
@@ -39,7 +39,7 @@ export class SInfoComponent implements OnInit {
 
   constructor(
     public utilsService: UtilitiesService,
-    private scApiService: ShinycolorsApiService,
+    private scApiService: ShinyColorsApiService,
     private route: ActivatedRoute,
     private router: Router,
     private meta: Meta,

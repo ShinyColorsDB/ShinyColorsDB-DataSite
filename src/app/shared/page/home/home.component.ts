@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
-import { ShinycolorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
+import { ShinyColorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
 
 import { Card } from '../../interfaces/card';
 
@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
   latestS: Card[] = [];
 
   constructor(
-    private scApiService: ShinycolorsApiService,
+    private scApiService: ShinyColorsApiService,
     private title: Title,
     private meta: Meta
   ) {

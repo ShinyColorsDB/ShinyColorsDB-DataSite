@@ -5,7 +5,7 @@ import { catchError, of } from 'rxjs';
 
 import { DateTime } from 'luxon';
 
-import { ShinycolorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
+import { ShinyColorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
 import { Timetable } from '../../interfaces/timetable';
 
 @Component({
@@ -28,7 +28,7 @@ export class TimetableComponent implements OnInit {
   regExp = RegExp(/(【.*】)(.*)/);
 
   constructor(
-    private scApiService: ShinycolorsApiService,
+    private scApiService: ShinyColorsApiService,
     private router: Router,
     private route: ActivatedRoute,
     private title: Title,
