@@ -2,22 +2,20 @@ import { Component, Input, OnInit } from '@angular/core';
 
 import { DateTime } from 'luxon';
 import { Card } from '../../interfaces/card';
+import { Timetable } from '../../interfaces/timetable';
 
 @Component({
   selector: 'app-timesubtable',
   templateUrl: './timesubtable.component.html',
-  styleUrls: ['./timesubtable.component.css']
+  styleUrls: ['./timesubtable.component.css'],
+  host: {
+    class: 'row justify-content-center container',
+  },
 })
 export class TimesubtableComponent implements OnInit {
 
   @Input()
-  table!: Card[];
-
-  @Input()
-  title: string = '';
-
-  @Input()
-  typeRoute: string = '';
+  timetable!: Timetable;
 
   constructor() { }
 

@@ -23,5 +23,5 @@ div {
 
 @font-face {
     font-family: LineGothic;
-    src: url("/assets/LINESeedJP_OTF_Bd.woff2");
+    src: url("/assets/LINESeedJP_OTF_Bd.woff2") format("woff2");
 }

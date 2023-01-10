@@ -1,22 +1,48 @@
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>{{ this.title }}</th>
-      <th>實裝日期</th>
-      <th>距今(天)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let card of this.table">
-      <td>
-        <a
-          [routerLink]="[this.typeRoute]"
-          [queryParams]="{uuid: card.cardUuid}">
-          {{ card.cardName }}
-        </a>
-      </td>
-      <td>{{ card.releaseDate }}</td>
-      <td>{{ this.timeDuration(card.releaseDate) }}</td>
-    </tr>
-  </tbody>
-</table>
+<div class="col-lg-6 col-md-12">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Produce</th>
+        <th>實裝日期</th>
+        <th>距今(天)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let card of this.timetable.produce">
+        <td>
+          <a
+            [routerLink]="'/pcardinfo'"
+            [queryParams]="{uuid: card.cardUuid}">
+            {{ card.cardName }}
+          </a>
+        </td>
+        <td>{{ card.releaseDate }}</td>
+        <td>{{ this.timeDuration(card.releaseDate) }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="col-lg-6 col-md-12">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Support</th>
+        <th>實裝日期</th>
+        <th>距今(天)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let card of this.timetable.support">
+        <td>
+          <a
+            [routerLink]="'/scardinfo'"
+            [queryParams]="{uuid: card.cardUuid}">
+            {{ card.cardName }}
+          </a>
+        </td>
+        <td>{{ card.releaseDate }}</td>
+        <td>{{ this.timeDuration(card.releaseDate) }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
