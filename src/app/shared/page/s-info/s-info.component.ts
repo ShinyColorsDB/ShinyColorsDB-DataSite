@@ -59,7 +59,9 @@ export class SInfoComponent implements OnInit {
           if (!data) return;
           this.sCardInfo = data;
           this.title.setTitle(this.sCardInfo.cardName);
-          this.meta.addTags(this.utilsService.generateCardMeta(this.sCardInfo));
+          this.utilsService.generateCardMeta(this.sCardInfo).forEach(e => {
+            this.meta.updateTag(e);
+          });
           this.utilsService.emitActiveIds([this.sCardInfo.idol.idolId, this.sCardInfo.idol.unitId]);
           this.generateSkillBound();
         });

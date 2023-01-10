@@ -34,16 +34,19 @@
     <app-timesubtable
       *ngIf="this.allTimetable"
       [timetable]="this.allTimetable"
+      class="subtable"
       [ngClass]="{ 'd-none': !this.overview }">
     </app-timesubtable>
     <app-timesubtable
       *ngIf="this.limitedTimetable"
       [timetable]="this.limitedTimetable"
+      class="subtable"
       [ngClass]="{ 'd-none': !this.limited }">
     </app-timesubtable>
     <app-timesubtable
       *ngIf="this.generalTimetable"
       [timetable]="this.generalTimetable"
+      class="subtable"
       [ngClass]="{ 'd-none': !this.general }">
     </app-timesubtable>
   </div>

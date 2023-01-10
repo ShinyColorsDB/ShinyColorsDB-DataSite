@@ -93,7 +93,9 @@ export class IInfoComponent implements OnInit {
           this.idolInfo = data;
 
           this.title.setTitle(this.idolInfo.idolName);
-          this.meta.addTags(this.utilsService.generateIdolMeta(this.idolInfo));
+          this.utilsService.generateIdolMeta(this.idolInfo).forEach(e => {
+            this.meta.updateTag(e);
+          });
 
           this.utilsService.emitActiveIds([this.idolId, this.idolInfo.unitId]);
 

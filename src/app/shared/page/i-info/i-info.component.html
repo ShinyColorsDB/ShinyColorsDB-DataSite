@@ -5,13 +5,13 @@
         <h1 class="text-center w-100">{{ this.idolInfo.idolName }}</h1>
         <img
           [src]="
-            'https://static.shinycolors.moe/pictures/icon/' +
-            this.idolInfo.idolId.toString().padStart(2, '0') +
-            '.jpg'
+          'https://static.shinycolors.moe/pictures/icon/' +
+          this.idolInfo.idolId.toString().padStart(2, '0') +
+          '.jpg'
           "
           alt=""
           class="img-fluid mx-auto d-block"
-        />
+          />
       </div>
       <div class="col-12 d-block">
         <table class="table w-100">
@@ -71,12 +71,12 @@
         <div class="card-header w-100">
           <ul class="nav nav-tabs card-header-tabs">
             <li class="nav-item">
-              <a href="javascript: void()" class="nav-link" (click)="togglePS = true" [ngClass]="{'disabled': togglePS, 'active': togglePS}">
+              <a href="javascript: void()" class="nav-link" (click)="togglePS= true" [ngClass]="{'disabled': togglePS, 'active': togglePS}" style="font-family: Meiryo">
                 P卡列表
               </a>
             </li>
             <li class="nav-item">
-              <a href="javascript: void()" class="nav-link" (click)="togglePS = false" [ngClass]="{'disabled': !togglePS, 'active': !togglePS}">
+              <a href="javascript: void()" class="nav-link" (click)="togglePS= false" [ngClass]="{'disabled': !togglePS, 'active': !togglePS}" style="font-family: Meiryo">
                 S卡列表
               </a>
             </li>

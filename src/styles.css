@@ -8,7 +8,7 @@ div {
 }
 
 ::-webkit-scrollbar {
-    width: 5px;
+    width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -24,4 +24,8 @@ div {
 @font-face {
     font-family: LineGothic;
     src: url("/assets/LINESeedJP_OTF_Bd.woff2") format("woff2");
+}
+
+.lineGothic {
+    font-family: LineGothic;
 }

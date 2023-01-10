@@ -32,10 +32,40 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.title.setTitle('ShinyColorsDB-DataSite');
-    this.meta.updateTag({
-      name: 'description',
-      content: 'ShinyColorsDB-DataSite',
-    });
+    this.title.setTitle(' ~ 閃耀色彩資料庫 ~ ');
+    this.meta.addTags([
+      {
+        name: 'og:type',
+        content: 'website'
+      },
+      {
+        name: 'og:url',
+        content: 'https://shinycolors.moe/'
+      },
+      {
+        name: 'og:title',
+        content: ' ~ 閃耀色彩資料庫 ~ '
+      },
+      {
+        name: 'og:description',
+        content: 'ShinyColorsDB-DataSite'
+      },
+      {
+        name: 'twitter:card',
+        content: 'summary_large_image'
+      },
+      {
+        name: 'twitter:url',
+        content: 'https://shinycolors.moe/'
+      },
+      {
+        name: 'twitter:title',
+        content: ' ~ 閃耀色彩資料庫 ~ '
+      },
+      {
+        name: 'twitter:description',
+        content: 'ShinyColorsDB-DataSite'
+      }
+    ]);
   }
 }

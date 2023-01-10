@@ -1,24 +1,23 @@
 <div class="row d-flex justify-content-center" *ngIf="this.pCardInfo">
-  <div class="col-12">
+  <div class="col-12 ">
     <h1>{{ this.pCardInfo.cardName }}</h1>
   </div>
 
   <div class="col-lg-6 col-md-12 row d-block p-1">
     <ngb-carousel
       class="col-12"
-      [interval]="5000"
-    >
+      [interval]="5000">
       <ng-template ngbSlide (slid)="onSlidingToStatic($event)">
         <div class="d-none static"></div>
         <img
           [src]="
-            this.staticUrl +
-            '/pictures/bigPic/' +
-            this.pCardInfo.bigPic1 +
-            '.jpg'
+          this.staticUrl +
+          '/pictures/bigPic/' +
+          this.pCardInfo.bigPic1 +
+          '.jpg'
           "
           class="img-fluid"
-        />
+          />
       </ng-template>
       <ng-template ngbSlide *ngIf="this.isSsrCard()" (slid)="onSlidingToMovie($event)">
         <div class="d-none video"></div>
@@ -28,27 +27,26 @@
           loop
           muted
           [src]="
-            'https://viewer.shinycolors.moe/movies/idols/card/' +
-            this.pCardInfo.enzaId +
-            '.mp4'
+          'https://viewer.shinycolors.moe/movies/idols/card/' +
+          this.pCardInfo.enzaId +
+          '.mp4'
           "
           type="video/mp4"
           oncanplay="this.play()"
-          onloadedmetadata="this.muted = true"
-          (ended)="this.onMovieEnded()"
-        ></video>
+          onloadedmetadata="this.muted= true"
+          (ended)="this.onMovieEnded()"></video>
       </ng-template>
       <ng-template ngbSlide (slid)="onSlidingToStatic($event)">
         <div class="d-none static"></div>
         <img
           [src]="
-            this.staticUrl +
-            '/pictures/bigPic/' +
-            this.pCardInfo.bigPic2 +
-            '.jpg'
+          this.staticUrl +
+          '/pictures/bigPic/' +
+          this.pCardInfo.bigPic2 +
+          '.jpg'
           "
           class="img-fluid"
-        />
+          />
       </ng-template>
       <ng-template ngbSlide *ngIf="this.isSsrCard() || this.isSrCard()" (slid)="onSlidingToMovie($event)">
         <div class="d-none video"></div>
@@ -58,30 +56,29 @@
           loop
           muted
           [src]="
-            'https://viewer.shinycolors.moe/movies/idols/card_costume/' +
-            this.pCardInfo.enzaId +
-            '.mp4'
+          'https://viewer.shinycolors.moe/movies/idols/card_costume/' +
+          this.pCardInfo.enzaId +
+          '.mp4'
           "
           type="video/mp4"
           oncanplay="this.play()"
-          onloadedmetadata="this.muted = true"
-          (ended)="onMovieEnded()"
-        ></video>
+          onloadedmetadata="this.muted= true"
+          (ended)="onMovieEnded()"></video>
       </ng-template>
     </ngb-carousel>
     <div class="container col-12 pt-3 row m-0">
-      <div class="col-lg-4 col-md-12">
+      <div class="col-lg-4 col-md-12" style="font-family: Meiryo">
         實裝日期: {{ this.pCardInfo.releaseDate }}
       </div>
-      <div class="col-lg-4 col-md-12">
+      <div class="col-lg-4 col-md-12" style="font-family: Meiryo">
         取得方式: {{ this.translateGetMethod() }}
       </div>
-      <div class="col-lg-4 col-md-12">
+      <div class="col-lg-4 col-md-12" style="font-family: Meiryo">
         稀有度 : {{ this.pCardInfo.cardType }}
       </div>
 
       <div class="col-lg-6 col-md-12">
-        <table class="table table-hover">
+        <table class="table table-hover ">
           <thead>
             <tr>
               <th scope="col">事件名稱</th>
@@ -92,11 +89,9 @@
               <td>
                 <a
                   [href]="
-                    'https://event.shinycolors.moe/?eventId=' + event.eventId
+                  'https://event.shinycolors.moe/?eventId=' + event.eventId
                   "
-		  target="_blank"
-                  >{{ event.eventTitle }}</a
-                >
+                  target="_blank">{{ event.eventTitle }}</a>
               </td>
             </tr>
           </tbody>
@@ -114,18 +109,16 @@
               <td>
                 <a
                   [href]="
-                    'https://event.shinycolors.moe/?eventId=' + event.eventId
+                  'https://event.shinycolors.moe/?eventId=' + event.eventId
                   "
-		  target="_blank"
-                  >{{ event.eventTitle }}</a
-                >
+                  target="_blank">{{ event.eventTitle }}</a>
               </td>
             </tr>
           </tbody>
         </table>
       </div>
       <div class="col-12">
-        <table class="table table-hover col-12">
+        <table class="table table-hover col-12 ">
           <thead>
             <tr>
               <th scope="col">技能名稱</th>
@@ -149,14 +142,12 @@
       class="col-12"
       [panelInfo]="this.pCardInfo.cardPanels"
       [isSr]="this.utilsService.isSrCard(this.pCardInfo.cardType)"
-      (stateChanged)="updateState($event)"
-    ></app-panel-info>
+      (stateChanged)="updateState($event)"></app-panel-info>
     <div class="container col-12 pt-3 w-100 row m-0">
       <app-panel-list
         class="col-12"
         [panelInfo]="this.pCardInfo.cardPanels"
-        [highlited]="this.highlight"
-      ></app-panel-list>
+        [highlited]="this.highlight"></app-panel-list>
     </div>
   </div>
 </div>

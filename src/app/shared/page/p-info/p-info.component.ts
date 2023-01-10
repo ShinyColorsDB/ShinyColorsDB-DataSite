@@ -56,7 +56,9 @@ export class PInfoComponent implements OnInit {
           if (!data) return;
           this.pCardInfo = data;
           this.title.setTitle(this.pCardInfo.cardName);
-          this.meta.addTags(this.utilsService.generateCardMeta(this.pCardInfo));
+          this.utilsService.generateCardMeta(this.pCardInfo).forEach(e => {
+            this.meta.updateTag(e);
+          });
           this.utilsService.emitActiveIds([this.pCardInfo.idol.idolId, this.pCardInfo.idol.unitId]);
         });
     });
