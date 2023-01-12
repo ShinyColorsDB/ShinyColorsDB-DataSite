@@ -3,6 +3,7 @@ import { PanelSlot } from "./panelslot";
 import { CardSupportEvent } from "./cardsupportevent"
 import { CardProficiency } from "./cardproficiency";
 import { CardSupportSkill } from "./cardsupportskill";
+import { cardSupportFightSkill } from "./cardSupportFightSkill";
 
 export interface SCard {
     cardIndex: number;
@@ -20,4 +21,5 @@ export interface SCard {
     cardSupportSkills: CardSupportSkill[];
     cardProficiencies: CardProficiency[];
     cardPanels: PanelSlot[];
+    cardSupportFightSkills: cardSupportFightSkill;
 }

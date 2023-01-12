@@ -20,6 +20,7 @@ import { CardItemComponent } from './shared/components/card-item/card-item.compo
 import { PanelInfoComponent } from './shared/components/panel-info/panel-info.component';
 import { PanelListComponent } from './shared/components/panel-list/panel-list.component';
 import { TimesubtableComponent } from './shared/components/timesubtable/timesubtable.component';
+import { AptitudeComponent } from './shared/components/aptitude/aptitude.component';
 
 import { NotfoundComponent } from './shared/page/notfound/notfound.component';
 
@@ -52,6 +53,7 @@ const routes: Routes = [
     PanelInfoComponent,
     PanelListComponent,
     TimesubtableComponent,
+    AptitudeComponent,
     HomeComponent,
     NotfoundComponent
   ],

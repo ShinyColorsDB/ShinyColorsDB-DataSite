@@ -2,6 +2,7 @@ import { Idol } from "./idol";
 import { CardIdolEvent } from "./cardidolevent";
 import { CardMemoryAppeal } from "./cardmemoryappeal";
 import { PanelSlot } from "./panelslot";
+import { CardProduceAptitude } from "./cardProduceAptitude";
 
 export interface PCard {
     cardIndex: number;
@@ -17,5 +18,6 @@ export interface PCard {
     cardIdolEvents: CardIdolEvent[];
     cardMemoryAppeals: CardMemoryAppeal[];
     cardPanels: PanelSlot[];
+    cardProduceAptitudes: CardProduceAptitude[];
     enzaId: number;
 }
