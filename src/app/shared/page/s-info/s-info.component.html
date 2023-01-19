@@ -23,7 +23,7 @@
       </div>
 
       <div
-        class="col-lg-12 col-md-12 p-2"
+        class="col-12 p-2"
         *ngIf="this.sCardInfo.cardSupportEvents.length"
       >
         <table class="table table-hover">
@@ -45,6 +45,20 @@
               <td>{{ event.eventAddVi }}</td>
               <td>{{ event.eventAddMe }}</td>
               <td>{{ event.eventAddSp }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-12 p-2">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>ファイトスキル</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{this.sCardInfo.cardSupportFightSkills.ftComment}}</td>
             </tr>
           </tbody>
         </table>
