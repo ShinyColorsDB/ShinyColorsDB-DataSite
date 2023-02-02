@@ -6,6 +6,7 @@ import {
   Output,
   EventEmitter,
   Inject,
+  OnChanges,
 } from '@angular/core';
 import { PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
@@ -21,7 +22,7 @@ import * as Honeycomb from 'honeycomb-grid';
   templateUrl: './panel-info.component.html',
   styleUrls: ['./panel-info.component.css'],
 })
-export class PanelInfoComponent implements OnInit {
+export class PanelInfoComponent implements OnChanges {
   @Input()
   panelInfo!: any[];
 
@@ -88,7 +89,7 @@ export class PanelInfoComponent implements OnInit {
     this.elRef.nativeElement.appendChild(this.app.view);
   }
 
-  ngOnInit(): void {
+  ngOnChanges(): void {
     if (!isPlatformBrowser(this.platformId)) {
       return;
     }
