@@ -1,9 +1,11 @@
+<!--ngx-masonry class="row d-flex justify-content-center" [options]="{ gutter: 10 }"-->
+
 <div class="row d-flex justify-content-center" *ngIf="this.pCardInfo">
-  <div class="col-12 ">
+  <div class="col-12">
     <h1>{{ this.pCardInfo.cardName }}</h1>
   </div>
 
-  <div class="col-lg-6 col-md-12 row d-block p-1">
+  <div class="col-lg-6 col-md-12 row p-1 d-flex" data-masonry='{"percentPosition": true }'>
     <ngb-carousel
       class="col-12"
       [interval]="5000">
@@ -140,7 +142,7 @@
       </div>
     </div>
   </div>
-  <div class="col-lg-6 col-md-12 row p-1">
+  <div class="col-lg-6 col-md-12 row p-1 d-flex" data-masonry='{"percentPosition": true }'>
     <app-panel-info
       class="col-12"
       [panelInfo]="this.pCardInfo.cardPanels"
@@ -154,3 +156,4 @@
     </div>
   </div>
 </div>
+<!--/ngx-masonry-->

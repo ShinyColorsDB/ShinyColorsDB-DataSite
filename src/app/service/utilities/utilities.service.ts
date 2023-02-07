@@ -99,6 +99,8 @@ export class UtilitiesService {
         return '暮光卡池';
       case 'PayedGasha':
         return '有償卡池';
+      case 'MvGasha':
+        return '動畫卡池';
       default:
         return '';
     }

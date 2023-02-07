@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { IonicModule } from '@ionic/angular';
+import { NgxMasonryModule } from 'ngx-masonry';
 
 import { TransferHttpCacheModule } from '@nguniversal/common';
 
@@ -62,6 +63,7 @@ const routes: Routes = [
     TransferHttpCacheModule,
     HttpClientModule,
     NgbModule,
+    NgxMasonryModule,
     RouterModule.forRoot(routes, {
       initialNavigation: 'enabledBlocking',
     }),
