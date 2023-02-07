@@ -21,7 +21,7 @@
           class="img-fluid"
           />
       </ng-template>
-      <ng-template ngbSlide *ngIf="this.isSsrCard()" (slid)="onSlidingToMovie($event)">
+      <ng-template ngbSlide *ngIf="this.isSsrCard() && !this.isIdolRoad()" (slid)="onSlidingToMovie($event)">
         <div class="d-none video"></div>
         <video
           class="img-fluid"

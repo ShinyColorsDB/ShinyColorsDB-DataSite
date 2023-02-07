@@ -120,4 +120,8 @@ export class PInfoComponent implements OnInit {
   isSrCard(): boolean {
     return this.utilsService.isSrCard(this.pCardInfo.cardType);
   }
+
+  isIdolRoad(): boolean {
+    return this.pCardInfo.getMethod == "IdolRoad";
+  }
 }
