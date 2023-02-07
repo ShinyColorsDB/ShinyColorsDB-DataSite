@@ -10,7 +10,7 @@ import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
 import { PCard } from '../../interfaces/pcard';
 import { catchError, of } from 'rxjs';
 import { NgbCarousel, NgbSlideEvent } from '@ng-bootstrap/ng-bootstrap';
-import { NgxMasonryOptions } from 'ngx-masonry';
+//import { NgxMasonryOptions } from 'ngx-masonry';
 import { NgbSingleSlideEvent } from '@ng-bootstrap/ng-bootstrap/carousel/carousel';
 import e from 'express';
 

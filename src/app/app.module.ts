@@ -63,7 +63,7 @@ const routes: Routes = [
     TransferHttpCacheModule,
     HttpClientModule,
     NgbModule,
-    NgxMasonryModule,
+    //NgxMasonryModule,
     RouterModule.forRoot(routes, {
       initialNavigation: 'enabledBlocking',
     }),
