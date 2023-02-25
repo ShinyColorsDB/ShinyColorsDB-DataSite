@@ -1,3 +1,7 @@
 * {
   font-family: LineGothic;
 }
+
+::ng-deep .carousel-inner .carousel-item {
+  font-size: 0;
+}

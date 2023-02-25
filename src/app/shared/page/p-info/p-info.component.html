@@ -1,6 +1,4 @@
-<!--ngx-masonry class="row d-flex justify-content-center" [options]="{ gutter: 10 }"-->
-
-<div class="row d-flex justify-content-center" *ngIf="this.pCardInfo">
+<div class="row d-flex justify-content-center align-items-start" *ngIf="this.pCardInfo">
   <div class="col-12">
     <h1>{{ this.pCardInfo.cardName }}</h1>
   </div>
@@ -10,7 +8,6 @@
       class="col-12"
       [interval]="5000">
       <ng-template ngbSlide (slid)="onSlidingToStatic($event)">
-        <div class="d-none static"></div>
         <img
           [src]="
           this.staticUrl +
@@ -21,10 +18,11 @@
           class="img-fluid"
           />
       </ng-template>
-      <ng-template ngbSlide *ngIf="this.isSsrCard() && !this.isIdolRoad()" (slid)="onSlidingToMovie($event)">
-        <div class="d-none video"></div>
+      <ng-template ngbSlide *ngIf="this.isSsrCard() && !this.isIdolRoad()" (slid)="onSlidingToMovie($event)" class="test">
         <video
           class="img-fluid"
+          width=1136
+          height=640
           autoplay
           loop
           muted
@@ -39,7 +37,6 @@
           (ended)="this.onMovieEnded()"></video>
       </ng-template>
       <ng-template ngbSlide (slid)="onSlidingToStatic($event)">
-        <div class="d-none static"></div>
         <img
           [src]="
           this.staticUrl +
@@ -51,9 +48,10 @@
           />
       </ng-template>
       <ng-template ngbSlide *ngIf="this.isSsrCard() || this.isSrCard()" (slid)="onSlidingToMovie($event)">
-        <div class="d-none video"></div>
         <video
           class="img-fluid"
+          width=1136
+          height=640
           autoplay
           loop
           muted
@@ -156,4 +154,3 @@
     </div>
   </div>
 </div>
-<!--/ngx-masonry-->

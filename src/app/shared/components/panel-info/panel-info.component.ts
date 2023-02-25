@@ -13,9 +13,9 @@ import { isPlatformBrowser } from '@angular/common';
 
 import { environment } from 'src/environments/environment';
 
-
 import * as PIXI from 'pixi.js';
 import * as Honeycomb from 'honeycomb-grid';
+
 
 @Component({
   selector: 'app-panel-info',
@@ -80,6 +80,7 @@ export class PanelInfoComponent implements OnChanges {
       console.log('platform is not browser');
       return;
     }
+    PIXI.utils.skipHello();
     this.app = new PIXI.Application({
       width: 1136,
       height: 640,
@@ -121,12 +122,13 @@ export class PanelInfoComponent implements OnChanges {
           //set slot color based on number
           switch (this.panelInfo[index].panelIsGold) {
             case 0:
+            case 1:
               graphics.beginFill(0xffffff, 1);
               break;
-            case 1:
+            case 2:
               graphics.beginFill(0xffd700, 1);
               break;
-            case 2:
+            case 3:
               graphics.beginFill(0xff94a2, 1);
               break;
           }
