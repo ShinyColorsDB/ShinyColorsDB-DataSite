@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 
@@ -19,7 +19,7 @@ import { catchError, of } from 'rxjs';
     class: 'col-lg-10 col-md-8 col-sm-12 overflow-auto h-100',
   },
 })
-export class SInfoComponent implements OnInit {
+export class SInfoComponent implements OnInit, OnChanges {
   sCardUuid!: string;
   sCardInfo!: SCard;
   staticUrl: string;
@@ -68,6 +68,10 @@ export class SInfoComponent implements OnInit {
     });
   }
 
+  ngOnChanges(): void {
+
+  }
+
   translateGetMethod(): string {
     return this.utilsService.translateGetMethod(this.sCardInfo.getMethod);
   }
@@ -88,6 +92,7 @@ export class SInfoComponent implements OnInit {
     this.thisBound = this.supportSkillBound[this.sCardInfo.cardType as keyof typeof this.supportSkillBound];
     //let current = 0;
 
+    this.boundedSkillList = [];
     this.boundedSkillList.length = this.thisBound.length;
     this.boundedSkillList.fill(new Map<string, CardSupportSkill>());
 
