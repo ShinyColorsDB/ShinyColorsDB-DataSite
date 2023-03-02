@@ -148,6 +148,8 @@ export class PanelInfoComponent implements OnChanges {
         } else {
           //otherwise, simply color with grey
           graphics.beginFill(0x787878, 1);
+          graphics.interactive = false;
+          graphics.buttonMode = false;
         }
 
         // move the "pencil" to the first corner

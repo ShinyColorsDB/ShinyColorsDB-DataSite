@@ -3,7 +3,7 @@
     <h1>{{ this.pCardInfo.cardName }}</h1>
   </div>
 
-  <div class="col-lg-6 col-md-12 row p-1 d-flex" data-masonry='{"percentPosition": true }'>
+  <div class="col-lg-6 col-md-12 row p-1 d-flex">
     <ngb-carousel
       class="col-12"
       [interval]="5000">
@@ -18,7 +18,7 @@
           class="img-fluid"
           />
       </ng-template>
-      <ng-template ngbSlide *ngIf="this.isSsrCard() && !this.isIdolRoad()" (slid)="onSlidingToMovie($event)" class="test">
+      <ng-template ngbSlide *ngIf="this.isSsrCard() && !this.isIdolRoad()" (slid)="onSlidingToMovie($event)">
         <video
           class="img-fluid"
           width=1136
@@ -140,7 +140,7 @@
       </div>
     </div>
   </div>
-  <div class="col-lg-6 col-md-12 row p-1 d-flex" data-masonry='{"percentPosition": true }'>
+  <div class="col-lg-6 col-md-12 row p-1 d-flex">
     <app-panel-info
       class="col-12"
       [panelInfo]="this.pCardInfo.cardPanels"

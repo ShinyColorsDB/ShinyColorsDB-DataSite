@@ -19,7 +19,7 @@ import { catchError, of } from 'rxjs';
     class: 'col-lg-10 col-md-8 col-sm-12 overflow-auto h-100',
   },
 })
-export class SInfoComponent implements OnInit, OnChanges {
+export class SInfoComponent implements OnInit {
   sCardUuid!: string;
   sCardInfo!: SCard;
   staticUrl: string;
@@ -66,10 +66,6 @@ export class SInfoComponent implements OnInit, OnChanges {
           this.generateSkillBound();
         });
     });
-  }
-
-  ngOnChanges(): void {
-
   }
 
   translateGetMethod(): string {

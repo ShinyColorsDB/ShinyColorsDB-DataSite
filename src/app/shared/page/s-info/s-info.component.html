@@ -122,31 +122,11 @@
           </tbody>
         </table>
       </div>
-      <ngb-carousel class="col-12 d-block" *ngIf="this.boundedSkillList">
-        <ng-template
-          ngbSlide
-          *ngFor="
-            let bounded of this.boundedSkillList;
-            let indexOfelement = index
-          "
-        >
-          <h5>Level: {{ this.thisBound[indexOfelement] }}</h5>
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                <th>技能名稱</th>
-                <th>技能描述</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let skill of bounded | keyvalue">
-                <td>{{ skill.value.skillName }}</td>
-                <td>{{ skill.value.skillDesc }}</td>
-              </tr>
-            </tbody>
-          </table>
-        </ng-template>
-      </ngb-carousel>
+      <app-supskill-card
+        [rarity]="this.sCardInfo.cardType"
+        [supskills]="this.sCardInfo.cardSupportSkills"
+      >
+      </app-supskill-card>
     </div>
   </div>
   <div class="col-lg-6 col-md-12 row p-1">

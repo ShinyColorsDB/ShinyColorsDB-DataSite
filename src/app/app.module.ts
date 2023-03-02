@@ -21,6 +21,7 @@ import { PanelInfoComponent } from './shared/components/panel-info/panel-info.co
 import { PanelListComponent } from './shared/components/panel-list/panel-list.component';
 import { TimesubtableComponent } from './shared/components/timesubtable/timesubtable.component';
 import { AptitudeComponent } from './shared/components/aptitude/aptitude.component';
+import { SupskillCardComponent } from './shared/components/supskill-card/supskill-card.component';
 
 import { NotfoundComponent } from './shared/page/notfound/notfound.component';
 
@@ -54,6 +55,7 @@ const routes: Routes = [
     PanelListComponent,
     TimesubtableComponent,
     AptitudeComponent,
+    SupskillCardComponent,
     HomeComponent,
     NotfoundComponent
   ],

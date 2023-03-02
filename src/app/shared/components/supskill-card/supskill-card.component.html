@@ -1,0 +1,36 @@
+<div class="pb-2">サポートスキル</div>
+<div class="card ps-0 pe-0">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+        <a href="javascript: void()" class="nav-link disabled">Level: </a>
+      </li>
+      <li class="nav-item" *ngFor="let k of this.getBoundFromRarity(); let indexOfelement= index;">
+        <a href="javascript: void()"
+          class="nav-link"
+          [ngClass]="{'active': this.activeArray[indexOfelement], 'disabled': this.activeArray[indexOfelement]}"
+          (click)="this.setActiveTab(indexOfelement);">
+          {{k}}
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body">
+    <div *ngFor="let i of this.getBoundFromRarity(); let k = index" [ngClass]="{'d-none': !this.activeArray[k]}">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>技能名稱</th>
+            <th>技能敘述</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let j of this.getSkillWithinBound(k)">
+            <td>{{j.skillName}}</td>
+            <td>{{j.skillDesc}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
