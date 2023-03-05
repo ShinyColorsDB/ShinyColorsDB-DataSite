@@ -3,20 +3,25 @@
   <div class="card-header">
     <ul class="nav nav-tabs card-header-tabs">
       <li class="nav-item">
-        <a href="javascript: void()" class="nav-link disabled">Level: </a>
+        <a href="javascript: void()" class="nav-link disabled d-none d-md-block">
+          Level:
+        </a>
+        <a href="javascript: void()" class="nav-link disabled d-md-none">
+          Lv:
+        </a>
       </li>
-      <li class="nav-item" *ngFor="let k of this.getBoundFromRarity(); let indexOfelement= index;">
+      <li class="nav-item" *ngFor="let thisBound of this.getBoundFromRarity(); let indexOfelement= index;">
         <a href="javascript: void()"
           class="nav-link"
           [ngClass]="{'active': this.activeArray[indexOfelement], 'disabled': this.activeArray[indexOfelement]}"
           (click)="this.setActiveTab(indexOfelement);">
-          {{k}}
+          {{thisBound}}
         </a>
       </li>
     </ul>
   </div>
   <div class="card-body">
-    <div *ngFor="let i of this.getBoundFromRarity(); let k = index" [ngClass]="{'d-none': !this.activeArray[k]}">
+    <div *ngFor="let i of this.getBoundFromRarity(); let thisBound = index" [ngClass]="{'d-none': !this.activeArray[thisBound]}">
       <table class="table table-hover">
         <thead>
           <tr>
@@ -25,7 +30,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let j of this.getSkillWithinBound(k)">
+          <tr *ngFor="let j of this.getSkillWithinBound(thisBound)">
             <td>{{j.skillName}}</td>
             <td>{{j.skillDesc}}</td>
           </tr>

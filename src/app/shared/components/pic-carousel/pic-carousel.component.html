@@ -1,0 +1,64 @@
+<ngb-carousel class="col-12" [interval]="0" #picCarousel="ngbCarousel">
+  <ng-template ngbSlide id="img1">
+    <img
+      #pic1
+      [src]="
+      this.staticUrl +
+      '/pictures/bigPic/' +
+      this.img1 +
+      '.jpg'
+      "
+      class="img-fluid"
+      />
+  </ng-template>
+  <ng-template ngbSlide *ngIf="this.displayMov1" id="mov1">
+    <video
+      #mov1
+      class="img-fluid"
+      width=1136
+      height=640
+      autoplay
+      loop
+      muted
+      [src]="
+      'https://viewer.shinycolors.moe/movies/idols/card/' +
+      this.idolId +
+      '.mp4'
+      "
+      type="video/mp4"
+      oncanplay="this.play()"
+      onloadedmetadata="this.muted=true"
+      (ended)="this.onMovieEnded()"></video>
+  </ng-template>
+  <ng-template ngbSlide id="img2">
+    <img
+      #pic2
+      [src]="
+      this.staticUrl +
+      '/pictures/bigPic/' +
+      this.img2 +
+      '.jpg'
+      "
+      class="img-fluid"
+      />
+  </ng-template>
+  <ng-template ngbSlide *ngIf="this.displayMov2" id="mov2">
+    <video
+      #mov2
+      class="img-fluid"
+      width=1136
+      height=640
+      autoplay
+      loop
+      muted
+      [src]="
+      'https://viewer.shinycolors.moe/movies/idols/card_costume/' +
+      this.idolId +
+      '.mp4'
+      "
+      type="video/mp4"
+      oncanplay="this.play()"
+      onloadedmetadata="this.muted=true"
+      (ended)="onMovieEnded()"></video>
+  </ng-template>
+</ngb-carousel>

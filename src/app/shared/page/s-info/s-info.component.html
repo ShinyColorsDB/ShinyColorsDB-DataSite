@@ -133,7 +133,7 @@
     <app-panel-info
       class="col-12"
       [panelInfo]="this.sCardInfo.cardPanels"
-      [isSr]="this.utilsService.isSrCard(this.sCardInfo.cardType)"
+      [isSr]="this.isSrCard()"
       (stateChanged)="updateState($event)"
     ></app-panel-info>
     <div class="container col-12 pt-3 w-100 row m-0">

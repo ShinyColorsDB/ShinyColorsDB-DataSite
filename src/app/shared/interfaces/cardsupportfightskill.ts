@@ -1,4 +1,4 @@
-export interface cardSupportFightSkill {
+export interface CardSupportFightSkill {
   ftIndex: number;
   enzaId: string;
   ftComment: string;

@@ -1,0 +1,26 @@
+<h3>思い出</h3>
+<table class="table col-12 ">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th scope="col">技能名稱</th>
+      <th scope="col">Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let mem of this.memoryList; let i = index">
+      <tr>
+        <td rowspan="2" class="align-middle" style="font-weight: bold; font-family: consolas; ">Lv. {{ i + 1 }}</td>
+        <td>{{ mem.memoryTitle }}</td>
+        <td rowspan="2" class="align-middle">
+          <span style="white-space: pre-wrap">{{ this.addLineBreak(mem.linkSkillDesc) }}</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="align-middle">
+          <span style="white-space: pre-wrap">{{ this.addLineBreak(mem.memoryDesc) }}</span>
+        </td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>

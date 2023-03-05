@@ -22,6 +22,8 @@ import { PanelListComponent } from './shared/components/panel-list/panel-list.co
 import { TimesubtableComponent } from './shared/components/timesubtable/timesubtable.component';
 import { AptitudeComponent } from './shared/components/aptitude/aptitude.component';
 import { SupskillCardComponent } from './shared/components/supskill-card/supskill-card.component';
+import { PicCarouselComponent } from './shared/components/pic-carousel/pic-carousel.component';
+import { MemoryTableComponent } from './shared/components/memory-table/memory-table.component';
 
 import { NotfoundComponent } from './shared/page/notfound/notfound.component';
 
@@ -36,8 +38,8 @@ const routes: Routes = [
   { path: 'idolinfo', component: IInfoComponent },
   { path: 'pcardinfo', component: PInfoComponent },
   { path: 'scardinfo', component: SInfoComponent },
-  { path: 'notfound', component: NotfoundComponent },
   { path: 'timetable', component: TimetableComponent },
+  { path: 'notfound', component: NotfoundComponent },
   { path: '**', redirectTo: 'notfound' }
 ];
 
@@ -56,6 +58,8 @@ const routes: Routes = [
     TimesubtableComponent,
     AptitudeComponent,
     SupskillCardComponent,
+    PicCarouselComponent,
+    MemoryTableComponent,
     HomeComponent,
     NotfoundComponent
   ],

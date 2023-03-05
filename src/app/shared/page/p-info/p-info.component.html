@@ -4,68 +4,13 @@
   </div>
 
   <div class="col-lg-6 col-md-12 row p-1 d-flex">
-    <ngb-carousel
-      class="col-12"
-      [interval]="5000">
-      <ng-template ngbSlide (slid)="onSlidingToStatic($event)">
-        <img
-          [src]="
-          this.staticUrl +
-          '/pictures/bigPic/' +
-          this.pCardInfo.bigPic1 +
-          '.jpg'
-          "
-          class="img-fluid"
-          />
-      </ng-template>
-      <ng-template ngbSlide *ngIf="this.isSsrCard() && !this.isIdolRoad()" (slid)="onSlidingToMovie($event)">
-        <video
-          class="img-fluid"
-          width=1136
-          height=640
-          autoplay
-          loop
-          muted
-          [src]="
-          'https://viewer.shinycolors.moe/movies/idols/card/' +
-          this.pCardInfo.enzaId +
-          '.mp4'
-          "
-          type="video/mp4"
-          oncanplay="this.play()"
-          onloadedmetadata="this.muted= true"
-          (ended)="this.onMovieEnded()"></video>
-      </ng-template>
-      <ng-template ngbSlide (slid)="onSlidingToStatic($event)">
-        <img
-          [src]="
-          this.staticUrl +
-          '/pictures/bigPic/' +
-          this.pCardInfo.bigPic2 +
-          '.jpg'
-          "
-          class="img-fluid"
-          />
-      </ng-template>
-      <ng-template ngbSlide *ngIf="this.isSsrCard() || this.isSrCard()" (slid)="onSlidingToMovie($event)">
-        <video
-          class="img-fluid"
-          width=1136
-          height=640
-          autoplay
-          loop
-          muted
-          [src]="
-          'https://viewer.shinycolors.moe/movies/idols/card_costume/' +
-          this.pCardInfo.enzaId +
-          '.mp4'
-          "
-          type="video/mp4"
-          oncanplay="this.play()"
-          onloadedmetadata="this.muted= true"
-          (ended)="onMovieEnded()"></video>
-      </ng-template>
-    </ngb-carousel>
+    <app-pic-carousel
+      [img1]="this.pCardInfo.bigPic1"
+      [img2]="this.pCardInfo.bigPic2"
+      [idolId]="this.pCardInfo.enzaId"
+      [displayMov1]="this.isSsrCard() && !this.isIdolRoad()"
+      [displayMov2]="this.isSsrCard() || this.isSrCard()">
+    </app-pic-carousel>
     <div class="container col-12 pt-3 row m-0">
       <div class="col-lg-4 col-md-12" style="font-family: Meiryo">
         實裝日期: {{ this.pCardInfo.releaseDate }}
@@ -121,22 +66,7 @@
         <app-aptitude [apts]="this.pCardInfo.cardProduceAptitudes"></app-aptitude>
       </div>
       <div class="col-12">
-        <table class="table table-hover col-12 ">
-          <thead>
-            <tr>
-              <th scope="col">技能名稱</th>
-              <th scope="col">效果</th>
-              <th scope="col col-">Link</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let mem of this.getMemoryAppeal()">
-              <td>{{ mem.memoryTitle }}</td>
-              <td>{{ mem.memoryDesc }}</td>
-              <td>{{ mem.linkSkillDesc }}</td>
-            </tr>
-          </tbody>
-        </table>
+        <app-memory-table [memoryList]="this.getMemoryAppeal()"></app-memory-table>
       </div>
     </div>
   </div>
@@ -144,7 +74,7 @@
     <app-panel-info
       class="col-12"
       [panelInfo]="this.pCardInfo.cardPanels"
-      [isSr]="this.utilsService.isSrCard(this.pCardInfo.cardType)"
+      [isSr]="this.isSrCard()"
       (stateChanged)="updateState($event)"></app-panel-info>
     <div class="container col-12 pt-3 w-100 row m-0">
       <app-panel-list

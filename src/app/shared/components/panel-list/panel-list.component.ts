@@ -15,4 +15,12 @@ export class PanelListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void { }
+
+  addLineBreak(content: string): string {
+    return content.replace(/\//g, '/\n');
+  }
+
+  addPlusRule(content: string): string {
+    return content.replace(/(.*)(\[.*\])/g, '$2\n$1');
+  }
 }

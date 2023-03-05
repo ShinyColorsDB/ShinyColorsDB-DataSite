@@ -1,0 +1,12 @@
+::ng-deep h3 {
+  margin: 0;
+}
+
+::ng-deep .popover-body {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.forCurser:hover {
+  cursor: pointer;
+}

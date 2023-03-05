@@ -38,7 +38,7 @@ export class SInfoComponent implements OnInit {
   thisBound!: number[];
 
   constructor(
-    public utilsService: UtilitiesService,
+    private utilsService: UtilitiesService,
     private scApiService: ShinyColorsApiService,
     private route: ActivatedRoute,
     private router: Router,
@@ -63,7 +63,6 @@ export class SInfoComponent implements OnInit {
             this.meta.updateTag(e);
           });
           this.utilsService.emitActiveIds([this.sCardInfo.idol.idolId, this.sCardInfo.idol.unitId]);
-          this.generateSkillBound();
         });
     });
   }
@@ -84,24 +83,11 @@ export class SInfoComponent implements OnInit {
     return this.utilsService.translateProficiency(p);
   }
 
-  generateSkillBound() {
-    this.thisBound = this.supportSkillBound[this.sCardInfo.cardType as keyof typeof this.supportSkillBound];
-    //let current = 0;
-
-    this.boundedSkillList = [];
-    this.boundedSkillList.length = this.thisBound.length;
-    this.boundedSkillList.fill(new Map<string, CardSupportSkill>());
-
-    this.thisBound.forEach((i, index) => {
-      for (let j of this.sCardInfo.cardSupportSkills) {
-        if (j.gainedAt <= i) {
-          this.boundedSkillList[index].set(j.skillName, j);
-        }
-      }
-    });
-  }
-
   updateState($event: number): void {
     this.highlight = $event
+  }
+
+  isSrCard(): boolean {
+    return this.utilsService.isSrCard(this.sCardInfo.cardType);
   }
 }

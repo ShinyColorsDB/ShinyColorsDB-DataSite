@@ -9,10 +9,8 @@ import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
 
 import { PCard } from '../../interfaces/pcard';
 import { catchError, of } from 'rxjs';
-import { NgbCarousel, NgbSlideEvent } from '@ng-bootstrap/ng-bootstrap';
-//import { NgxMasonryOptions } from 'ngx-masonry';
+import { NgbCarousel } from '@ng-bootstrap/ng-bootstrap';
 import { NgbSingleSlideEvent } from '@ng-bootstrap/ng-bootstrap/carousel/carousel';
-import e from 'express';
 
 @Component({
   selector: 'app-p-info',
@@ -23,18 +21,15 @@ import e from 'express';
   },
 })
 export class PInfoComponent implements OnInit {
-  @ViewChild(NgbCarousel, { static: true }) carousel!: NgbCarousel;
 
   pCardUuid!: string;
   pCardInfo!: PCard;
   staticUrl: string;
 
   highlight!: number;
-  SSRMovie!: HTMLElement;
-  SRMovie!: HTMLElement;
 
   constructor(
-    public utilsService: UtilitiesService,
+    private utilsService: UtilitiesService,
     private scApiService: ShinyColorsApiService,
     private route: ActivatedRoute,
     private router: Router,
@@ -64,7 +59,7 @@ export class PInfoComponent implements OnInit {
         });
     });
   }
-
+/**
   onSlidingToStatic(slideEvent: NgbSingleSlideEvent) {
     if (!this.carousel) {
       return;
@@ -86,7 +81,7 @@ export class PInfoComponent implements OnInit {
       this.carousel.next();
     }, 1000);
   }
-
+*/
   getIdolEvents() {
     return this.pCardInfo.cardIdolEvents.filter(
       (e) => e.eventCategory != 'アフターストーリー'
