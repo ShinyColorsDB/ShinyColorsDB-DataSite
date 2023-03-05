@@ -10,3 +10,15 @@
 .forCurser:hover {
   cursor: pointer;
 }
+
+tbody:hover,
+tr.hover,
+th.hover,
+td.hover,
+tr.hoverable:hover {
+  background-color: #CCC;
+}
+
+.wrapup{
+  white-space: pre-wrap;
+}

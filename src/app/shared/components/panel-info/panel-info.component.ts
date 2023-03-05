@@ -137,13 +137,15 @@ export class PanelInfoComponent implements OnChanges {
           graphics.buttonMode = true;
           graphics.on('pointerdown', () => {
             this.stateChanged.emit(index);
-            const scrollMe = document.getElementById('scrollMe');
-            if (scrollMe) {
-              scrollMe.scrollIntoView({
-                behavior: 'smooth',
-                block: 'center',
-              });
-            }
+            setTimeout(() => {
+              const scrollMe = document.getElementById('scrollMe');
+              if (scrollMe) {
+                scrollMe.scrollIntoView({
+                  behavior: 'smooth',
+                  block: 'center',
+                });
+              }
+            }, 200);
           });
         } else {
           //otherwise, simply color with grey

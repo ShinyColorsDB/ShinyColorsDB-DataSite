@@ -91,6 +91,7 @@ export class IInfoComponent implements OnInit {
           this.resetCards();
 
           this.idolInfo = data;
+          this.togglePS = true;
 
           this.title.setTitle(this.idolInfo.idolName);
           this.utilsService.generateIdolMeta(this.idolInfo).forEach(e => {

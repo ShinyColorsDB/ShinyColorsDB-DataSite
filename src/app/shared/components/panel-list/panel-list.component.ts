@@ -1,18 +1,26 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-panel-list',
   templateUrl: './panel-list.component.html',
   styleUrls: ['./panel-list.component.css'],
 })
-export class PanelListComponent implements OnInit {
+export class PanelListComponent implements OnInit, OnChanges {
+  @ViewChild('scrollMe') scrollMe!: any;
+
   @Input()
   panelInfo!: any[];
 
   @Input()
-  highlited!: number;
+  highlited: number = -1;
 
   constructor() { }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes["panelInfo"] && changes["panelInfo"].currentValue != changes["panelInfo"].previousValue) {
+      this.highlited = -1;
+    }
+  }
 
   ngOnInit(): void { }
 

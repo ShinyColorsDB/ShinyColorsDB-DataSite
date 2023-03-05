@@ -1,3 +1,7 @@
 * {
   font-family: LineGothic;
 }
+
+.noFontSize {
+  font-size: 0;
+}

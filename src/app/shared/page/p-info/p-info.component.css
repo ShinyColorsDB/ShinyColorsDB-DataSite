@@ -5,3 +5,7 @@
 ::ng-deep .carousel-inner .carousel-item {
   font-size: 0;
 }
+
+.noFontSize {
+  font-size: 0;
+}

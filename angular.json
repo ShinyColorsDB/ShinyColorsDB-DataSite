@@ -96,7 +96,8 @@
                 "styles": {
                   "minify": true,
                   "inlineCritical": false
-                }
+                },
+                "fonts": true
               },
               "outputHashing": "all",
               "sourceMap": true,

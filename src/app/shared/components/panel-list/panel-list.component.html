@@ -5,12 +5,11 @@
       <th>技能</th>
     </tr>
   </thead>
-  <tbody class="overflow-auto">
-    <ng-container *ngFor="let slot of this.panelInfo; let i= index">
+  <tbody *ngFor="let slot of this.panelInfo; let i= index">
     <tr [ngClass]="{ 'bg-warning': i == this.highlited }"
       [id]="i == this.highlited ? 'scrollMe' : ''"
       [attr.data-index]="i">
-      <td rowspan="2" class="align-middle">
+      <td rowspan="2" class="align-middle text-center">
         <img
           [src]="
           'https://static.shinycolors.moe/pictures/skillIcon/' +
@@ -22,7 +21,7 @@
           />
       </td>
       <td class="align-middle">
-        <span style="white-space: pre-wrap" class="align-middle">{{ slot.skillTitle }}</span>
+        <span class="align-middle wrapup">{{ slot.skillTitle }}</span>
         <ng-container *ngIf="slot.linkSkillId">
           <img src="https://static.shinycolors.moe/pictures/linkIcon/ui/link_skill_button.png"
             alt="" [ngbPopover]="linkPop" popoverTitle="リンクアピール" placement="left" class="forCurser float-end align-middle img-fluid">
@@ -33,7 +32,7 @@
                 width="50px" height="50px">
             </div>
             <div class="pt-1">
-              <span style="white-space: pre-wrap">{{ slot.linkSkillDesc }}</span>
+              <span class="wrapup">{{ slot.linkSkillDesc }}</span>
             </div>
           </ng-template>
         </ng-container>
@@ -42,7 +41,7 @@
             alt="" [ngbPopover]="plusPop" popoverTitle="プラスアピール" placement="left" class="forCurser float-end align-middle img-fluid">
           <ng-template #plusPop>
             <div>
-              <span style="white-space: pre-wrap">{{ this.addPlusRule(slot.plusSkillDesc) }}</span>
+              <span class="wrapup">{{ this.addPlusRule(slot.plusSkillDesc) }}</span>
             </div>
           </ng-template>
         </ng-container>
@@ -50,9 +49,8 @@
     </tr>
     <tr [ngClass]="{ 'bg-warning': i == this.highlited }">
       <td>
-        <span style="white-space: pre-wrap">{{ this.addLineBreak(slot.skillDesc) }}</span>
+        <span class="wrapup">{{ this.addLineBreak(slot.skillDesc) }}</span>
       </td>
     </tr>
-    </ng-container>
   </tbody>
 </table>

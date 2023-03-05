@@ -12,16 +12,19 @@
       [displayMov2]="this.isSsrCard() || this.isSrCard()">
     </app-pic-carousel>
     <div class="container col-12 pt-3 row m-0">
-      <div class="col-lg-4 col-md-12" style="font-family: Meiryo">
+      <div class="col-lg-4 col-md-12 text-center" style="font-family: Meiryo">
         實裝日期: {{ this.pCardInfo.releaseDate }}
       </div>
-      <div class="col-lg-4 col-md-12" style="font-family: Meiryo">
+      <div class="col-lg-4 col-md-12 text-center" style="font-family: Meiryo">
         取得方式: {{ this.translateGetMethod() }}
       </div>
-      <div class="col-lg-4 col-md-12" style="font-family: Meiryo">
+      <div class="col-lg-4 col-md-12 text-center" style="font-family: Meiryo">
         稀有度 : {{ this.pCardInfo.cardType }}
       </div>
 
+      <h3 class="col-12 pt-2 ">
+        イベント
+      </h3>
       <div class="col-lg-6 col-md-12">
         <table class="table table-hover ">
           <thead>
@@ -62,9 +65,13 @@
           </tbody>
         </table>
       </div>
+      <h3 class="col-12 ">
+        適性
+      </h3>
       <div class="col-12">
         <app-aptitude [apts]="this.pCardInfo.cardProduceAptitudes"></app-aptitude>
       </div>
+      <h3 class="">思い出</h3>
       <div class="col-12">
         <app-memory-table [memoryList]="this.getMemoryAppeal()"></app-memory-table>
       </div>
@@ -72,7 +79,7 @@
   </div>
   <div class="col-lg-6 col-md-12 row p-1 d-flex">
     <app-panel-info
-      class="col-12"
+      class="col-12 noFontSize"
       [panelInfo]="this.pCardInfo.cardPanels"
       [isSr]="this.isSrCard()"
       (stateChanged)="updateState($event)"></app-panel-info>

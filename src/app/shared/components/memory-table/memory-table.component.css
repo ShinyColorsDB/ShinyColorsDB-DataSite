@@ -1,0 +1,17 @@
+tbody:hover,
+tr.hover,
+th.hover,
+td.hover,
+tr.hoverable:hover {
+  background-color: #CCC;
+}
+
+.forLevel {
+  font-family: consolas;
+  font-weight: bolder;
+  font-size: larger;
+}
+
+.wrapup {
+  white-space: pre-wrap;
+}
