@@ -1,17 +1,18 @@
 <div class="row d-flex justify-content-center align-items-start" *ngIf="this.pCardInfo">
-  <div class="col-12">
+  <div class="col-12 p-0">
     <h1>{{ this.pCardInfo.cardName }}</h1>
   </div>
 
-  <div class="col-lg-6 col-md-12 row p-1 d-flex">
+  <div class="col-lg-6 col-md-12 row p-0 m-0">
     <app-pic-carousel
       [img1]="this.pCardInfo.bigPic1"
       [img2]="this.pCardInfo.bigPic2"
       [idolId]="this.pCardInfo.enzaId"
       [displayMov1]="this.isSsrCard() && !this.isIdolRoad()"
-      [displayMov2]="this.isSsrCard() || this.isSrCard()">
+      [displayMov2]="this.isSsrCard() || this.isSrCard()"
+      class="p-2">
     </app-pic-carousel>
-    <div class="container col-12 pt-3 row m-0">
+    <div class="container col-12 row m-0 p-0 pt-1">
       <div class="col-lg-4 col-md-12 text-center" style="font-family: Meiryo">
         實裝日期: {{ this.pCardInfo.releaseDate }}
       </div>
@@ -19,7 +20,7 @@
         取得方式: {{ this.translateGetMethod() }}
       </div>
       <div class="col-lg-4 col-md-12 text-center" style="font-family: Meiryo">
-        稀有度 : {{ this.pCardInfo.cardType }}
+        稀有度: {{ this.pCardInfo.cardType }}
       </div>
 
       <h3 class="col-12 pt-2">
@@ -77,13 +78,13 @@
       </div>
     </div>
   </div>
-  <div class="col-lg-6 col-md-12 row p-1 d-flex">
+  <div class="col-lg-6 col-md-12 row p-0 m-0">
     <app-panel-info
-      class="col-12 noFontSize"
+      class="col-12 noFontSize p-2"
       [panelInfo]="this.pCardInfo.cardPanels"
       [isSr]="this.isSrCard()"
       (stateChanged)="updateState($event)"></app-panel-info>
-    <div class="container col-12 pt-3 w-100 row m-0">
+    <div class="container col-12 pt-3 row m-0 p-0">
       <app-panel-list
         [panelInfo]="this.pCardInfo.cardPanels"
         [highlited]="this.highlight"></app-panel-list>

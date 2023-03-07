@@ -1,17 +1,17 @@
 <div class="row d-flex justify-content-center align-items-start" *ngIf="this.sCardInfo">
-  <div class="col-12">
-    <h1 class="ps-1">{{ this.sCardInfo.cardName }}</h1>
+  <div class="col-12 p-0">
+    <h1>{{ this.sCardInfo.cardName }}</h1>
   </div>
 
-  <div class="col-lg-6 col-md-12 row d-block p-1">
+  <div class="col-lg-6 col-md-12 row p-0 m-0">
     <img
       [src]="
       this.staticUrl + '/pictures/bigPic/' + this.sCardInfo.bigPic1 + '.jpg'
       "
       alt=""
-      class="img-fluid col-12"
+      class="img-fluid col-12 p-2"
       />
-    <div class="container col-12 pt-3 row m-0">
+    <div class="container col-12 row m-0 p-0 pt-1">
       <div class="col-lg-4 col-md-12 text-center" style="font-family: Meiryo">
         實裝日期: {{ this.sCardInfo.releaseDate }}
       </div>
@@ -19,7 +19,7 @@
         取得方式: {{ this.translateGetMethod() }}
       </div>
       <div class="col-lg-4 col-md-12 text-center" style="font-family: Meiryo">
-        稀有度 : {{ this.sCardInfo.cardType }}
+        稀有度: {{ this.sCardInfo.cardType }}
       </div>
 
       <h3 class="col-12 pt-2">
@@ -130,13 +130,13 @@
       </app-supskill-card>
     </div>
   </div>
-  <div class="col-lg-6 col-md-12 row p-1">
+  <div class="col-lg-6 col-md-12 row p-0 m-0">
     <app-panel-info
-      class="col-12 noFontSize"
+      class="col-12 noFontSize p-2"
       [panelInfo]="this.sCardInfo.cardPanels"
       [isSr]="this.isSrCard()"
       (stateChanged)="updateState($event)"></app-panel-info>
-    <div class="container col-12 pt-3 w-100 row m-0">
+    <div class="container col-12 pt-3 row m-0 p-0">
       <app-panel-list
         [panelInfo]="this.sCardInfo.cardPanels"
         [highlited]="this.highlight"></app-panel-list>
