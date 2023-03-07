@@ -1,7 +1,4 @@
-import { Component, Inject, Input, OnInit } from '@angular/core';
-
-import { PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
@@ -10,12 +7,15 @@ import { isPlatformBrowser } from '@angular/common';
 })
 export class SidebarComponent implements OnInit {
   @Input()
-  public showSideBar = false;
+  showSideBar = false;
 
   @Input()
-  public isBigScreen = false;
+  isBigScreen = false;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  @Input()
+  charaListId!: string;
+
+  constructor() {}
 
   ngOnInit(): void {}
 

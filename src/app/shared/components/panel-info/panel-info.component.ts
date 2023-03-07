@@ -168,7 +168,6 @@ export class PanelInfoComponent implements OnChanges {
           const picX = hex.center().x + hex.toPoint().x, picY = hex.center().y + hex.toPoint().y;
 
           // generate trapezoid
-          //const rect = this.generateRect(hex);
           const rect = new PIXI.Graphics();
           rect.beginFill(0xc7c0ad, 1);
           rect.lineStyle(0, 0xc7c0ad);
@@ -195,13 +194,13 @@ export class PanelInfoComponent implements OnChanges {
           skillIcon.position.set(picX, picY - 10);
 
           // slot cost
-          const slot = new PIXI.Text(String(this.cost[index]), { fontFamily: 'Meiryo' });
-          slot.anchor.set(0.5, 0.5);
-          slot.position.set(picX, picY + hex.width() / 2 * (5 / 8) + 5);
+          const thisCost = new PIXI.Text(String(this.cost[index]), { fontFamily: 'lineGothic', fontWeight: "bolder" });
+          thisCost.anchor.set(0.5, 0.5);
+          thisCost.position.set(picX, picY + hex.width() / 2 * (5 / 8) + 7);
 
           cont.addChild(rect);
           cont.addChild(skillIcon);
-          cont.addChild(slot);
+          cont.addChild(thisCost);
         }
 
         this.app.stage.addChild(cont);
@@ -226,6 +225,10 @@ export class PanelInfoComponent implements OnChanges {
     return gridArray;
   }
 
+  //   ----
+  //  /    \
+  //  \    /
+  //   ----
   generateRect(hex: Honeycomb.Hex<{ size: number; orientation: string; }>): PIXI.Graphics {
     const rect = new PIXI.Graphics();
     rect.beginFill(0xc7c0ad, 1);

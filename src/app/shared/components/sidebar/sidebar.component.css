@@ -1,6 +1,4 @@
-::ng-deep .accordion .accordion-item #descHomepage .accordion-body,
-::ng-deep .accordion .accordion-item #descCharaList .accordion-body,
-::ng-deep .accordion .accordion-item #descOthers .accordion-body {
+::ng-deep .accordion .accordion-item .accordion-body {
   padding: 0;
 }
 
@@ -8,7 +6,7 @@
   border: 0;
 }
 
-::ng-deep .accordion .accordion-item #descCharaList .accordion-body .accordion .accordion-item {
+::ng-deep .accordion .accordion-item .accordion-body .accordion .accordion-item {
   border-left: 0;
   border-right: 0;
   border-top: 1px solid #e0e0e0;

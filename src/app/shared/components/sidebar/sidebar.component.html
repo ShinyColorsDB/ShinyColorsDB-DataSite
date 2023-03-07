@@ -12,7 +12,7 @@
     <ngb-accordion
       [closeOthers]="true"
       [destroyOnHide]="false"
-      activeIds="descCharaList">
+      [activeIds]="this.charaListId">
       <ngb-panel cardClass="p-0">
         <ng-template ngbPanelTitle>ShinyColorsDB</ng-template>
         <ng-template ngbPanelContent>
@@ -32,7 +32,7 @@
           </div>
         </ng-template>
       </ngb-panel>
-      <ngb-panel cardClass="p-0">
+      <ngb-panel cardClass="p-0" [id]="this.charaListId">
         <ng-template ngbPanelTitle>角色列表</ng-template>
         <ng-template ngbPanelContent>
           <app-charlist
