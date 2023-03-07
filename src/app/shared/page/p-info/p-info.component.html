@@ -25,8 +25,8 @@
       <h3 class="col-12 pt-2">
         イベント
       </h3>
-      <div class="col-lg-6 col-md-12">
-        <table class="table table-hover ">
+      <div class="col-lg-6 col-md-12 size18">
+        <table class="table table-hover">
           <thead>
             <tr>
               <th scope="col">事件名稱</th>
@@ -45,7 +45,7 @@
           </tbody>
         </table>
       </div>
-      <div class="col-lg-6 col-md-12">
+      <div class="col-lg-6 col-md-12 size18">
         <table class="table table-hover">
           <thead>
             <tr>
@@ -85,7 +85,6 @@
       (stateChanged)="updateState($event)"></app-panel-info>
     <div class="container col-12 pt-3 w-100 row m-0">
       <app-panel-list
-        class="col-12"
         [panelInfo]="this.pCardInfo.cardPanels"
         [highlited]="this.highlight"></app-panel-list>
     </div>

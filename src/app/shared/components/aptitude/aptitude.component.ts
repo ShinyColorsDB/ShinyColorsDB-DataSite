@@ -5,7 +5,10 @@ import { CardProduceAptitude } from '../../interfaces/cardproduceaptitude';
 @Component({
   selector: 'app-aptitude',
   templateUrl: './aptitude.component.html',
-  styleUrls: ['./aptitude.component.css']
+  styleUrls: ['./aptitude.component.css'],
+  host: {
+    class: 'justify-content-center d-flex',
+  }
 })
 export class AptitudeComponent implements OnInit {
 

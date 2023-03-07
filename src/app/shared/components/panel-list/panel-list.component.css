@@ -1,3 +1,7 @@
+* {
+  font-size: 18px;
+}
+
 ::ng-deep h3 {
   margin: 0;
 }
@@ -21,4 +25,9 @@ tr.hoverable:hover {
 
 .wrapup{
   white-space: pre-wrap;
+}
+
+.forPopup {
+  font-family: lineGothic;
+  font-size: 18px;
 }

@@ -4,6 +4,9 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@
   selector: 'app-panel-list',
   templateUrl: './panel-list.component.html',
   styleUrls: ['./panel-list.component.css'],
+  host: {
+    class: 'col-12 mb-4'
+  }
 })
 export class PanelListComponent implements OnInit, OnChanges {
   @ViewChild('scrollMe') scrollMe!: any;
