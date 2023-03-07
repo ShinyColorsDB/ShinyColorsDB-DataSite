@@ -1,5 +1,5 @@
 export interface CardProficiency {
-    proficiencyIndex: number;
-    proficiency: string;
-    value: number;
+  proficiencyIndex: number;
+  proficiency: string;
+  value: number;
 }
