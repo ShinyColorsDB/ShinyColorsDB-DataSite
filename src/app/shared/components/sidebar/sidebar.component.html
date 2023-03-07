@@ -13,7 +13,7 @@
       [closeOthers]="true"
       [destroyOnHide]="false"
       activeIds="descCharaList">
-      <ngb-panel id="descHomepage" cardClass="p-0">
+      <ngb-panel cardClass="p-0">
         <ng-template ngbPanelTitle>ShinyColorsDB</ng-template>
         <ng-template ngbPanelContent>
           <div class="list-group">
@@ -32,7 +32,7 @@
           </div>
         </ng-template>
       </ngb-panel>
-      <ngb-panel id="descCharaList" cardClass="p-0">
+      <ngb-panel cardClass="p-0">
         <ng-template ngbPanelTitle>角色列表</ng-template>
         <ng-template ngbPanelContent>
           <app-charlist
@@ -40,7 +40,7 @@
             [isBigScreen]="this.isBigScreen"></app-charlist>
         </ng-template>
       </ngb-panel>
-      <ngb-panel id="descOthers">
+      <ngb-panel>
         <ng-template ngbPanelTitle>其他小玩具</ng-template>
         <ng-template ngbPanelContent>
           <div class="list-group">
