@@ -21,7 +21,6 @@ export class SidebarComponent implements OnInit {
 
   onSideBarClick() {
     this.showSideBar = !this.showSideBar;
-    // flush expanded array in charlist
   }
 
   onCharlistClick(event: boolean) {

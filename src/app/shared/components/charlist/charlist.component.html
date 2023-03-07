@@ -3,42 +3,39 @@
     class="btn w-100 text-start rounded-1"
     [style]="'background-color:' + unit.color1 + ';'"
     (click)="unitCollapse.toggle()"
-    [attr.aria-expanded]="!this.collapseArray[unit.unitId - 1]"
-  >
+    [attr.aria-expanded]="!this.collapseArray[unit.unitId - 1]">
     <img
       [src]="
-        'https://static.shinycolors.moe/pictures/unitIcon/' +
-        unit.unitId.toString().padStart(3, '0') +
-        '.png'
+      'https://static.shinycolors.moe/pictures/unitIcon/' +
+      unit.unitId.toString().padStart(3, '0') +
+      '.png'
       "
       width="20"
       height="20"
-    />
+      />
     {{ unit.unitHiragana }}
   </button>
   <div
     class="list-group"
     [id]="'unit' + unit.unitId"
     [(ngbCollapse)]="this.collapseArray[unit.unitId - 1]"
-    #unitCollapse="ngbCollapse"
-  >
+    #unitCollapse="ngbCollapse">
     <a
       *ngFor="let idol of unit.idols"
       class="ps-4 list-group-item-action list-group-item"
       [ngClass]="{ active: this.currentIdolID === idol.idolId }"
       [routerLink]="['/idolinfo']"
       [queryParams]="{ idolid: idol.idolId }"
-      (click)="this.onIdolClicked()"
-    >
+      (click)="this.onIdolClicked()">
       <img
         [src]="
-          'https://static.shinycolors.moe/pictures/smlIcon/' +
-          idol.idolId.toString().padStart(2, '0') +
-          '.png'
+        'https://static.shinycolors.moe/pictures/smlIcon/' +
+        idol.idolId.toString().padStart(2, '0') +
+        '.png'
         "
         width="40"
         height="40"
-      />
+        />
       {{ idol.idolName }}
     </a>
   </div>

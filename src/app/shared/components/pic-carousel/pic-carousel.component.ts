@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
   templateUrl: './pic-carousel.component.html',
   styleUrls: ['./pic-carousel.component.css']
 })
-export class PicCarouselComponent implements OnInit, AfterViewInit, OnChanges {
+export class PicCarouselComponent implements OnInit, OnChanges {
   @ViewChild('picCarousel') picCarousel!: NgbCarousel;
   @ViewChild('mov1') mov1!: HTMLVideoElement;
   @ViewChild('mov2') mov2!: HTMLVideoElement;
@@ -32,17 +32,12 @@ export class PicCarouselComponent implements OnInit, AfterViewInit, OnChanges {
   @Input()
   displayMov2!: boolean;
 
-  constructor(
-  ) {
+  constructor() {
     this.staticUrl = environment.staticUrl;
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     //console.log(this.mov1, this.mov2, this.pic1, this.pic2)
-  }
-
-  ngAfterViewInit(): void {
-
   }
 
   ngOnInit(): void {

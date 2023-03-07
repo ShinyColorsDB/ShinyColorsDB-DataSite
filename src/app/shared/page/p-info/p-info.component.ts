@@ -45,11 +45,11 @@ export class PInfoComponent implements OnInit {
 
       this.scApiService.getPCardInfo(this.pCardUuid)
         .pipe(catchError(err => {
-          this.router.navigate(['/notfound'])
+          this.router.navigate(['/notfound']);
           return of(null);
         }))
         .subscribe((data) => {
-          if (!data) return;
+          if (!data) { return; }
           this.pCardInfo = data;
           this.title.setTitle(this.pCardInfo.cardName);
           this.utilsService.generateCardMeta(this.pCardInfo).forEach(e => {
@@ -59,29 +59,29 @@ export class PInfoComponent implements OnInit {
         });
     });
   }
-/**
-  onSlidingToStatic(slideEvent: NgbSingleSlideEvent) {
-    if (!this.carousel) {
-      return;
-    }
-    this.carousel.cycle();
-  }
-
-  onSlidingToMovie(slideEvent: NgbSingleSlideEvent) {
-    if (!this.carousel) {
-      return;
-    }
-    this.carousel.pause();
-  }
-
-  onMovieEnded() {
-    if (!this.carousel) { return; }
-    setTimeout(() => {
+  /**
+    onSlidingToStatic(slideEvent: NgbSingleSlideEvent) {
+      if (!this.carousel) {
+        return;
+      }
       this.carousel.cycle();
-      this.carousel.next();
-    }, 1000);
-  }
-*/
+    }
+
+    onSlidingToMovie(slideEvent: NgbSingleSlideEvent) {
+      if (!this.carousel) {
+        return;
+      }
+      this.carousel.pause();
+    }
+
+    onMovieEnded() {
+      if (!this.carousel) { return; }
+      setTimeout(() => {
+        this.carousel.cycle();
+        this.carousel.next();
+      }, 1000);
+    }
+  */
   getIdolEvents() {
     return this.pCardInfo.cardIdolEvents.filter(
       (e) => e.eventCategory != 'アフターストーリー'

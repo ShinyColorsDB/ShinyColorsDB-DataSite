@@ -6,11 +6,11 @@
   <div class="col-lg-6 col-md-12 row d-block p-1">
     <img
       [src]="
-        this.staticUrl + '/pictures/bigPic/' + this.sCardInfo.bigPic1 + '.jpg'
+      this.staticUrl + '/pictures/bigPic/' + this.sCardInfo.bigPic1 + '.jpg'
       "
       alt=""
       class="img-fluid col-12"
-    />
+      />
     <div class="container col-12 pt-3 row m-0">
       <div class="col-lg-4 col-md-12 text-center" style="font-family: Meiryo">
         實裝日期: {{ this.sCardInfo.releaseDate }}
@@ -22,13 +22,12 @@
         稀有度 : {{ this.sCardInfo.cardType }}
       </div>
 
-      <h3 class="col-12 pt-2 ">
+      <h3 class="col-12 pt-2">
         イベント
       </h3>
       <div
         class="col-12 p-2"
-        *ngIf="this.sCardInfo.cardSupportEvents.length"
-      >
+        *ngIf="this.sCardInfo.cardSupportEvents.length">
         <table class="table table-hover">
           <thead>
             <tr>
@@ -52,7 +51,7 @@
           </tbody>
         </table>
       </div>
-      <h3 class="">
+      <h3>
         ファイトスキル
       </h3>
       <div class="col-12 p-2">
@@ -78,44 +77,43 @@
               <td>
                 <img
                   [src]="
-                    'https://static.shinycolors.moe/pictures/uiIcons/icon_idea_mark_' +
-                    this.sCardInfo.ideaMark +
-                    '_lv_1.png'
+                  'https://static.shinycolors.moe/pictures/uiIcons/icon_idea_mark_' +
+                  this.sCardInfo.ideaMark +
+                  '_lv_1.png'
                   "
                   width="30"
                   height="34"
                   alt=""
                   class="img-fluid"
-                />
+                  />
                 {{ this.translateIdeaNote() }}
               </td>
               <td>
                 <img
                   [src]="
-                    'https://static.shinycolors.moe/pictures/uiIcons/produce_inspiration_m_' +
-                    this.convertHirameki() +
-                    '.png'
+                  'https://static.shinycolors.moe/pictures/uiIcons/produce_inspiration_m_' +
+                  this.convertHirameki() +
+                  '.png'
                   "
                   alt=""
                   width="30"
                   height="30"
-                />
+                  />
                 {{ this.sCardInfo.idol.hirameki }}
               </td>
               <td>
                 <ng-container
-                  *ngFor="let p of this.sCardInfo.cardProficiencies"
-                >
+                  *ngFor="let p of this.sCardInfo.cardProficiencies">
                   <img
                     [src]="
-                      'https://static.shinycolors.moe/pictures/uiIcons/icon_proficiency_' +
-                      p.proficiency +
-                      '.png'
+                    'https://static.shinycolors.moe/pictures/uiIcons/icon_proficiency_' +
+                    p.proficiency +
+                    '.png'
                     "
                     alt=""
                     width="30"
                     height="30"
-                  />
+                    />
                   {{ this.translateProficiency(p.proficiency) }}
                 </ng-container>
               </td>
@@ -123,13 +121,12 @@
           </tbody>
         </table>
       </div>
-      <h3 class="pb-2 ">
+      <h3 class="pb-2">
         サポートスキル
       </h3>
       <app-supskill-card
         [rarity]="this.sCardInfo.cardType"
-        [supskills]="this.sCardInfo.cardSupportSkills"
-      >
+        [supskills]="this.sCardInfo.cardSupportSkills">
       </app-supskill-card>
     </div>
   </div>
@@ -138,14 +135,12 @@
       class="col-12 noFontSize"
       [panelInfo]="this.sCardInfo.cardPanels"
       [isSr]="this.isSrCard()"
-      (stateChanged)="updateState($event)"
-    ></app-panel-info>
+      (stateChanged)="updateState($event)"></app-panel-info>
     <div class="container col-12 pt-3 w-100 row m-0">
       <app-panel-list
         class="col-12"
         [panelInfo]="this.sCardInfo.cardPanels"
-        [highlited]="this.highlight"
-      ></app-panel-list>
+        [highlited]="this.highlight"></app-panel-list>
     </div>
   </div>
 </div>

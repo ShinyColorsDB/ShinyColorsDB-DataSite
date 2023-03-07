@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 import { DateTime } from 'luxon';
-import { Card } from '../../interfaces/card';
 import { Timetable } from '../../interfaces/timetable';
 
 @Component({

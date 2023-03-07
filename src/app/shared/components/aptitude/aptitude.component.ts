@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { CardProduceAptitude } from '../../interfaces/cardProduceAptitude';
+import { CardProduceAptitude } from '../../interfaces/cardproduceaptitude';
 
 @Component({
   selector: 'app-aptitude',

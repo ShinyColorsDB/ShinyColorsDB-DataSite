@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CardMemoryAppeal } from '../../interfaces/cardmemoryappeal';
 
 @Component({
@@ -6,15 +6,12 @@ import { CardMemoryAppeal } from '../../interfaces/cardmemoryappeal';
   templateUrl: './memory-table.component.html',
   styleUrls: ['./memory-table.component.css']
 })
-export class MemoryTableComponent implements OnInit, OnChanges {
+export class MemoryTableComponent implements OnInit {
 
   @Input()
   memoryList!: CardMemoryAppeal[];
 
   constructor() { }
-
-  ngOnChanges(changes: SimpleChanges): void {
-  }
 
   ngOnInit(): void {
   }

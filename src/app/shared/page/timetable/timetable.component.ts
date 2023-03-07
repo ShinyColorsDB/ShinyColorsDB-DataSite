@@ -40,7 +40,7 @@ export class TimetableComponent implements OnInit {
         return of(null);
       }))
       .subscribe((data) => {
-        if (!data) return;
+        if (!data) { return; }
         this.allTimetable = data;
       });
     this.scApiService.getLimitedTable()
@@ -49,7 +49,7 @@ export class TimetableComponent implements OnInit {
         return of(null);
       }))
       .subscribe((data) => {
-        if (!data) return;
+        if (!data) { return; }
         this.limitedTimetable = data;
       });
     this.scApiService.getGeneralTable()
@@ -58,7 +58,7 @@ export class TimetableComponent implements OnInit {
         return of(null);
       }))
       .subscribe((data) => {
-        if (!data) return;
+        if (!data) { return; }
         this.generalTimetable = data;
       });
     this.title.setTitle(' ~ 出卡時間表 ~ ');

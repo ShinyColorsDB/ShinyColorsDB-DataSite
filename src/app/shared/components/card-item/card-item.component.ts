@@ -18,8 +18,7 @@ export class CardItemComponent implements OnInit {
 
   regExp: RegExp = /(【.*】)(.*)/;
 
-  constructor() {
-  }
+  constructor() { }
 
   ngOnInit(): void {
   }

@@ -52,11 +52,11 @@ export class SInfoComponent implements OnInit {
 
       this.scApiService.getSCardInfo(this.sCardUuid)
         .pipe(catchError(err => {
-          this.router.navigate(['/notfound'])
+          this.router.navigate(['/notfound']);
           return of(null);
         }))
         .subscribe((data) => {
-          if (!data) return;
+          if (!data) { return; }
           this.sCardInfo = data;
           this.title.setTitle(this.sCardInfo.cardName);
           this.utilsService.generateCardMeta(this.sCardInfo).forEach(e => {

@@ -2,7 +2,7 @@ import { Idol } from "./idol";
 import { CardIdolEvent } from "./cardidolevent";
 import { CardMemoryAppeal } from "./cardmemoryappeal";
 import { PanelSlot } from "./panelslot";
-import { CardProduceAptitude } from "./cardProduceAptitude";
+import { CardProduceAptitude } from "./cardproduceaptitude";
 
 export interface PCard {
     cardIndex: number;

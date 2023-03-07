@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Inject, Input, OnInit, Output, PLATFORM_ID } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 
 import { Unit } from '../../interfaces/unit';
 
@@ -28,7 +27,6 @@ export class CharlistComponent implements OnInit {
     @Inject(PLATFORM_ID) private platformId: Object,
     private utilsService: UtilitiesService,
     private scApiService: ShinyColorsApiService,
-    private route: ActivatedRoute,
   ) {
     this.scApiService.getUnitList().subscribe((data) => {
       this.Units = data;

@@ -87,7 +87,7 @@ export class IInfoComponent implements OnInit {
           return of(null);
         }))
         .subscribe((data) => {
-          if (!data) return;
+          if (!data) { return; }
           this.resetCards();
 
           this.idolInfo = data;
