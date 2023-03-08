@@ -1,4 +1,4 @@
-<div class="row d-flex justify-content-center align-items-start" *ngIf="this.pCardInfo">
+<div class="row d-flex justify-content-around align-items-start" *ngIf="this.pCardInfo">
   <div class="col-12 p-0">
     <h1>{{ this.pCardInfo.cardName }}</h1>
   </div>
@@ -13,20 +13,20 @@
       class="p-2">
     </app-pic-carousel>
     <div class="container col-12 row m-0 p-0 pt-1">
-      <div class="col-lg-4 col-md-12 text-center" style="font-family: Meiryo">
-        實裝日期: {{ this.pCardInfo.releaseDate }}
-      </div>
-      <div class="col-lg-4 col-md-12 text-center" style="font-family: Meiryo">
-        取得方式: {{ this.translateGetMethod() }}
-      </div>
-      <div class="col-lg-4 col-md-12 text-center" style="font-family: Meiryo">
-        稀有度: {{ this.pCardInfo.cardType }}
-      </div>
+      <app-common-criteria
+        [releaseDate]="this.pCardInfo.releaseDate"
+        [getMethod]="this.translateGetMethod()"
+        [rarity]="this.pCardInfo.cardType"
+      ></app-common-criteria>
 
-      <h3 class="col-12 pt-2">
+      <h3
+        class="col-12 pt-2"
+        *ngIf="this.pCardInfo.cardIdolEvents.length">
         イベント
       </h3>
-      <div class="col-lg-6 col-md-12 size18">
+      <div
+        class="col-lg-6 col-md-12 size18"
+        *ngIf="this.pCardInfo.cardIdolEvents.length">
         <table class="table table-hover">
           <thead>
             <tr>
@@ -46,7 +46,9 @@
           </tbody>
         </table>
       </div>
-      <div class="col-lg-6 col-md-12 size18">
+      <div
+        class="col-lg-6 col-md-12 size18"
+        *ngIf="this.pCardInfo.cardIdolEvents.length">
         <table class="table table-hover">
           <thead>
             <tr>
@@ -84,7 +86,7 @@
       [panelInfo]="this.pCardInfo.cardPanels"
       [isSr]="this.isSrCard()"
       (stateChanged)="updateState($event)"></app-panel-info>
-    <div class="container col-12 pt-3 row m-0 p-0">
+    <div class="container col-12 pt-2 row m-0 p-0">
       <app-panel-list
         [panelInfo]="this.pCardInfo.cardPanels"
         [highlited]="this.highlight"></app-panel-list>

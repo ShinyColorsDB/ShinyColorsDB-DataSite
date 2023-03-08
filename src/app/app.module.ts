@@ -24,6 +24,7 @@ import { AptitudeComponent } from './shared/components/aptitude/aptitude.compone
 import { SupskillCardComponent } from './shared/components/supskill-card/supskill-card.component';
 import { PicCarouselComponent } from './shared/components/pic-carousel/pic-carousel.component';
 import { MemoryTableComponent } from './shared/components/memory-table/memory-table.component';
+import { CommonCriteriaComponent } from './shared/components/common-criteria/common-criteria.component';
 
 import { NotfoundComponent } from './shared/page/notfound/notfound.component';
 
@@ -60,6 +61,7 @@ const routes: Routes = [
     SupskillCardComponent,
     PicCarouselComponent,
     MemoryTableComponent,
+    CommonCriteriaComponent,
     HomeComponent,
     NotfoundComponent
   ],
