@@ -2,7 +2,6 @@ import {
   Component,
   ElementRef,
   Input,
-  OnInit,
   Output,
   EventEmitter,
   Inject,
@@ -15,7 +14,6 @@ import { environment } from 'src/environments/environment';
 
 import * as PIXI from 'pixi.js';
 import * as Honeycomb from 'honeycomb-grid';
-
 
 @Component({
   selector: 'app-panel-info',
@@ -194,7 +192,7 @@ export class PanelInfoComponent implements OnChanges {
           skillIcon.position.set(picX, picY - 10);
 
           // slot cost
-          const thisCost = new PIXI.Text(String(this.cost[index]), { fontFamily: 'lineGothic', fontWeight: "bolder" });
+          const thisCost = new PIXI.Text(String(this.cost[index]), { fontFamily: 'lineGothic', fontWeight: "bold" });
           thisCost.anchor.set(0.5, 0.5);
           thisCost.position.set(picX, picY + hex.width() / 2 * (5 / 8) + 7);
 
