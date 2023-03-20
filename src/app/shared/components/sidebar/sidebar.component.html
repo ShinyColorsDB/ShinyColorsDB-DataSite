@@ -3,11 +3,15 @@
     <ion-icon
       *ngIf="!showSideBar"
       class="menu-icon"
-      name="menu-outline"></ion-icon>
+      name="menu-outline">
+    </ion-icon>
     <ion-icon
       *ngIf="showSideBar"
       class="menu-icon"
-      name="close-outline"></ion-icon></a>
+      name="close-outline">
+    </ion-icon>
+  </a>
+  <img src="/assets/283_logo.png" alt="" class="img-fluid" [ngClass]="{'d-none': !isBigScreen}">
   <div [ngClass]="{ active: showSideBar, sidebar: !isBigScreen }">
     <ngb-accordion
       [closeOthers]="true"
