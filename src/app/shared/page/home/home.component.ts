@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
+
 import { ShinyColorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
+import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
 
 import { Card } from '../../interfaces/card';
 
@@ -19,6 +21,7 @@ export class HomeComponent implements OnInit {
   latestS: Card[] = [];
 
   constructor(
+    private utilsService: UtilitiesService,
     private scApiService: ShinyColorsApiService,
     private title: Title,
     private meta: Meta
@@ -33,39 +36,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.title.setTitle(' ~ 閃耀色彩資料庫 ~ ');
-    this.meta.addTags([
-      {
-        name: 'og:type',
-        content: 'website'
-      },
-      {
-        name: 'og:url',
-        content: 'https://shinycolors.moe/'
-      },
-      {
-        name: 'og:title',
-        content: ' ~ 閃耀色彩資料庫 ~ '
-      },
-      {
-        name: 'og:description',
-        content: 'ShinyColorsDB-DataSite'
-      },
-      {
-        name: 'twitter:card',
-        content: 'summary_large_image'
-      },
-      {
-        name: 'twitter:url',
-        content: 'https://shinycolors.moe/'
-      },
-      {
-        name: 'twitter:title',
-        content: ' ~ 閃耀色彩資料庫 ~ '
-      },
-      {
-        name: 'twitter:description',
-        content: 'ShinyColorsDB-DataSite'
-      }
-    ]);
+    this.meta.addTags(this.utilsService.generateDefaultMeta());
   }
 }

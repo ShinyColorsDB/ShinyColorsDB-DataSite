@@ -15,6 +15,47 @@ export class UtilitiesService {
     this.activeIds.emit(ids);
   }
 
+  generateDefaultMeta(): { name: string; content: string }[] {
+    return [
+      {
+        name: 'og:type',
+        content: 'website'
+      },
+      {
+        name: 'og:url',
+        content: 'https://shinycolors.moe/'
+      },
+      {
+        name: 'og:title',
+        content: ' ~ 閃耀色彩資料庫 ~ '
+      },
+      {
+        name: 'og:description',
+        content: '歡迎來到閃耀色彩資料庫! 本網頁蒐集了遊戲 shinycolors 中的所有遊戲資料，希望對各位有所幫助'
+      },
+      {
+        name: 'twitter:card',
+        content: 'summary_large_image'
+      },
+      {
+        name: 'twitter:url',
+        content: 'https://shinycolors.moe/'
+      },
+      {
+        name: 'twitter:title',
+        content: ' ~ 閃耀色彩資料庫 ~ '
+      },
+      {
+        name: 'twitter:description',
+        content: '歡迎來到閃耀色彩資料庫! 本網頁蒐集了遊戲 shinycolors 中的所有遊戲資料，希望對各位有所幫助'
+      },
+      {
+        name: 'description',
+        content: '歡迎來到閃耀色彩資料庫! 本網頁蒐集了遊戲 shinycolors 中的所有遊戲資料，希望對各位有所幫助'
+      }
+    ]
+  }
+
   generateIdolMeta(idolInfo: Idol): { name: string; content: string }[] {
     return [
       { name: 'og:type', content: 'website' },
@@ -46,6 +87,10 @@ export class UtilitiesService {
           .toString()
           .padStart(2, '0')}.jpg`,
       },
+      {
+        name: 'description',
+        content: `姓名: ${idolInfo.idolName}\n生日: ${idolInfo.birthday}\n所屬: ${idolInfo.unit.unitName}`,
+      }
     ];
   }
 
@@ -68,6 +113,10 @@ export class UtilitiesService {
         name: 'twitter:image',
         content: `https://static.shinycolors.moe/pictures/bigPic/${card.bigPic1}.jpg`,
       },
+      {
+        name: 'description',
+        content: `卡名: ${card.cardName}\n 稀有度: ${card.cardType}\n 實裝: ${card.releaseDate}`
+      }
     ];
   }
 
