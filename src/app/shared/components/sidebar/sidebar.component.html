@@ -11,7 +11,9 @@
       name="close-outline">
     </ion-icon>
   </a>
-  <img src="/assets/283_logo.png" alt="" class="img-fluid" [ngClass]="{'d-none': !isBigScreen}">
+  <div class="d-flex justify-content-center mb-2">
+    <img src="/assets/283.png" width="233" height="233" alt="" class="img-fluid" [ngClass]="{'d-none': !isBigScreen}">
+  </div>
   <div [ngClass]="{ active: showSideBar, sidebar: !isBigScreen }">
     <ngb-accordion
       [closeOthers]="true"

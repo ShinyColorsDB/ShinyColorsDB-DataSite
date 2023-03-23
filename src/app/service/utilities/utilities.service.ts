@@ -31,7 +31,7 @@ export class UtilitiesService {
       },
       {
         name: 'og:description',
-        content: '歡迎來到閃耀色彩資料庫! 本網頁蒐集了遊戲 shinycolors 中的所有遊戲資料，希望對各位有所幫助'
+        content: '歡迎來到閃耀色彩資料庫! 本網頁蒐集了遊戲 shinycolors 中的所有遊戲資料，包括出卡時間表、卡片情報、遊戲劇情等內容，希望對各位有所幫助'
       },
       {
         name: 'twitter:card',
@@ -47,11 +47,11 @@ export class UtilitiesService {
       },
       {
         name: 'twitter:description',
-        content: '歡迎來到閃耀色彩資料庫! 本網頁蒐集了遊戲 shinycolors 中的所有遊戲資料，希望對各位有所幫助'
+        content: '歡迎來到閃耀色彩資料庫! 本網頁蒐集了遊戲 shinycolors 中的所有遊戲資料，包括出卡時間表、卡片情報、遊戲劇情等內容，希望對各位有所幫助'
       },
       {
         name: 'description',
-        content: '歡迎來到閃耀色彩資料庫! 本網頁蒐集了遊戲 shinycolors 中的所有遊戲資料，希望對各位有所幫助'
+        content: '歡迎來到閃耀色彩資料庫! 本網頁蒐集了遊戲 shinycolors 中的所有遊戲資料，包括出卡時間表、卡片情報、遊戲劇情等內容，希望對各位有所幫助'
       }
     ]
   }
