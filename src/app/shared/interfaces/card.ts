@@ -4,7 +4,7 @@ export interface Card {
   cardName: string;
   cardUuid: string;
   bigPic1: string;
-  bigPic2: string;
+  bigPic2: string | null;
   smlPic: string;
   cardType: string;
   getMethod: string;

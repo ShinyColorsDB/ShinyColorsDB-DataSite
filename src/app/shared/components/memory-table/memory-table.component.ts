@@ -17,6 +17,6 @@ export class MemoryTableComponent implements OnInit {
   }
 
   addLineBreak(content: string): string {
-    return content.replace(/\//g, '/\n');
+    return content ? content.replace(/\//g, '/\n') : "";
   }
 }

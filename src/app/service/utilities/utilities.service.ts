@@ -53,7 +53,7 @@ export class UtilitiesService {
         name: 'description',
         content: '歡迎來到閃耀色彩資料庫! 本網頁蒐集了遊戲 shinycolors 中的所有遊戲資料，包括出卡時間表、卡片情報、遊戲劇情等內容，希望對各位有所幫助'
       }
-    ]
+    ];
   }
 
   generateIdolMeta(idolInfo: Idol): { name: string; content: string }[] {
@@ -144,12 +144,14 @@ export class UtilitiesService {
         return '天梯獎勵';
       case 'LiveReward':
         return 'Live獎勵';
-      case 'TwilightCollect':
+      case 'TwilightCollection':
         return '暮光卡池';
       case 'PayedGasha':
         return '有償卡池';
-      case 'MvGasha':
+      case 'MySongCollection':
         return '動畫卡池';
+      case 'Present':
+        return '營運贈送';
       default:
         return '';
     }

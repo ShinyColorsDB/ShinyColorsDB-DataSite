@@ -35,6 +35,12 @@
               (click)="onSideBarClick()">
               卡片歷史
             </a>
+            <a
+              class="text-start list-group-item list-group-item-action w-100 ps-4 bg-light bg-gradient"
+              [routerLink]="['/reverselookup']"
+              (click)="onSideBarClick()">
+              技能反查
+            </a>
           </div>
         </ng-template>
       </ngb-panel>
@@ -66,5 +72,6 @@
         </ng-template>
       </ngb-panel>
     </ngb-accordion>
+    <!--app-settings></app-settings-->
   </div>
 </div>

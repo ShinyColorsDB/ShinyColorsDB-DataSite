@@ -17,7 +17,7 @@ export class SidebarComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   onSideBarClick() {
     this.showSideBar = !this.showSideBar;

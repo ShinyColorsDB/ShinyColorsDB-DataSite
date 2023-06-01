@@ -1,0 +1,31 @@
+<div (click)="open(content)"
+  class="position-relative bottom-0 justify-content-center d-flex mt-3 setting">
+  <ion-icon name="settings-sharp" class="align-self-center"></ion-icon>
+  <span class="align-self-center">設定</span>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">設定</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="mb-3">
+        <label for="languageSelection">選擇語言</label>
+        <div class="input-group">
+          <select
+            name="language" id="languageSelection" class="form-select">
+            <option value="zh" [selected]="this.currentLang == 0">繁體中文</option>
+            <option value="jp" [selected]="this.currentLang == 1">日本語</option>
+            <option value="en" [selected]="this.currentLang == 2">English</option>
+          </select>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modal.close('Cancel')">取消</button>
+    <button type="button" class="btn btn-primary" (click)="modal.close('Save click')">確定</button>
+  </div>
+</ng-template>

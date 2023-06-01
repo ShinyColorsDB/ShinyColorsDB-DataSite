@@ -1,6 +1,6 @@
 {
   "name": "shiny-colors-db-data-site",
-  "version": "1.3.2",
+  "version": "1.3.4",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

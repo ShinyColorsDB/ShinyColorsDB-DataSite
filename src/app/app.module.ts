@@ -13,6 +13,7 @@ import { IInfoComponent } from './shared/page/i-info/i-info.component';
 import { PInfoComponent } from './shared/page/p-info/p-info.component';
 import { SInfoComponent } from './shared/page/s-info/s-info.component';
 import { TimetableComponent } from './shared/page/timetable/timetable.component';
+import { RLookupComponent } from './shared/page/r-lookup/r-lookup.component';
 
 import { CharlistComponent } from './shared/components/charlist/charlist.component';
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
@@ -25,6 +26,7 @@ import { SupskillCardComponent } from './shared/components/supskill-card/supskil
 import { PicCarouselComponent } from './shared/components/pic-carousel/pic-carousel.component';
 import { MemoryTableComponent } from './shared/components/memory-table/memory-table.component';
 import { CommonCriteriaComponent } from './shared/components/common-criteria/common-criteria.component';
+import { SettingsComponent } from './shared/components/settings/settings.component';
 
 import { NotfoundComponent } from './shared/page/notfound/notfound.component';
 
@@ -41,6 +43,7 @@ const routes: Routes = [
   { path: 'scardinfo', component: SInfoComponent },
   { path: 'timetable', component: TimetableComponent },
   { path: 'notfound', component: NotfoundComponent },
+  { path: 'reverselookup', component: RLookupComponent },
   { path: '**', redirectTo: 'notfound' }
 ];
 
@@ -53,6 +56,7 @@ const routes: Routes = [
     PInfoComponent,
     SInfoComponent,
     TimetableComponent,
+    RLookupComponent,
     CardItemComponent,
     PanelInfoComponent,
     PanelListComponent,
@@ -62,6 +66,7 @@ const routes: Routes = [
     PicCarouselComponent,
     MemoryTableComponent,
     CommonCriteriaComponent,
+    SettingsComponent,
     HomeComponent,
     NotfoundComponent
   ],
