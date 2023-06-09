@@ -18,4 +18,8 @@ export interface PanelSlot {
   plusSkillId: number | null;
   plusSkillDesc: string | null;
   plusSkillEffects: any[] | null;
+  exchangeSkillId: number | null;
+  exchangeSkillDesc: string | null;
+  exchangeWith: string | null;
+  exchangeSkillEffects: any[] | null;
 }

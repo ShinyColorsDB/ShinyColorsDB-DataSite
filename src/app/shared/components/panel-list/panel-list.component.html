@@ -53,6 +53,18 @@
             </div>
           </ng-template>
         </ng-container>
+        <ng-container *ngIf="slot.exchangeSkillId">
+          <img src="https://static.shinycolors.moe/pictures/linkIcon/ui/exchange_skill_button.png"
+            alt="" [ngbPopover]="exchangePop" [popoverTitle]="exchangeTitle" placement="left" class="forCurser float-end align-middle img-fluid">
+          <ng-template #exchangeTitle>
+            <span class='forPopup'>チェンジ効果</span>
+          </ng-template>
+          <ng-template #exchangePop>
+            <div>
+              <span class="wrapup forPopup">{{ this.addPlusRule(slot.exchangeSkillDesc) }}</span>
+            </div>
+          </ng-template>
+        </ng-container>
       </td>
     </tr>
     <tr [ngClass]="{ 'bg-warning': i == this.highlited }">
