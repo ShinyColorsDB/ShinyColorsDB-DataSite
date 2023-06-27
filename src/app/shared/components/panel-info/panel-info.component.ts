@@ -6,6 +6,7 @@ import {
   EventEmitter,
   Inject,
   OnChanges,
+  ViewChild,
 } from '@angular/core';
 import { PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
@@ -21,6 +22,8 @@ import * as Honeycomb from 'honeycomb-grid';
   styleUrls: ['./panel-info.component.css'],
 })
 export class PanelInfoComponent implements OnChanges {
+  @ViewChild('#panelCanvas') canvas!: HTMLCanvasElement;
+
   @Input()
   panelInfo!: any[];
 
@@ -78,13 +81,13 @@ export class PanelInfoComponent implements OnChanges {
       console.log('platform is not browser');
       return;
     }
-    PIXI.utils.skipHello();
-    this.app = new PIXI.Application({
+    PIXI.settings.RENDER_OPTIONS!.hello = false;
+    PIXI.settings.RENDER_OPTIONS!.backgroundColor = 0xd9d9d9;
+    this.app = new PIXI.Application<HTMLCanvasElement>({
       width: 1136,
       height: 640,
     });
-    this.app.renderer.backgroundColor = 0xd9d9d9;
-    this.app.view.classList.add('img-fluid');
+    (this.app.view as HTMLCanvasElement).classList.add('img-fluid');
     this.elRef.nativeElement.appendChild(this.app.view);
   }
 
@@ -92,117 +95,115 @@ export class PanelInfoComponent implements OnChanges {
     if (!isPlatformBrowser(this.platformId)) {
       return;
     }
+
     this.panelInfo.forEach((e) => {
-      if (!PIXI.Loader.shared.resources[`${e.panelIcon}.png`]) {
-        PIXI.Loader.shared.add(
+      if (!PIXI.Assets.get(`${e.panelIcon}.png`)) {
+        PIXI.Assets.add(
           `${e.panelIcon}.png`,
           `${environment.staticUrl}pictures/skillIcon/${e.panelIcon}.png`
         );
       }
     });
 
-    PIXI.Loader.shared.load((loader, resources) => {
+    this.Grid(
+      ...this.getGrid()
+    ).forEach(async (hex, index) => {
+      const cont = new PIXI.Container();
 
-      this.Grid(
-        ...this.getGrid()
-      ).forEach((hex, index) => {
-        const cont = new PIXI.Container();
+      const graphics = new PIXI.Graphics();
 
-        const graphics = new PIXI.Graphics();
+      graphics.lineStyle(2, 0x000);
 
-        graphics.lineStyle(2, 0x000);
+      const point = hex.toPoint();
+      const corners = hex.corners().map((corner) => corner.add(point));
+      const [firstCorner, ...otherCorners] = corners;
 
-        const point = hex.toPoint();
-        const corners = hex.corners().map((corner) => corner.add(point));
-        const [firstCorner, ...otherCorners] = corners;
-
-        if (this.panelInfo.length > index) {
-          //set slot color based on number
-          switch (this.panelInfo[index].panelIsGold) {
-            case 0:
-            case 1:
-              graphics.beginFill(0xffffff, 1);
-              break;
-            case 2:
-              graphics.beginFill(0xffd700, 1);
-              break;
-            case 3:
-              graphics.beginFill(0xff94a2, 1);
-              break;
-          }
-
-          graphics.interactive = true;
-          graphics.buttonMode = true;
-          graphics.on('pointerdown', () => {
-            this.stateChanged.emit(index);
-            setTimeout(() => {
-              const scrollMe = document.getElementById('scrollMe');
-              if (scrollMe) {
-                scrollMe.scrollIntoView({
-                  behavior: 'smooth',
-                  block: 'center',
-                });
-              }
-            }, 200);
-          });
-        } else {
-          //otherwise, simply color with grey
-          graphics.beginFill(0x787878, 1);
-          graphics.interactive = false;
-          graphics.buttonMode = false;
+      if (this.panelInfo.length > index) {
+        //set slot color based on number
+        switch (this.panelInfo[index].panelIsGold) {
+          case 0:
+          case 1:
+            graphics.beginFill(0xffffff, 1);
+            break;
+          case 2:
+            graphics.beginFill(0xffd700, 1);
+            break;
+          case 3:
+            graphics.beginFill(0xff94a2, 1);
+            break;
         }
 
-        // move the "pencil" to the first corner
-        graphics.moveTo(firstCorner.x, firstCorner.y);
-        // draw lines to the other corners
-        otherCorners.forEach(({ x, y }) => graphics.lineTo(x, y));
-        // finish at the first corner
-        graphics.lineTo(firstCorner.x, firstCorner.y);
-        graphics.endFill();
+        graphics.interactive = true;
+        graphics.cursor = "pointer";
+        graphics.on('pointerdown', () => {
+          this.stateChanged.emit(index);
+          setTimeout(() => {
+            const scrollMe = document.getElementById('scrollMe');
+            if (scrollMe) {
+              scrollMe.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center',
+              });
+            }
+          }, 200);
+        });
+      } else {
+        //otherwise, simply color with grey
+        graphics.beginFill(0x787878, 1);
+        graphics.interactive = false;
+        graphics.cursor = "default";
+      }
 
-        cont.addChild(graphics);
+      // move the "pencil" to the first corner
+      graphics.moveTo(firstCorner.x, firstCorner.y);
+      // draw lines to the other corners
+      otherCorners.forEach(({ x, y }) => graphics.lineTo(x, y));
+      // finish at the first corner
+      graphics.lineTo(firstCorner.x, firstCorner.y);
+      graphics.endFill();
 
-        if (this.panelInfo.length > index) {
-          const picX = hex.center().x + hex.toPoint().x, picY = hex.center().y + hex.toPoint().y;
+      cont.addChild(graphics);
 
-          // generate trapezoid
-          const rect = new PIXI.Graphics();
-          rect.beginFill(0xc7c0ad, 1);
-          rect.lineStyle(0, 0xc7c0ad);
-          rect.moveTo(hex.toPoint().x + hex.corners()[1].x, hex.toPoint().y + hex.corners()[1].y);
-          rect.lineTo(hex.toPoint().x + hex.corners()[2].x, hex.toPoint().y + hex.corners()[2].y);
-          rect.lineTo(
-            hex.toPoint().x + ((hex.corners()[2].x * 5) + (hex.corners()[3].x * 3)) / 8,
-            hex.toPoint().y + ((hex.corners()[2].y * 5) + (hex.corners()[3].y * 3)) / 8
-          );
-          rect.lineTo(
-            hex.toPoint().x + ((hex.corners()[0].x * 3) + (hex.corners()[1].x * 5)) / 8,
-            hex.toPoint().y + ((hex.corners()[0].y * 3) + (hex.corners()[1].y * 5)) / 8
-          );
-          rect.endFill();
+      if (this.panelInfo.length > index) {
+        const picX = hex.center().x + hex.toPoint().x, picY = hex.center().y + hex.toPoint().y;
 
-          rect.pivot.set(0.5, 0.5);
+        // generate trapezoid
+        const rect = new PIXI.Graphics();
+        rect.beginFill(0xc7c0ad, 1);
+        rect.lineStyle(0, 0xc7c0ad);
+        rect.moveTo(hex.toPoint().x + hex.corners()[1].x, hex.toPoint().y + hex.corners()[1].y);
+        rect.lineTo(hex.toPoint().x + hex.corners()[2].x, hex.toPoint().y + hex.corners()[2].y);
+        rect.lineTo(
+          hex.toPoint().x + ((hex.corners()[2].x * 5) + (hex.corners()[3].x * 3)) / 8,
+          hex.toPoint().y + ((hex.corners()[2].y * 5) + (hex.corners()[3].y * 3)) / 8
+        );
+        rect.lineTo(
+          hex.toPoint().x + ((hex.corners()[0].x * 3) + (hex.corners()[1].x * 5)) / 8,
+          hex.toPoint().y + ((hex.corners()[0].y * 3) + (hex.corners()[1].y * 5)) / 8
+        );
+        rect.endFill();
 
-          //generate icon
-          const skillIcon = new PIXI.Sprite(
-            resources[`${this.panelInfo[index].panelIcon}.png`]!.texture
-          );
-          skillIcon.scale.set(1.5);
-          skillIcon.anchor.set(0.5);
-          skillIcon.position.set(picX, picY - 10);
+        rect.pivot.set(0.5, 0.5);
 
-          // slot cost
-          const thisCost = new PIXI.Text(String(this.cost[index]), { fontFamily: 'lineGothic', fontWeight: "bold" });
-          thisCost.anchor.set(0.5, 0.5);
-          thisCost.position.set(picX, picY + hex.width() / 2 * (5 / 8) + 7);
+        //generate icon
+        const skillIcon = new PIXI.Sprite(
+          await PIXI.Assets.load(`${this.panelInfo[index].panelIcon}.png`)
+        );
+        skillIcon.scale.set(1.5);
+        skillIcon.anchor.set(0.5);
+        skillIcon.position.set(picX, picY - 10);
 
-          cont.addChild(rect);
-          cont.addChild(skillIcon);
-          cont.addChild(thisCost);
-        }
+        // slot cost
+        const thisCost = new PIXI.Text(String(this.cost[index]), { fontFamily: 'lineGothic', fontWeight: "bold" });
+        thisCost.anchor.set(0.5, 0.5);
+        thisCost.position.set(picX, picY + hex.width() / 2 * (5 / 8) + 7);
 
-        this.app.stage.addChild(cont);
-      });
+        cont.addChild(rect);
+        cont.addChild(skillIcon);
+        cont.addChild(thisCost);
+      }
+
+      this.app.stage.addChild(cont);
     });
   }
 
