@@ -1,18 +1,21 @@
-<div class="sidebar-container">
-  <a (click)="onSideBarClick()" [ngClass]="{ 'd-none': isBigScreen }">
-    <ion-icon
-      *ngIf="!showSideBar"
-      class="menu-icon"
-      name="menu-outline">
-    </ion-icon>
-    <ion-icon
-      *ngIf="showSideBar"
-      class="menu-icon"
-      name="close-outline">
-    </ion-icon>
-  </a>
+<div class="sidebar-container h-100">
+  <div class="row m-0 p-0 h-100 d-flex justify-content-center" [ngClass]="{ 'd-none': isBigScreen }">
+    <a (click)="onSideBarClick()" class="col-1 m-0 p-0">
+      <ion-icon
+        *ngIf="!showSideBar"
+        class="menu-icon align-middle"
+        name="menu-outline">
+      </ion-icon>
+      <ion-icon
+        *ngIf="showSideBar"
+        class="menu-icon align-middle"
+        name="close-outline">
+      </ion-icon>
+    </a>
+    <h1 class="col-11 mt-2 mb-0 p-0 text-center titleFont">{{this.title}}</h1>
+  </div>
   <div class="d-flex justify-content-center mb-2">
-    <img src="/assets/283.png" width="233" height="233" alt="" class="img-fluid" [ngClass]="{'d-none': !isBigScreen}">
+    <img src="/assets/283.png" width="233" height="233" alt class="img-fluid" [ngClass]="{'d-none': !isBigScreen}">
   </div>
   <div [ngClass]="{ active: showSideBar, sidebar: !isBigScreen }">
     <ngb-accordion
@@ -35,12 +38,12 @@
               (click)="onSideBarClick()">
               卡片歷史
             </a>
-            <a
+            <!--a
               class="text-start list-group-item list-group-item-action w-100 ps-4 bg-light bg-gradient"
               [routerLink]="['/reverselookup']"
               (click)="onSideBarClick()">
               技能反查
-            </a>
+            </a-->
           </div>
         </ng-template>
       </ngb-panel>

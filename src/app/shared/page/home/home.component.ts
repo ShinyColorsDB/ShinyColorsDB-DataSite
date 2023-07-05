@@ -37,5 +37,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.title.setTitle(' ~ 閃耀色彩資料庫 ~ ');
     this.meta.addTags(this.utilsService.generateDefaultMeta());
+    this.utilsService.mobileTitle.emit(' ~ ShinyColorsDB ~ ');
   }
 }

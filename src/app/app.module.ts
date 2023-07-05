@@ -26,6 +26,7 @@ import { SupskillCardComponent } from './shared/components/supskill-card/supskil
 import { PicCarouselComponent } from './shared/components/pic-carousel/pic-carousel.component';
 import { MemoryTableComponent } from './shared/components/memory-table/memory-table.component';
 import { CommonCriteriaComponent } from './shared/components/common-criteria/common-criteria.component';
+import { CardleComponent } from './shared/page/cardle/cardle.component';
 import { SettingsComponent } from './shared/components/settings/settings.component';
 
 import { NotfoundComponent } from './shared/page/notfound/notfound.component';
@@ -44,6 +45,7 @@ const routes: Routes = [
   { path: 'timetable', component: TimetableComponent },
   { path: 'notfound', component: NotfoundComponent },
   { path: 'reverselookup', component: RLookupComponent },
+  { path: 'cardle', component: CardleComponent },
   { path: '**', redirectTo: 'notfound' }
 ];
 

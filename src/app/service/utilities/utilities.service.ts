@@ -11,8 +11,14 @@ export class UtilitiesService {
 
   activeIds = new EventEmitter<number[]>();
 
+  mobileTitle = new EventEmitter<string>();
+
   emitActiveIds(ids: number[]) {
     this.activeIds.emit(ids);
+  }
+
+  emitMobileTitle(title: string) {
+    this.mobileTitle.emit(title);
   }
 
   generateDefaultMeta(): { name: string; content: string }[] {

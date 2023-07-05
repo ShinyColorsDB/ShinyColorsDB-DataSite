@@ -56,6 +56,7 @@ export class PInfoComponent implements OnInit {
             this.meta.updateTag(e);
           });
           this.utilsService.emitActiveIds([this.pCardInfo.idol.idolId, this.pCardInfo.idol.unitId]);
+          this.utilsService.mobileTitle.emit(this.pCardInfo.cardName);
         });
     });
   }

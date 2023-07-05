@@ -5,6 +5,7 @@ import { catchError, of } from 'rxjs';
 
 import { ShinyColorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
 import { Timetable } from '../../interfaces/timetable';
+import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
 
 @Component({
   selector: 'app-timetable',
@@ -27,6 +28,7 @@ export class TimetableComponent implements OnInit {
 
   constructor(
     private scApiService: ShinyColorsApiService,
+    private utilitiesService: UtilitiesService,
     private router: Router,
     private route: ActivatedRoute,
     private title: Title,
@@ -66,6 +68,7 @@ export class TimetableComponent implements OnInit {
       name: 'og:description',
       content: 'Timetable for history cards.',
     });
+    this.utilitiesService.mobileTitle.emit(' ~ 時間表 ~ ');
   }
 
   changeDisplay(type: number): void {

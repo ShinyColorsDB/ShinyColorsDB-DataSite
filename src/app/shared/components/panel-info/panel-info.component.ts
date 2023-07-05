@@ -22,8 +22,6 @@ import * as Honeycomb from 'honeycomb-grid';
   styleUrls: ['./panel-info.component.css'],
 })
 export class PanelInfoComponent implements OnChanges {
-  @ViewChild('#panelCanvas') canvas!: HTMLCanvasElement;
-
   @Input()
   panelInfo!: any[];
 

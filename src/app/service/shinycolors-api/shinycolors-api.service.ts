@@ -12,6 +12,7 @@ import { Card } from 'src/app/shared/interfaces/card';
 import { PCard } from 'src/app/shared/interfaces/pcard';
 import { SCard } from 'src/app/shared/interfaces/scard';
 import { Timetable } from 'src/app/shared/interfaces/timetable';
+import { Cardle } from 'src/app/shared/interfaces/cardle';
 
 @Injectable({
   providedIn: 'root',
@@ -80,6 +81,12 @@ export class ShinyColorsApiService {
     return this.http
       .get<Timetable>(`${environment.apiUrl}info/getGeneralTable`)
       .pipe(catchError(this.handleError<Timetable>('getGeneralTable')));
+  }
+
+  getCardleInfo(): Observable<Cardle> {
+    return this.http
+      .get<Cardle>(`${environment.apiUrl}cardle/getCardle`)
+      .pipe(catchError(this.handleError<Cardle>(`getCardleInfo`)));
   }
 
   handleError<T>(operation = 'operation', result?: T) {

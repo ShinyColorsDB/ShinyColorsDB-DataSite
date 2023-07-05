@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -15,9 +16,15 @@ export class SidebarComponent implements OnInit {
   @Input()
   charaListId!: string;
 
-  constructor() {}
+  title!: string;
 
-  ngOnInit(): void { }
+  constructor(private utilsService: UtilitiesService) {}
+
+  ngOnInit(): void {
+    this.utilsService.mobileTitle.subscribe((title) => {
+      this.title = title;
+    });
+  }
 
   onSideBarClick() {
     this.showSideBar = !this.showSideBar;

@@ -1,6 +1,7 @@
 export interface Card {
   cardIndex: number;
   idolId: number;
+  enzaId: number;
   cardName: string;
   cardUuid: string;
   bigPic1: string;
