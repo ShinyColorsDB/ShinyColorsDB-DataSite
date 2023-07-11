@@ -13,7 +13,7 @@ import { isPlatformBrowser } from '@angular/common';
 })
 export class CharlistComponent implements OnInit {
   Units: Array<Unit> = [];
-  collapseArray: Array<boolean> = new Array();
+  collapseStatus: Map<number, boolean> = new Map<number, boolean>();
   currentIdolID!: number;
   currentUnitID!: number;
 
@@ -30,16 +30,16 @@ export class CharlistComponent implements OnInit {
   ) {
     this.scApiService.getUnitList().subscribe((data) => {
       this.Units = data;
-      this.collapseArray = new Array(this.Units.length);
-      this.collapseArray.fill(true);
+      this.Units.forEach(e => {
+        this.collapseStatus.set(e.unitId, true);
+      });
     });
   }
 
   ngOnInit(): void {
-    if (!isPlatformBrowser(this.platformId)) { return; }
     this.utilsService.activeIds.subscribe((data) => {
       [this.currentIdolID, this.currentUnitID] = data;
-      this.collapseArray[this.currentUnitID - 1] = false;
+      this.collapseStatus.set(this.currentUnitID, false);
     });
   }
 
@@ -47,5 +47,9 @@ export class CharlistComponent implements OnInit {
     if (isPlatformBrowser(this.platformId) && !this.isBigScreen) {
       this.idolClicked.emit(true);
     }
+  }
+
+  getCollapseStatus(unitId: number): boolean {
+    return this.collapseStatus.get(unitId) || false;
   }
 }

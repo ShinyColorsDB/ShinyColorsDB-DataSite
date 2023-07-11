@@ -4,7 +4,7 @@
     [ngClass]="{ 'rounded-top': i == 0, 'rounded-bottom': i == Units.length - 1}"
     [style]="'background-color:' + unit.color1 + ';'"
     (click)="unitCollapse.toggle()"
-    [attr.aria-expanded]="!this.collapseArray[unit.unitId - 1]">
+    [attr.aria-expanded]="!this.getCollapseStatus(unit.unitId)">
     <img
       [src]="
       'https://static.shinycolors.moe/pictures/unitIcon/' +
@@ -20,7 +20,7 @@
   <div
     class="list-group"
     [id]="'unit' + unit.unitId"
-    [(ngbCollapse)]="this.collapseArray[unit.unitId - 1]"
+    [ngbCollapse]="this.getCollapseStatus(unit.unitId)"
     #unitCollapse="ngbCollapse">
     <a
       *ngFor="let idol of unit.idols"
