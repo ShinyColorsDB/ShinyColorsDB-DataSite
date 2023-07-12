@@ -82,8 +82,8 @@
             </li>
           </ul>
         </div>
-        <div class="card-body d-flex container w-100 container overflow-auto h-100">
-          <div class="row h-100 w-100" [ngClass]="{'d-none': !togglePS}">
+        <div class="card-body w-100 container overflow-auto h-100 justify-content-center">
+          <div class="row w-100 m-0" [ngClass]="{'d-none': !togglePS}">
             <ng-container *ngIf="this.pSSR.length || this.pSR.length || this.pR.length">
               <h5 class="text-start pt-2" *ngIf="this.pSSR.length">P_SSR</h5>
               <app-card-item *ngFor="let card of this.pSSR" [cardInfo]="card" [pathType]="'/pcardinfo'" class="col-md-6 col-lg-4 col-sm-12 pt-1 pb-1"></app-card-item>
@@ -100,7 +100,7 @@
               </div>
             </ng-container>
           </div>
-          <div class="row h-100 w-100" [ngClass]="{'d-none': togglePS}">
+          <div class="row w-100 m-0" [ngClass]="{'d-none': togglePS}">
             <ng-container *ngIf="this.sSSR.length || this.sSR.length || this.sR.length || this.sN.length">
               <h5 class="text-start pt-2" *ngIf="this.sSSR.length">S_SSR</h5>
               <app-card-item *ngFor="let card of this.sSSR" [cardInfo]="card" [pathType]="'/scardinfo'" class="col-md-6 col-lg-4 col-sm-12 pt-1 pb-1"></app-card-item>

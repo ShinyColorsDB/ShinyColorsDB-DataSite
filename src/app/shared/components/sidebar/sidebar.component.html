@@ -17,7 +17,7 @@
   <div class="d-flex justify-content-center mb-2">
     <img src="/assets/283.png" width="233" height="233" alt class="img-fluid" [ngClass]="{'d-none': !isBigScreen}">
   </div>
-  <div [ngClass]="{ active: showSideBar, sidebar: !isBigScreen }">
+  <div [ngClass]="{ active: showSideBar, sidebar: !isBigScreen }" class="overflow-auto">
     <ngb-accordion
       [closeOthers]="true"
       [destroyOnHide]="false"
@@ -61,7 +61,7 @@
             [isBigScreen]="this.isBigScreen"></app-charlist>
         </ng-template>
       </ngb-panel>
-      <ngb-panel>
+      <ngb-panel cardClass="mb-5">
         <ng-template ngbPanelTitle>其他小玩具</ng-template>
         <ng-template ngbPanelContent>
           <div class="list-group">
