@@ -158,6 +158,10 @@ export class UtilitiesService {
         return '動畫卡池';
       case 'Present':
         return '營運贈送';
+      case 'Collabo':
+        return '合作卡池';
+      case 'CollaboEvents':
+        return '合作活動';
       default:
         return '';
     }
