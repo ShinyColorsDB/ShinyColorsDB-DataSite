@@ -1,5 +1,5 @@
 <div class="row d-flex justify-content-around align-items-start" *ngIf="this.sCardInfo">
-  <div class="col-12 p-0 d-sm-none">
+  <div class="col-12 p-0 d-sm-none d-md-block">
     <h1>{{ this.sCardInfo.cardName }}</h1>
   </div>
 
@@ -8,15 +8,13 @@
       [src]="
       this.staticUrl + '/pictures/bigPic/' + this.sCardInfo.bigPic1 + '.jpg'
       "
-      alt=""
-      class="img-fluid col-12 p-2"
-      />
+      alt
+      class="img-fluid col-12 p-2" />
     <div class="container col-12 row m-0 p-0 pt-1">
       <app-common-criteria
         [releaseDate]="this.sCardInfo.releaseDate"
         [getMethod]="this.translateGetMethod()"
-        [rarity]="this.sCardInfo.cardType"
-      ></app-common-criteria>
+        [rarity]="this.sCardInfo.cardType"></app-common-criteria>
 
       <h3
         class="col-12 pt-2"
@@ -81,22 +79,20 @@
                   "
                   width="30"
                   height="34"
-                  alt=""
-                  class="img-fluid"
-                  />
+                  alt
+                  class="img-fluid" />
                 {{ this.translateIdeaNote() }}
               </td>
               <td>
-                <img
+                <img *ngIf="this.sCardInfo.idol.hirameki != '?'"
                   [src]="
                   'https://static.shinycolors.moe/pictures/uiIcons/produce_inspiration_m_' +
                   this.convertHirameki() +
                   '.png'
                   "
-                  alt=""
+                  alt
                   width="30"
-                  height="30"
-                  />
+                  height="30" />
                 {{ this.sCardInfo.idol.hirameki }}
               </td>
               <td>
@@ -108,10 +104,9 @@
                     p.proficiency +
                     '.png'
                     "
-                    alt=""
+                    alt
                     width="30"
-                    height="30"
-                    />
+                    height="30" />
                   {{ this.translateProficiency(p.proficiency) }}
                 </ng-container>
               </td>

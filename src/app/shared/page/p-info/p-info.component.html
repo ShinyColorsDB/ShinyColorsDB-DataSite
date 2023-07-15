@@ -1,5 +1,5 @@
 <div class="row d-flex justify-content-around align-items-start" *ngIf="this.pCardInfo">
-  <div class="col-12 p-0 d-sm-none">
+  <div class="col-12 p-0 d-sm-none d-md-block">
     <h1>{{ this.pCardInfo.cardName }}</h1>
   </div>
 
@@ -16,8 +16,7 @@
       <app-common-criteria
         [releaseDate]="this.pCardInfo.releaseDate"
         [getMethod]="this.translateGetMethod()"
-        [rarity]="this.pCardInfo.cardType"
-      ></app-common-criteria>
+        [rarity]="this.pCardInfo.cardType"></app-common-criteria>
 
       <h3
         class="col-12 pt-2"
