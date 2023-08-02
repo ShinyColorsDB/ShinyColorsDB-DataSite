@@ -13,7 +13,7 @@
       "
       width="20"
       height="20"
-      alt=""
+      [alt]="'Icon of unit ' + unit.unitName"
       />
     {{ unit.unitHiragana }}
   </button>
@@ -35,7 +35,7 @@
         idol.idolId.toString().padStart(2, '0') +
         '.png'
         "
-        alt=""
+        [alt]="'Icon of idol ' + idol.idolName"
         width="40"
         height="40"
         />

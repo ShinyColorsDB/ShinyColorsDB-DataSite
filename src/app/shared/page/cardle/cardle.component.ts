@@ -55,15 +55,16 @@ export class CardleComponent implements OnInit, AfterViewInit {
     this.meta.addTags([
       { name: 'og:type', content: 'website' },
       { name: 'og:title', content: 'ShinyColors Cardle' },
-      { name: 'og:description', content: 'Daily Cardle Game from ShinyColors' },
+      { name: 'og:description', content: '每日卡牌猜猜樂, Daily Cardle Game from ShinyColors' },
       { name: 'og:url', content: 'https://shinycolors.moe/cardle/' },
       //{ name: 'og:image', content: 'https://shinycolors.moe/assets/images/cardle.png' },
       { name: 'theme-color', content: "#25c22a" },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: 'ShinyColors Cardle' },
-      { name: 'twitter:description', content: 'Daily Cardle Game from ShinyColors' },
+      { name: 'twitter:description', content: '每日卡牌猜猜樂, Daily Cardle Game from ShinyColors' },
       //{ name: 'twitter:image', content: 'https://shinycolors.moe/assets/images/cardle.png' },
-      { name: 'twitter:url', content: 'https://shinycolors.moe/cardle/' }
+      { name: 'twitter:url', content: 'https://shinycolors.moe/cardle/' },
+      { name: 'description', content: '每日卡牌猜猜樂, Daily Cardle Game from ShinyColors'}
     ]);
   }
 

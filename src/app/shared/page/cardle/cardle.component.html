@@ -35,7 +35,7 @@
   </div>
   <div class="modal-body justify-content-center">
     <span>Next Cardle in {{this.cardleInfo.cardleDate}}</span>
-    <img src={{this.getImageUrl()}} alt class="img-fluid">
+    <img src={{this.getImageUrl()}} [alt]="'Image of ' + this.cardleInfo.enza.cardName" class="img-fluid">
     <span class="text-center">{{this.cardleInfo.enza.cardName}}</span>
   </div>
   <div class="modal-footer">

@@ -66,7 +66,11 @@ export class TimetableComponent implements OnInit {
     this.title.setTitle(' ~ 出卡時間表 ~ ');
     this.meta.updateTag({
       name: 'og:description',
-      content: 'Timetable for history cards.',
+      content: '偶像別歷史卡牌時間表, Timetable for history cards.',
+    });
+    this.meta.updateTag({
+      name: 'description',
+      content: '偶像別歷史卡牌時間表, Timetable for history cards.',
     });
     this.utilitiesService.mobileTitle.emit(' ~ 時間表 ~ ');
   }

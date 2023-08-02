@@ -32,6 +32,9 @@ export class PicCarouselComponent implements OnInit, OnChanges {
   @Input()
   displayMov2!: boolean;
 
+  @Input()
+  cardName!: string;
+
   constructor() {
     this.staticUrl = environment.staticUrl;
   }

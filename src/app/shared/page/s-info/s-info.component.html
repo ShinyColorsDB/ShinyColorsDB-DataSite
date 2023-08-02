@@ -8,7 +8,7 @@
       [src]="
       this.staticUrl + '/pictures/bigPic/' + this.sCardInfo.bigPic1 + '.jpg'
       "
-      alt
+      [alt]="'Picture of ' + this.sCardInfo.cardName"
       class="img-fluid col-12 p-2" />
     <div class="container col-12 row m-0 p-0 pt-1">
       <app-common-criteria
@@ -79,7 +79,7 @@
                   "
                   width="30"
                   height="34"
-                  alt
+                  [alt]="'Icon of idea mark ' + this.sCardInfo.ideaMark"
                   class="img-fluid" />
                 {{ this.translateIdeaNote() }}
               </td>
@@ -90,7 +90,7 @@
                   this.convertHirameki() +
                   '.png'
                   "
-                  alt
+                  [alt]="'Icon of hirameki ' + this.sCardInfo.idol.hirameki"
                   width="30"
                   height="30" />
                 {{ this.sCardInfo.idol.hirameki }}
@@ -104,7 +104,7 @@
                     p.proficiency +
                     '.png'
                     "
-                    alt
+                    [alt]="'Icon of proficiency ' + p.proficiency"
                     width="30"
                     height="30" />
                   {{ this.translateProficiency(p.proficiency) }}
