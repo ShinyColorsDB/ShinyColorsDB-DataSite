@@ -17,8 +17,12 @@ export class UtilitiesService {
     this.activeIds.emit(ids);
   }
 
-  emitMobileTitle(title: string) {
-    this.mobileTitle.emit(title);
+  emitMobileTitle(title: string, stripe: boolean = false) {
+    let display: string = title;
+    if (stripe) {
+      display = title.match(/(【.*】)/)![1];
+    }
+    this.mobileTitle.emit(display);
   }
 
   generateDefaultMeta(): { name: string; content: string }[] {

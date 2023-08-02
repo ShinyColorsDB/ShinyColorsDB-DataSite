@@ -99,8 +99,7 @@ export class IInfoComponent implements OnInit {
           });
 
           this.utilsService.emitActiveIds([this.idolId, this.idolInfo.unitId]);
-
-          this.utilsService.mobileTitle.emit(this.idolInfo.idolName);
+          this.utilsService.emitMobileTitle(this.idolInfo.idolName);
 
           this.idolInfo.cardLists.forEach((card) => {
             this.classifyType(card);
