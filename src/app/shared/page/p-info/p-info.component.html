@@ -21,16 +21,14 @@
 
       <h3
         class="col-12 pt-2"
-        *ngIf="this.pCardInfo.cardIdolEvents.length">
-        イベント
-      </h3>
+        *ngIf="this.pCardInfo.cardIdolEvents.length" i18n>イベント</h3>
       <div
         class="col-lg-6 col-md-12 size18"
         *ngIf="this.pCardInfo.cardIdolEvents.length">
         <table class="table table-hover">
           <thead>
             <tr>
-              <th scope="col">事件名稱</th>
+              <th scope="col" i18n>事件名稱</th>
             </tr>
           </thead>
           <tbody>
@@ -40,7 +38,11 @@
                   [href]="
                   'https://event.shinycolors.moe/?eventId=' + event.eventId
                   "
-                  target="_blank">{{ event.eventTitle }}</a>
+                  class="d-flex justify-content-between"
+                  target="_blank">
+                  <div>{{ event.eventTitle }}</div>
+                  <ion-icon class="align-self-center" name="play-circle-outline"></ion-icon>
+                </a>
               </td>
             </tr>
           </tbody>
@@ -62,19 +64,21 @@
                   [href]="
                   'https://event.shinycolors.moe/?eventId=' + event.eventId
                   "
-                  target="_blank">{{ event.eventTitle }}</a>
+                  class="d-flex justify-content-between"
+                  target="_blank">
+                  <div>{{ event.eventTitle }}</div>
+                  <ion-icon class="align-self-center" name="play-circle-outline"></ion-icon>
+                </a>
               </td>
             </tr>
           </tbody>
         </table>
       </div>
-      <h3 class="col-12">
-        適性
-      </h3>
+      <h3 class="col-12" i18n>適性</h3>
       <div class="col-12">
         <app-aptitude [apts]="this.pCardInfo.cardProduceAptitudes"></app-aptitude>
       </div>
-      <h3>思い出</h3>
+      <h3 i18n>思い出</h3>
       <div class="col-12">
         <app-memory-table [memoryList]="this.getMemoryAppeal()"></app-memory-table>
       </div>

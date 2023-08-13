@@ -1,5 +1,5 @@
 <div class="h-100">
-  <div class="h-100 d-flex justify-content-center" [ngClass]="{ 'd-none': isBigScreen }">
+  <div class="h-100 d-flex justify-content-center overflow-hidden" [ngClass]="{ 'd-none': isBigScreen }">
     <a (click)="onSideBarClick()" class="m-0 p-0 position-absolute top-0 start-0">
       <ion-icon
         *ngIf="!showSideBar"
@@ -29,15 +29,11 @@
             <a
               class="text-start list-group-item list-group-item-action w-100 ps-4 bg-light bg-gradient"
               [routerLink]="['/']"
-              (click)="onSideBarClick()">
-              首頁
-            </a>
+              (click)="onSideBarClick()" i18n>首頁</a>
             <a
               class="text-start list-group-item list-group-item-action w-100 ps-4 bg-light bg-gradient"
               [routerLink]="['/timetable']"
-              (click)="onSideBarClick()">
-              卡片歷史
-            </a>
+              (click)="onSideBarClick()" i18n>卡片歷史</a>
             <a
               class="text-start list-group-item list-group-item-action w-100 ps-4 bg-light bg-gradient"
               [routerLink]="['/cardle']"
@@ -54,7 +50,7 @@
         </ng-template>
       </ngb-panel>
       <ngb-panel cardClass="p-0" [id]="this.charaListId">
-        <ng-template ngbPanelTitle>角色列表</ng-template>
+        <ng-template ngbPanelTitle i18n>角色列表</ng-template>
         <ng-template ngbPanelContent>
           <app-charlist
             (idolClicked)="onCharlistClick($event)"
@@ -62,7 +58,7 @@
         </ng-template>
       </ngb-panel>
       <ngb-panel cardClass="mb-5">
-        <ng-template ngbPanelTitle>其他小玩具</ng-template>
+        <ng-template ngbPanelTitle i18n>其他小玩具</ng-template>
         <ng-template ngbPanelContent>
           <div class="list-group">
             <a

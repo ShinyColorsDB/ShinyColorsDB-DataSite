@@ -2,7 +2,7 @@
   <thead>
     <tr>
       <th>#</th>
-      <th>技能</th>
+      <th i18n>技能</th>
     </tr>
   </thead>
   <tbody *ngFor="let slot of this.panelInfo; let i= index">
@@ -20,7 +20,7 @@
           class="img-fluid mb-1"
           />
         <div *ngIf="slot.panelReleaseEvolution" class="d-block mt-1">(☆{{slot.panelReleaseEvolution}})</div>
-        <div *ngIf="slot.panelReleaseByEvent" class="d-block mt-1">(イベント)</div>
+        <div *ngIf="slot.panelReleaseByEvent" class="d-block mt-1" i18n>(イベント)</div>
       </td>
       <td class="d-flex justify-content-between align-items-center">
         <span class="wrapup">{{ slot.skillTitle }}</span>
@@ -28,7 +28,7 @@
           <img src="https://static.shinycolors.moe/pictures/linkIcon/ui/link_skill_button.png"
             alt="Button showing link skill member" [ngbPopover]="linkPop" [popoverTitle]="linkTitle" placement="left" class="forCurser img-fluid">
           <ng-template #linkTitle>
-            <span class='forPopup'>リンクアピール</span>
+            <span class='forPopup' i18n>リンクアピール</span>
           </ng-template>
           <ng-template #linkPop>
             <div>
@@ -45,7 +45,7 @@
           <img src="https://static.shinycolors.moe/pictures/linkIcon/ui/plus_skill_button.png"
             alt="Button showing plus skill description" [ngbPopover]="plusPop" [popoverTitle]="plusTitle" placement="left" class="forCurser float-end align-middle img-fluid">
           <ng-template #plusTitle>
-            <span class='forPopup'>プラスアピール</span>
+            <span class='forPopup' i18n>プラスアピール</span>
           </ng-template>
           <ng-template #plusPop>
             <div>
@@ -57,7 +57,7 @@
           <img src="https://static.shinycolors.moe/pictures/linkIcon/ui/exchange_skill_button.png"
             alt="Button showing exchange skill description" [ngbPopover]="exchangePop" [popoverTitle]="exchangeTitle" placement="left" class="forCurser float-end align-middle img-fluid">
           <ng-template #exchangeTitle>
-            <span class='forPopup'>チェンジ効果</span>
+            <span class='forPopup' i18n>チェンジ効果</span>
           </ng-template>
           <ng-template #exchangePop>
             <div>

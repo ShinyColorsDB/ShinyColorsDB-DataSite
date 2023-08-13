@@ -16,16 +16,16 @@
         <div class="input-group">
           <select
             name="language" id="languageSelection" class="form-select">
-            <option value="zh" [selected]="this.currentLang == 0">繁體中文</option>
-            <option value="jp" [selected]="this.currentLang == 1">日本語</option>
-            <option value="en" [selected]="this.currentLang == 2">English</option>
+            <option value="zh-tw" [selected]="this.currentLang == 0">繁體中文</option>
+            <option value="ja" [selected]="this.currentLang == 1">日本語</option>
+            <option value="en-us" [selected]="this.currentLang == 2">English</option>
           </select>
         </div>
       </div>
     </form>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" (click)="modal.close('Cancel')">取消</button>
-    <button type="button" class="btn btn-primary" (click)="modal.close('Save click')">確定</button>
+    <button type="button" class="btn btn-secondary" (click)="modal.close('Cancel')" i18n>取消</button>
+    <button type="button" class="btn btn-primary" (click)="modal.close('Save click')" i18n>確定</button>
   </div>
 </ng-template>

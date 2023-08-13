@@ -2,7 +2,7 @@
   <div class="d-flex col-lg-4 col-md-12 h-100 container justify-content-center" id="divIdolData">
     <div class="row">
       <div class="col-12 pt-3 d-block">
-        <h1 class="text-center w-100 d-none d-md-block">{{ this.idolInfo.idolName }}</h1>
+        <h1 class=" w-100 d-none d-md-block">{{ this.idolInfo.idolName }}</h1>
         <img
           [src]="
           'https://static.shinycolors.moe/pictures/icon/' +
@@ -18,47 +18,47 @@
           <tbody>
             <tr class="row">
               <th class="col-2"></th>
-              <td class="col-10">{{ this.idolInfo.hiragana }}</td>
+              <td class="col-10 d-flex align-items-center">{{ this.idolInfo.hiragana }}</td>
             </tr>
             <tr class="row">
-              <th class="col-2 text-center">姓名</th>
-              <td class="col-10">{{ this.idolInfo.idolName }}</td>
+              <th class="col-2  d-flex align-items-center" i18n>姓名</th>
+              <td class="col-10 d-flex align-items-center">{{ this.idolInfo.idolName }}</td>
             </tr>
             <tr class="row">
-              <th class="col-2 text-center">身高</th>
-              <td class="col-10">{{ this.idolInfo.height }}</td>
+              <th class="col-2  d-flex align-items-center" i18n>身高</th>
+              <td class="col-10 d-flex align-items-center">{{ this.idolInfo.height }}</td>
             </tr>
             <tr class="row">
-              <th class="col-2 text-center">體重</th>
-              <td class="col-10">{{ this.idolInfo.weight }}</td>
+              <th class="col-2  d-flex align-items-center" i18n>體重</th>
+              <td class="col-10 d-flex align-items-center">{{ this.idolInfo.weight }}</td>
             </tr>
             <tr class="row">
-              <th class="col-2 text-center">生日</th>
-              <td class="col-10">{{ this.idolInfo.birthday }}</td>
+              <th class="col-2  d-flex align-items-center" i18n>生日</th>
+              <td class="col-10 d-flex align-items-center">{{ this.idolInfo.birthday }}</td>
             </tr>
             <tr class="row">
-              <th class="col-2 text-center">血型</th>
-              <td class="col-10">{{ this.idolInfo.bloodType }}</td>
+              <th class="col-2  d-flex align-items-center" i18n>血型</th>
+              <td class="col-10 d-flex align-items-center">{{ this.idolInfo.bloodType }}</td>
             </tr>
             <tr class="row">
-              <th class="col-2 text-center">所屬</th>
-              <td class="col-10">{{ this.idolInfo.unit.unitName }}</td>
+              <th class="col-2  d-flex align-items-center" i18n>所屬</th>
+              <td class="col-10 d-flex align-items-center">{{ this.idolInfo.unit.unitName }}</td>
             </tr>
             <tr class="row">
-              <th class="col-2 text-center">三圍</th>
-              <td class="col-10">{{ this.idolInfo.threeSize }}</td>
+              <th class="col-2  d-flex align-items-center" i18n>三圍</th>
+              <td class="col-10 d-flex align-items-center">{{ this.idolInfo.threeSize }}</td>
             </tr>
             <tr class="row">
-              <th class="col-2 text-center">興趣</th>
-              <td class="col-10">{{ this.idolInfo.interest }}</td>
+              <th class="col-2  d-flex align-items-center" i18n>興趣</th>
+              <td class="col-10 d-flex align-items-center">{{ this.idolInfo.interest }}</td>
             </tr>
             <tr class="row">
-              <th class="col-2 text-center">特技</th>
-              <td class="col-10">{{ this.idolInfo.specialSkill }}</td>
+              <th class="col-2  d-flex align-items-center" i18n>特技</th>
+              <td class="col-10 d-flex align-items-center">{{ this.idolInfo.specialSkill }}</td>
             </tr>
             <tr class="row">
-              <th class="col-2 text-center">聲優</th>
-              <td class="col-10">{{ this.idolInfo.preCv ? this.idolInfo.preCv + " → " : '' }}{{ this.idolInfo.cv }}</td>
+              <th class="col-2  d-flex align-items-center" i18n>聲優</th>
+              <td class="col-10 d-flex align-items-center">{{ this.idolInfo.preCv ? this.idolInfo.preCv + " → " : '' }}{{ this.idolInfo.cv }}</td>
             </tr>
           </tbody>
         </table>
@@ -71,14 +71,10 @@
         <div class="card-header w-100">
           <ul class="nav nav-tabs card-header-tabs">
             <li class="nav-item">
-              <a href="javascript: void()" class="nav-link" (click)="togglePS= true" [ngClass]="{'disabled': togglePS, 'active': togglePS}" style="font-family: Meiryo">
-                P卡列表
-              </a>
+              <a href="javascript: void()" class="nav-link" (click)="togglePS= true" [ngClass]="{'disabled': togglePS, 'active': togglePS}" style="font-family: Meiryo" i18n>P卡列表</a>
             </li>
             <li class="nav-item">
-              <a href="javascript: void()" class="nav-link" (click)="togglePS= false" [ngClass]="{'disabled': !togglePS, 'active': !togglePS}" style="font-family: Meiryo">
-                S卡列表
-              </a>
+              <a href="javascript: void()" class="nav-link" (click)="togglePS= false" [ngClass]="{'disabled': !togglePS, 'active': !togglePS}" style="font-family: Meiryo" i18n>S卡列表</a>
             </li>
           </ul>
         </div>
@@ -94,8 +90,8 @@
             </ng-container>
             <ng-container *ngIf="!this.pSSR.length && !this.pSR.length && !this.pR.length">
               <div class="d-flex align-items-center justify-content-center w-100">
-                <div class="d-flex text-center">
-                  <div class="display-4">なし</div>
+                <div class="d-flex ">
+                  <div class="display-4" i18n>なし</div>
                 </div>
               </div>
             </ng-container>
@@ -113,8 +109,8 @@
             </ng-container>
             <ng-container *ngIf="!this.sSSR.length && !this.sSR.length && !this.sR.length && !this.sN.length">
               <div class="d-flex align-items-center justify-content-center w-100">
-                <div class="d-flex text-center">
-                  <div class="display-4">なし</div>
+                <div class="d-flex ">
+                  <div class="display-4" i18n>なし</div>
                 </div>
               </div>
             </ng-container>
