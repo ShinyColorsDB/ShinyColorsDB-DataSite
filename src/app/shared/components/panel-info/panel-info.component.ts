@@ -222,10 +222,10 @@ export class PanelInfoComponent implements OnChanges {
     return gridArray;
   }
 
-  //   ----
+  //   ____
   //  /    \
   //  \    /
-  //   ----
+  //   ‾‾‾‾
   generateRect(hex: Honeycomb.Hex<{ size: number; orientation: string; }>): PIXI.Graphics {
     const rect = new PIXI.Graphics();
     rect.beginFill(0xc7c0ad, 1);

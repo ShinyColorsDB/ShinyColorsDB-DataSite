@@ -6,27 +6,21 @@
           href="javascript: void()"
           class="nav-link"
           (click)="changeDisplay(0);"
-          [ngClass]="{ disabled: this.overview, active: this.overview }">
-          概覽
-        </a>
+          [ngClass]="{ disabled: this.overview, active: this.overview }" i18n>概覽</a>
       </li>
       <li class="nav-item">
         <a
           href="javascript: void()"
           class="nav-link"
           (click)="changeDisplay(1);"
-          [ngClass]="{ disabled: this.limited, active: this.limited }">
-          限定
-        </a>
+          [ngClass]="{ disabled: this.limited, active: this.limited }" i18n>限定</a>
       </li>
       <li class="nav-item">
         <a
           href="javascript: void()"
           class="nav-link"
           (click)="changeDisplay(2);"
-          [ngClass]="{ disabled: this.general, active: this.general }">
-          常駐
-        </a>
+          [ngClass]="{ disabled: this.general, active: this.general }" i18n>常駐</a>
       </li>
     </ul>
   </div>

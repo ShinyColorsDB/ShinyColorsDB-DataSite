@@ -2,8 +2,8 @@
   <thead>
     <tr>
       <th>#</th>
-      <th scope="col">技能名稱</th>
-      <th scope="col">Link</th>
+      <th scope="col" i18n>技能名稱</th>
+      <th scope="col" i18n>Link</th>
     </tr>
   </thead>
   <tbody *ngFor="let mem of this.memoryList; let i= index">
@@ -11,7 +11,7 @@
       <td rowspan="2" class="align-middle forLevel">Lv.{{ i + 1 }}</td>
       <td>{{ mem.memoryTitle }}</td>
       <td rowspan="2" class="align-middle">
-        <span class="wrapup">{{ this.addLineBreak(mem.linkSkillDesc) }}</span>
+        <span class="wrapup">{{ this.addLineBreak(mem.extraEffect!.extraEffectDesc) }}</span>
       </td>
     </tr>
     <tr>
