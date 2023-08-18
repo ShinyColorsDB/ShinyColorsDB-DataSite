@@ -16,7 +16,7 @@ export class MemoryTableComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addLineBreak(content: string): string {
+  addLineBreak(content: string | null): string {
     return content ? content.replace(/\//g, '/\n') : "";
   }
 }

@@ -1,3 +1,5 @@
+import { ExtraEffect } from "./extraEffect";
+
 export interface PanelSlot {
   tableIndex: number;
   panelId: number;
@@ -12,14 +14,5 @@ export interface PanelSlot {
   skillDesc: string;
   skillType: string;
   skillEffects: any[];
-  linkSkillId: number | null;
-  linkSkillDesc: string | null;
-  linkWith: string | null;
-  plusSkillId: number | null;
-  plusSkillDesc: string | null;
-  plusSkillEffects: any[] | null;
-  exchangeSkillId: number | null;
-  exchangeSkillDesc: string | null;
-  exchangeWith: string | null;
-  exchangeSkillEffects: any[] | null;
+  extraEffect: ExtraEffect | null;
 }

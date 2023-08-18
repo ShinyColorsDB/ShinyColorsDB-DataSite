@@ -120,6 +120,9 @@
             "en": {
               "localize": ["en"]
             },
+            "ja": {
+              "localize": ["ja"]
+            },
             "tw": {
               "localize": ["tw"]
             }
@@ -140,7 +143,13 @@
               "browserTarget": "ShinyColorsDB-DataSite:build:development"
             },
             "en": {
-              "browserTarget": "ShinyColorsDB-DataSite:build:en"
+              "browserTarget": "ShinyColorsDB-DataSite:build,en"
+            },
+            "tw": {
+              "browserTarget": "ShinyColorsDB-DataSite:build,tw"
+            },
+            "ja": {
+              "browserTarget": "ShinyColorsDB-DataSite:build,ja"
             }
           },
           "defaultConfiguration": "development"
@@ -257,11 +266,18 @@
         }
       },
       "i18n": {
-        "sourceLocale": "tw",
         "locales": {
+          "zh": {
+            "translation": "src/locale/tw.json",
+            "baseHref": ""
+          },
           "en": {
             "translation": "src/locale/en.json",
             "baseHref": "/en/"
+          },
+          "ja":{
+            "translation": "src/locale/ja.json",
+            "baseHref": "/ja/"
           }
         }
       }

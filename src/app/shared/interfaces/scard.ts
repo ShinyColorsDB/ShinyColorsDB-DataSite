@@ -21,5 +21,5 @@ export interface SCard {
   cardSupportSkills: CardSupportSkill[];
   cardProficiencies: CardProficiency[];
   cardPanels: PanelSlot[];
-  cardSupportFightSkills: CardSupportFightSkill;
+  supportFightSkills: CardSupportFightSkill;
 }
