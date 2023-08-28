@@ -4,6 +4,8 @@ import { Unit } from "./unit";
 export interface Idol {
   idolId: number;
   idolName: string;
+  idolFirstName: string;
+  idolLastName: string;
   hiragana: string;
   nickName: string;
   unitId: number;

@@ -3,7 +3,6 @@ import { RouterModule, Routes, RouteReuseStrategy } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { IonicModule } from '@ionic/angular';
 
 import { TransferHttpCacheModule } from '@nguniversal/common';
 
@@ -36,6 +35,9 @@ import { ShinyColorsCacheService } from './service/shinycolors-cache/shinycolors
 import { UtilitiesService } from './service/utilities/utilities.service';
 import { TranslationService } from './service/translation/translation.service';
 import { AppRoutingCache } from './app-routing-cache';
+import { SubSkillFormComponent } from './shared/components/sub-skill-form/sub-skill-form.component';
+import { SubIdolFormComponent } from './shared/components/sub-idol-form/sub-idol-form.component';
+import { QueryResultModalComponent } from './shared/components/query-result-modal/query-result-modal.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -44,7 +46,7 @@ const routes: Routes = [
   { path: 'scardinfo', component: SInfoComponent },
   { path: 'timetable', component: TimetableComponent },
   { path: 'notfound', component: NotfoundComponent },
-  { path: 'reverselookup', component: RLookupComponent },
+  { path: 'r-lookup', component: RLookupComponent },
   { path: 'cardle', component: CardleComponent },
   { path: '**', redirectTo: 'notfound' }
 ];
@@ -68,6 +70,9 @@ const routes: Routes = [
     PicCarouselComponent,
     MemoryTableComponent,
     CommonCriteriaComponent,
+    SubSkillFormComponent,
+    SubIdolFormComponent,
+    QueryResultModalComponent,
     SettingsComponent,
     HomeComponent,
     NotfoundComponent
@@ -80,7 +85,6 @@ const routes: Routes = [
     RouterModule.forRoot(routes, {
       initialNavigation: 'enabledBlocking',
     }),
-    IonicModule.forRoot(),
   ],
   providers: [
     ShinyColorsApiService,

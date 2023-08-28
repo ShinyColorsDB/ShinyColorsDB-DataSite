@@ -1,0 +1,19 @@
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">搜尋結果</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <ng-container *ngFor="let i of this.queryResult">
+        <img [src]="
+          'https://static.shinycolors.moe/pictures/smlPic/' + i.smlPic + '.png'
+        " alt="" class="img-fluid col-lg-2 col-md-4">
+      </ng-container>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="modal.close('Save click')">Close</button>
+  </div>
+</ng-template>

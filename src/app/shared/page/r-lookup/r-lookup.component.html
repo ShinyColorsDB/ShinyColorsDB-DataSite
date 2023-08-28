@@ -1,7 +1,24 @@
-<div formGroupName="skillReverseLookup" class="well well-lg">
-  <div class="form-group">
-    <label for="skillNameSelect">技能</label>
-    <select id="skillNameSelect" class="form-control"></select>
+<div class="mb-5">
+  <div class="well well-lg p-0 m-2 mb-0">
+    <p class="h2">技能篩選</p>
   </div>
+  <div formGroupName="skillReverseLookup" class="well well-md p-2 m-2 mb-0 border rounded border-secondary-subtle">
+    <p class="h3">サポートスキル</p>
+    <app-sub-skill-form [skillList]="this.skillList" #subSkillForm></app-sub-skill-form>
+    <app-sub-skill-form [skillList]="this.skillList" #subSkillForm></app-sub-skill-form>
+    <app-sub-skill-form [skillList]="this.skillList" #subSkillForm></app-sub-skill-form>
+    <app-sub-skill-form [skillList]="this.skillList" #subSkillForm></app-sub-skill-form>
 
+  </div>
+  <div class="well well-lg p-2 m-2 mb-0 border rounded border-secondary-subtle pe-0">
+    <p class="h3">アイドル</p>
+    <div class="row container-fluid m-0 p-0">
+      <app-sub-idol-form *ngFor="let thisUnit of this.units" [unit]="thisUnit" #subIdolForm></app-sub-idol-form>
+    </div>
+  </div>
+  <div class="p-2 m-2 pe-0 mb-5">
+    <button class="btn-primary btn float-end" (click)="submitQuery()">submit</button>
+  </div>
 </div>
+
+<app-query-result-modal [queryResult]="this.queryResult" #resultModal></app-query-result-modal>

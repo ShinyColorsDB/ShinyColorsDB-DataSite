@@ -13,6 +13,8 @@ import { PCard } from 'src/app/shared/interfaces/pcard';
 import { SCard } from 'src/app/shared/interfaces/scard';
 import { Timetable } from 'src/app/shared/interfaces/timetable';
 import { Cardle } from 'src/app/shared/interfaces/cardle';
+import { SupSkillList } from 'src/app/shared/interfaces/supskilllist';
+import { QuerySupportSkill } from 'src/app/shared/interfaces/querysupportskill';
 
 @Injectable({
   providedIn: 'root',
@@ -25,13 +27,13 @@ export class ShinyColorsApiService {
 
   getUnitList(): Observable<Unit[]> {
     return this.http
-      .get<Unit[]>(`${environment.apiUrl}info/unitinfo`)
+      .get<Unit[]>(`${environment.apiUrl}info/unitInfo`)
       .pipe(catchError(this.handleError<Unit[]>('getIdolList', [])));
   }
 
   getIdolInfo(idolID: number): Observable<Idol> {
     return this.http
-      .get<Idol>(`${environment.apiUrl}info/idolinfo?idolId=${idolID}`, {
+      .get<Idol>(`${environment.apiUrl}info/idolInfo?idolId=${idolID}`, {
         responseType: 'json',
       })
       .pipe(catchError(this.handleError<Idol>('getIdolInfo')));
@@ -39,7 +41,7 @@ export class ShinyColorsApiService {
 
   getPCardInfo(cardId: string): Observable<PCard> {
     return this.http
-      .get<PCard>(`${environment.apiUrl}info/pcardinfo?cardId=${cardId}`, {
+      .get<PCard>(`${environment.apiUrl}info/pCardInfo?cardId=${cardId}`, {
         responseType: 'json',
       })
       .pipe(catchError(this.handleError<PCard>('getPCardInfo')));
@@ -47,7 +49,7 @@ export class ShinyColorsApiService {
 
   getSCardInfo(cardId: string): Observable<SCard> {
     return this.http
-      .get<SCard>(`${environment.apiUrl}info/scardinfo?cardId=${cardId}`, {
+      .get<SCard>(`${environment.apiUrl}info/sCardInfo?cardId=${cardId}`, {
         responseType: 'json',
       })
       .pipe(catchError(this.handleError<SCard>('getSCardInfo')));
@@ -55,13 +57,13 @@ export class ShinyColorsApiService {
 
   getLatestPInfo(): Observable<Card[]> {
     return this.http
-      .get<Card[]>(`${environment.apiUrl}info/latestpinfo`)
+      .get<Card[]>(`${environment.apiUrl}info/latestPInfo`)
       .pipe(catchError(this.handleError<Card[]>('getLatestPInfo', [])));
   }
 
   getLatestSInfo(): Observable<Card[]> {
     return this.http
-      .get<Card[]>(`${environment.apiUrl}info/latestsinfo`)
+      .get<Card[]>(`${environment.apiUrl}info/latestSInfo`)
       .pipe(catchError(this.handleError<Card[]>('getLatestSInfo', [])));
   }
 
@@ -81,6 +83,18 @@ export class ShinyColorsApiService {
     return this.http
       .get<Timetable>(`${environment.apiUrl}info/getGeneralTable`)
       .pipe(catchError(this.handleError<Timetable>('getGeneralTable')));
+  }
+
+  getSupportSkillList(): Observable<SupSkillList[]> {
+    return this.http
+      .get<SupSkillList[]>(`${environment.apiUrl}info/supportSkillList`)
+      .pipe(catchError(this.handleError<SupSkillList[]>(`getSupportSkillList`)));
+  }
+
+  querySupportSkills(queryParams: QuerySupportSkill): Observable<Card[]> {
+    return this.http
+      .post<Card[]>(`${environment.apiUrl}info/querySupportSkill`, queryParams)
+      .pipe(catchError(this.handleError<Card[]>(`querySupportSkill`)));
   }
 
   getCardleInfo(): Observable<Cardle> {

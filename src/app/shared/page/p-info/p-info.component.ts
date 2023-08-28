@@ -17,7 +17,7 @@ import { NgbSingleSlideEvent } from '@ng-bootstrap/ng-bootstrap/carousel/carouse
   templateUrl: './p-info.component.html',
   styleUrls: ['./p-info.component.css'],
   host: {
-    class: 'col-lg-10 col-md-8 col-sm-12 overflow-auto h-100 container-fluid ',
+    class: 'col-lg-10 col-md-8 col-sm-12 overflow-auto h-100 container-fluid',
   },
 })
 export class PInfoComponent implements OnInit {
