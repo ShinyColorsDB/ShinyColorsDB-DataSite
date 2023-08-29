@@ -5,9 +5,7 @@
 
   <div class="col-lg-6 col-md-12 row p-0 m-0">
     <app-pic-carousel
-      [img1]="this.pCardInfo.bigPic1"
-      [img2]="this.pCardInfo.bigPic2"
-      [idolId]="this.pCardInfo.enzaId"
+      [enzaId]="this.pCardInfo.enzaId"
       [displayMov1]="this.isSsrCard() && !this.isIdolRoad()"
       [displayMov2]="this.isSsrCard() || this.isSrCard()"
       [cardName]="this.pCardInfo.cardName"

@@ -3,9 +3,9 @@
     <img
       #pic1
       [src]="
-      this.staticUrl +
-      '/pictures/bigPic/' +
-      this.img1 +
+      this.assetUrl +
+      '/images/content/idols/card/' +
+      this.enzaId +
       '.jpg'
       "
       [alt]="'General image of ' + this.cardName"
@@ -23,7 +23,7 @@
       muted
       [src]="
       'https://viewer.shinycolors.moe/movies/idols/card/' +
-      this.idolId +
+      this.enzaId +
       '.mp4'
       "
       type="video/mp4"
@@ -35,9 +35,9 @@
     <img
       #pic2
       [src]="
-      this.staticUrl +
-      '/pictures/bigPic/' +
-      this.img2 +
+      this.assetUrl +
+      '/images/content/idols/fes_card/' +
+      this.enzaId +
       '.jpg'
       "
       [alt]="'Fes image of ' + this.cardName"
@@ -55,7 +55,7 @@
       muted
       [src]="
       'https://viewer.shinycolors.moe/movies/idols/card_costume/' +
-      this.idolId +
+      this.enzaId +
       '.mp4'
       "
       type="video/mp4"

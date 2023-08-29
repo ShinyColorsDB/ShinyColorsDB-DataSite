@@ -24,7 +24,6 @@ export class PInfoComponent implements OnInit {
 
   pCardUuid!: string;
   pCardInfo!: PCard;
-  staticUrl: string;
 
   highlight!: number;
 
@@ -35,9 +34,7 @@ export class PInfoComponent implements OnInit {
     private router: Router,
     private meta: Meta,
     private title: Title
-  ) {
-    this.staticUrl = environment.staticUrl;
-  }
+  ) {}
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {

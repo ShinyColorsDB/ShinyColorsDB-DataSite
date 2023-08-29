@@ -4,17 +4,9 @@ import { CardSupportEvent } from "./cardsupportevent"
 import { CardProficiency } from "./cardproficiency";
 import { CardSupportSkill } from "./cardsupportskill";
 import { CardSupportFightSkill } from "./cardsupportfightskill";
+import { Card } from "./card";
 
-export interface SCard {
-  cardIndex: number;
-  cardName: string;
-  cardUuid: string;
-  bigPic1: string;
-  bigPic2: string;
-  smlPic: string;
-  cardType: string;
-  getMethod: string;
-  releaseDate: string;
+export interface SCard extends Card {
   idol: Idol;
   ideaMark: string;
   cardSupportEvents: CardSupportEvent[];

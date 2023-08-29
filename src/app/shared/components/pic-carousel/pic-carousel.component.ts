@@ -15,16 +15,10 @@ export class PicCarouselComponent implements OnInit, OnChanges {
   @ViewChild('pic1') pic1!: HTMLImageElement;
   @ViewChild('pic2') pic2!: HTMLImageElement;
 
-  staticUrl: string;
+  assetUrl: string;
 
   @Input()
-  img1!: string;
-
-  @Input()
-  img2!: string;
-
-  @Input()
-  idolId!: number;
+  enzaId!: number;
 
   @Input()
   displayMov1!: boolean;
@@ -36,7 +30,7 @@ export class PicCarouselComponent implements OnInit, OnChanges {
   cardName!: string;
 
   constructor() {
-    this.staticUrl = environment.staticUrl;
+    this.assetUrl = environment.assetUrl;
   }
 
   ngOnChanges(changes: SimpleChanges): void {

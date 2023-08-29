@@ -22,7 +22,7 @@ import { catchError, of } from 'rxjs';
 export class SInfoComponent implements OnInit {
   sCardUuid!: string;
   sCardInfo!: SCard;
-  staticUrl: string;
+  assetUrl: string;
 
   highlight!: number;
 
@@ -44,7 +44,7 @@ export class SInfoComponent implements OnInit {
     private router: Router,
     private meta: Meta,
     private title: Title
-  ) { this.staticUrl = environment.staticUrl; }
+  ) { this.assetUrl = environment.assetUrl; }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {

@@ -3,6 +3,8 @@ import { Idol } from 'src/app/shared/interfaces/idol';
 import { PCard } from 'src/app/shared/interfaces/pcard';
 import { SCard } from 'src/app/shared/interfaces/scard';
 
+import { environment } from 'src/environments/environment';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -76,7 +78,7 @@ export class UtilitiesService {
       },
       {
         name: 'og:image',
-        content: `https://static.shinycolors.moe/pictures/icon/${idolInfo.idolId
+        content: `${environment.staticUrl}pictures/icon/${idolInfo.idolId
           .toString()
           .padStart(2, '0')}.jpg`,
       },
@@ -93,7 +95,7 @@ export class UtilitiesService {
       },
       {
         name: 'twitter:image',
-        content: `https://static.shinycolors.moe/pictures/icon/${idolInfo.idolId
+        content: `${environment.staticUrl}pictures/icon/${idolInfo.idolId
           .toString()
           .padStart(2, '0')}.jpg`,
       },
@@ -110,7 +112,7 @@ export class UtilitiesService {
       { name: 'og:title', content: card.cardName },
       {
         name: 'og:image',
-        content: `https://static.shinycolors.moe/pictures/bigPic/${card.bigPic1}.jpg`,
+        content: `${environment.assetUrl}images/content/idols/card/${card.enzaId}.jpg`,
       },
       { name: 'theme-color', content: card.idol.color1 },
       { name: 'twitter:card', content: 'summary_large_image' },
@@ -121,7 +123,7 @@ export class UtilitiesService {
       },
       {
         name: 'twitter:image',
-        content: `https://static.shinycolors.moe/pictures/bigPic/${card.bigPic1}.jpg`,
+        content: `${environment.assetUrl}images/content/idols/card/${card.enzaId}.jpg`,
       },
       {
         name: 'description',
