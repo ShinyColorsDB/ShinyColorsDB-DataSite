@@ -1,4 +1,4 @@
-<ngb-carousel class="col-12" [interval]="0" #picCarousel="ngbCarousel">
+<ngb-carousel class="col-12" [interval]="0" #picCarousel="ngbCarousel" (slid)="onSlid($event)" (slide)="onSlide($event)">
   <ng-template ngbSlide id="img1">
     <img
       #pic1
@@ -18,8 +18,6 @@
       class="img-fluid"
       width=1136
       height=640
-      autoplay
-      loop
       muted
       [src]="
       'https://viewer.shinycolors.moe/movies/idols/card/' +
@@ -27,7 +25,6 @@
       '.mp4'
       "
       type="video/mp4"
-      oncanplay="this.play()"
       onloadedmetadata="this.muted=true"
       (ended)="this.onMovieEnded()"></video>
   </ng-template>
@@ -50,8 +47,6 @@
       class="img-fluid"
       width=1136
       height=640
-      autoplay
-      loop
       muted
       [src]="
       'https://viewer.shinycolors.moe/movies/idols/card_costume/' +
@@ -59,7 +54,6 @@
       '.mp4'
       "
       type="video/mp4"
-      oncanplay="this.play()"
       onloadedmetadata="this.muted=true"
       (ended)="onMovieEnded()"></video>
   </ng-template>
