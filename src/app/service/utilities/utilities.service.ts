@@ -43,7 +43,7 @@ export class UtilitiesService {
       },
       {
         name: 'og:description',
-        content: '歡迎來到閃耀色彩資料庫! 本網頁蒐集了遊戲 shinycolors 中的所有遊戲資料，包括出卡時間表、卡片情報、遊戲劇情等內容，希望對各位有所幫助'
+        content: '歡迎來到閃耀色彩資料庫! 本網頁蒐集了遊戲 shinycolors 中的所有遊戲資料，包括出卡時間表、卡片情報、遊戲劇情等內容，希望對各位有所幫助\nThe IDOLM@STER Shiny Colors, アイドルマスター シャイニーカラーズ, ShinyColorsDB, ShinyColors, シャニマス, 偶像大師閃耀色彩'
       },
       {
         name: 'twitter:card',
@@ -59,11 +59,11 @@ export class UtilitiesService {
       },
       {
         name: 'twitter:description',
-        content: '歡迎來到閃耀色彩資料庫! 本網頁蒐集了遊戲 shinycolors 中的所有遊戲資料，包括出卡時間表、卡片情報、遊戲劇情等內容，希望對各位有所幫助'
+        content: '歡迎來到閃耀色彩資料庫! 本網頁蒐集了遊戲 shinycolors 中的所有遊戲資料，包括出卡時間表、卡片情報、遊戲劇情等內容，希望對各位有所幫助\nThe IDOLM@STER Shiny Colors, アイドルマスター シャイニーカラーズ, ShinyColorsDB, ShinyColors, シャニマス, 偶像大師閃耀色彩'
       },
       {
         name: 'description',
-        content: '歡迎來到閃耀色彩資料庫! 本網頁蒐集了遊戲 shinycolors 中的所有遊戲資料，包括出卡時間表、卡片情報、遊戲劇情等內容，希望對各位有所幫助'
+        content: '歡迎來到閃耀色彩資料庫! 本網頁蒐集了遊戲 shinycolors 中的所有遊戲資料，包括出卡時間表、卡片情報、遊戲劇情等內容，希望對各位有所幫助\nThe IDOLM@STER Shiny Colors, アイドルマスター シャイニーカラーズ, ShinyColorsDB, ShinyColors, シャニマス, 偶像大師閃耀色彩'
       }
     ];
   }
@@ -102,6 +102,47 @@ export class UtilitiesService {
       {
         name: 'description',
         content: `姓名: ${idolInfo.idolName}\n生日: ${idolInfo.birthday}\n所屬: ${idolInfo.unit.unitName}`,
+      }
+    ];
+  }
+
+  generateReverseLookupMeta(): { name: string; content: string }[] {
+    return [
+      {
+        name: 'og:type',
+        content: 'website'
+      },
+      {
+        name: 'og:url',
+        content: 'https://shinycolors.moe/r-lookup'
+      },
+      {
+        name: 'og:title',
+        content: ' ~ 技能篩選 ~ '
+      },
+      {
+        name: 'og:description',
+        content: '從支援技能等級反向篩選支援卡牌'
+      },
+      {
+        name: 'twitter:card',
+        content: 'summary_large_image'
+      },
+      {
+        name: 'twitter:url',
+        content: 'https://shinycolors.moe/r-lookup'
+      },
+      {
+        name: 'twitter:title',
+        content: ' ~ 技能篩選 ~ '
+      },
+      {
+        name: 'twitter:description',
+        content: '從支援技能等級反向篩選支援卡牌'
+      },
+      {
+        name: 'description',
+        content: '從支援技能等級反向篩選支援卡牌'
       }
     ];
   }

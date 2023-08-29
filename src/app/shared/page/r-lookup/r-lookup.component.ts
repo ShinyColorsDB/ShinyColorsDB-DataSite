@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Title } from '@angular/platform-browser';
+import { Meta, Title } from '@angular/platform-browser';
 
 import { catchError, of } from 'rxjs';
 
@@ -46,10 +46,11 @@ export class RLookupComponent implements OnInit {
     private scApiService: ShinyColorsApiService,
     private router: Router,
     private title: Title,
-    private route: ActivatedRoute
+    private meta: Meta
   ) {
     this.title.setTitle("~ 技能篩選 ~")
     this.utilsService.emitMobileTitle('技能篩選');
+    this.meta.addTags(this.utilsService.generateReverseLookupMeta());
     this.scApiService.getSupportSkillList()
       .pipe(catchError(err => {
         this.router.navigate(['/notfound']);
