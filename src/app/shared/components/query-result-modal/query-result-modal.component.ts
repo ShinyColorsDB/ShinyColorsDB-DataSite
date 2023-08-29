@@ -15,6 +15,8 @@ export class QueryResultModalComponent implements OnInit {
   @Input()
   queryResult!: Card[];
 
+  regExp: RegExp = /【(.*)】(.*)/;
+
   constructor(private modalService: NgbModal) { }
 
   ngOnInit(): void { }

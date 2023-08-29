@@ -5,7 +5,7 @@
       <th i18n>技能</th>
     </tr>
   </thead>
-  <tbody *ngFor="let slot of this.panelInfo; let i= index">
+  <tbody *ngFor="let slot of this.panelInfo; let i= index" class="table-hover">
     <tr [ngClass]="{ 'bg-warning': i == this.highlited }"
       [id]="i == this.highlited ? 'scrollMe' : ''"
       [attr.data-index]="i">

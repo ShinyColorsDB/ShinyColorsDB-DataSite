@@ -6,11 +6,37 @@
   </div>
   <div class="modal-body">
     <div class="row">
-      <ng-container *ngFor="let i of this.queryResult">
+      <div class="card col-md-4 col-sm-6 p-0" *ngFor="let i of this.queryResult">
+        <a routerLink="/scardinfo"
+          [queryParams]="{ uuid: i.cardUuid }"
+          class="row g-0">
+          <div class="col-3">
+            <img [src]="
+              'https://viewer.shinycolors.moe/images/content/support_idols/icon/' + i.enzaId + '.png'
+              " alt class="img-fluid">
+          </div>
+          <div class="col-9">
+            <div class="card-body">
+              <p class="card-title">
+                {{i.cardName.replace(this.regExp, "$1")}}
+              </p>
+              <div class="card-text">
+                星3
+              </div>
+            </div>
+
+          </div>
+        </a>
+      </div>
+      <!--a *ngFor="let i of this.queryResult"
+        routerLink="/scardinfo"
+        [queryParams]="{ uuid: i.cardUuid }"
+        class="img-fluid col-lg-2 col-md-4 col-sm-6">
         <img [src]="
           'https://viewer.shinycolors.moe/images/content/support_idols/icon/' + i.enzaId + '.png'
-        " alt="" class="img-fluid col-lg-2 col-md-4">
-      </ng-container>
+        " alt="">
+        <p>{{i.cardName.replace(this.regExp, "$1")}}</p>
+      </a-->
     </div>
   </div>
   <div class="modal-footer">
