@@ -1,9 +1,9 @@
 <div class="form-group d-flex" #skillForm>
-  <select id="skillNameSelect" class="form-select d-inline-block m-1" style="width: 40%;" (change)="this.subOption(); this.updateQueryStr()" #skillNameSelect>
+  <select class="form-select d-inline-block m-1" style="width: 40%;" (change)="this.subOption(); this.updateQueryStr()" #skillNameSelect>
     <option value="" subOption="0" selected>--</option>
     <option *ngFor="let i of this.skillList" value={{i.supSkillName}} attr.subOption={{i.hasSubOption}}>{{i.supSkillName}}</option>
   </select>
-  <select id="skillSubOption" class="form-select d-inline-block m-1" style="width: 40%;" (change)="this.updateQueryStr()" disabled #skillSubOption>
+  <select class="form-select d-inline-block m-1" style="width: 40%;" (change)="this.updateQueryStr()" disabled #skillSubOption>
     <option value>--</option>
     <option value="Vo">Vocal</option>
     <option value="Da">Dance</option>
@@ -15,5 +15,5 @@
     <option value="Da上限">Dance上限</option>
     <option value="Vi上限">Visual上限</option>
   </select>
-  <input type="number" name="" id="skillLevel" style="width: 20%;" class="form-control d-inline-block m-1" placeholder="level" #skillLevel>
+  <input type="number" name="" style="width: 20%;" class="form-control d-inline-block m-1" (change)="this.updateQueryStr()" placeholder="level" #skillLevelSelect>
 </div>

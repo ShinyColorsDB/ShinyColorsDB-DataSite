@@ -1,6 +1,8 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Card } from '../../interfaces/card';
+import { QueryResult } from '../../interfaces/queryresult';
+import { environment } from 'src/environments/environment';
+
 
 @Component({
   selector: 'app-query-result-modal',
@@ -13,9 +15,13 @@ export class QueryResultModalComponent implements OnInit {
   resultModal!: NgbModal;
 
   @Input()
-  queryResult!: Card[];
+  queryResult: QueryResult[] = [];
 
   regExp: RegExp = /【(.*)】(.*)/;
+
+  assetUrl = environment.assetUrl;
+
+  supportSkillBound = environment.supportSkillBound;
 
   constructor(private modalService: NgbModal) { }
 
@@ -28,5 +34,22 @@ export class QueryResultModalComponent implements OnInit {
       (reason) => {
       },
     );
+  }
+
+  getMinimumLevel(i: QueryResult): number {
+    if (!i?.A_GainedAt) {
+      return 0;
+    }
+    else {
+      return Math.max(i?.A_GainedAt || 0, i?.B_GainedAt || 0, i?.C_GainedAt || 0, i?.D_GainedAt || 0)
+    }
+  }
+
+  getEvolutionStage(q: QueryResult): number {
+    const boundOfCard = this.supportSkillBound[q.E_CardType as keyof typeof this.supportSkillBound];
+    if (this.getMinimumLevel(q)) {
+
+    }
+    return 0;
   }
 }

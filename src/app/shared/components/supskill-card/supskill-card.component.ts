@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { CardSupportSkill } from '../../interfaces/cardsupportskill';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-supskill-card',
@@ -16,12 +17,7 @@ export class SupskillCardComponent implements OnInit, OnChanges {
 
   activeArray: boolean[] = [];
 
-  supportSkillBound = {
-    "S_SSR": [60, 65, 70, 75, 80],
-    "S_SR": [50, 55, 60, 65, 70],
-    "S_R": [40, 45, 50, 55, 60],
-    "S_N": [5, 10],
-  }
+  supportSkillBound = environment.supportSkillBound;
 
   constructor() { }
 

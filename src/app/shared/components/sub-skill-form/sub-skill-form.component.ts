@@ -22,7 +22,7 @@ export class SubSkillFormComponent implements OnInit {
   @ViewChild('skillSubOption')
   skillSubOption!: ElementRef<HTMLSelectElement>;
 
-  @ViewChild('skillLevel')
+  @ViewChild('skillLevelSelect')
   skillLevel!: ElementRef<HTMLInputElement>;
 
   constructor(private scApiService: ShinyColorsApiService) {}

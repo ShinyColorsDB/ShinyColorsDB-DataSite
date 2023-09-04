@@ -9,10 +9,11 @@ import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
 
 import { SupSkillList } from '../../interfaces/supskilllist';
 import { Unit } from '../../interfaces/unit';
+import { QueryResult } from '../../interfaces/queryresult';
+
 import { SubSkillFormComponent } from '../../components/sub-skill-form/sub-skill-form.component';
 import { SubIdolFormComponent } from '../../components/sub-idol-form/sub-idol-form.component';
 import { QueryResultModalComponent } from '../../components/query-result-modal/query-result-modal.component';
-import { Card } from '../../interfaces/card';
 
 @Component({
   selector: 'app-r-lookup',
@@ -39,7 +40,7 @@ export class RLookupComponent implements OnInit {
   querySupSkills: [string, number][] = [];
   queryIdols: number[] = [];
 
-  queryResult: Card[] = [];
+  queryResult: QueryResult[] = [];
 
   constructor(/*private fb: FormBuilder,*/
     private utilsService: UtilitiesService,

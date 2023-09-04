@@ -6,22 +6,25 @@
   </div>
   <div class="modal-body">
     <div class="row">
+      <div class="col-12 p-2" *ngIf="!this.queryResult.length">
+        <p class="text-center m-0">沒有符合條件的結果</p>
+      </div>
       <div class="card col-md-4 col-sm-6 p-0" *ngFor="let i of this.queryResult">
         <a routerLink="/scardinfo"
-          [queryParams]="{ uuid: i.cardUuid }"
+          [queryParams]="{ uuid: i.E_CardUuid }"
           class="row g-0">
           <div class="col-3">
             <img [src]="
-              'https://viewer.shinycolors.moe/images/content/support_idols/icon/' + i.enzaId + '.png'
+              this.assetUrl + 'images/content/support_idols/icon/' + i.EnzaID + '.png'
               " alt class="img-fluid">
           </div>
           <div class="col-9">
             <div class="card-body">
               <p class="card-title">
-                {{i.cardName.replace(this.regExp, "$1")}}
+                {{i.E_CardName.replace(this.regExp, "$1")}}
               </p>
               <div class="card-text">
-                星3
+                Lv: {{this.getMinimumLevel(i)}}
               </div>
             </div>
 

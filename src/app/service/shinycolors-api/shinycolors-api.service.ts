@@ -15,6 +15,7 @@ import { Timetable } from 'src/app/shared/interfaces/timetable';
 import { Cardle } from 'src/app/shared/interfaces/cardle';
 import { SupSkillList } from 'src/app/shared/interfaces/supskilllist';
 import { QuerySupportSkill } from 'src/app/shared/interfaces/querysupportskill';
+import { QueryResult } from 'src/app/shared/interfaces/queryresult';
 
 @Injectable({
   providedIn: 'root',
@@ -91,10 +92,10 @@ export class ShinyColorsApiService {
       .pipe(catchError(this.handleError<SupSkillList[]>(`getSupportSkillList`)));
   }
 
-  querySupportSkills(queryParams: QuerySupportSkill): Observable<Card[]> {
+  querySupportSkills(queryParams: QuerySupportSkill): Observable<QueryResult[]> {
     return this.http
-      .post<Card[]>(`${environment.apiUrl}info/querySupportSkill`, queryParams)
-      .pipe(catchError(this.handleError<Card[]>(`querySupportSkill`)));
+      .post<QueryResult[]>(`${environment.apiUrl}info/querySupportSkill`, queryParams)
+      .pipe(catchError(this.handleError<QueryResult[]>(`querySupportSkill`)));
   }
 
   getCardleInfo(): Observable<Cardle> {
