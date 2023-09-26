@@ -4,12 +4,15 @@ import { PCard } from 'src/app/shared/interfaces/pcard';
 import { SCard } from 'src/app/shared/interfaces/scard';
 
 import { environment } from 'src/environments/environment';
+import { ShinycolorsUrlService } from '../shinycolors-url/shinycolors-url.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UtilitiesService {
-  constructor() { }
+  constructor(
+    public scUrlService: ShinycolorsUrlService,
+  ) { }
 
   activeIds = new EventEmitter<number[]>();
 
@@ -78,9 +81,7 @@ export class UtilitiesService {
       },
       {
         name: 'og:image',
-        content: `${environment.staticUrl}pictures/icon/${idolInfo.idolId
-          .toString()
-          .padStart(2, '0')}.jpg`,
+        content: this.scUrlService.getIdolIcon(idolInfo.idolId),
       },
       { name: 'theme-color', content: idolInfo.color1 },
       { name: 'twitter:card', content: 'summary_large_image' },
@@ -95,9 +96,7 @@ export class UtilitiesService {
       },
       {
         name: 'twitter:image',
-        content: `${environment.staticUrl}pictures/icon/${idolInfo.idolId
-          .toString()
-          .padStart(2, '0')}.jpg`,
+        content: this.scUrlService.getIdolIcon(idolInfo.idolId),
       },
       {
         name: 'description',
@@ -153,7 +152,7 @@ export class UtilitiesService {
       { name: 'og:title', content: card.cardName },
       {
         name: 'og:image',
-        content: `${environment.assetUrl}images/content/idols/card/${card.enzaId}.jpg`,
+        content: card.cardType.match("P_") ? this.scUrlService.getCardUrl(card.enzaId) : this.scUrlService.getSupportCardUrl(card.enzaId),
       },
       { name: 'theme-color', content: card.idol.color1 },
       { name: 'twitter:card', content: 'summary_large_image' },
@@ -164,7 +163,7 @@ export class UtilitiesService {
       },
       {
         name: 'twitter:image',
-        content: `${environment.assetUrl}images/content/idols/card/${card.enzaId}.jpg`,
+        content: card.cardType.match("P_") ? this.scUrlService.getCardUrl(card.enzaId) : this.scUrlService.getSupportCardUrl(card.enzaId),
       },
       {
         name: 'description',

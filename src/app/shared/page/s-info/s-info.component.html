@@ -5,9 +5,7 @@
 
   <div class="col-lg-6 col-md-12 row p-0">
     <img
-      [src]="
-      this.assetUrl + '/images/content/support_idols/card/' + this.sCardInfo.enzaId + '.jpg'
-      "
+      [src]="this.scUrlService.getSupportCardUrl(this.sCardInfo.enzaId)"
       [alt]="'Picture of ' + this.sCardInfo.cardName"
       class="img-fluid col-12 p-2" />
     <div class="container col-12 row m-0 p-0 pt-1">
@@ -73,11 +71,7 @@
             <tr>
               <td>
                 <img
-                  [src]="
-                  'https://static.shinycolors.moe/pictures/uiIcons/icon_idea_mark_' +
-                  this.sCardInfo.ideaMark +
-                  '_lv_1.png'
-                  "
+                  [src]="this.scUrlService.getIdeaMark(this.sCardInfo.ideaMark)"
                   width="30"
                   height="34"
                   [alt]="'Icon of idea mark ' + this.sCardInfo.ideaMark"
@@ -86,11 +80,7 @@
               </td>
               <td>
                 <img *ngIf="this.sCardInfo.idol.hirameki != '-'"
-                  [src]="
-                  'https://static.shinycolors.moe/pictures/uiIcons/produce_inspiration_m_' +
-                  this.convertHirameki() +
-                  '.png'
-                  "
+                  [src]="this.scUrlService.getInspiration(this.convertHirameki())"
                   [alt]="'Icon of hirameki ' + this.sCardInfo.idol.hirameki"
                   width="30"
                   height="30" />
@@ -100,11 +90,7 @@
                 <ng-container
                   *ngFor="let p of this.sCardInfo.cardProficiencies">
                   <img
-                    [src]="
-                    'https://static.shinycolors.moe/pictures/uiIcons/icon_proficiency_' +
-                    p.proficiency +
-                    '.png'
-                    "
+                    [src]="this.scUrlService.getProficiency(p.proficiency)"
                     [alt]="'Icon of proficiency ' + p.proficiency"
                     width="30"
                     height="30" />

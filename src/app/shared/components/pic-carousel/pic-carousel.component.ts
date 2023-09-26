@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { NgbCarousel, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
 
+import { ShinycolorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -14,8 +15,6 @@ export class PicCarouselComponent implements OnInit, OnChanges {
   @ViewChild('mov2') mov2!: ElementRef<HTMLVideoElement>;
   @ViewChild('pic1') pic1!: ElementRef<HTMLImageElement>;
   @ViewChild('pic2') pic2!: ElementRef<HTMLImageElement>;
-
-  assetUrl: string;
 
   timeOutToClear: NodeJS.Timeout | null = null;
 
@@ -31,8 +30,9 @@ export class PicCarouselComponent implements OnInit, OnChanges {
   @Input()
   cardName!: string;
 
-  constructor() {
-    this.assetUrl = environment.assetUrl;
+  constructor(
+    public scUrlService: ShinycolorsUrlService
+  ) {
   }
 
   ngOnChanges(changes: SimpleChanges): void {

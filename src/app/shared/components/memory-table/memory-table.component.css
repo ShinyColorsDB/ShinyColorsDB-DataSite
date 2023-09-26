@@ -2,6 +2,10 @@
   font-size: 18px;
 }
 
+tr, td, th {
+  background-color: transparent;
+}
+
 tbody:hover,
 tr.hover,
 th.hover,

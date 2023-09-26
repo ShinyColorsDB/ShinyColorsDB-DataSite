@@ -3,7 +3,7 @@ export interface QueryResult {
   E_CardUuid: string;
   E_CardName: string;
   E_CardType: string;
-  EnzaID: string;
+  EnzaID: number;
   A_SkillName?: string;
   A_SkillDesc?: string;
   A_SkillLevel?: number;

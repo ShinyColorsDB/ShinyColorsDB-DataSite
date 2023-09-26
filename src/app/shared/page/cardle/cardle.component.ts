@@ -7,6 +7,7 @@ import { Cardle } from '../../interfaces/cardle';
 import { environment } from 'src/environments/environment';
 import { Meta, Title } from '@angular/platform-browser';
 import { isPlatformBrowser } from '@angular/common';
+import { ShinycolorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
 
 @Component({
   selector: 'app-cardle',
@@ -47,6 +48,7 @@ export class CardleComponent implements OnInit, AfterViewInit {
     @Inject(PLATFORM_ID) private platformId: Object,
     private utilitiesService: UtilitiesService,
     private scApiService: ShinyColorsApiService,
+    private scUrlService: ShinycolorsUrlService,
     private modalService: NgbModal,
     private meta: Meta,
     private title: Title,
@@ -91,7 +93,17 @@ export class CardleComponent implements OnInit, AfterViewInit {
   }
 
   getImageUrl(): string {
-    return `${environment.staticUrl}pictures/bigPic/${this.imgUri}.jpg`;
+    if (this.cardleInfo.enzaId.startsWith('1')) {
+      if (this.cardleInfo.cardleType == 0) { // P card normal
+        return this.scUrlService.getCardUrl(Number(this.cardleInfo.enzaId));
+      }
+      else { // P card fes
+        return this.scUrlService.getFesCardUrl(Number(this.cardleInfo.enzaId));
+      }
+    }
+    else { // S card
+      return this.scUrlService.getSupportCardUrl(Number(this.cardleInfo.enzaId));
+    }
   }
 
   async _initCanvas(): Promise<void> {
@@ -99,10 +111,10 @@ export class CardleComponent implements OnInit, AfterViewInit {
     this.spriteArray = [];
     PIXI.settings.RENDER_OPTIONS!.backgroundColor = 0xd9d9d9;
 
-    this.imgUri = this.cardleInfo.cardleType == 0 ? this.cardleInfo.enza.bigPic1 : this.cardleInfo.enza.bigPic2;
+    this.imgUri = this.getImageUrl();
 
     this.cardleImage = new PIXI.Sprite(
-      await PIXI.Assets.load(this.getImageUrl())
+      await PIXI.Assets.load(this.imgUri)
     );
     for (let i = 0; i < 6; i++) {
       const thisCanvas = new PIXI.Application<HTMLCanvasElement>({

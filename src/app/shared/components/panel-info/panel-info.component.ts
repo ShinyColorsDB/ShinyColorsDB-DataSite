@@ -11,6 +11,8 @@ import {
 import { PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
+import { ShinycolorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
+
 import { environment } from 'src/environments/environment';
 
 import * as PIXI from 'pixi.js';
@@ -73,12 +75,16 @@ export class PanelInfoComponent implements OnChanges {
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
-    private elRef: ElementRef
+    private elRef: ElementRef,
+    private scUrlService: ShinycolorsUrlService
   ) {
     if (!isPlatformBrowser(this.platformId)) {
       console.log('platform is not browser');
       return;
     }
+
+    PIXI.Assets.setPreferences({ crossOrigin: 'anonymous', preferCreateImageBitmap: false });
+
     PIXI.settings.RENDER_OPTIONS!.hello = false;
     PIXI.settings.RENDER_OPTIONS!.backgroundColor = 0xd9d9d9;
     this.app = new PIXI.Application<HTMLCanvasElement>({
@@ -94,11 +100,12 @@ export class PanelInfoComponent implements OnChanges {
       return;
     }
 
+
     this.panelInfo.forEach((e) => {
       if (!PIXI.Assets.get(`${e.panelIcon}.png`)) {
         PIXI.Assets.add(
           `${e.panelIcon}.png`,
-          `${environment.staticUrl}pictures/skillIcon/${e.panelIcon}.png`
+          this.scUrlService.getSkillIcon(e.panelIcon),
         );
       }
     });

@@ -2,12 +2,7 @@
   <ng-template ngbSlide id="img1">
     <img
       #pic1
-      [src]="
-      this.assetUrl +
-      '/images/content/idols/card/' +
-      this.enzaId +
-      '.jpg'
-      "
+      [src]="this.scUrlService.getCardUrl(this.enzaId)"
       [alt]="'General image of ' + this.cardName"
       class="img-fluid"
       />
@@ -19,11 +14,7 @@
       width=1136
       height=640
       muted
-      [src]="
-      'https://viewer.shinycolors.moe/movies/idols/card/' +
-      this.enzaId +
-      '.mp4'
-      "
+      [src]="this.scUrlService.getCardMovieUrl(this.enzaId)"
       type="video/mp4"
       onloadedmetadata="this.muted=true"
       (ended)="this.onMovieEnded()"></video>
@@ -31,12 +22,7 @@
   <ng-template ngbSlide id="img2">
     <img
       #pic2
-      [src]="
-      this.assetUrl +
-      '/images/content/idols/fes_card/' +
-      this.enzaId +
-      '.jpg'
-      "
+      [src]="this.scUrlService.getFesCardUrl(this.enzaId)"
       [alt]="'Fes image of ' + this.cardName"
       class="img-fluid"
       />
@@ -48,11 +34,7 @@
       width=1136
       height=640
       muted
-      [src]="
-      'https://viewer.shinycolors.moe/movies/idols/card_costume/' +
-      this.enzaId +
-      '.mp4'
-      "
+      [src]="this.scUrlService.getCardCostumeMovieUrl(this.enzaId)"
       type="video/mp4"
       onloadedmetadata="this.muted=true"
       (ended)="onMovieEnded()"></video>

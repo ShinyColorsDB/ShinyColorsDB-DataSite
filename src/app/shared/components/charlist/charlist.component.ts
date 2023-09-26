@@ -1,10 +1,12 @@
 import { Component, EventEmitter, Inject, Input, OnInit, Output, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 import { Unit } from '../../interfaces/unit';
 
 import { ShinyColorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
 import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
-import { isPlatformBrowser } from '@angular/common';
+import { environment } from 'src/environments/environment';
+import { ShinycolorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
 
 @Component({
   selector: 'app-charlist',
@@ -27,6 +29,7 @@ export class CharlistComponent implements OnInit {
     @Inject(PLATFORM_ID) private platformId: Object,
     private utilsService: UtilitiesService,
     private scApiService: ShinyColorsApiService,
+    public scUrlService: ShinycolorsUrlService
   ) {
     this.scApiService.getUnitList().subscribe((data) => {
       this.Units = data;

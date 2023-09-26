@@ -6,11 +6,7 @@
     (click)="unitCollapse.toggle()"
     [attr.aria-expanded]="!this.getCollapseStatus(unit.unitId)">
     <img
-      [src]="
-      'https://static.shinycolors.moe/pictures/unitIcon/' +
-      unit.unitId.toString().padStart(3, '0') +
-      '.png'
-      "
+      [src]="this.scUrlService.getUnitIconUri(unit.unitId)"
       width="20"
       height="20"
       [alt]="'Icon of unit ' + unit.unitName"
@@ -30,11 +26,7 @@
       [queryParams]="{ idolid: idol.idolId }"
       (click)="this.onIdolClicked()">
       <img
-        [src]="
-        'https://static.shinycolors.moe/pictures/smlIcon/' +
-        idol.idolId.toString().padStart(2, '0') +
-        '.png'
-        "
+        [src]="this.scUrlService.getIdolSmlIcon(idol.idolId)"
         [alt]="'Icon of idol ' + idol.idolName"
         width="40"
         height="40"

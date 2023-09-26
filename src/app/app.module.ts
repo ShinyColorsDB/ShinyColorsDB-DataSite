@@ -38,6 +38,7 @@ import { AppRoutingCache } from './app-routing-cache';
 import { SubSkillFormComponent } from './shared/components/sub-skill-form/sub-skill-form.component';
 import { SubIdolFormComponent } from './shared/components/sub-idol-form/sub-idol-form.component';
 import { QueryResultModalComponent } from './shared/components/query-result-modal/query-result-modal.component';
+import { ShinycolorsUrlService } from './service/shinycolors-url/shinycolors-url.service';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -89,6 +90,7 @@ const routes: Routes = [
   providers: [
     ShinyColorsApiService,
     ShinyColorsCacheService,
+    ShinycolorsUrlService,
     UtilitiesService,
     TranslationService,
     { provide: RouteReuseStrategy, useClass: AppRoutingCache }

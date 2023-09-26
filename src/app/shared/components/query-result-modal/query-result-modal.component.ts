@@ -1,7 +1,9 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { QueryResult } from '../../interfaces/queryresult';
+
 import { environment } from 'src/environments/environment';
+import { ShinycolorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
 
 
 @Component({
@@ -19,11 +21,12 @@ export class QueryResultModalComponent implements OnInit {
 
   regExp: RegExp = /【(.*)】(.*)/;
 
-  assetUrl = environment.assetUrl;
-
   supportSkillBound = environment.supportSkillBound;
 
-  constructor(private modalService: NgbModal) { }
+  constructor(
+    private modalService: NgbModal,
+    public scUrlService: ShinycolorsUrlService
+  ) { }
 
   ngOnInit(): void { }
 

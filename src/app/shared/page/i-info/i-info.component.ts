@@ -4,10 +4,13 @@ import { Meta, Title } from '@angular/platform-browser';
 
 import { ShinyColorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
 import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
+import { environment } from 'src/environments/environment';
 
 import { Card } from '../../interfaces/card';
 import { Idol } from '../../interfaces/idol';
+
 import { catchError, of } from 'rxjs';
+import { ShinycolorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
 
 @Component({
   selector: 'app-i-info',
@@ -33,6 +36,7 @@ export class IInfoComponent implements OnInit {
   constructor(
     private utilsService: UtilitiesService,
     private scApiService: ShinyColorsApiService,
+    public scUrlService: ShinycolorsUrlService,
     private router: Router,
     private route: ActivatedRoute,
     private title: Title,
@@ -107,4 +111,6 @@ export class IInfoComponent implements OnInit {
         });
     });
   }
+
+
 }

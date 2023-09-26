@@ -5,6 +5,7 @@ import { Meta, Title } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
 
 import { ShinyColorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
+import { ShinycolorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
 import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
 
 import { SCard } from '../../interfaces/scard';
@@ -22,8 +23,6 @@ import { catchError, of } from 'rxjs';
 export class SInfoComponent implements OnInit {
   sCardUuid!: string;
   sCardInfo!: SCard;
-  assetUrl: string;
-
   highlight!: number;
 
   boundedSkillList: Map<string, CardSupportSkill>[] = [];
@@ -38,8 +37,9 @@ export class SInfoComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private meta: Meta,
-    private title: Title
-  ) { this.assetUrl = environment.assetUrl; }
+    private title: Title,
+    public scUrlService: ShinycolorsUrlService
+  ) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {

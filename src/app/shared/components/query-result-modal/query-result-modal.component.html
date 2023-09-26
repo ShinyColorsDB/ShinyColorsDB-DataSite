@@ -14,9 +14,7 @@
           [queryParams]="{ uuid: i.E_CardUuid }"
           class="row g-0">
           <div class="col-3">
-            <img [src]="
-              this.assetUrl + 'images/content/support_idols/icon/' + i.EnzaID + '.png'
-              " alt class="img-fluid">
+            <img [src]="this.scUrlService.getSCardIcon(i.EnzaID)" alt class="img-fluid">
           </div>
           <div class="col-9">
             <div class="card-body">

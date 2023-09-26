@@ -20,18 +20,16 @@ export class CardItemComponent implements OnInit {
 
   regExp: RegExp = /(【.*】)(.*)/;
 
-  assetUrl: string = environment.assetUrl;
-
   constructor() { }
 
   ngOnInit(): void { }
 
   getPictureUrl(): string {
     if (this.pathType == '/pcardinfo') {
-      return `${this.assetUrl}images/content/idols/card/${this.cardInfo.enzaId}.jpg`;
+      return `${environment.cloudFlareUrl}images/content/idols/card/${this.cardInfo.enzaId}.jpg`;
     }
     else if (this.pathType == '/scardinfo') {
-      return `${this.assetUrl}images/content/support_idols/card/${this.cardInfo.enzaId}.jpg`;
+      return `${environment.cloudFlareUrl}images/content/support_idols/card/${this.cardInfo.enzaId}.jpg`;
     }
     else {
       return '';

@@ -1,4 +1,6 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { ShinycolorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-panel-list',
@@ -17,7 +19,9 @@ export class PanelListComponent implements OnInit, OnChanges {
   @Input()
   highlited: number = -1;
 
-  constructor() { }
+  constructor(
+    public scUrlService: ShinycolorsUrlService,
+  ) { }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes["panelInfo"] && changes["panelInfo"].currentValue != changes["panelInfo"].previousValue) {
