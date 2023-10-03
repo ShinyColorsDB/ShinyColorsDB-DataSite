@@ -3,6 +3,6 @@
   "public": true,
   "name": "shiny-colors-db-data-site",
   "rewrites": [
-    { "source": "/(.*)", "destination": "dist/ShinyColorsDB-DataSite/browser/index.html" }
+    { "source": "/(.*)", "destination": "browser/index.html" }
   ]
 }
