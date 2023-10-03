@@ -28,6 +28,7 @@
     "@nguniversal/express-engine": "^14.1.0",
     "@popperjs/core": "^2.10.2",
     "@types/offscreencanvas": "^2019.7.0",
+    "@vercel/analytics": "^1.0.2",
     "bootstrap": "^5.2.0",
     "express": "^4.15.2",
     "honeycomb-grid": "^3.1.8",
