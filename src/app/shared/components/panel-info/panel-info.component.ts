@@ -7,13 +7,15 @@ import {
   Inject,
   OnChanges,
   ViewChild,
+  OnDestroy,
+  AfterViewInit,
 } from '@angular/core';
 import { PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
-import { ShinycolorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
+import FontFaceObserver from 'fontfaceobserver';
 
-import { environment } from 'src/environments/environment';
+import { ShinycolorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
 
 import * as PIXI from 'pixi.js';
 import * as Honeycomb from 'honeycomb-grid';
@@ -23,7 +25,7 @@ import * as Honeycomb from 'honeycomb-grid';
   templateUrl: './panel-info.component.html',
   styleUrls: ['./panel-info.component.css'],
 })
-export class PanelInfoComponent implements OnChanges {
+export class PanelInfoComponent implements OnChanges, OnDestroy, AfterViewInit {
   @Input()
   panelInfo!: any[];
 
@@ -43,6 +45,8 @@ export class PanelInfoComponent implements OnChanges {
   hexProp = { size: 90, orientation: "flat" };
   Hex = Honeycomb.extendHex(this.hexProp);
   Grid = Honeycomb.defineGrid(this.Hex);
+
+  font = new FontFaceObserver('lineGothic');
 
   srAxis: [number, number][] = [
     [5, 1.05],
@@ -78,7 +82,6 @@ export class PanelInfoComponent implements OnChanges {
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
-    private elRef: ElementRef,
     private scUrlService: ShinycolorsUrlService
   ) {
     if (!isPlatformBrowser(this.platformId)) {
@@ -90,29 +93,51 @@ export class PanelInfoComponent implements OnChanges {
 
     PIXI.settings.RENDER_OPTIONS!.hello = false;
     PIXI.settings.RENDER_OPTIONS!.backgroundColor = 0xd9d9d9;
-    this.app = new PIXI.Application<HTMLCanvasElement>({
-      width: 1136,
-      height: 640,
-    });
-    (this.app.view as HTMLCanvasElement).classList.add('img-fluid');
-    this.elRef.nativeElement.appendChild(this.app.view);
   }
 
   ngOnChanges(): void {
-    if (!isPlatformBrowser(this.platformId)) {
-      return;
-    }
-
 
     this.panelInfo.forEach((e) => {
-      if (!PIXI.Assets.get(`${e.panelIcon}.png`)) {
+      if (!PIXI.Assets.get(`${e.panelIcon}`)) {
         PIXI.Assets.add(
-          `${e.panelIcon}.png`,
+          `${e.panelIcon}`,
           this.scUrlService.getSkillIcon(e.panelIcon),
         );
       }
     });
 
+    if (this.app) {
+      this.app.stage.removeChildren();
+
+      this.font.load().then(() => {
+        this.drawPanel();
+      });
+    }
+  }
+
+  ngOnDestroy(): void {
+    if (this.app) {
+      this.app.destroy();
+    }
+  }
+
+  ngAfterViewInit(): void {
+    if (!this.panelCanvas) {
+      return;
+    }
+
+    this.app = new PIXI.Application({
+      view: this.panelCanvas.nativeElement,
+      width: 1136,
+      height: 640,
+    });
+
+    this.font.load().then(() => {
+      this.drawPanel();
+    });
+  }
+
+  drawPanel(): void {
     this.Grid(
       ...this.getGrid()
     ).forEach(async (hex, index) => {
@@ -120,7 +145,7 @@ export class PanelInfoComponent implements OnChanges {
 
       const graphics = new PIXI.Graphics();
 
-      graphics.lineStyle(2, 0x000);
+      graphics.lineStyle(3, 0x000);
 
       const point = hex.toPoint();
       const corners = hex.corners().map((corner) => corner.add(point));
@@ -179,14 +204,14 @@ export class PanelInfoComponent implements OnChanges {
         const rect = new PIXI.Graphics();
         rect.beginFill(0xc7c0ad, 1);
         rect.lineStyle(0, 0xc7c0ad);
-        rect.moveTo(hex.toPoint().x + hex.corners()[1].x, hex.toPoint().y + hex.corners()[1].y);
-        rect.lineTo(hex.toPoint().x + hex.corners()[2].x, hex.toPoint().y + hex.corners()[2].y);
+        rect.moveTo(hex.toPoint().x + hex.corners()[1].x - 1, hex.toPoint().y + hex.corners()[1].y);
+        rect.lineTo(hex.toPoint().x + hex.corners()[2].x + 2, hex.toPoint().y + hex.corners()[2].y);
         rect.lineTo(
-          hex.toPoint().x + ((hex.corners()[2].x * 5) + (hex.corners()[3].x * 3)) / 8,
+          hex.toPoint().x + ((hex.corners()[2].x * 5) + (hex.corners()[3].x * 3)) / 8 + 2,
           hex.toPoint().y + ((hex.corners()[2].y * 5) + (hex.corners()[3].y * 3)) / 8
         );
         rect.lineTo(
-          hex.toPoint().x + ((hex.corners()[0].x * 3) + (hex.corners()[1].x * 5)) / 8,
+          hex.toPoint().x + ((hex.corners()[0].x * 3) + (hex.corners()[1].x * 5)) / 8 - 1,
           hex.toPoint().y + ((hex.corners()[0].y * 3) + (hex.corners()[1].y * 5)) / 8
         );
         rect.endFill();
@@ -195,7 +220,7 @@ export class PanelInfoComponent implements OnChanges {
 
         //generate icon
         const skillIcon = new PIXI.Sprite(
-          await PIXI.Assets.load(`${this.panelInfo[index].panelIcon}.png`)
+          await PIXI.Assets.load(`${this.panelInfo[index].panelIcon}`)
         );
         skillIcon.scale.set(1.5);
         skillIcon.anchor.set(0.5);
