@@ -5,6 +5,8 @@
       [src]="this.scUrlService.getCardUrl(this.enzaId)"
       [alt]="'General image of ' + this.cardName"
       class="img-fluid"
+      width="1136"
+      height="640"
       />
   </ng-template>
   <ng-template ngbSlide *ngIf="this.displayMov1" id="mov1">
@@ -25,6 +27,8 @@
       [src]="this.scUrlService.getFesCardUrl(this.enzaId)"
       [alt]="'Fes image of ' + this.cardName"
       class="img-fluid"
+      width="1136"
+      height="640"
       />
   </ng-template>
   <ng-template ngbSlide *ngIf="this.displayMov2" id="mov2">

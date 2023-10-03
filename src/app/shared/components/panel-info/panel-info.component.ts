@@ -33,6 +33,9 @@ export class PanelInfoComponent implements OnChanges {
   @Output()
   stateChanged = new EventEmitter<number>();
 
+  @ViewChild('panelCanvas')
+  panelCanvas!: ElementRef<HTMLCanvasElement>;
+
   app!: PIXI.Application;
   cost: number[] = [20, 30, 30, 40, 40, 40, 50, 50, 50, 50, 60, 60, 60];
 

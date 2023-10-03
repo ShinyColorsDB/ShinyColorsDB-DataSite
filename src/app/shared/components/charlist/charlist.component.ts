@@ -5,7 +5,6 @@ import { Unit } from '../../interfaces/unit';
 
 import { ShinyColorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
 import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
-import { environment } from 'src/environments/environment';
 import { ShinycolorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
 
 @Component({

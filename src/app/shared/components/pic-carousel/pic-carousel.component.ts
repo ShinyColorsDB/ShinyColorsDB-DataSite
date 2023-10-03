@@ -50,7 +50,6 @@ export class PicCarouselComponent implements OnInit, OnChanges {
   }
 
   playThrough(): void {
-    console.log(this.picCarousel.activeId);
     if (this.picCarousel.activeId === "mov1") {
       this.mov1.nativeElement.play();
     }

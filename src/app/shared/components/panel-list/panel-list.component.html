@@ -14,6 +14,7 @@
           [src]="this.scUrlService.getSkillIcon(slot.panelIcon)"
           [alt]="'Icon of skill ' + slot.skillTitle"
           class="img-fluid mb-1"
+          crossorigin="anonymous"
           />
         <div *ngIf="slot.panelReleaseEvolution" class="d-block mt-1">(☆{{slot.panelReleaseEvolution}})</div>
         <div *ngIf="slot.panelReleaseByEvent" class="d-block mt-1" i18n>(イベント)</div>

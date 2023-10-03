@@ -4,7 +4,6 @@ import * as PIXI from 'pixi.js';
 import { ShinyColorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
 import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
 import { Cardle } from '../../interfaces/cardle';
-import { environment } from 'src/environments/environment';
 import { Meta, Title } from '@angular/platform-browser';
 import { isPlatformBrowser } from '@angular/common';
 import { ShinycolorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
