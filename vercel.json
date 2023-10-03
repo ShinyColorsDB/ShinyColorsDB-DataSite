@@ -1,8 +1,8 @@
 {
   "version": 2,
   "public": true,
-  "name": "test-universal",
+  "name": "shiny-colors-db-data-site",
   "rewrites": [
-    { "source": "/(.*)", "destination": "dist/ShinyColorsDB-DataSite/browser" }
+    { "source": "/(.*)", "destination": "dist/ShinyColorsDB-DataSite/browser/index.html" }
   ]
 }
