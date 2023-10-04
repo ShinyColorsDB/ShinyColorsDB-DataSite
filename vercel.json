@@ -3,6 +3,7 @@
   "public": true,
   "name": "shiny-colors-db-data-site",
   "rewrites": [
+    { "source": "/sitemap.xml", "destination": "https://api.shinycolors.moe/info/sitelist"},
     { "source": "/(.*)", "destination": "/api" }
   ],
   "functions": {
