@@ -169,7 +169,7 @@ export class PanelInfoComponent implements OnChanges, OnDestroy, AfterViewInit {
             break;
         }
 
-        graphics.interactive = true;
+        graphics.eventMode = 'static';
         graphics.cursor = "pointer";
         graphics.on('pointerdown', () => {
           this.stateChanged.emit(index);
