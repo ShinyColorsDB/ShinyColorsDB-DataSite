@@ -186,7 +186,7 @@ export class PanelInfoComponent implements OnChanges, OnDestroy, AfterViewInit {
       } else {
         //otherwise, simply color with grey
         graphics.beginFill(0x787878, 1);
-        graphics.interactive = false;
+        graphics.eventMode = "none";
         graphics.cursor = "default";
       }
 
