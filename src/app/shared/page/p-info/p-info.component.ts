@@ -9,8 +9,6 @@ import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
 
 import { PCard } from '../../interfaces/pcard';
 import { catchError, of } from 'rxjs';
-import { NgbCarousel } from '@ng-bootstrap/ng-bootstrap';
-import { NgbSingleSlideEvent } from '@ng-bootstrap/ng-bootstrap/carousel/carousel';
 
 @Component({
   selector: 'app-p-info',
@@ -57,29 +55,7 @@ export class PInfoComponent implements OnInit {
         });
     });
   }
-  /**
-    onSlidingToStatic(slideEvent: NgbSingleSlideEvent) {
-      if (!this.carousel) {
-        return;
-      }
-      this.carousel.cycle();
-    }
 
-    onSlidingToMovie(slideEvent: NgbSingleSlideEvent) {
-      if (!this.carousel) {
-        return;
-      }
-      this.carousel.pause();
-    }
-
-    onMovieEnded() {
-      if (!this.carousel) { return; }
-      setTimeout(() => {
-        this.carousel.cycle();
-        this.carousel.next();
-      }, 1000);
-    }
-  */
   getIdolEvents() {
     return this.pCardInfo.cardIdolEvents.filter(
       (e) => e.eventCategory != 'アフターストーリー'
@@ -103,7 +79,7 @@ export class PInfoComponent implements OnInit {
   }
 
   updateState($event: number): void {
-    this.highlight = $event
+    this.highlight = $event;
   }
 
   isSsrCard(): boolean {

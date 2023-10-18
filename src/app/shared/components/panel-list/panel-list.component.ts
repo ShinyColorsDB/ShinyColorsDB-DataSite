@@ -1,6 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { ShinycolorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-panel-list',

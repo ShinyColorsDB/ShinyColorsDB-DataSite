@@ -38,6 +38,8 @@ export class PanelInfoComponent implements OnChanges, OnDestroy, AfterViewInit {
   @ViewChild('panelCanvas')
   panelCanvas!: ElementRef<HTMLCanvasElement>;
 
+  loadedIcon = new Map<string, boolean>();
+
   app!: PIXI.Application;
   cost: number[] = [20, 30, 30, 40, 40, 40, 50, 50, 50, 50, 60, 60, 60];
 
@@ -98,7 +100,8 @@ export class PanelInfoComponent implements OnChanges, OnDestroy, AfterViewInit {
   ngOnChanges(): void {
 
     this.panelInfo.forEach((e) => {
-      if (!PIXI.Assets.get(`${e.panelIcon}`)) {
+      if (!this.loadedIcon.has(e.panelIcon)) {
+        this.loadedIcon.set(e.panelIcon, true);
         PIXI.Assets.add(
           `${e.panelIcon}`,
           this.scUrlService.getSkillIcon(e.panelIcon),

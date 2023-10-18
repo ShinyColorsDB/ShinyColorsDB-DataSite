@@ -80,7 +80,7 @@ export class SInfoComponent implements OnInit {
   }
 
   updateState($event: number): void {
-    this.highlight = $event
+    this.highlight = $event;
   }
 
   isSrCard(): boolean {

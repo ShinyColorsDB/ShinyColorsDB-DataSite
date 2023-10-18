@@ -4,7 +4,6 @@ import { Meta, Title } from '@angular/platform-browser';
 
 import { ShinyColorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
 import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
-import { environment } from 'src/environments/environment';
 
 import { Card } from '../../interfaces/card';
 import { Idol } from '../../interfaces/idol';
