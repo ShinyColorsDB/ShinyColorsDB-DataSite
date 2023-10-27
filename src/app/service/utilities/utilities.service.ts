@@ -201,13 +201,15 @@ export class UtilitiesService {
       case 'PayedGasha':
         return '有償卡池';
       case 'MySongCollection':
-        return '動畫卡池';
+        return 'MSC卡池';
       case 'Present':
         return '營運贈送';
       case 'Collabo':
         return '合作卡池';
       case 'CollaboEvents':
         return '合作活動';
+      case 'AnimeReward':
+        return '動畫獎勵';
       default:
         return '';
     }
