@@ -46,7 +46,7 @@ export class UtilitiesService {
       },
       {
         name: 'og:description',
-        content: '歡迎來到閃耀色彩資料庫! 本網頁蒐集了遊戲 The Idolm@ster Shiny Colors 中的所有遊戲資料，包括出卡時間表、卡片情報、遊戲劇情等內容，希望對各位有所幫助\nThe IDOLM@STER Shiny Colors, アイドルマスター シャイニーカラーズ, ShinyColorsDB, ShinyColors, シャニマス, 偶像大師閃耀色彩'
+        content: '歡迎來到閃耀色彩資料庫! 本網頁蒐集了遊戲 The Idolm@ster Shiny Colors 中的所有遊戲資料，包括出卡時間表、卡片情報、遊戲劇情等內容，希望對各位有所幫助\nThe IDOLM@STER Shiny Colors, アイドルマスター シャイニーカラーズ, ShinyColorsDB, Shiny Colors, ShinyColors, シャニマス, 偶像大師閃耀色彩'
       },
       {
         name: 'twitter:card',
@@ -210,6 +210,8 @@ export class UtilitiesService {
         return '合作活動';
       case 'AnimeReward':
         return '動畫獎勵';
+      case 'SituationDrama':
+        return '情景劇卡池';
       default:
         return '';
     }
