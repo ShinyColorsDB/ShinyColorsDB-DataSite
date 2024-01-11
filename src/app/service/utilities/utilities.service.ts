@@ -3,7 +3,6 @@ import { Idol } from 'src/app/shared/interfaces/idol';
 import { PCard } from 'src/app/shared/interfaces/pcard';
 import { SCard } from 'src/app/shared/interfaces/scard';
 
-import { environment } from 'src/environments/environment';
 import { ShinycolorsUrlService } from '../shinycolors-url/shinycolors-url.service';
 
 @Injectable({
