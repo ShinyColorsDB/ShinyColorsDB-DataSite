@@ -18,14 +18,14 @@
 
       <h3
         class="col-12 pt-2"
-        *ngIf="this.sCardInfo.cardSupportEvents.length" i18n>イベント</h3>
+        *ngIf="this.sCardInfo.cardSupportEvents.length" i18n>Event</h3>
       <div
         class="col-12 p-2 size18"
         *ngIf="this.sCardInfo.cardSupportEvents.length">
         <table class="table table-hover">
           <thead>
             <tr>
-              <th scope="col" i18n>事件名稱</th>
+              <th scope="col" i18n>Event Name</th>
               <th scope="col">Vo</th>
               <th scope="col">Da</th>
               <th scope="col">Vi</th>
@@ -50,7 +50,7 @@
           </tbody>
         </table>
       </div>
-      <h3 i18n>ファイトスキル</h3>
+      <h3 i18n>Fight Skill</h3>
       <div class="col-12 p-2 size18">
         <table class="table table-hover">
           <tbody>
@@ -64,9 +64,9 @@
         <table class="table table-hover">
           <thead>
             <tr>
-              <th i18n>アイデア</th>
-              <th i18n>ひらめき</th>
-              <th i18n>樂曲熟練度</th>
+              <th i18n>Idea</th>
+              <th i18n>Inspiration</th>
+              <th i18n>Proficiency</th>
             </tr>
           </thead>
           <tbody>
@@ -103,7 +103,7 @@
           </tbody>
         </table>
       </div>
-      <h3 class="pb-2" i18n>サポートスキル</h3>
+      <h3 class="pb-2" i18n>Support Skills</h3>
       <app-supskill-card
         [rarity]="this.sCardInfo.cardType"
         [supskills]="this.sCardInfo.cardSupportSkills">

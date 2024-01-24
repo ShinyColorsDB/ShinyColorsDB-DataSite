@@ -21,11 +21,11 @@
             <a
               class="text-start list-group-item list-group-item-action w-100 ps-4 bg-light bg-gradient"
               [routerLink]="['/']"
-              (click)="onSideBarClick()" i18n>首頁</a>
+              (click)="onSideBarClick()" i18n>Homepage</a>
             <a
               class="text-start list-group-item list-group-item-action w-100 ps-4 bg-light bg-gradient"
               [routerLink]="['/timetable']"
-              (click)="onSideBarClick()" i18n>卡片歷史</a>
+              (click)="onSideBarClick()" i18n>Card History</a>
             <a
               class="text-start list-group-item list-group-item-action w-100 ps-4 bg-light bg-gradient"
               [routerLink]="['/cardle']"
@@ -35,12 +35,12 @@
             <a
               class="text-start list-group-item list-group-item-action w-100 ps-4 bg-light bg-gradient"
               [routerLink]="['/r-lookup']"
-              (click)="onSideBarClick()" i18n>技能篩選</a>
+              (click)="onSideBarClick()" i18n>Skill Reverse Lookup</a>
           </div>
         </ng-template>
       </ngb-panel>
       <ngb-panel cardClass="p-0" [id]="this.charaListId">
-        <ng-template ngbPanelTitle i18n>角色列表</ng-template>
+        <ng-template ngbPanelTitle i18n>Character List</ng-template>
         <ng-template ngbPanelContent>
           <app-charlist
             (idolClicked)="onCharlistClick($event)"
@@ -48,14 +48,14 @@
         </ng-template>
       </ngb-panel>
       <ngb-panel cardClass="mb-5">
-        <ng-template ngbPanelTitle i18n>其他小玩具</ng-template>
+        <ng-template ngbPanelTitle i18n>Related Sites</ng-template>
         <ng-template ngbPanelContent>
           <div class="list-group">
             <a
               href="https://sfp.shinycolors.moe/"
               class="text-start list-group-item list-group-item-action w-100 ps-4 bg-light bg-gradient"
               target="_blank">
-              Song for Prism 資料庫
+              Song for Prism Database
             </a>
             <a
               href="https://spine.shinycolors.moe/"

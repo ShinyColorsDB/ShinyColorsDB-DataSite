@@ -19,47 +19,47 @@
               <td class="col-10 d-flex align-items-center">{{ this.idolInfo.hiragana }}</td>
             </tr>
             <tr class="row">
-              <th class="col-2  d-flex align-items-center" i18n>姓名</th>
+              <th class="col-2  d-flex align-items-center" i18n>Name</th>
               <td class="col-10 d-flex align-items-center">{{ this.idolInfo.idolName }}</td>
             </tr>
             <tr class="row">
-              <th class="col-2  d-flex align-items-center" i18n>年齡</th>
+              <th class="col-2  d-flex align-items-center" i18n>Age</th>
               <td class="col-10 d-flex align-items-center">{{ this.idolInfo.age }}</td>
             </tr>
             <tr class="row">
-              <th class="col-2  d-flex align-items-center" i18n>身高</th>
+              <th class="col-2  d-flex align-items-center" i18n>Height</th>
               <td class="col-10 d-flex align-items-center">{{ this.idolInfo.height }}</td>
             </tr>
             <tr class="row">
-              <th class="col-2  d-flex align-items-center" i18n>體重</th>
+              <th class="col-2  d-flex align-items-center" i18n>Weight</th>
               <td class="col-10 d-flex align-items-center">{{ this.idolInfo.weight }}</td>
             </tr>
             <tr class="row">
-              <th class="col-2  d-flex align-items-center" i18n>生日</th>
+              <th class="col-2  d-flex align-items-center" i18n>Birthday</th>
               <td class="col-10 d-flex align-items-center">{{ this.idolInfo.birthday }}</td>
             </tr>
             <tr class="row">
-              <th class="col-2  d-flex align-items-center" i18n>血型</th>
+              <th class="col-2  d-flex align-items-center" i18n>Blood Type</th>
               <td class="col-10 d-flex align-items-center">{{ this.idolInfo.bloodType }}</td>
             </tr>
             <tr class="row">
-              <th class="col-2  d-flex align-items-center" i18n>所屬</th>
+              <th class="col-2  d-flex align-items-center" i18n>Unit</th>
               <td class="col-10 d-flex align-items-center">{{ this.idolInfo.unit.unitName }}</td>
             </tr>
             <tr class="row">
-              <th class="col-2  d-flex align-items-center" i18n>三圍</th>
+              <th class="col-2  d-flex align-items-center" i18n>B/H/W</th>
               <td class="col-10 d-flex align-items-center">{{ this.idolInfo.threeSize }}</td>
             </tr>
             <tr class="row">
-              <th class="col-2  d-flex align-items-center" i18n>興趣</th>
+              <th class="col-2  d-flex align-items-center" i18n>Hobby</th>
               <td class="col-10 d-flex align-items-center">{{ this.idolInfo.interest }}</td>
             </tr>
             <tr class="row">
-              <th class="col-2  d-flex align-items-center" i18n>特技</th>
+              <th class="col-2  d-flex align-items-center" i18n>Specialty</th>
               <td class="col-10 d-flex align-items-center">{{ this.idolInfo.specialSkill }}</td>
             </tr>
             <tr class="row">
-              <th class="col-2  d-flex align-items-center" i18n>聲優</th>
+              <th class="col-2  d-flex align-items-center" i18n>CV</th>
               <td class="col-10 d-flex align-items-center">{{ this.idolInfo.preCv ? this.idolInfo.preCv + " → " : '' }}{{ this.idolInfo.cv }}</td>
             </tr>
           </tbody>
@@ -93,7 +93,7 @@
             <ng-container *ngIf="!this.pSSR.length && !this.pSR.length && !this.pR.length">
               <div class="d-flex align-items-center justify-content-center w-100">
                 <div class="d-flex ">
-                  <div class="display-4" i18n>なし</div>
+                  <div class="display-4" i18n>No Data</div>
                 </div>
               </div>
             </ng-container>
@@ -112,7 +112,7 @@
             <ng-container *ngIf="!this.sSSR.length && !this.sSR.length && !this.sR.length && !this.sN.length">
               <div class="d-flex align-items-center justify-content-center w-100">
                 <div class="d-flex ">
-                  <div class="display-4" i18n>なし</div>
+                  <div class="display-4" i18n>No Data</div>
                 </div>
               </div>
             </ng-container>

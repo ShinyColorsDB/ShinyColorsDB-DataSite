@@ -19,14 +19,14 @@
 
       <h3
         class="col-12 pt-2"
-        *ngIf="this.pCardInfo.cardIdolEvents.length" i18n>イベント</h3>
+        *ngIf="this.pCardInfo.cardIdolEvents.length" i18n>Events</h3>
       <div
         class="col-lg-6 col-md-12 size18"
         *ngIf="this.pCardInfo.cardIdolEvents.length">
         <table class="table table-hover">
           <thead>
             <tr>
-              <th scope="col" i18n>事件名稱</th>
+              <th scope="col" i18n>Event Name</th>
             </tr>
           </thead>
           <tbody>
@@ -72,11 +72,11 @@
           </tbody>
         </table>
       </div>
-      <h3 class="col-12" i18n>適性</h3>
+      <h3 class="col-12" i18n>Aptitudes</h3>
       <div class="col-12">
         <app-aptitude [apts]="this.pCardInfo.cardProduceAptitude"></app-aptitude>
       </div>
-      <h3 i18n>思い出</h3>
+      <h3 i18n>Memory</h3>
       <div class="col-12">
         <app-memory-table [memoryList]="this.getMemoryAppeal()"></app-memory-table>
       </div>

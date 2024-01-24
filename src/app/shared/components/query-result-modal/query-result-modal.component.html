@@ -1,13 +1,13 @@
 
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">搜尋結果</h4>
+    <h4 class="modal-title" id="modal-basic-title">Result</h4>
     <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
   </div>
   <div class="modal-body">
     <div class="row">
       <div class="col-12 p-2" *ngIf="!this.queryResult.length">
-        <p class="text-center m-0">沒有符合條件的結果</p>
+        <p class="text-center m-0">No result!</p>
       </div>
       <div class="card col-md-4 col-sm-6 p-0" *ngFor="let i of this.queryResult">
         <a routerLink="/scardinfo"
