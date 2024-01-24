@@ -41,11 +41,11 @@ export class UtilitiesService {
       },
       {
         name: 'og:title',
-        content: ' ~ 閃耀色彩資料庫 ~ '
+        content: ' ~ ShinyColorsDB ~ '
       },
       {
         name: 'og:description',
-        content: '歡迎來到閃耀色彩資料庫! 本網頁蒐集了遊戲 The Idolm@ster Shiny Colors 中的所有遊戲資料，包括出卡時間表、卡片情報、遊戲劇情等內容，希望對各位有所幫助\nThe IDOLM@STER Shiny Colors, アイドルマスター シャイニーカラーズ, ShinyColorsDB, Shiny Colors, ShinyColors, シャニマス, 偶像大師閃耀色彩'
+        content: 'Welcome to ShinyColorsDB! This site provides in-game data of The Idolm@ster Shiny Colors, including release history, card info, game events. Hope this site proves helpful to you all.\nThe IDOLM@STER Shiny Colors, アイドルマスター シャイニーカラーズ, ShinyColorsDB, ShinyColors, シャニマス, 偶像大師閃耀色彩'
       },
       {
         name: 'twitter:card',
@@ -57,15 +57,15 @@ export class UtilitiesService {
       },
       {
         name: 'twitter:title',
-        content: ' ~ 閃耀色彩資料庫 ~ '
+        content: ' ~ ShinyColorsDB ~ '
       },
       {
         name: 'twitter:description',
-        content: '歡迎來到閃耀色彩資料庫! 本網頁蒐集了遊戲 The Idolm@ster Shiny Colors 中的所有遊戲資料，包括出卡時間表、卡片情報、遊戲劇情等內容，希望對各位有所幫助\nThe IDOLM@STER Shiny Colors, アイドルマスター シャイニーカラーズ, ShinyColorsDB, ShinyColors, シャニマス, 偶像大師閃耀色彩'
+        content: 'Welcome to ShinyColorsDB! This site provides in-game data of The Idolm@ster Shiny Colors, including release history, card info, game events. Hope this site proves helpful to you all.\nThe IDOLM@STER Shiny Colors, アイドルマスター シャイニーカラーズ, ShinyColorsDB, ShinyColors, シャニマス, 偶像大師閃耀色彩'
       },
       {
         name: 'description',
-        content: '歡迎來到閃耀色彩資料庫! 本網頁蒐集了遊戲 The Idolm@ster Shiny Colors 中的所有遊戲資料，包括出卡時間表、卡片情報、遊戲劇情等內容，希望對各位有所幫助\nThe IDOLM@STER Shiny Colors, アイドルマスター シャイニーカラーズ, ShinyColorsDB, ShinyColors, シャニマス, 偶像大師閃耀色彩'
+        content: 'Welcome to ShinyColorsDB! This site provides in-game data of The Idolm@ster Shiny Colors, including release history, card info, game events. Hope this site proves helpful to you all.\nThe IDOLM@STER Shiny Colors, アイドルマスター シャイニーカラーズ, ShinyColorsDB, ShinyColors, シャニマス, 偶像大師閃耀色彩'
       }
     ];
   }
@@ -76,7 +76,7 @@ export class UtilitiesService {
       { name: 'og:title', content: idolInfo.idolName },
       {
         name: 'og:description',
-        content: `姓名: ${idolInfo.idolName}\n生日: ${idolInfo.birthday}\n所屬: ${idolInfo.unit.unitName}`,
+        content: `Name: ${idolInfo.idolName}\nBirthday: ${idolInfo.birthday}\nUnit: ${idolInfo.unit.unitName}`,
       },
       {
         name: 'og:image',
@@ -87,7 +87,7 @@ export class UtilitiesService {
       { name: 'twitter:title', content: idolInfo.idolName },
       {
         name: 'twitter:description',
-        content: `姓名: ${idolInfo.idolName}\n生日: ${idolInfo.birthday}\n所屬: ${idolInfo.unit.unitName}`,
+        content: `Name: ${idolInfo.idolName}\nBirthday: ${idolInfo.birthday}\nUnit: ${idolInfo.unit.unitName}`,
       },
       {
         name: 'twitter:url',
@@ -99,7 +99,7 @@ export class UtilitiesService {
       },
       {
         name: 'description',
-        content: `姓名: ${idolInfo.idolName}\n生日: ${idolInfo.birthday}\n所屬: ${idolInfo.unit.unitName}`,
+        content: `Name: ${idolInfo.idolName}\nBirthday: ${idolInfo.birthday}\nUnit: ${idolInfo.unit.unitName}`,
       }
     ];
   }
@@ -116,11 +116,11 @@ export class UtilitiesService {
       },
       {
         name: 'og:title',
-        content: ' ~ 技能篩選 ~ '
+        content: ' ~ Reverse Lookup ~ '
       },
       {
         name: 'og:description',
-        content: '從支援技能等級反向篩選支援卡牌'
+        content: 'Reverse lookup from support skill'
       },
       {
         name: 'twitter:card',
@@ -132,15 +132,15 @@ export class UtilitiesService {
       },
       {
         name: 'twitter:title',
-        content: ' ~ 技能篩選 ~ '
+        content: ' ~ Reverse Lookup ~ '
       },
       {
         name: 'twitter:description',
-        content: '從支援技能等級反向篩選支援卡牌'
+        content: 'Reverse lookup from support skill'
       },
       {
         name: 'description',
-        content: '從支援技能等級反向篩選支援卡牌'
+        content: 'Reverse lookup from support skill'
       }
     ];
   }
@@ -166,7 +166,7 @@ export class UtilitiesService {
       },
       {
         name: 'description',
-        content: `卡名: ${card.cardName}\n 稀有度: ${card.cardType}\n 實裝: ${card.releaseDate}`
+        content: `Card: ${card.cardName}\n Rarity: ${card.cardType}\n Release: ${card.releaseDate}`
       }
     ];
   }
@@ -182,35 +182,35 @@ export class UtilitiesService {
   translateGetMethod(method: string): string {
     switch (method) {
       case 'IdolRoad':
-        return '偶像之路';
+        return 'IdolRoad';
       case 'GeneralGasha':
-        return '一般卡池';
+        return 'Permanent';
       case 'LimitedGasha':
-        return '限定卡池';
+        return 'Limited';
       case 'Events':
-        return '活動獎勵';
+        return 'Event Reward';
       case 'Default':
-        return '基礎卡牌';
+        return 'Default';
       case 'FesReward':
-        return '天梯獎勵';
+        return 'Fescoin Reward';
       case 'LiveReward':
-        return 'Live獎勵';
+        return 'Live Concert Reward';
       case 'TwilightCollection':
-        return '暮光卡池';
+        return 'Twilight Collection';
       case 'PayedGasha':
-        return '有償卡池';
+        return 'Payed';
       case 'MySongCollection':
-        return 'MSC卡池';
+        return 'My Song Collection';
       case 'Present':
-        return '營運贈送';
+        return 'Present';
       case 'Collabo':
-        return '合作卡池';
+        return 'Collaboration';
       case 'CollaboEvents':
-        return '合作活動';
+        return 'Collab Event';
       case 'AnimeReward':
-        return '動畫獎勵';
+        return 'Anime Exchange';
       case 'SituationDrama':
-        return '情景劇卡池';
+        return 'Situation Drama';
       default:
         return '';
     }
@@ -219,15 +219,15 @@ export class UtilitiesService {
   translateIdeaNote(idea: string): string {
     switch (idea) {
       case 'vocal':
-        return "ボーカル";
+        return "Vocal";
       case 'dance':
-        return "ダンス";
+        return "Dance";
       case 'visual':
-        return "ビジュアル";
+        return "Visual";
       case 'mental':
-        return "メンタル";
+        return "Mental";
       case 'skill_point':
-        return "アピール";
+        return "Appeal";
       default:
         return "";
     }
@@ -251,15 +251,15 @@ export class UtilitiesService {
   translateProficiency(proficiency: string): string {
     switch (proficiency) {
       case 'teamwork':
-        return '團結力';
+        return 'Teamwork';
       case 'feel_stable':
-        return '安定感';
+        return 'feel_stable';
       case 'expressive_power':
-        return '表現力';
+        return 'Expressive Power';
       case 'sing_ability':
-        return '歌唱力';
+        return 'Sing Ability';
       case 'concentration':
-        return '集中力';
+        return 'Concentration';
       default:
         return '';
     }
