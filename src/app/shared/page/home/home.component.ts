@@ -11,7 +11,7 @@ import { Card } from '../../interfaces/card';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
   host: {
-    class: 'col-lg-10 col-md-8 col-sm-12 h-100 d-flex',
+    class: 'col-lg-10 col-md-8 col-sm-12 h-100 d-flex justify-content-center',
   },
 })
 export class HomeComponent implements OnInit {
