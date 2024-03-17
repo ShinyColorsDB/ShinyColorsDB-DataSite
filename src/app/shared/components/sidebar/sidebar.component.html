@@ -6,8 +6,8 @@
     </a>
     <p class="h3 m-0 p-1 text-center titleFont">{{this.title}}</p>
   </div>
-  <div class="d-flex justify-content-center">
-    <img src="/assets/283.png" width="233" height="233" alt="Icon of 283 production" class="img-fluid" [ngClass]="{'d-none': !isBigScreen}">
+  <div class="d-flex justify-content-center" [ngClass]="{'d-none': !isBigScreen}">
+    <img src="/assets/283.png" width="233" height="233" alt="Icon of 283 production" class="img-fluid">
   </div>
   <div [ngClass]="{ active: showSideBar, sidebar: !isBigScreen, 'h-100': !isBigScreen }">
     <ngb-accordion
