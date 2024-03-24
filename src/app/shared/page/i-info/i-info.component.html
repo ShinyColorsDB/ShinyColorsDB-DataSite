@@ -126,7 +126,7 @@
                   {{k.title}}
                 </ng-template>
                 <ng-template ngbPanelContent>
-                  <table class="table table-hover table-bordered">
+                  <table class="table table-hover table-bordered p-0">
                     <thead></thead>
                     <tbody>
                       <tr *ngFor="let event of this.getEventsByType(k.albumType)">
@@ -145,9 +145,6 @@
                       </tr>
                     </tbody>
                   </table>
-                  <div>
-
-                  </div>
                 </ng-template>
               </ngb-panel>
             </ngb-accordion>
