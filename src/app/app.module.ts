@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { TransferHttpCacheModule } from '@nguniversal/common';
+import { TransferHttpCacheModule } from '@angular/ssr';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './shared/page/home/home.component';

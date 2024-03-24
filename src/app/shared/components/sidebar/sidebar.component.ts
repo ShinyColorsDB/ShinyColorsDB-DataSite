@@ -1,8 +1,15 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
 
 @Component({
   selector: 'app-sidebar',
+  standalone: true,
+  imports: [
+    RouterModule,
+    CommonModule,
+  ],
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css'],
 })

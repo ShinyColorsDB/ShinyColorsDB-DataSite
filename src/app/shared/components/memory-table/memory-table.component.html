@@ -6,12 +6,15 @@
       <th scope="col" i18n>Link</th>
     </tr>
   </thead>
-  <tbody *ngFor="let mem of this.memoryList; let i= index">
+  @for(mem of memoryList; track mem; let i = $index) {
+  <tbody>
     <tr>
       <td rowspan="2" class="align-middle forLevel">Lv.{{ i + 1 }}</td>
       <td>{{ mem.memoryTitle }}</td>
       <td rowspan="2" class="align-middle">
-        <span *ngIf="mem.extraEffect" class="wrapup">{{ this.addLineBreak(mem.extraEffect.extraEffectDesc) }}</span>
+        @if(mem.extraEffect) {
+        <span class="wrapup">{{ this.addLineBreak(mem.extraEffect.extraEffectDesc) }}</span>
+        }
       </td>
     </tr>
     <tr>
@@ -20,4 +23,6 @@
       </td>
     </tr>
   </tbody>
+  }
+
 </table>

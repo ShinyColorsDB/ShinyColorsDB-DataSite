@@ -5,69 +5,77 @@
       <th i18n>技能</th>
     </tr>
   </thead>
-  <tbody *ngFor="let slot of this.panelInfo; let i= index" class="table-hover">
-    <tr [ngClass]="{ 'bg-warning': i == this.highlited }"
-      [id]="i == this.highlited ? 'scrollMe' : ''"
-      [attr.data-index]="i">
-      <td rowspan="2" class="align-middle text-center">
-        <img
-          [src]="this.scUrlService.getSkillIcon(slot.panelIcon)"
-          [alt]="'Icon of skill ' + slot.skillTitle"
-          class="img-fluid mb-1"
-          crossorigin="anonymous"
-          />
-        <div *ngIf="slot.panelReleaseEvolution" class="d-block mt-1">(☆{{slot.panelReleaseEvolution}})</div>
-        <div *ngIf="slot.panelReleaseByEvent" class="d-block mt-1" i18n>(イベント)</div>
-      </td>
-      <td class="d-flex justify-content-between align-items-center">
-        <span class="wrapup">{{ slot.skillTitle }}</span>
-        <ng-container *ngIf="slot.extraEffect && slot.extraEffect.extraEffectType == 'link'">
-          <img [src]="this.scUrlService.getLinkUI('link')"
-            alt="Button showing link skill member" [ngbPopover]="linkPop" [popoverTitle]="linkTitle" placement="left" class="forCurser img-fluid">
-          <ng-template #linkTitle>
-            <span class='forPopup' i18n>リンクアピール</span>
-          </ng-template>
-          <ng-template #linkPop>
-            <div>
-              <img *ngFor="let link of slot.extraEffect.extraEffectMember.split(',')" class="img-fluid d-inline" [alt]="'Link member of skill ' + slot.skillTilte"
-                [src]="this.scUrlService.getIdolLinkIcon(link)"
-                width="50px" height="50px">
-            </div>
-            <div class="pt-1">
-              <span class="wrapup forPopup">{{ slot.extraEffect.extraEffectDesc }}</span>
-            </div>
-          </ng-template>
-        </ng-container>
-        <ng-container *ngIf="slot.extraEffect && slot.extraEffect.extraEffectType == 'plus'">
-          <img [src]="this.scUrlService.getLinkUI('plus')"
-            alt="Button showing plus skill description" [ngbPopover]="plusPop" [popoverTitle]="plusTitle" placement="left" class="forCurser float-end align-middle img-fluid">
-          <ng-template #plusTitle>
-            <span class='forPopup' i18n>プラスアピール</span>
-          </ng-template>
-          <ng-template #plusPop>
-            <div>
-              <span class="wrapup forPopup">{{ this.addPlusRule(slot.extraEffect.extraEffectDesc) }}</span>
-            </div>
-          </ng-template>
-        </ng-container>
-        <ng-container *ngIf="slot.extraEffect && slot.extraEffect.extraEffectType == 'change'">
-          <img [src]="this.scUrlService.getLinkUI('exchange')"
-            alt="Button showing exchange skill description" [ngbPopover]="exchangePop" [popoverTitle]="exchangeTitle" placement="left" class="forCurser float-end align-middle img-fluid">
-          <ng-template #exchangeTitle>
-            <span class='forPopup' i18n>チェンジ効果</span>
-          </ng-template>
-          <ng-template #exchangePop>
-            <div>
-              <span class="wrapup forPopup">{{ this.addPlusRule(slot.extraEffect.extraEffectDesc) }}</span>
-            </div>
-          </ng-template>
-        </ng-container>
-      </td>
-    </tr>
-    <tr [ngClass]="{ 'bg-warning': i == this.highlited }">
-      <td>
-        <span class="wrapup">{{ this.addLineBreak(slot.skillDesc) }}</span>
-      </td>
-    </tr>
-  </tbody>
+  @for (slot of this.panelInfo; track slot; let i = $index) {
+    <tbody class="table-hover">
+      <tr [ngClass]="{ 'bg-warning': i == this.highlited }"
+        [id]="i == this.highlited ? 'scrollMe' : ''"
+        [attr.data-index]="i">
+        <td rowspan="2" class="align-middle text-center">
+          <img
+            [src]="this.scUrlService.getSkillIcon(slot.panelIcon)"
+            [alt]="'Icon of skill ' + slot.skillTitle"
+            class="img-fluid mb-1"
+            crossorigin="anonymous"
+            />
+          @if (slot.panelReleaseEvolution) {
+            <div class="d-block mt-1">(☆{{slot.panelReleaseEvolution}})</div>
+          }
+          @else if (slot.panelReleaseByEvent) {
+            <div class="d-block mt-1" i18n>(イベント)</div>
+          }
+        </td>
+        <td class="d-flex justify-content-between align-items-center">
+          <span class="wrapup">{{ slot.skillTitle }}</span>
+          @if (slot.extraEffect && slot.extraEffect.extraEffectType == 'link') {
+            <img [src]="this.scUrlService.getLinkUI('link')"
+              alt="Button showing link skill member" [ngbPopover]="linkPop" [popoverTitle]="linkTitle" placement="left" class="forCurser img-fluid">
+            <ng-template #linkTitle>
+              <span class='forPopup' i18n>リンクアピール</span>
+            </ng-template>
+            <ng-template #linkPop>
+              <div>
+                @for (link of slot.extraEffect.extraEffectMember.split(','); track link) {
+                  <img class="img-fluid d-inline" [alt]="'Link member of skill ' + slot.skillTilte"
+                    [src]="this.scUrlService.getIdolLinkIcon(link)"
+                    width="50px" height="50px">
+                }
+              </div>
+              <div class="pt-1">
+                <span class="wrapup forPopup">{{ slot.extraEffect.extraEffectDesc }}</span>
+              </div>
+            </ng-template>
+          }
+          @if (slot.extraEffect && slot.extraEffect.extraEffectType == 'plus') {
+            <img [src]="this.scUrlService.getLinkUI('plus')"
+              alt="Button showing plus skill description" [ngbPopover]="plusPop" [popoverTitle]="plusTitle" placement="left" class="forCurser float-end align-middle img-fluid">
+            <ng-template #plusTitle>
+              <span class='forPopup' i18n>プラスアピール</span>
+            </ng-template>
+            <ng-template #plusPop>
+              <div>
+                <span class="wrapup forPopup">{{ this.addPlusRule(slot.extraEffect.extraEffectDesc) }}</span>
+              </div>
+            </ng-template>
+          }
+          @if (slot.extraEffect && slot.extraEffect.extraEffectType == 'change') {
+            <img [src]="this.scUrlService.getLinkUI('exchange')"
+              alt="Button showing exchange skill description" [ngbPopover]="exchangePop" [popoverTitle]="exchangeTitle" placement="left" class="forCurser float-end align-middle img-fluid">
+            <ng-template #exchangeTitle>
+              <span class='forPopup' i18n>チェンジ効果</span>
+            </ng-template>
+            <ng-template #exchangePop>
+              <div>
+                <span class="wrapup forPopup">{{ this.addPlusRule(slot.extraEffect.extraEffectDesc) }}</span>
+              </div>
+            </ng-template>
+          }
+        </td>
+      </tr>
+      <tr [ngClass]="{ 'bg-warning': i == this.highlited }">
+        <td>
+          <span class="wrapup">{{ this.addLineBreak(slot.skillDesc) }}</span>
+        </td>
+      </tr>
+    </tbody>
+  }
 </table>

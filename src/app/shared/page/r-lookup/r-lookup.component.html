@@ -13,7 +13,9 @@
   <div class="well well-lg p-2 m-2 mb-0 border rounded border-secondary-subtle pe-0">
     <p class="h3">アイドル</p>
     <div class="row container-fluid m-0 p-0">
-      <app-sub-idol-form *ngFor="let thisUnit of this.units" [unit]="thisUnit" #subIdolForm></app-sub-idol-form>
+      @for (thisUnit of this.units; track thisUnit) {
+        <app-sub-idol-form [unit]="thisUnit" #subIdolForm></app-sub-idol-form>
+      }
     </div>
   </div>
   <div class="p-2 m-2 pe-0 mb-5">

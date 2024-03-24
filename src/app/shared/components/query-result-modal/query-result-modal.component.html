@@ -6,41 +6,44 @@
   </div>
   <div class="modal-body">
     <div class="row">
-      <div class="col-12 p-2" *ngIf="!this.queryResult.length">
-        <p class="text-center m-0">沒有符合條件的結果</p>
-      </div>
-      <div class="card col-md-4 col-sm-6 p-0" *ngFor="let i of this.queryResult">
-        <a routerLink="/scardinfo"
-          [queryParams]="{ uuid: i.E_CardUuid }"
-          class="row g-0">
-          <div class="col-3">
-            <img [src]="this.scUrlService.getSCardIcon(i.EnzaID)" alt class="img-fluid">
-          </div>
-          <div class="col-9">
-            <div class="card-body">
-              <p class="card-title">
-                {{i.E_CardName.replace(this.regExp, "$1")}}
-              </p>
-              <div class="card-text">
-                Lv: {{this.getMinimumLevel(i)}}
+      @if (!this.queryResult.length) {
+        <div class="col-12 p-2">
+          <p class="text-center m-0">沒有符合條件的結果</p>
+        </div>
+      }
+      @for (i of this.queryResult; track i) {
+        <div class="card col-md-4 col-sm-6 p-0">
+          <a routerLink="/scardinfo"
+            [queryParams]="{ uuid: i.E_CardUuid }"
+            class="row g-0">
+            <div class="col-3">
+              <img [src]="this.scUrlService.getSCardIcon(i.EnzaID)" alt class="img-fluid">
+            </div>
+            <div class="col-9">
+              <div class="card-body">
+                <p class="card-title">
+                  {{i.E_CardName.replace(this.regExp, "$1")}}
+                </p>
+                <div class="card-text">
+                  Lv: {{this.getMinimumLevel(i)}}
+                </div>
               </div>
             </div>
-
-          </div>
-        </a>
-      </div>
+          </a>
+        </div>
+      }
       <!--a *ngFor="let i of this.queryResult"
-        routerLink="/scardinfo"
-        [queryParams]="{ uuid: i.cardUuid }"
-        class="img-fluid col-lg-2 col-md-4 col-sm-6">
+      routerLink="/scardinfo"
+      [queryParams]="{ uuid: i.cardUuid }"
+      class="img-fluid col-lg-2 col-md-4 col-sm-6">
         <img [src]="
           'https://viewer.shinycolors.moe/images/content/support_idols/icon/' + i.enzaId + '.png'
         " alt="">
-        <p>{{i.cardName.replace(this.regExp, "$1")}}</p>
-      </a-->
-    </div>
+      <p>{{i.cardName.replace(this.regExp, "$1")}}</p>
+    </a-->
   </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-primary" (click)="modal.close('Save click')">Close</button>
-  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary" (click)="modal.close('Save click')">Close</button>
+</div>
 </ng-template>

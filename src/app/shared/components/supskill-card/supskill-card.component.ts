@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-supskill-card',
+  standalone: true,
   templateUrl: './supskill-card.component.html',
   styleUrls: ['./supskill-card.component.css']
 })

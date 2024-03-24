@@ -25,6 +25,7 @@ import { defineHex, Grid, Orientation, rectangle } from 'honeycomb-grid';
 
 @Component({
   selector: 'app-panel-info',
+  standalone: true,
   templateUrl: './panel-info.component.html',
   styleUrls: ['./panel-info.component.css'],
 })

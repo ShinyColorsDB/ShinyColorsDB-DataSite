@@ -5,6 +5,7 @@ import { Timetable } from '../../interfaces/timetable';
 
 @Component({
   selector: 'app-timesubtable',
+  standalone: true,
   templateUrl: './timesubtable.component.html',
   styleUrls: ['./timesubtable.component.css'],
   host: {

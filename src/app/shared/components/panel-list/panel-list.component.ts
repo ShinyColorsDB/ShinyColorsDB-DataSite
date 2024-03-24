@@ -1,8 +1,15 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { NgbPopover } from '@ng-bootstrap/ng-bootstrap';
 import { ShinycolorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
 
 @Component({
   selector: 'app-panel-list',
+  standalone: true,
+  imports: [
+    CommonModule,
+    NgbPopover,
+  ],
   templateUrl: './panel-list.component.html',
   styleUrls: ['./panel-list.component.css'],
   host: {

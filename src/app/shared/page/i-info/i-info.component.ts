@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 
 import { ShinyColorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
@@ -13,6 +13,8 @@ import { Album, Communication } from '../../interfaces/album';
 import { environment } from 'src/environments/environment';
 
 import { catchError, of } from 'rxjs';
+import { CardItemComponent } from '../../components/card-item/card-item.component';
+import { CommonModule } from '@angular/common';
 
 enum tabStatus {
   Produce,
@@ -21,7 +23,14 @@ enum tabStatus {
 };
 
 @Component({
+  standalone: true,
   selector: 'app-i-info',
+  imports: [
+    CommonModule,
+    RouterModule,
+    CardItemComponent,
+
+  ],
   templateUrl: './i-info.component.html',
   styleUrls: ['./i-info.component.css'],
   host: {

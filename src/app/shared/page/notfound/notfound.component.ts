@@ -1,11 +1,12 @@
 import { isPlatformServer } from '@angular/common';
 import { Component, OnInit, PLATFORM_ID } from '@angular/core';
 import { Optional, Inject } from '@angular/core';
-import { RESPONSE } from '@nguniversal/express-engine/tokens';
+import { RESPONSE } from '../../../../express.tokens';
 import { Response } from 'express';
 
 @Component({
   selector: 'app-notfound',
+  standalone: true,
   templateUrl: './notfound.component.html',
   styleUrls: ['./notfound.component.css'],
   host: {

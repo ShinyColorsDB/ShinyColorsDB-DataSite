@@ -10,6 +10,7 @@ import { ShinycolorsUrlService } from 'src/app/service/shinycolors-url/shinycolo
 
 @Component({
   selector: 'app-cardle',
+  standalone: true,
   templateUrl: './cardle.component.html',
   styleUrls: ['./cardle.component.css'],
   host: {

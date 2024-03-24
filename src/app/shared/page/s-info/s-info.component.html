@@ -1,125 +1,132 @@
-<div class="row d-flex justify-content-around align-items-start" *ngIf="this.sCardInfo">
-  <div class="col-12 p-0 d-none d-md-block">
-    <h1 class="mt-2 m-0">{{ this.sCardInfo.cardName }}</h1>
-  </div>
-
-  <div class="col-lg-6 col-md-12 row p-0">
-    <img
-      [src]="this.scUrlService.getSupportCardUrl(this.sCardInfo.enzaId)"
-      [alt]="'Picture of ' + this.sCardInfo.cardName"
-      class="img-fluid col-12 p-2"
-      width="1136"
-      height="640" />
-    <div class="container col-12 row m-0 p-0 pt-1">
-      <app-common-criteria
-        [releaseDate]="this.sCardInfo.releaseDate"
-        [getMethod]="this.translateGetMethod()"
+@if (this.sCardInfo) {
+  <div class="row d-flex justify-content-around align-items-start">
+    <div class="col-12 p-0 d-none d-md-block">
+      <h1 class="mt-2 m-0">{{ this.sCardInfo.cardName }}</h1>
+    </div>
+    <div class="col-lg-6 col-md-12 row p-0">
+      <img
+        [src]="this.scUrlService.getSupportCardUrl(this.sCardInfo.enzaId)"
+        [alt]="'Picture of ' + this.sCardInfo.cardName"
+        class="img-fluid col-12 p-2"
+        width="1136"
+        height="640" />
+      <div class="container col-12 row m-0 p-0 pt-1">
+        <app-common-criteria
+          [releaseDate]="this.sCardInfo.releaseDate"
+          [getMethod]="this.translateGetMethod()"
         [rarity]="this.sCardInfo.cardType"></app-common-criteria>
-
-      <h3
-        class="col-12 pt-2"
-        *ngIf="this.sCardInfo.cardSupportEvents.length" i18n>イベント</h3>
-      <div
-        class="col-12 p-2 size18"
-        *ngIf="this.sCardInfo.cardSupportEvents.length">
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th scope="col" i18n>事件名稱</th>
-              <th scope="col">Vo</th>
-              <th scope="col">Da</th>
-              <th scope="col">Vi</th>
-              <th scope="col">Me</th>
-              <th scope="col">Sp</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let event of this.sCardInfo.cardSupportEvents">
-              <td>
-                <a [href]="this.getEventUrl(event.eventId)" target="_blank" class="d-flex">
-                  <svg class="align-self-center" fill="#3880ff" height="20px" width="20px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-3 -3 66.00 66.00" xml:space="preserve" stroke="#3880ff" stroke-width="4.5"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M45.563,29.174l-22-15c-0.307-0.208-0.703-0.231-1.031-0.058C22.205,14.289,22,14.629,22,15v30 c0,0.371,0.205,0.711,0.533,0.884C22.679,45.962,22.84,46,23,46c0.197,0,0.394-0.059,0.563-0.174l22-15 C45.836,30.64,46,30.331,46,30S45.836,29.36,45.563,29.174z M24,43.107V16.893L43.225,30L24,43.107z"></path> <path d="M30,0C13.458,0,0,13.458,0,30s13.458,30,30,30s30-13.458,30-30S46.542,0,30,0z M30,58C14.561,58,2,45.439,2,30 S14.561,2,30,2s28,12.561,28,28S45.439,58,30,58z"></path> </g> </g></svg>
-                  <div class="ps-1 align-middle">{{ event.eventName }}</div>
-                </a>
-              </td>
-              <td>{{ event.eventAddVo }}</td>
-              <td>{{ event.eventAddDa }}</td>
-              <td>{{ event.eventAddVi }}</td>
-              <td>{{ event.eventAddMe }}</td>
-              <td>{{ event.eventAddSp }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <h3 i18n>ファイトスキル</h3>
-      <div class="col-12 p-2 size18">
-        <table class="table table-hover">
-          <tbody>
-            <tr>
-              <td>{{ this.sCardInfo.supportFightSkills.ftComment }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="col-12 p-2 size18">
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th i18n>アイデア</th>
-              <th i18n>ひらめき</th>
-              <th i18n>樂曲熟練度</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <img
-                  [src]="this.scUrlService.getIdeaMark(this.sCardInfo.ideaMark)"
-                  width="30"
-                  height="34"
-                  [alt]="'Icon of idea mark ' + this.sCardInfo.ideaMark"
-                  class="img-fluid" />
-                {{ this.translateIdeaNote() }}
-              </td>
-              <td>
-                <img *ngIf="this.sCardInfo.idol.hirameki != '-'"
-                  [src]="this.scUrlService.getInspiration(this.convertHirameki())"
-                  [alt]="'Icon of hirameki ' + this.sCardInfo.idol.hirameki"
-                  width="30"
-                  height="30" />
-                {{ this.sCardInfo.idol.hirameki }}
-              </td>
-              <td>
-                <ng-container
-                  *ngFor="let p of this.sCardInfo.cardProficiencies">
+        @if (this.sCardInfo.cardSupportEvents.length) {
+          <h3
+            class="col-12 pt-2"
+          i18n>イベント</h3>
+        }
+        @if (this.sCardInfo.cardSupportEvents.length) {
+          <div
+            class="col-12 p-2 size18"
+            >
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col" i18n>事件名稱</th>
+                  <th scope="col">Vo</th>
+                  <th scope="col">Da</th>
+                  <th scope="col">Vi</th>
+                  <th scope="col">Me</th>
+                  <th scope="col">Sp</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (event of this.sCardInfo.cardSupportEvents; track event) {
+                  <tr>
+                    <td>
+                      <a [href]="this.getEventUrl(event.eventId)" target="_blank" class="d-flex">
+                        <svg class="align-self-center" fill="#3880ff" height="20px" width="20px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-3 -3 66.00 66.00" xml:space="preserve" stroke="#3880ff" stroke-width="4.5"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M45.563,29.174l-22-15c-0.307-0.208-0.703-0.231-1.031-0.058C22.205,14.289,22,14.629,22,15v30 c0,0.371,0.205,0.711,0.533,0.884C22.679,45.962,22.84,46,23,46c0.197,0,0.394-0.059,0.563-0.174l22-15 C45.836,30.64,46,30.331,46,30S45.836,29.36,45.563,29.174z M24,43.107V16.893L43.225,30L24,43.107z"></path> <path d="M30,0C13.458,0,0,13.458,0,30s13.458,30,30,30s30-13.458,30-30S46.542,0,30,0z M30,58C14.561,58,2,45.439,2,30 S14.561,2,30,2s28,12.561,28,28S45.439,58,30,58z"></path> </g> </g></svg>
+                        <div class="ps-1 align-middle">{{ event.eventName }}</div>
+                      </a>
+                    </td>
+                    <td>{{ event.eventAddVo }}</td>
+                    <td>{{ event.eventAddDa }}</td>
+                    <td>{{ event.eventAddVi }}</td>
+                    <td>{{ event.eventAddMe }}</td>
+                    <td>{{ event.eventAddSp }}</td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        }
+        <h3 i18n>ファイトスキル</h3>
+        <div class="col-12 p-2 size18">
+          <table class="table table-hover">
+            <tbody>
+              <tr>
+                <td>{{ this.sCardInfo.supportFightSkills.ftComment }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-12 p-2 size18">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th i18n>アイデア</th>
+                <th i18n>ひらめき</th>
+                <th i18n>樂曲熟練度</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
                   <img
-                    [src]="this.scUrlService.getProficiency(p.proficiency)"
-                    [alt]="'Icon of proficiency ' + p.proficiency"
+                    [src]="this.scUrlService.getIdeaMark(this.sCardInfo.ideaMark)"
                     width="30"
-                    height="30" />
-                  {{ this.translateProficiency(p.proficiency) }}
-                </ng-container>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+                    height="34"
+                    [alt]="'Icon of idea mark ' + this.sCardInfo.ideaMark"
+                    class="img-fluid" />
+                  {{ this.translateIdeaNote() }}
+                </td>
+                <td>
+                  @if (this.sCardInfo.idol.hirameki != '-') {
+                    <img
+                      [src]="this.scUrlService.getInspiration(this.convertHirameki())"
+                      [alt]="'Icon of hirameki ' + this.sCardInfo.idol.hirameki"
+                      width="30"
+                      height="30" />
+                  }
+                  {{ this.sCardInfo.idol.hirameki }}
+                </td>
+                <td>
+                  @for (p of this.sCardInfo.cardProficiencies; track p) {
+                    <img
+                      [src]="this.scUrlService.getProficiency(p.proficiency)"
+                      [alt]="'Icon of proficiency ' + p.proficiency"
+                      width="30"
+                      height="30" />
+                    {{ this.translateProficiency(p.proficiency) }}
+                  }
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h3 class="pb-2" i18n>サポートスキル</h3>
+        <app-supskill-card
+          [rarity]="this.sCardInfo.cardType"
+          [supskills]="this.sCardInfo.cardSupportSkills">
+        </app-supskill-card>
       </div>
-      <h3 class="pb-2" i18n>サポートスキル</h3>
-      <app-supskill-card
-        [rarity]="this.sCardInfo.cardType"
-        [supskills]="this.sCardInfo.cardSupportSkills">
-      </app-supskill-card>
     </div>
-  </div>
-  <div class="col-lg-6 col-md-12 row p-0">
-    <app-panel-info
-      class="col-12 noFontSize p-2"
-      [panelInfo]="this.sCardInfo.cardPanels"
-      [isSr]="this.isSrCard()"
-      (stateChanged)="updateState($event)"></app-panel-info>
-    <div class="container col-12 pt-2 row m-0 p-0">
-      <app-panel-list
+    <div class="col-lg-6 col-md-12 row p-0">
+      <app-panel-info
+        class="col-12 noFontSize p-2"
         [panelInfo]="this.sCardInfo.cardPanels"
+        [isSr]="this.isSrCard()"
+      (stateChanged)="updateState($event)"></app-panel-info>
+      <div class="container col-12 pt-2 row m-0 p-0">
+        <app-panel-list
+          [panelInfo]="this.sCardInfo.cardPanels"
         [highlited]="this.highlight"></app-panel-list>
+      </div>
     </div>
   </div>
-</div>
+}

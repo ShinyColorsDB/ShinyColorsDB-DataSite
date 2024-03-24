@@ -91,10 +91,10 @@
               "port": 80
             },
             "production": {
-              "browserTarget": "ShinyColorsDB-DataSite:build:production"
+              "buildTarget": "ShinyColorsDB-DataSite:build:production"
             },
             "development": {
-              "browserTarget": "ShinyColorsDB-DataSite:build:development"
+              "buildTarget": "ShinyColorsDB-DataSite:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -102,7 +102,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ShinyColorsDB-DataSite:build"
+            "buildTarget": "ShinyColorsDB-DataSite:build"
           }
         },
         "test": {
@@ -150,7 +150,7 @@
           "defaultConfiguration": "production"
         },
         "serve-ssr": {
-          "builder": "@nguniversal/builders:ssr-dev-server",
+          "builder": "@angular-devkit/build-angular:ssr-dev-server",
           "configurations": {
             "development": {
               "browserTarget": "ShinyColorsDB-DataSite:build:development",
@@ -164,7 +164,7 @@
           "defaultConfiguration": "development"
         },
         "prerender": {
-          "builder": "@nguniversal/builders:prerender",
+          "builder": "@angular-devkit/build-angular:prerender",
           "options": {
             "routes": [
               "/"

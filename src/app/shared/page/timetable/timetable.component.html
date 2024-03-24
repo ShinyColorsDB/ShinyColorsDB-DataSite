@@ -6,42 +6,45 @@
           href="javascript: void(0);"
           class="nav-link"
           (click)="changeDisplay(0);"
-          [ngClass]="{ disabled: this.overview, active: this.overview }" i18n>概覽</a>
+        [ngClass]="{ disabled: this.overview, active: this.overview }" i18n>概覽</a>
       </li>
       <li class="nav-item">
         <a
           href="javascript: void(0);"
           class="nav-link"
           (click)="changeDisplay(1);"
-          [ngClass]="{ disabled: this.limited, active: this.limited }" i18n>限定</a>
+        [ngClass]="{ disabled: this.limited, active: this.limited }" i18n>限定</a>
       </li>
       <li class="nav-item">
         <a
           href="javascript: void(0);"
           class="nav-link"
           (click)="changeDisplay(2);"
-          [ngClass]="{ disabled: this.general, active: this.general }" i18n>常駐</a>
+        [ngClass]="{ disabled: this.general, active: this.general }" i18n>常駐</a>
       </li>
     </ul>
   </div>
   <div class="card-body d-flex h-auto overflow-auto container justify-content-center">
-    <app-timesubtable
-      *ngIf="this.allTimetable"
-      [timetable]="this.allTimetable"
-      class="subtable"
-      [ngClass]="{ 'd-none': !this.overview }">
-    </app-timesubtable>
-    <app-timesubtable
-      *ngIf="this.limitedTimetable"
-      [timetable]="this.limitedTimetable"
-      class="subtable"
-      [ngClass]="{ 'd-none': !this.limited }">
-    </app-timesubtable>
-    <app-timesubtable
-      *ngIf="this.generalTimetable"
-      [timetable]="this.generalTimetable"
-      class="subtable"
-      [ngClass]="{ 'd-none': !this.general }">
-    </app-timesubtable>
+    @if (this.allTimetable) {
+      <app-timesubtable
+        [timetable]="this.allTimetable"
+        class="subtable"
+        [ngClass]="{ 'd-none': !this.overview }">
+      </app-timesubtable>
+    }
+    @if (this.limitedTimetable) {
+      <app-timesubtable
+        [timetable]="this.limitedTimetable"
+        class="subtable"
+        [ngClass]="{ 'd-none': !this.limited }">
+      </app-timesubtable>
+    }
+    @if (this.generalTimetable) {
+      <app-timesubtable
+        [timetable]="this.generalTimetable"
+        class="subtable"
+        [ngClass]="{ 'd-none': !this.general }">
+      </app-timesubtable>
+    }
   </div>
 </div>

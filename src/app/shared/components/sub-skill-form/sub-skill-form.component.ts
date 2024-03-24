@@ -6,6 +6,7 @@ import { SupSkillList } from '../../interfaces/supskilllist';
 
 @Component({
   selector: 'app-sub-skill-form',
+  standalone: true,
   templateUrl: './sub-skill-form.component.html',
   styleUrls: ['./sub-skill-form.component.css']
 })

@@ -6,6 +6,10 @@ import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-pic-carousel',
+  standalone: true,
+  imports: [
+    NgbCarousel
+  ],
   templateUrl: './pic-carousel.component.html',
   styleUrls: ['./pic-carousel.component.css']
 })
