@@ -16,6 +16,7 @@ import { Cardle } from 'src/app/shared/interfaces/cardle';
 import { SupSkillList } from 'src/app/shared/interfaces/supskilllist';
 import { QuerySupportSkill } from 'src/app/shared/interfaces/querysupportskill';
 import { QueryResult } from 'src/app/shared/interfaces/queryresult';
+import { Album } from 'src/app/shared/interfaces/album';
 
 @Injectable({
   providedIn: 'root',
@@ -38,6 +39,12 @@ export class ShinyColorsApiService {
         responseType: 'json',
       })
       .pipe(catchError(this.handleError<Idol>('getIdolInfo')));
+  }
+
+  getIdolAlbumInfo(idolID: number): Observable<Album> {
+    return this.http
+      .get<Album>(`${environment.cloudFlareUrl}albums/album/${String(idolID).padStart(2, '0')}.json`)
+      .pipe(catchError(this.handleError<Album>('getIdolAlbumInfo')));
   }
 
   getPCardInfo(cardId: string): Observable<PCard> {

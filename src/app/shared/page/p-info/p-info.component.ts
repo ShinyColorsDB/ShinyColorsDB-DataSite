@@ -93,4 +93,8 @@ export class PInfoComponent implements OnInit {
   isIdolRoad(): boolean {
     return this.pCardInfo.getMethod == "IdolRoad";
   }
+
+  getEventUrl(eventId: number): string {
+    return `${environment.eventViewerUrl}/?eventId=${eventId}`;
+  }
 }

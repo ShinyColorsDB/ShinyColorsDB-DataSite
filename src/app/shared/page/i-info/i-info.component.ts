@@ -3,13 +3,22 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 
 import { ShinyColorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
+import { ShinycolorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
 import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
 
 import { Card } from '../../interfaces/card';
 import { Idol } from '../../interfaces/idol';
+import { Album, Communication } from '../../interfaces/album';
+
+import { environment } from 'src/environments/environment';
 
 import { catchError, of } from 'rxjs';
-import { ShinycolorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
+
+enum tabStatus {
+  Produce,
+  Support,
+  Event
+};
 
 @Component({
   selector: 'app-i-info',
@@ -22,7 +31,8 @@ import { ShinycolorsUrlService } from 'src/app/service/shinycolors-url/shinycolo
 export class IInfoComponent implements OnInit {
   idolInfo!: Idol;
   idolId!: number;
-  togglePS = true;
+
+  togglePS: tabStatus = tabStatus.Produce;
 
   pSSR: Card[] = [];
   pSR: Card[] = [];
@@ -31,6 +41,8 @@ export class IInfoComponent implements OnInit {
   sSR: Card[] = [];
   sR: Card[] = [];
   sN: Card[] = [];
+
+  album!: Album;
 
   constructor(
     private utilsService: UtilitiesService,
@@ -94,7 +106,7 @@ export class IInfoComponent implements OnInit {
           this.resetCards();
 
           this.idolInfo = data;
-          this.togglePS = true;
+          this.togglePS = tabStatus.Produce;
 
           this.title.setTitle(this.idolInfo.idolName);
           this.utilsService.generateIdolMeta(this.idolInfo).forEach(e => {
@@ -108,8 +120,84 @@ export class IInfoComponent implements OnInit {
             this.classifyType(card);
           });
         });
+
+      this.scApiService.getIdolAlbumInfo(this.idolId)
+        .pipe(catchError(err => {
+          this.router.navigate(['/notfound'])
+          return of(null);
+        }))
+        .subscribe((data) => {
+          if (!data) { return; }
+          this.album = data;
+        });
+
     });
   }
 
+  getEventTitles() {
+    return this.album.albumCommunicationTitles;
+  }
 
+  getEventsByType(type: string): Communication[] {
+    return this.album.communications.filter(e => e.albumType === type);
+  }
+
+  tabProduce(): void {
+    this.togglePS = tabStatus.Produce;
+  }
+
+  isTabProduce(): boolean {
+    return this.togglePS === tabStatus.Produce;
+  }
+
+  tabSupport(): void {
+    this.togglePS = tabStatus.Support;
+  }
+
+  isTabSupport(): boolean {
+    return this.togglePS === tabStatus.Support;
+  }
+
+  tabEvent(): void {
+    this.togglePS = tabStatus.Event;
+  }
+
+  isTabEvent(): boolean {
+    return this.togglePS === tabStatus.Event;
+  }
+
+  getCategoryPath(category: string): string {
+    switch (category) {
+      case "character_event":
+      case "season_event":
+      case "unit_event":
+      case "concert_event":
+        return "produce_events";
+
+      case "communication_morning":
+        return "produce_communications";
+
+      case "communication_cheer":
+        return "produce_communication_cheers";
+
+      case "communication_audition":
+        return "produce_communication_auditions";
+
+      case "birthday_event":
+      case "present_event":
+      case "special_communication":
+      case "seasonal_event":
+      case "seasonal_present_event":
+        return "special_communications";
+
+      default:
+        return "";
+    }
+  }
+
+  getEventViewerUrl(eventId: string, eventType: string): string {
+    //https://event.shinycolors.moe/?eventId=202100100391&eventType=produce_communication_promise_results
+    //wing: produce_events
+    return `${environment.eventViewerUrl}?eventId=${eventId}&eventType=${this.getCategoryPath(eventType)}`;
+  }
 }

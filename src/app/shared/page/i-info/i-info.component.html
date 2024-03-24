@@ -1,4 +1,4 @@
-<div class="row m-0 p-0" *ngIf="this.idolInfo">
+<div class="row m-0 p-0" *ngIf="this.idolInfo && this.album">
   <div class="d-flex col-lg-4 col-md-12 h-100 container justify-content-center" id="divIdolData">
     <div class="row">
       <div class="col-12 pt-2 d-block">
@@ -8,8 +8,7 @@
           [alt]="'Icon of ' + this.idolInfo.idolName"
           class="img-fluid mx-auto d-block"
           width="400"
-          height="400"
-          />
+          height="400" />
       </div>
       <div class="col-12 d-block">
         <table class="table w-100">
@@ -73,15 +72,18 @@
         <div class="card-header w-100">
           <ul class="nav nav-tabs card-header-tabs">
             <li class="nav-item">
-              <a href="javascript: void()" class="nav-link" (click)="togglePS= true" [ngClass]="{'disabled': togglePS, 'active': togglePS}" style="font-family: Meiryo" i18n>P卡列表</a>
+              <a href="javascript: void(0);" class="nav-link" (click)="tabProduce()" [ngClass]="{'disabled': isTabProduce(), 'active': isTabProduce()}" style="font-family: Meiryo" i18n>P卡列表</a>
             </li>
             <li class="nav-item">
-              <a href="javascript: void()" class="nav-link" (click)="togglePS= false" [ngClass]="{'disabled': !togglePS, 'active': !togglePS}" style="font-family: Meiryo" i18n>S卡列表</a>
+              <a href="javascript: void(0);" class="nav-link" (click)="tabSupport()" [ngClass]="{'disabled': isTabSupport(), 'active': isTabSupport()}" style="font-family: Meiryo" i18n>S卡列表</a>
+            </li>
+            <li class="nav-item">
+              <a href="javascript: void(0);" class="nav-link" (click)="tabEvent()" [ngClass]="{'disabled': isTabEvent(), 'active': isTabEvent()}" style="font-family: Meiryo" i18n>劇情列表</a>
             </li>
           </ul>
         </div>
         <div class="card-body w-100 container overflow-auto h-100 justify-content-center">
-          <div class="row w-100 m-0" [ngClass]="{'d-none': !togglePS}">
+          <div class="row w-100 m-0" [ngClass]="{'d-none': !isTabProduce()}">
             <ng-container *ngIf="this.pSSR.length || this.pSR.length || this.pR.length">
               <h5 class="text-start pt-2" *ngIf="this.pSSR.length">P_SSR</h5>
               <app-card-item *ngFor="let card of this.pSSR" [cardInfo]="card" [pathType]="'/pcardinfo'" class="col-md-6 col-lg-4 col-sm-12 pt-1 pb-1"></app-card-item>
@@ -98,7 +100,7 @@
               </div>
             </ng-container>
           </div>
-          <div class="row w-100 m-0" [ngClass]="{'d-none': togglePS}">
+          <div class="row w-100 m-0" [ngClass]="{'d-none': !isTabSupport()}">
             <ng-container *ngIf="this.sSSR.length || this.sSR.length || this.sR.length || this.sN.length">
               <h5 class="text-start pt-2" *ngIf="this.sSSR.length">S_SSR</h5>
               <app-card-item *ngFor="let card of this.sSSR" [cardInfo]="card" [pathType]="'/scardinfo'" class="col-md-6 col-lg-4 col-sm-12 pt-1 pb-1"></app-card-item>
@@ -116,6 +118,39 @@
                 </div>
               </div>
             </ng-container>
+          </div>
+          <div class="row w-100 m-0" [ngClass]="{'d-none': !isTabEvent()}">
+            <ngb-accordion #acc="ngbAccordion" class="bg-light p-0">
+              <ngb-panel *ngFor="let k of this.getEventTitles()">
+                <ng-template ngbPanelTitle>
+                  {{k.title}}
+                </ng-template>
+                <ng-template ngbPanelContent>
+                  <table class="table table-hover table-bordered">
+                    <thead></thead>
+                    <tbody>
+                      <tr *ngFor="let event of this.getEventsByType(k.albumType)">
+                        <td>
+                          <a [href]="getEventViewerUrl(event.communicationId, event.communicationCategory)" target="_blank">
+                            <div class="d-inline-block p-1">
+                              <svg class="align-self-center" fill="#3880ff" height="20px" width="20px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-3 -3 66.00 66.00" xml:space="preserve" stroke="#3880ff" stroke-width="4.5"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path
+                                      d="M45.563,29.174l-22-15c-0.307-0.208-0.703-0.231-1.031-0.058C22.205,14.289,22,14.629,22,15v30 c0,0.371,0.205,0.711,0.533,0.884C22.679,45.962,22.84,46,23,46c0.197,0,0.394-0.059,0.563-0.174l22-15 C45.836,30.64,46,30.331,46,30S45.836,29.36,45.563,29.174z M24,43.107V16.893L43.225,30L24,43.107z"></path> <path
+                                      d="M30,0C13.458,0,0,13.458,0,30s13.458,30,30,30s30-13.458,30-30S46.542,0,30,0z M30,58C14.561,58,2,45.439,2,30 S14.561,2,30,2s28,12.561,28,28S45.439,58,30,58z"></path> </g> </g></svg>
+                            </div>
+                            <div class="d-inline-block align-middle">
+                              {{event.title}}
+                            </div>
+                          </a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div>
+
+                  </div>
+                </ng-template>
+              </ngb-panel>
+            </ngb-accordion>
           </div>
         </div>
       </div>

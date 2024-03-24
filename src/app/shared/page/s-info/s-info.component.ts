@@ -86,4 +86,8 @@ export class SInfoComponent implements OnInit {
   isSrCard(): boolean {
     return this.utilsService.isSrCard(this.sCardInfo.cardType);
   }
+
+  getEventUrl(eventId: number): string {
+    return `${environment.eventViewerUrl}/?eventId=${eventId}`;
+  }
 }
