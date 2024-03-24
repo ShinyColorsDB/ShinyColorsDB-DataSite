@@ -16,61 +16,70 @@
     <img src="/assets/283.png" width="233" height="233" alt="Icon of 283 production" class="img-fluid">
   </div>
   <div [ngClass]="{ active: showSideBar, sidebar: !isBigScreen, 'h-100': !isBigScreen }">
-    <ngb-accordion
-      [closeOthers]="true"
-      [destroyOnHide]="false"
-      [activeIds]="this.charaListId">
-      <ngb-panel cardClass="p-0">
-        <ng-template ngbPanelTitle>ShinyColorsDB</ng-template>
-        <ng-template ngbPanelContent>
-          <div class="list-group">
-            <a
-              class="text-start list-group-item list-group-item-action w-100 ps-4 bg-light bg-gradient"
-              [routerLink]="['/']"
-              (click)="onSideBarClick()" i18n>首頁</a>
-            <a
-              class="text-start list-group-item list-group-item-action w-100 ps-4 bg-light bg-gradient"
-              [routerLink]="['/timetable']"
-              (click)="onSideBarClick()" i18n>歴史</a>
-            <a
-              class="text-start list-group-item list-group-item-action w-100 ps-4 bg-light bg-gradient"
-              [routerLink]="['/cardle']"
-              (click)="onSideBarClick()">Cardle</a>
-            <a
-              class="text-start list-group-item list-group-item-action w-100 ps-4 bg-light bg-gradient"
-              [routerLink]="['/r-lookup']"
-              (click)="onSideBarClick()" i18n>技能篩選</a>
+    <div ngbAccordion>
+      <div ngbAccordionItem>
+        <h2 ngbAccordionHeader>
+          <button ngbAccordionButton>ShinyColorsDB</button>
+        </h2>
+        <div ngbAccordionCollapse>
+          <div ngbAccordionBody>
+            <div class="list-group">
+              <a
+                class="text-start list-group-item list-group-item-action w-100 ps-4 bg-light bg-gradient"
+                [routerLink]="['/']"
+                (click)="onSideBarClick()" i18n>首頁</a>
+              <a
+                class="text-start list-group-item list-group-item-action w-100 ps-4 bg-light bg-gradient"
+                [routerLink]="['/timetable']"
+                (click)="onSideBarClick()" i18n>歴史</a>
+              <a
+                class="text-start list-group-item list-group-item-action w-100 ps-4 bg-light bg-gradient"
+                [routerLink]="['/cardle']"
+                (click)="onSideBarClick()">Cardle</a>
+              <a
+                class="text-start list-group-item list-group-item-action w-100 ps-4 bg-light bg-gradient"
+                [routerLink]="['/r-lookup']"
+                (click)="onSideBarClick()" i18n>技能篩選</a>
+            </div>
           </div>
-        </ng-template>
-      </ngb-panel>
-      <ngb-panel cardClass="p-0" [id]="this.charaListId">
-        <ng-template ngbPanelTitle i18n>角色列表</ng-template>
-        <ng-template ngbPanelContent>
-          <app-charlist
-            (idolClicked)="onCharlistClick($event)"
-            [isBigScreen]="this.isBigScreen"></app-charlist>
-        </ng-template>
-      </ngb-panel>
-      <ngb-panel cardClass="mb-5">
-        <ng-template ngbPanelTitle i18n>其他小玩具</ng-template>
-        <ng-template ngbPanelContent>
-          <div class="list-group">
-            <a
-              href="https://sfp.shinycolors.moe/"
-              class="text-start list-group-item list-group-item-action w-100 ps-4 bg-light bg-gradient"
-              target="_blank">
-              Song for Prism 資料庫
-            </a>
-            <a
-              href="https://spine.shinycolors.moe/"
-              class="text-start list-group-item list-group-item-action w-100 ps-4 bg-light bg-gradient"
-              target="_blank">
-              SpineViewer
-            </a>
+        </div>
+      </div>
+      <div ngbAccordionItem cardClass="p-0" [collapsed]="false">
+        <h2 ngbAccordionHeader>
+          <button ngbAccordionButton>角色列表</button>
+        </h2>
+        <div ngbAccordionCollapse>
+          <div ngbAccordionBody>
+            <app-charlist
+              (idolClicked)="onCharlistClick($event)"
+              [isBigScreen]="this.isBigScreen"></app-charlist>
           </div>
-        </ng-template>
-      </ngb-panel>
-    </ngb-accordion>
+        </div>
+      </div>
+      <div ngbAccordionItem>
+        <h2 ngbAccordionHeader>
+          <button ngbAccordionButton>其他小玩具</button>
+        </h2>
+        <div ngbAccordionCollapse>
+          <div ngbAccordionBody>
+            <div class="list-group">
+              <a
+                href="https://sfp.shinycolors.moe/"
+                class="text-start list-group-item list-group-item-action w-100 ps-4 bg-light bg-gradient"
+                target="_blank">
+                Song for Prism 資料庫
+              </a>
+              <a
+                href="https://spine.shinycolors.moe/"
+                class="text-start list-group-item list-group-item-action w-100 ps-4 bg-light bg-gradient"
+                target="_blank">
+                SpineViewer
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="text-center m-3" [ngClass]="{'text-white': isBigScreen}">&#64;Euphokumiko</div>
     <div class="d-flex justify-content-evenly pb-3">
       <a href="https://github.com/ShinyColorsDB/ShinyColorsDB-DataSite" target="_blank">

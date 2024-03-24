@@ -1,5 +1,5 @@
-import { AfterViewInit, Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
-import { NgbCarousel, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
+import { Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { NgbCarousel, NgbCarouselModule, NgbSlideEvent } from '@ng-bootstrap/ng-bootstrap';
 
 import { ShinycolorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
 import { environment } from 'src/environments/environment';
@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
   selector: 'app-pic-carousel',
   standalone: true,
   imports: [
-    NgbCarousel
+    NgbCarouselModule
   ],
   templateUrl: './pic-carousel.component.html',
   styleUrls: ['./pic-carousel.component.css']

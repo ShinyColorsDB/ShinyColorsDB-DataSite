@@ -2,10 +2,14 @@ import { Component, Input, OnInit } from '@angular/core';
 
 import { DateTime } from 'luxon';
 import { Timetable } from '../../interfaces/timetable';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-timesubtable',
   standalone: true,
+  imports: [
+    RouterModule,
+  ],
   templateUrl: './timesubtable.component.html',
   styleUrls: ['./timesubtable.component.css'],
   host: {

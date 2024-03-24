@@ -1,10 +1,14 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { CardSupportSkill } from '../../interfaces/cardsupportskill';
 import { environment } from 'src/environments/environment';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-supskill-card',
   standalone: true,
+  imports: [
+    CommonModule,
+  ],
   templateUrl: './supskill-card.component.html',
   styleUrls: ['./supskill-card.component.css']
 })

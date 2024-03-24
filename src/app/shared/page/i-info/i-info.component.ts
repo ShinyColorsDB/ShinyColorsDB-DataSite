@@ -15,6 +15,7 @@ import { environment } from 'src/environments/environment';
 import { catchError, of } from 'rxjs';
 import { CardItemComponent } from '../../components/card-item/card-item.component';
 import { CommonModule } from '@angular/common';
+import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
 
 enum tabStatus {
   Produce,
@@ -23,13 +24,13 @@ enum tabStatus {
 };
 
 @Component({
-  standalone: true,
   selector: 'app-i-info',
+  standalone: true,
   imports: [
+    NgbAccordionModule,
     CommonModule,
     RouterModule,
     CardItemComponent,
-
   ],
   templateUrl: './i-info.component.html',
   styleUrls: ['./i-info.component.css'],
@@ -138,6 +139,7 @@ export class IInfoComponent implements OnInit {
         .subscribe((data) => {
           if (!data) { return; }
           this.album = data;
+          this.album.communications.forEach(e => { if (!e.communicationId) {console.log(e)}});
         });
 
     });

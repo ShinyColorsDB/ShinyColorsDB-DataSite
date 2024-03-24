@@ -1,7 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
 import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
+import { CharlistComponent } from '../charlist/charlist.component';
 
 @Component({
   selector: 'app-sidebar',
@@ -9,6 +11,8 @@ import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
   imports: [
     RouterModule,
     CommonModule,
+    NgbAccordionModule,
+    CharlistComponent,
   ],
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css'],
