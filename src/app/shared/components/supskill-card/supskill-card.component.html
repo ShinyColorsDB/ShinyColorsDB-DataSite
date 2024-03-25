@@ -9,7 +9,8 @@
           Lv:
         </a>
       </li>
-      <li class="nav-item" *ngFor="let thisBound of this.getBoundFromRarity(); let indexOfelement= index;">
+      @for (thisBound of this.getBoundFromRarity(); track thisBound; let indexOfelement = $index) {
+      <li class="nav-item">
         <a href="javascript: void()"
           class="nav-link"
           [ngClass]="{'active': this.activeArray[indexOfelement], 'disabled': this.activeArray[indexOfelement]}"
@@ -17,10 +18,12 @@
           {{thisBound}}
         </a>
       </li>
+      }
     </ul>
   </div>
   <div class="card-body">
-    <div *ngFor="let i of this.getBoundFromRarity(); let thisBound= index" [ngClass]="{'d-none': !this.activeArray[thisBound]}">
+    @for (i of this.getBoundFromRarity(); track i; let thisBound = $index) {
+    <div [ngClass]="{'d-none': !this.activeArray[thisBound]}">
       <table class="table table-hover">
         <thead>
           <tr>
@@ -30,13 +33,16 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let j of this.getSkillWithinBound(thisBound)">
+          @for (j of this.getSkillWithinBound(thisBound); track j) {
+          <tr>
             <td>{{j.skillName}}</td>
             <td>{{j.skillDesc}}</td>
             <td>{{j.skillLevel}}</td>
           </tr>
+          }
         </tbody>
       </table>
     </div>
+    }
   </div>
 </div>

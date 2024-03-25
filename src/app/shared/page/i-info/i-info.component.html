@@ -1,4 +1,5 @@
-<div class="row m-0 p-0" *ngIf="this.idolInfo && this.album">
+@if (this.idolInfo && this.album) {
+<div class="row m-0 p-0">
   <div class="d-flex col-lg-4 col-md-12 h-100 container justify-content-center" id="divIdolData">
     <div class="row">
       <div class="col-12 pt-2 d-block">
@@ -84,73 +85,109 @@
         </div>
         <div class="card-body w-100 container overflow-auto h-100 justify-content-center">
           <div class="row w-100 m-0" [ngClass]="{'d-none': !isTabProduce()}">
-            <ng-container *ngIf="this.pSSR.length || this.pSR.length || this.pR.length">
-              <h5 class="text-start pt-2" *ngIf="this.pSSR.length">P_SSR</h5>
-              <app-card-item *ngFor="let card of this.pSSR" [cardInfo]="card" [pathType]="'/pcardinfo'" class="col-md-6 col-lg-4 col-sm-12 pt-1 pb-1"></app-card-item>
-              <h5 class="text-start pt-2" *ngIf="this.pSR.length">P_SR</h5>
-              <app-card-item *ngFor="let card of this.pSR" [cardInfo]="card" [pathType]="'/pcardinfo'" class="col-md-6 col-lg-4 col-sm-12 pt-1 pb-1"></app-card-item>
-              <h5 class="text-start pt-2" *ngIf="this.pR.length">P_R</h5>
-              <app-card-item *ngFor="let card of this.pR" [cardInfo]="card" [pathType]="'/pcardinfo'" class="col-md-6 col-lg-4 col-sm-12 pt-1 pb-1"></app-card-item>
-            </ng-container>
-            <ng-container *ngIf="!this.pSSR.length && !this.pSR.length && !this.pR.length">
-              <div class="d-flex align-items-center justify-content-center w-100">
-                <div class="d-flex ">
-                  <div class="display-4" i18n>なし</div>
-                </div>
+            @if (this.pSSR.length || this.pSR.length || this.pR.length) {
+            @if (this.pSSR.length) {
+            <h5 class="text-start pt-2">P_SSR</h5>
+            }
+            @for (card of this.pSSR; track card) {
+            <app-card-item [cardInfo]="card" [pathType]="'/pcardinfo'" class="col-md-6 col-lg-4 col-sm-12 pt-1 pb-1"></app-card-item>
+            }
+            @if (this.pSR.length) {
+            <h5 class="text-start pt-2">P_SR</h5>
+            }
+            @for (card of this.pSR; track card) {
+            <app-card-item [cardInfo]="card" [pathType]="'/pcardinfo'" class="col-md-6 col-lg-4 col-sm-12 pt-1 pb-1"></app-card-item>
+            }
+            @if (this.pR.length) {
+            <h5 class="text-start pt-2">P_R</h5>
+            }
+            @for (card of this.pR; track card) {
+            <app-card-item [cardInfo]="card" [pathType]="'/pcardinfo'" class="col-md-6 col-lg-4 col-sm-12 pt-1 pb-1"></app-card-item>
+            }
+            }
+            @if (!this.pSSR.length && !this.pSR.length && !this.pR.length) {
+            <div class="d-flex align-items-center justify-content-center w-100">
+              <div class="d-flex ">
+                <div class="display-4" i18n>なし</div>
               </div>
-            </ng-container>
+            </div>
+            }
           </div>
           <div class="row w-100 m-0" [ngClass]="{'d-none': !isTabSupport()}">
-            <ng-container *ngIf="this.sSSR.length || this.sSR.length || this.sR.length || this.sN.length">
-              <h5 class="text-start pt-2" *ngIf="this.sSSR.length">S_SSR</h5>
-              <app-card-item *ngFor="let card of this.sSSR" [cardInfo]="card" [pathType]="'/scardinfo'" class="col-md-6 col-lg-4 col-sm-12 pt-1 pb-1"></app-card-item>
-              <h5 class="text-start pt-2" *ngIf="this.sSR.length">S_SR</h5>
-              <app-card-item *ngFor="let card of this.sSR" [cardInfo]="card" [pathType]="'/scardinfo'" class="col-md-6 col-lg-4 col-sm-12 pt-1 pb-1"></app-card-item>
-              <h5 class="text-start pt-2" *ngIf="this.sR.length">S_R</h5>
-              <app-card-item *ngFor="let card of this.sR" [cardInfo]="card" [pathType]="'/scardinfo'" class="col-md-6 col-lg-4 col-sm-12 pt-1 pb-1"></app-card-item>
-              <h5 class="text-start pt-2" *ngIf="this.sN.length">S_N</h5>
-              <app-card-item *ngFor="let card of this.sN" [cardInfo]="card" [pathType]="'/scardinfo'" class="col-md-6 col-lg-4 col-sm-12 pt-1 pb-1"></app-card-item>
-            </ng-container>
-            <ng-container *ngIf="!this.sSSR.length && !this.sSR.length && !this.sR.length && !this.sN.length">
-              <div class="d-flex align-items-center justify-content-center w-100">
-                <div class="d-flex ">
-                  <div class="display-4" i18n>なし</div>
-                </div>
+            @if (this.sSSR.length || this.sSR.length || this.sR.length || this.sN.length) {
+            @if (this.sSSR.length) {
+            <h5 class="text-start pt-2">S_SSR</h5>
+            }
+            @for (card of this.sSSR; track card) {
+            <app-card-item [cardInfo]="card" [pathType]="'/scardinfo'" class="col-md-6 col-lg-4 col-sm-12 pt-1 pb-1"></app-card-item>
+            }
+            @if (this.sSR.length) {
+            <h5 class="text-start pt-2">S_SR</h5>
+            }
+            @for (card of this.sSR; track card) {
+            <app-card-item [cardInfo]="card" [pathType]="'/scardinfo'" class="col-md-6 col-lg-4 col-sm-12 pt-1 pb-1"></app-card-item>
+            }
+            @if (this.sR.length) {
+            <h5 class="text-start pt-2">S_R</h5>
+            }
+            @for (card of this.sR; track card) {
+            <app-card-item [cardInfo]="card" [pathType]="'/scardinfo'" class="col-md-6 col-lg-4 col-sm-12 pt-1 pb-1"></app-card-item>
+            }
+            @if (this.sN.length) {
+            <h5 class="text-start pt-2">S_N</h5>
+            }
+            @for (card of this.sN; track card) {
+            <app-card-item [cardInfo]="card" [pathType]="'/scardinfo'" class="col-md-6 col-lg-4 col-sm-12 pt-1 pb-1"></app-card-item>
+            }
+            }
+            @if (!this.sSSR.length && !this.sSR.length && !this.sR.length && !this.sN.length) {
+            <div class="d-flex align-items-center justify-content-center w-100">
+              <div class="d-flex ">
+                <div class="display-4" i18n>なし</div>
               </div>
-            </ng-container>
+            </div>
+            }
           </div>
           <div class="row w-100 m-0" [ngClass]="{'d-none': !isTabEvent()}">
-            <ngb-accordion #acc="ngbAccordion" class="bg-light p-0">
-              <ngb-panel *ngFor="let k of this.getEventTitles()">
-                <ng-template ngbPanelTitle>
-                  {{k.title}}
-                </ng-template>
-                <ng-template ngbPanelContent>
-                  <table class="table table-hover table-bordered p-0">
-                    <thead></thead>
-                    <tbody>
-                      <tr *ngFor="let event of this.getEventsByType(k.albumType)">
-                        <td>
-                          <a [href]="getEventViewerUrl(event.communicationId, event.communicationCategory)" target="_blank">
-                            <div class="d-inline-block p-1">
-                              <svg class="align-self-center" fill="#3880ff" height="20px" width="20px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-3 -3 66.00 66.00" xml:space="preserve" stroke="#3880ff" stroke-width="4.5"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path
-                                      d="M45.563,29.174l-22-15c-0.307-0.208-0.703-0.231-1.031-0.058C22.205,14.289,22,14.629,22,15v30 c0,0.371,0.205,0.711,0.533,0.884C22.679,45.962,22.84,46,23,46c0.197,0,0.394-0.059,0.563-0.174l22-15 C45.836,30.64,46,30.331,46,30S45.836,29.36,45.563,29.174z M24,43.107V16.893L43.225,30L24,43.107z"></path> <path
-                                      d="M30,0C13.458,0,0,13.458,0,30s13.458,30,30,30s30-13.458,30-30S46.542,0,30,0z M30,58C14.561,58,2,45.439,2,30 S14.561,2,30,2s28,12.561,28,28S45.439,58,30,58z"></path> </g> </g></svg>
-                            </div>
-                            <div class="d-inline-block align-middle">
-                              {{event.title}}
-                            </div>
-                          </a>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </ng-template>
-              </ngb-panel>
-            </ngb-accordion>
+            <div ngbAccordion class="bg-light p-0">
+              @for (k of this.album.albumCommunicationTitles; track k) {
+              <div ngbAccordionItem>
+                <h3 ngbAccordionHeader>
+                  <button ngbAccordionButton>{{k.title}}</button>
+                </h3>
+                <div ngbAccordionCollapse>
+                  <div ngbAccordionBody>
+                    <table class="table table-hover table-bordered m-0">
+                      <thead></thead>
+                      <tbody>
+                        @for (e of this.getEventsByType(k.albumType); track $index) {
+                        @if (e) {
+                        <tr>
+                          <td>
+                            <a [href]="this.getEventViewerUrl(e)" target="_blank">
+                              <div class="d-inline-block p-1">
+                                <svg class="align-self-center" fill="#3880ff" height="20px" width="20px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-3 -3 66.00 66.00" xml:space="preserve" stroke="#3880ff" stroke-width="4.5"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path
+                                        d="M45.563,29.174l-22-15c-0.307-0.208-0.703-0.231-1.031-0.058C22.205,14.289,22,14.629,22,15v30 c0,0.371,0.205,0.711,0.533,0.884C22.679,45.962,22.84,46,23,46c0.197,0,0.394-0.059,0.563-0.174l22-15 C45.836,30.64,46,30.331,46,30S45.836,29.36,45.563,29.174z M24,43.107V16.893L43.225,30L24,43.107z"></path> <path
+                                        d="M30,0C13.458,0,0,13.458,0,30s13.458,30,30,30s30-13.458,30-30S46.542,0,30,0z M30,58C14.561,58,2,45.439,2,30 S14.561,2,30,2s28,12.561,28,28S45.439,58,30,58z"></path> </g> </g></svg>
+                              </div>
+                              <div class="d-inline-block align-middle">
+                                {{e.title}}
+                              </div>
+                            </a>
+                          </td>
+                        </tr>
+                        }}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              }
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+}

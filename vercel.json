@@ -7,7 +7,7 @@
     { "source": "/(.*)", "destination": "/api" }
   ],
   "functions": {
-    "api/index.js": {
+    "api/index.mjs": {
       "includeFiles": "dist/ShinyColorsDB-DataSite/browser/**"
     }
   }

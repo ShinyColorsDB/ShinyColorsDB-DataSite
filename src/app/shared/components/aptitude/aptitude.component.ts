@@ -4,6 +4,7 @@ import { CardProduceAptitude } from '../../interfaces/cardproduceaptitude';
 
 @Component({
   selector: 'app-aptitude',
+  standalone: true,
   templateUrl: './aptitude.component.html',
   styleUrls: ['./aptitude.component.css'],
   host: {

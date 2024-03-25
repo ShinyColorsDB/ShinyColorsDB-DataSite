@@ -8,7 +8,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let card of this.timetable.produce">
+      @for (card of this.timetable.produce; track card) {
+      <tr>
         <td>
           <a
             [routerLink]="'/pcardinfo'"
@@ -19,6 +20,7 @@
         <td>{{ card.releaseDate }}</td>
         <td>{{ this.timeDuration(card.releaseDate) }}</td>
       </tr>
+      }
     </tbody>
   </table>
 </div>
@@ -32,7 +34,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let card of this.timetable.support">
+      @for (card of this.timetable.support; track card) {
+      <tr>
         <td>
           <a
             [routerLink]="'/scardinfo'"
@@ -43,6 +46,7 @@
         <td>{{ card.releaseDate }}</td>
         <td>{{ this.timeDuration(card.releaseDate) }}</td>
       </tr>
+      }
     </tbody>
   </table>
 </div>

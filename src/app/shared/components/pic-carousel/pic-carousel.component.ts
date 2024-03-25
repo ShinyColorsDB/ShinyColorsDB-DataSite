@@ -1,11 +1,16 @@
-import { AfterViewInit, Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
-import { NgbCarousel, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
+import { isPlatformBrowser } from '@angular/common';
+import { Component, ElementRef, Inject, Input, OnChanges, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
+import { NgbCarousel, NgbCarouselModule, NgbSlideEvent } from '@ng-bootstrap/ng-bootstrap';
 
 import { ShinycolorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-pic-carousel',
+  standalone: true,
+  imports: [
+    NgbCarouselModule
+  ],
   templateUrl: './pic-carousel.component.html',
   styleUrls: ['./pic-carousel.component.css']
 })
@@ -31,12 +36,16 @@ export class PicCarouselComponent implements OnInit, OnChanges {
   cardName!: string;
 
   constructor(
-    public scUrlService: ShinycolorsUrlService
+    public scUrlService: ShinycolorsUrlService,
+    @Inject(PLATFORM_ID) private platformId: Object,
   ) {
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
+  ngOnChanges(): void {
     if (!this.picCarousel) { return; }
+    if (!isPlatformBrowser(this.platformId)) {
+      console.log("platform is not browser");
+    }
     this.picCarousel.select("img1");
     this.playThrough();
   }
@@ -45,6 +54,9 @@ export class PicCarouselComponent implements OnInit, OnChanges {
     if (this.timeOutToClear) {
       clearTimeout(this.timeOutToClear);
       this.timeOutToClear = null;
+    }
+    if (!isPlatformBrowser(this.platformId)) {
+      console.log("platform is not browser");
     }
     this.playThrough();
   }
@@ -70,6 +82,9 @@ export class PicCarouselComponent implements OnInit, OnChanges {
 
   onSlide(slideEvent: NgbSlideEvent) {
     if (!slideEvent.source) { return; }
+    if (!isPlatformBrowser(this.platformId)) {
+      console.log("platform is not browser");
+    }
     switch (this.picCarousel.activeId) {
       case "mov1":
         this.mov1.nativeElement.pause();
@@ -86,6 +101,9 @@ export class PicCarouselComponent implements OnInit, OnChanges {
 
   onSlid(slideEvent: NgbSlideEvent) {
     if (!slideEvent.source) { return; }
+    if (!isPlatformBrowser(this.platformId)) {
+      console.log("platform is not browser");
+    }
     if (this.timeOutToClear) {
       clearTimeout(this.timeOutToClear);
       this.timeOutToClear = null;
@@ -97,6 +115,9 @@ export class PicCarouselComponent implements OnInit, OnChanges {
   }
 
   onMovieEnded(): void {
+    if (!isPlatformBrowser(this.platformId)) {
+      console.log("platform is not browser");
+    }
     this.picCarousel.next();
     this.playThrough();
   }

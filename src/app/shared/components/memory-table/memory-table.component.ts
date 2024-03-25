@@ -3,6 +3,7 @@ import { CardMemoryAppeal } from '../../interfaces/cardmemoryappeal';
 
 @Component({
   selector: 'app-memory-table',
+  standalone: true,
   templateUrl: './memory-table.component.html',
   styleUrls: ['./memory-table.component.css']
 })

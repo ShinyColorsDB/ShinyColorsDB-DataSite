@@ -4,10 +4,15 @@ import { QueryResult } from '../../interfaces/queryresult';
 
 import { environment } from 'src/environments/environment';
 import { ShinycolorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
+import { RouterModule } from '@angular/router';
 
 
 @Component({
   selector: 'app-query-result-modal',
+  standalone: true,
+  imports: [
+    RouterModule
+  ],
   templateUrl: './query-result-modal.component.html',
   styleUrls: ['./query-result-modal.component.css']
 })

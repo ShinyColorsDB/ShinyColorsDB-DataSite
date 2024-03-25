@@ -1,8 +1,8 @@
-<div class="row d-flex justify-content-around align-items-start" *ngIf="this.pCardInfo">
+@if (this.pCardInfo) {
+<div class="row d-flex justify-content-around align-items-start">
   <div class="col-12 p-0 d-none d-md-block">
     <h1 class="mt-2 m-0">{{ this.pCardInfo.cardName }}</h1>
   </div>
-
   <div class="col-lg-6 col-md-12 row p-0 m-0">
     <app-pic-carousel
       [enzaId]="this.pCardInfo.enzaId"
@@ -17,12 +17,15 @@
         [getMethod]="this.translateGetMethod()"
         [rarity]="this.pCardInfo.cardType"></app-common-criteria>
 
+      <app-card-status [cardStatus]="this.pCardInfo.cardStatus"></app-card-status>
+      @if (this.pCardInfo.cardIdolEvents.length) {
       <h3
         class="col-12 pt-2"
-        *ngIf="this.pCardInfo.cardIdolEvents.length" i18n>イベント</h3>
+        i18n>イベント</h3>
+      }
+      @if (this.pCardInfo.cardIdolEvents.length) {
       <div
-        class="col-lg-6 col-md-12 size18"
-        *ngIf="this.pCardInfo.cardIdolEvents.length">
+        class="col-lg-6 col-md-12 size18">
         <table class="table table-hover">
           <thead>
             <tr>
@@ -30,7 +33,8 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let event of this.getIdolEvents()">
+            @for (event of this.getIdolEvents(); track event) {
+            <tr>
               <td>
                 <a
                   [href]="getEventUrl(event.eventId)"
@@ -43,12 +47,14 @@
                 </a>
               </td>
             </tr>
+            }
           </tbody>
         </table>
       </div>
+      }
+      @if (this.pCardInfo.cardIdolEvents.length) {
       <div
-        class="col-lg-6 col-md-12 size18"
-        *ngIf="this.pCardInfo.cardIdolEvents.length">
+        class="col-lg-6 col-md-12 size18">
         <table class="table table-hover">
           <thead>
             <tr>
@@ -56,7 +62,8 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let event of this.getTrueEnd()">
+            @for (event of this.getTrueEnd(); track event) {
+            <tr>
               <td>
                 <a
                   [href]="getEventUrl(event.eventId)"
@@ -69,9 +76,11 @@
                 </a>
               </td>
             </tr>
+            }
           </tbody>
         </table>
       </div>
+      }
       <h3 class="col-12" i18n>適性</h3>
       <div class="col-12">
         <app-aptitude [apts]="this.pCardInfo.cardProduceAptitude"></app-aptitude>
@@ -95,3 +104,4 @@
     </div>
   </div>
 </div>
+}

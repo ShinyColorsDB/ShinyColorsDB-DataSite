@@ -17,6 +17,12 @@ import { QueryResultModalComponent } from '../../components/query-result-modal/q
 
 @Component({
   selector: 'app-r-lookup',
+  standalone: true,
+  imports: [
+    SubSkillFormComponent,
+    SubIdolFormComponent,
+    QueryResultModalComponent,
+  ],
   templateUrl: './r-lookup.component.html',
   styleUrls: ['./r-lookup.component.css'],
   host: {

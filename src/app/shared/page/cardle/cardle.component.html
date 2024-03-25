@@ -3,7 +3,14 @@
 </h1>
 <div class="row p-0 m-0 justify-content-center">
   <div class="col-sm-3 d-xs-none d-sm-block"></div>
-  <div class="col-sm-6 text-center row" #canvasDiv></div>
+  <div class="col-sm-6 text-center row" #canvasDiv>
+    <canvas width="100px" height="100px" class="col-md-4 col-sm-6 rounded p-1" #slice1></canvas>
+    <canvas width="100px" height="100px" class="col-md-4 col-sm-6 rounded p-1" #slice2></canvas>
+    <canvas width="100px" height="100px" class="col-md-4 col-sm-6 rounded p-1" #slice3></canvas>
+    <canvas width="100px" height="100px" class="col-md-4 col-sm-6 rounded p-1" #slice4></canvas>
+    <canvas width="100px" height="100px" class="col-md-4 col-sm-6 rounded p-1" #slice5></canvas>
+    <canvas width="100px" height="100px" class="col-md-4 col-sm-6 rounded p-1" #slice6></canvas>
+  </div>
   <div class="col-sm-3 d-xs-none d-sm-block"></div>
 </div>
 <div class="justify-content-center d-flex pt-2">
@@ -30,11 +37,11 @@
 
 <ng-template #resultModal let-modal>
   <div class="modal-header">
-    <h1>{{this?.cardleInfo!.cardleDate}} #{{this.cardleInfo.cardleIndex}}</h1>
+    <h1>{{this?.cardleInfo!.cardleDate | date: 'yyyy/MM/dd'}} #{{this.cardleInfo.cardleIndex}}</h1>
     <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
   </div>
   <div class="modal-body justify-content-center">
-    <span>Next Cardle in {{this.cardleInfo.cardleDate}}</span>
+    <span>Next Cardle in {{this.cardleInfo.cardleDate }}</span>
     <img src={{this.imgUri}} [alt]="'Image of ' + this.cardleInfo.enza.cardName" class="img-fluid">
     <span class="text-center">{{this.cardleInfo.enza.cardName}}</span>
   </div>

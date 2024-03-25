@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-sub-idol-form',
+  standalone: true,
   templateUrl: './sub-idol-form.component.html',
   styleUrls: ['./sub-idol-form.component.css'],
   host: {

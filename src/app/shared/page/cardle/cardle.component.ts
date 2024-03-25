@@ -1,15 +1,21 @@
 import { AfterViewInit, Component, ElementRef, Inject, OnInit, PLATFORM_ID, QueryList, ViewChild, ViewChildren } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import * as PIXI from 'pixi.js';
+import { NgbModal, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { Application, Sprite, Assets, Texture, Rectangle, BackgroundSystem } from 'pixi.js';
 import { ShinyColorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
+import { ShinycolorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
+
 import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
 import { Cardle } from '../../interfaces/cardle';
 import { Meta, Title } from '@angular/platform-browser';
-import { isPlatformBrowser } from '@angular/common';
-import { ShinycolorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
+import { isPlatformBrowser, CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-cardle',
+  standalone: true,
+  imports: [
+    NgbModalModule,
+    CommonModule
+  ],
   templateUrl: './cardle.component.html',
   styleUrls: ['./cardle.component.css'],
   host: {
@@ -20,6 +26,14 @@ export class CardleComponent implements OnInit, AfterViewInit {
 
   @ViewChild('cardleTitle') cardleTitle!: ElementRef<HTMLHeadingElement>;
   @ViewChild('canvasDiv') canvasDiv!: ElementRef<HTMLDivElement>;
+
+  @ViewChild('slice1') slice1!: ElementRef<HTMLCanvasElement>;
+  @ViewChild('slice2') slice2!: ElementRef<HTMLCanvasElement>;
+  @ViewChild('slice3') slice3!: ElementRef<HTMLCanvasElement>;
+  @ViewChild('slice4') slice4!: ElementRef<HTMLCanvasElement>;
+  @ViewChild('slice5') slice5!: ElementRef<HTMLCanvasElement>;
+  @ViewChild('slice6') slice6!: ElementRef<HTMLCanvasElement>;
+
   @ViewChildren('resultDiv') resultDiv!: QueryList<ElementRef<HTMLDivElement>>;
 
   @ViewChild('idolList') idolList!: ElementRef<HTMLSelectElement>;
@@ -30,11 +44,11 @@ export class CardleComponent implements OnInit, AfterViewInit {
 
   @ViewChild('resultModal') resultModal!: ElementRef<NgbModal>;
 
-  spriteArray: PIXI.Sprite[] = [];
+  spriteArray: Sprite[] = [];
   resultArray: HTMLDivElement[] = [];
 
   cardleInfo!: Cardle;
-  cardleImage!: PIXI.Sprite;
+  cardleImage!: Sprite;
 
   imgUri: string | null = "";
 
@@ -52,7 +66,9 @@ export class CardleComponent implements OnInit, AfterViewInit {
     private meta: Meta,
     private title: Title,
   ) {
-    this.title.setTitle('ShinyColors Cardle')
+    Assets.setPreferences({ crossOrigin: 'anonymous', preferCreateImageBitmap: false });
+
+    this.title.setTitle('ShinyColors Cardle');
     this.meta.addTags([
       { name: 'og:type', content: 'website' },
       { name: 'og:title', content: 'ShinyColors Cardle' },
@@ -106,34 +122,44 @@ export class CardleComponent implements OnInit, AfterViewInit {
   }
 
   async _initCanvas(): Promise<void> {
-    this.canvasDiv.nativeElement.innerHTML = "";
+    //this.canvasDiv.nativeElement.innerHTML = "";
     this.spriteArray = [];
-    PIXI.settings.RENDER_OPTIONS!.backgroundColor = 0xd9d9d9;
+    BackgroundSystem.defaultOptions = {
+      backgroundColor: 0xd9d9d9,
+      backgroundAlpha: 1,
+      clearBeforeRender: true,
+    }
 
     this.imgUri = this.getImageUrl();
 
-    this.cardleImage = new PIXI.Sprite(
-      await PIXI.Assets.load(this.imgUri)
+    this.cardleImage = new Sprite(
+      await Assets.load(this.imgUri)
     );
+    const slices = [this.slice1, this.slice2, this.slice3, this.slice4, this.slice5, this.slice6];
     for (let i = 0; i < 6; i++) {
-      const thisCanvas = new PIXI.Application<HTMLCanvasElement>({
+      const thisCanvas = new Application();
+      await thisCanvas.init({
         width: 100,
         height: 100,
+        canvas: slices[i].nativeElement,
       });
-      const newTex = new PIXI.Texture(this.cardleImage.texture.baseTexture, new PIXI.Rectangle(
-        this.cardleInfo.cardleChunks[i].chunkX,
-        this.cardleInfo.cardleChunks[i].chunkY,
-        100,
-        100
-      ));
-      const thisChunk = new PIXI.Sprite(newTex);
+      const newTex = new Texture({
+        source: this.cardleImage.texture.source,
+        frame: new Rectangle(
+          this.cardleInfo.cardleChunks[i].chunkX,
+          this.cardleInfo.cardleChunks[i].chunkY,
+          100,
+          100
+        )
+      });
+      const thisChunk = new Sprite(newTex);
 
       thisChunk.alpha = i == 0 || i < this.guessResults.length ? 1 : 0;
       this.spriteArray.push(thisChunk);
       thisCanvas.stage.addChild(thisChunk);
 
-      thisCanvas.renderer.view.classList.add('col-md-4', 'col-sm-6', 'rounded', 'p-1');
-      this.canvasDiv.nativeElement.appendChild(thisCanvas.renderer.view);
+      //thisCanvas.renderer.view.classList.add('col-md-4', 'col-sm-6', 'rounded', 'p-1');
+      //this.canvasDiv.nativeElement.appendChild(thisCanvas.renderer.view);
     }
 
     this._restoreProgress();
@@ -192,10 +218,6 @@ export class CardleComponent implements OnInit, AfterViewInit {
     this.skipBtn.nativeElement.addEventListener('click', (event) => {
       this.processSkipPress(0);
     });
-  }
-
-  _randomNumber(max: number): number {
-    return Math.floor(Math.random() * max) + 1;
   }
 
   _restoreProgress(): void {

@@ -9,7 +9,8 @@
       <h2 class="col m-2" style="font-family: Meiryo" i18n>最新卡面</h2>
     </div>
     <div class="row d-flex">
-      <div *ngIf="this.latestP" class="p-0 pb-2">
+      @if (this.latestP) {
+      <div class="p-0 pb-2">
         <div class="card ps-0 pe-0">
           <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs">
@@ -33,24 +34,27 @@
           </div>
           <div class="card-body d-flex h-auto overflow-auto pb-0">
             <div class="row" [ngClass]="{ 'd-none': !togglePS }">
+              @for (card of this.latestP; track card) {
               <app-card-item
-                *ngFor="let card of this.latestP"
                 [cardInfo]="card"
                 [pathType]="'/pcardinfo'"
                 [isHome]="true"
                 class="col-md-12 col-lg-4 col-sm-12 p-1"></app-card-item>
+              }
             </div>
             <div class="row" [ngClass]="{ 'd-none': togglePS }">
+              @for (card of this.latestS; track card) {
               <app-card-item
-                *ngFor="let card of this.latestS"
                 [cardInfo]="card"
                 [pathType]="'/scardinfo'"
                 [isHome]="true"
                 class="col-md-12 col-lg-4 col-sm-12 p-1"></app-card-item>
+              }
             </div>
           </div>
         </div>
       </div>
+      }
     </div>
   </div>
 </div>

@@ -1,4 +1,5 @@
-<div *ngFor="let unit of Units; let i = index;">
+@for (unit of Units; track unit; let i = $index) {
+<div>
   <button
     class="btn w-100 text-start rounded-0"
     [ngClass]="{ 'rounded-top': i == 0, 'rounded-bottom': i == Units.length - 1}"
@@ -9,8 +10,7 @@
       [src]="this.scUrlService.getUnitIconUri(unit.unitId)"
       width="20"
       height="20"
-      [alt]="'Icon of unit ' + unit.unitName"
-      />
+      [alt]="'Icon of unit ' + unit.unitName" />
     {{ unit.unitHiragana }}
   </button>
   <div
@@ -18,8 +18,8 @@
     [id]="'unit' + unit.unitId"
     [ngbCollapse]="this.getCollapseStatus(unit.unitId)"
     #unitCollapse="ngbCollapse">
+    @for (idol of unit.idols; track idol) {
     <a
-      *ngFor="let idol of unit.idols"
       class="ps-4 list-group-item-action list-group-item"
       [ngClass]="{ active: this.currentIdolID === idol.idolId }"
       [routerLink]="['/idolinfo']"
@@ -29,9 +29,10 @@
         [src]="this.scUrlService.getIdolSmlIcon(idol.idolId)"
         [alt]="'Icon of idol ' + idol.idolName"
         width="40"
-        height="40"
-        />
+        height="40" />
       {{ idol.idolName }}
     </a>
+    }
   </div>
 </div>
+}

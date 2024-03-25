@@ -12,8 +12,22 @@ import { SCard } from '../../interfaces/scard';
 import { CardSupportSkill } from '../../interfaces/cardsupportskill';
 import { catchError, of } from 'rxjs';
 
+import { CommonCriteriaComponent } from '../../components/common-criteria/common-criteria.component';
+import { PanelInfoComponent } from '../../components/panel-info/panel-info.component';
+import { PanelListComponent } from '../../components/panel-list/panel-list.component';
+import { SupskillCardComponent } from '../../components/supskill-card/supskill-card.component';
+import { CardStatusComponent } from '../../components/card-status/card-status.component';
+
 @Component({
   selector: 'app-s-info',
+  standalone: true,
+  imports: [
+    CommonCriteriaComponent,
+    PanelInfoComponent,
+    PanelListComponent,
+    SupskillCardComponent,
+    CardStatusComponent,
+  ],
   templateUrl: './s-info.component.html',
   styleUrls: ['./s-info.component.css'],
   host: {
@@ -88,6 +102,6 @@ export class SInfoComponent implements OnInit {
   }
 
   getEventUrl(eventId: number): string {
-    return `${environment.eventViewerUrl}/?eventId=${eventId}`;
+    return `${environment.eventViewerUrl}?eventId=${eventId}`;
   }
 }

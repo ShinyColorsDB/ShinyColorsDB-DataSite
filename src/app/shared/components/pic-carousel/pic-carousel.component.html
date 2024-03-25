@@ -6,10 +6,10 @@
       [alt]="'General image of ' + this.cardName"
       class="img-fluid"
       width="1136"
-      height="640"
-      />
+      height="640" />
   </ng-template>
-  <ng-template ngbSlide *ngIf="this.displayMov1" id="mov1">
+  @if (this.displayMov1) {
+  <ng-template ngbSlide id="mov1">
     <video
       #mov1
       class="img-fluid"
@@ -21,6 +21,7 @@
       onloadedmetadata="this.muted=true"
       (ended)="this.onMovieEnded()"></video>
   </ng-template>
+  }
   <ng-template ngbSlide id="img2">
     <img
       #pic2
@@ -28,10 +29,10 @@
       [alt]="'Fes image of ' + this.cardName"
       class="img-fluid"
       width="1136"
-      height="640"
-      />
+      height="640" />
   </ng-template>
-  <ng-template ngbSlide *ngIf="this.displayMov2" id="mov2">
+  @if (this.displayMov2) {
+  <ng-template ngbSlide id="mov2">
     <video
       #mov2
       class="img-fluid"
@@ -43,4 +44,5 @@
       onloadedmetadata="this.muted=true"
       (ended)="onMovieEnded()"></video>
   </ng-template>
+  }
 </ngb-carousel>

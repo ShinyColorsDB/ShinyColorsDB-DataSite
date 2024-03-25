@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 
 import { ShinyColorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
@@ -13,6 +13,9 @@ import { Album, Communication } from '../../interfaces/album';
 import { environment } from 'src/environments/environment';
 
 import { catchError, of } from 'rxjs';
+import { CardItemComponent } from '../../components/card-item/card-item.component';
+import { CommonModule } from '@angular/common';
+import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
 
 enum tabStatus {
   Produce,
@@ -22,6 +25,13 @@ enum tabStatus {
 
 @Component({
   selector: 'app-i-info',
+  standalone: true,
+  imports: [
+    NgbAccordionModule,
+    CommonModule,
+    RouterModule,
+    CardItemComponent,
+  ],
   templateUrl: './i-info.component.html',
   styleUrls: ['./i-info.component.css'],
   host: {
@@ -195,9 +205,9 @@ export class IInfoComponent implements OnInit {
     }
   }
 
-  getEventViewerUrl(eventId: string, eventType: string): string {
+  getEventViewerUrl(e: Communication): string {
     //https://event.shinycolors.moe/?eventId=202100100391&eventType=produce_communication_promise_results
     //wing: produce_events
-    return `${environment.eventViewerUrl}?eventId=${eventId}&eventType=${this.getCategoryPath(eventType)}`;
+    return `${environment.eventViewerUrl}?eventId=${e.communicationId}&eventType=${this.getCategoryPath(e.communicationCategory)}`;
   }
 }

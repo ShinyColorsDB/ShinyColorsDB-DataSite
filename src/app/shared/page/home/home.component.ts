@@ -5,9 +5,16 @@ import { ShinyColorsApiService } from 'src/app/service/shinycolors-api/shinycolo
 import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
 
 import { Card } from '../../interfaces/card';
+import { CommonModule } from '@angular/common';
+import { CardItemComponent } from '../../components/card-item/card-item.component';
 
 @Component({
   selector: 'app-home',
+  standalone: true,
+  imports: [
+    CommonModule,
+    CardItemComponent,
+  ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
   host: {

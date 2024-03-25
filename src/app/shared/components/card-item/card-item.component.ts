@@ -1,10 +1,19 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { DatePipe, CommonModule } from '@angular/common';
+
 import { Card } from '../../interfaces/card';
 
 import { environment } from 'src/environments/environment';
 
 @Component({
+  standalone: true,
   selector: 'app-card-item',
+  imports: [
+    RouterModule,
+    CommonModule,
+    DatePipe
+  ],
   templateUrl: './card-item.component.html',
   styleUrls: ['./card-item.component.css'],
 })

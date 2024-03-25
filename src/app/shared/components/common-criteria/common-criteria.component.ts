@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-common-criteria',
+  standalone: true,
   templateUrl: './common-criteria.component.html',
   styleUrls: ['./common-criteria.component.css'],
   host: {

@@ -6,10 +6,13 @@
   </div>
   <div class="modal-body">
     <div class="row">
-      <div class="col-12 p-2" *ngIf="!this.queryResult.length">
+      @if (!this.queryResult.length) {
+      <div class="col-12 p-2">
         <p class="text-center m-0">沒有符合條件的結果</p>
       </div>
-      <div class="card col-md-4 col-sm-6 p-0" *ngFor="let i of this.queryResult">
+      }
+      @for (i of this.queryResult; track i) {
+      <div class="card col-md-4 col-sm-6 p-0">
         <a routerLink="/scardinfo"
           [queryParams]="{ uuid: i.E_CardUuid }"
           class="row g-0">
@@ -25,19 +28,19 @@
                 Lv: {{this.getMinimumLevel(i)}}
               </div>
             </div>
-
           </div>
         </a>
       </div>
+      }
       <!--a *ngFor="let i of this.queryResult"
-        routerLink="/scardinfo"
-        [queryParams]="{ uuid: i.cardUuid }"
-        class="img-fluid col-lg-2 col-md-4 col-sm-6">
+      routerLink="/scardinfo"
+      [queryParams]="{ uuid: i.cardUuid }"
+      class="img-fluid col-lg-2 col-md-4 col-sm-6">
         <img [src]="
           'https://viewer.shinycolors.moe/images/content/support_idols/icon/' + i.enzaId + '.png'
         " alt="">
-        <p>{{i.cardName.replace(this.regExp, "$1")}}</p>
-      </a-->
+      <p>{{i.cardName.replace(this.regExp, "$1")}}</p>
+    </a-->
     </div>
   </div>
   <div class="modal-footer">

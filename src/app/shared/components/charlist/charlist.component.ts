@@ -1,14 +1,22 @@
 import { Component, EventEmitter, Inject, Input, OnInit, Output, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 import { Unit } from '../../interfaces/unit';
 
 import { ShinyColorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
 import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
 import { ShinycolorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
+import { NgbCollapse } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-charlist',
+  standalone: true,
+  imports: [
+    RouterModule,
+    CommonModule,
+    NgbCollapse
+  ],
   templateUrl: './charlist.component.html',
   styleUrls: ['./charlist.component.css'],
 })

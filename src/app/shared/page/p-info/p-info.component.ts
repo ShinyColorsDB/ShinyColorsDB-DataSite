@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 
@@ -10,8 +10,26 @@ import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
 import { PCard } from '../../interfaces/pcard';
 import { catchError, of } from 'rxjs';
 
+import { PicCarouselComponent } from '../../components/pic-carousel/pic-carousel.component';
+import { CommonCriteriaComponent } from '../../components/common-criteria/common-criteria.component';
+import { PanelInfoComponent } from '../../components/panel-info/panel-info.component';
+import { PanelListComponent } from '../../components/panel-list/panel-list.component';
+import { MemoryTableComponent } from '../../components/memory-table/memory-table.component';
+import { AptitudeComponent } from '../../components/aptitude/aptitude.component';
+import { CardStatusComponent } from '../../components/card-status/card-status.component';
+
 @Component({
   selector: 'app-p-info',
+  standalone: true,
+  imports: [
+    PicCarouselComponent,
+    CommonCriteriaComponent,
+    PanelInfoComponent,
+    PanelListComponent,
+    MemoryTableComponent,
+    AptitudeComponent,
+    CardStatusComponent
+  ],
   templateUrl: './p-info.component.html',
   styleUrls: ['./p-info.component.css'],
   host: {
@@ -95,6 +113,6 @@ export class PInfoComponent implements OnInit {
   }
 
   getEventUrl(eventId: number): string {
-    return `${environment.eventViewerUrl}/?eventId=${eventId}`;
+    return `${environment.eventViewerUrl}?eventId=${eventId}`;
   }
 }

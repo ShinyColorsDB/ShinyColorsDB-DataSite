@@ -3,17 +3,19 @@
     [routerLink]="[this.pathType]"
     [queryParams]="{ uuid: this.cardInfo.cardUuid }"
     [title]="this.cardInfo.cardName.replace(this.regExp, '$2')">
-    <div class="card-header" *ngIf="this.isHome">
+    @if (this.isHome) {
+    <div class="card-header">
       {{ this.cardInfo.releaseDate | date: "yyyy-MM-dd" }}
     </div>
+    }
+
     <img
       [src]="this.getPictureUrl()"
       [alt]="'Picture of ' + this.cardInfo.cardName"
       [ngClass]="{ 'card-img-top': !this.isHome, 'card-img': this.isHome, 'rounded-0': this.isHome, 'p-0': this.isHome }"
       width="1136"
       height="640"
-      class="img-fluid"
-      />
+      class="img-fluid" />
     <div class="card-body ps-0 pe-0">
       <h5 class="card-text text-center">
         {{ this.cardInfo.cardName.replace(this.regExp, "$1") }}
