@@ -1,3 +1,5 @@
+import { CardStatus } from "./cardstatus";
+
 export interface Card {
   cardIndex: number;
   idolId: number;
@@ -10,4 +12,5 @@ export interface Card {
   cardType: string;
   getMethod: string;
   releaseDate: string;
+  cardStatus: CardStatus;
 }

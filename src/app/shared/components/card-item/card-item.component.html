@@ -4,7 +4,7 @@
     [queryParams]="{ uuid: this.cardInfo.cardUuid }"
     [title]="this.cardInfo.cardName.replace(this.regExp, '$2')">
     @if (this.isHome) {
-    <div class="card-header" >
+    <div class="card-header">
       {{ this.cardInfo.releaseDate | date: "yyyy-MM-dd" }}
     </div>
     }

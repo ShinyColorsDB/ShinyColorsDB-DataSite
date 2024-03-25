@@ -1,8 +1,8 @@
 <div class="form-group d-flex" #skillForm>
   <select class="form-select d-inline-block m-1" style="width: 40%;" (change)="this.subOption(); this.updateQueryStr()" #skillNameSelect>
-    <option value="" subOption="0" selected>--</option>
+    <option value subOption="0" selected>--</option>
     @for (i of this.skillList; track i) {
-      <option value={{i.supSkillName}} attr.subOption={{i.hasSubOption}}>{{i.supSkillName}}</option>
+    <option value={{i.supSkillName}} attr.subOption={{i.hasSubOption}}>{{i.supSkillName}}</option>
     }
   </select>
   <select class="form-select d-inline-block m-1" style="width: 40%;" (change)="this.updateQueryStr()" disabled #skillSubOption>
@@ -17,5 +17,5 @@
     <option value="Da上限">Dance上限</option>
     <option value="Vi上限">Visual上限</option>
   </select>
-  <input type="number" name="" style="width: 20%;" class="form-control d-inline-block m-1" (change)="this.updateQueryStr()" placeholder="level" #skillLevelSelect>
+  <input type="number" name style="width: 20%;" class="form-control d-inline-block m-1" (change)="this.updateQueryStr()" placeholder="level" #skillLevelSelect>
 </div>

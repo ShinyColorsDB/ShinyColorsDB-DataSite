@@ -34,3 +34,23 @@ div {
 .size18 {
     font-size: 18px;
 }
+
+.color_vocal {
+    background-color: #ff6969 !important;
+}
+
+.color_dance {
+    background-color: #7381ff !important;
+}
+
+.color_visual {
+    background-color: #ffe75d !important;
+}
+
+.color_mental {
+    background-color: #f27aff !important;
+}
+
+.color_skill {
+    background-color: #ff9100 !important;
+}

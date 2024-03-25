@@ -9,17 +9,17 @@
     </thead>
     <tbody>
       @for (card of this.timetable.produce; track card) {
-        <tr>
-          <td>
-            <a
-              [routerLink]="'/pcardinfo'"
-              [queryParams]="{uuid: card.cardUuid}">
-              {{ card.cardName }}
-            </a>
-          </td>
-          <td>{{ card.releaseDate }}</td>
-          <td>{{ this.timeDuration(card.releaseDate) }}</td>
-        </tr>
+      <tr>
+        <td>
+          <a
+            [routerLink]="'/pcardinfo'"
+            [queryParams]="{uuid: card.cardUuid}">
+            {{ card.cardName }}
+          </a>
+        </td>
+        <td>{{ card.releaseDate }}</td>
+        <td>{{ this.timeDuration(card.releaseDate) }}</td>
+      </tr>
       }
     </tbody>
   </table>
@@ -35,17 +35,17 @@
     </thead>
     <tbody>
       @for (card of this.timetable.support; track card) {
-        <tr>
-          <td>
-            <a
-              [routerLink]="'/scardinfo'"
-              [queryParams]="{uuid: card.cardUuid}">
-              {{ card.cardName }}
-            </a>
-          </td>
-          <td>{{ card.releaseDate }}</td>
-          <td>{{ this.timeDuration(card.releaseDate) }}</td>
-        </tr>
+      <tr>
+        <td>
+          <a
+            [routerLink]="'/scardinfo'"
+            [queryParams]="{uuid: card.cardUuid}">
+            {{ card.cardName }}
+          </a>
+        </td>
+        <td>{{ card.releaseDate }}</td>
+        <td>{{ this.timeDuration(card.releaseDate) }}</td>
+      </tr>
       }
     </tbody>
   </table>

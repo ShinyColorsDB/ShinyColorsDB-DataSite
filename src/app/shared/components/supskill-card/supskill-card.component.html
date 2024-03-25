@@ -10,39 +10,39 @@
         </a>
       </li>
       @for (thisBound of this.getBoundFromRarity(); track thisBound; let indexOfelement = $index) {
-        <li class="nav-item">
-          <a href="javascript: void()"
-            class="nav-link"
-            [ngClass]="{'active': this.activeArray[indexOfelement], 'disabled': this.activeArray[indexOfelement]}"
-            (click)="this.setActiveTab(indexOfelement);">
-            {{thisBound}}
-          </a>
-        </li>
+      <li class="nav-item">
+        <a href="javascript: void()"
+          class="nav-link"
+          [ngClass]="{'active': this.activeArray[indexOfelement], 'disabled': this.activeArray[indexOfelement]}"
+          (click)="this.setActiveTab(indexOfelement);">
+          {{thisBound}}
+        </a>
+      </li>
       }
     </ul>
   </div>
   <div class="card-body">
     @for (i of this.getBoundFromRarity(); track i; let thisBound = $index) {
-      <div [ngClass]="{'d-none': !this.activeArray[thisBound]}">
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th i18n>技能名稱</th>
-              <th i18n>技能敘述</th>
-              <th i18n>Lv.</th>
-            </tr>
-          </thead>
-          <tbody>
-            @for (j of this.getSkillWithinBound(thisBound); track j) {
-              <tr>
-                <td>{{j.skillName}}</td>
-                <td>{{j.skillDesc}}</td>
-                <td>{{j.skillLevel}}</td>
-              </tr>
-            }
-          </tbody>
-        </table>
-      </div>
+    <div [ngClass]="{'d-none': !this.activeArray[thisBound]}">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th i18n>技能名稱</th>
+            <th i18n>技能敘述</th>
+            <th i18n>Lv.</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (j of this.getSkillWithinBound(thisBound); track j) {
+          <tr>
+            <td>{{j.skillName}}</td>
+            <td>{{j.skillDesc}}</td>
+            <td>{{j.skillLevel}}</td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
     }
   </div>
 </div>

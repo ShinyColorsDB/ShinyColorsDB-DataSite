@@ -16,6 +16,7 @@ import { PanelInfoComponent } from '../../components/panel-info/panel-info.compo
 import { PanelListComponent } from '../../components/panel-list/panel-list.component';
 import { MemoryTableComponent } from '../../components/memory-table/memory-table.component';
 import { AptitudeComponent } from '../../components/aptitude/aptitude.component';
+import { CardStatusComponent } from '../../components/card-status/card-status.component';
 
 @Component({
   selector: 'app-p-info',
@@ -27,6 +28,7 @@ import { AptitudeComponent } from '../../components/aptitude/aptitude.component'
     PanelListComponent,
     MemoryTableComponent,
     AptitudeComponent,
+    CardStatusComponent
   ],
   templateUrl: './p-info.component.html',
   styleUrls: ['./p-info.component.css'],
@@ -111,6 +113,6 @@ export class PInfoComponent implements OnInit {
   }
 
   getEventUrl(eventId: number): string {
-    return `${environment.eventViewerUrl}/?eventId=${eventId}`;
+    return `${environment.eventViewerUrl}?eventId=${eventId}`;
   }
 }

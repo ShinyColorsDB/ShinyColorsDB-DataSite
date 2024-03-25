@@ -16,6 +16,7 @@ import { CommonCriteriaComponent } from '../../components/common-criteria/common
 import { PanelInfoComponent } from '../../components/panel-info/panel-info.component';
 import { PanelListComponent } from '../../components/panel-list/panel-list.component';
 import { SupskillCardComponent } from '../../components/supskill-card/supskill-card.component';
+import { CardStatusComponent } from '../../components/card-status/card-status.component';
 
 @Component({
   selector: 'app-s-info',
@@ -25,6 +26,7 @@ import { SupskillCardComponent } from '../../components/supskill-card/supskill-c
     PanelInfoComponent,
     PanelListComponent,
     SupskillCardComponent,
+    CardStatusComponent,
   ],
   templateUrl: './s-info.component.html',
   styleUrls: ['./s-info.component.css'],
@@ -100,6 +102,6 @@ export class SInfoComponent implements OnInit {
   }
 
   getEventUrl(eventId: number): string {
-    return `${environment.eventViewerUrl}/?eventId=${eventId}`;
+    return `${environment.eventViewerUrl}?eventId=${eventId}`;
   }
 }

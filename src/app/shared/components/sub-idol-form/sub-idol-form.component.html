@@ -1,25 +1,25 @@
 @if (unit.unitId != 91) {
-  <table class="w-100 m-2">
-    <tr>
-      <td [attr.colspan]="unit.idols.length" class="form-check">
-        <input id="queryUnitId{{unit.unitId}}" type="checkbox" value class="form-check-input" (change)="toggleAllIdols($event); updateSelectedIdols()">
-        <label for="queryUnitId{{unit.unitId}}" class="form-check-label d-flex align-items-center">
-          <img [src]="this.getUnitIconUri(unit.unitId)" alt height="30px" width="30px" class="img-fluid">
-          <p class="h4 mb-0 w-100">{{unit.unitHiragana}}</p>
-        </label>
-      </td>
-    </tr>
-    <tr>
-      @for (idol of unit.idols; track idol; let i = $index) {
-        <td class="form-check form-check-inline me-0 pt-0 pb-0 pe-0" style="width: 20%;">
-          <input type="checkbox" value={{idol.idolId}} id="queryIdolId{{idol.idolId}}" class="form-check-input" (change)="updateSelectedIdols()" #idolCheckbox>
-          <label for="queryIdolId{{idol.idolId}}" class="form-check-label">
-            <img [src]="this.getIdolSmlIcon(idol.idolId)" height="30" width="30px" alt>
-            <br class="d-block d-md-none">
-            {{idol.idolFirstName}}
-          </label>
-        </td>
-      }
-    </tr>
-  </table>
+<table class="w-100 m-2">
+  <tr>
+    <td [attr.colspan]="unit.idols.length" class="form-check">
+      <input id="queryUnitId{{unit.unitId}}" type="checkbox" value class="form-check-input" (change)="toggleAllIdols($event); updateSelectedIdols()">
+      <label for="queryUnitId{{unit.unitId}}" class="form-check-label d-flex align-items-center">
+        <img [src]="this.getUnitIconUri(unit.unitId)" alt height="30px" width="30px" class="img-fluid">
+        <p class="h4 mb-0 w-100">{{unit.unitHiragana}}</p>
+      </label>
+    </td>
+  </tr>
+  <tr>
+    @for (idol of unit.idols; track idol; let i = $index) {
+    <td class="form-check form-check-inline me-0 pt-0 pb-0 pe-0" style="width: 20%;">
+      <input type="checkbox" value={{idol.idolId}} id="queryIdolId{{idol.idolId}}" class="form-check-input" (change)="updateSelectedIdols()" #idolCheckbox>
+      <label for="queryIdolId{{idol.idolId}}" class="form-check-label">
+        <img [src]="this.getIdolSmlIcon(idol.idolId)" height="30" width="30px" alt>
+        <br class="d-block d-md-none">
+        {{idol.idolFirstName}}
+      </label>
+    </td>
+    }
+  </tr>
+</table>
 }

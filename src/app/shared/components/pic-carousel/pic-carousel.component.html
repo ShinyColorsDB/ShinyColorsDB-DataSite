@@ -6,22 +6,21 @@
       [alt]="'General image of ' + this.cardName"
       class="img-fluid"
       width="1136"
-      height="640"
-      />
+      height="640" />
   </ng-template>
   @if (this.displayMov1) {
-    <ng-template ngbSlide id="mov1">
-      <video
-        #mov1
-        class="img-fluid"
-        width=1136
-        height=640
-        muted
-        [src]="this.scUrlService.getCardMovieUrl(this.enzaId)"
-        type="video/mp4"
-        onloadedmetadata="this.muted=true"
+  <ng-template ngbSlide id="mov1">
+    <video
+      #mov1
+      class="img-fluid"
+      width=1136
+      height=640
+      muted
+      [src]="this.scUrlService.getCardMovieUrl(this.enzaId)"
+      type="video/mp4"
+      onloadedmetadata="this.muted=true"
       (ended)="this.onMovieEnded()"></video>
-    </ng-template>
+  </ng-template>
   }
   <ng-template ngbSlide id="img2">
     <img
@@ -30,21 +29,20 @@
       [alt]="'Fes image of ' + this.cardName"
       class="img-fluid"
       width="1136"
-      height="640"
-      />
+      height="640" />
   </ng-template>
   @if (this.displayMov2) {
-    <ng-template ngbSlide id="mov2">
-      <video
-        #mov2
-        class="img-fluid"
-        width=1136
-        height=640
-        muted
-        [src]="this.scUrlService.getCardCostumeMovieUrl(this.enzaId)"
-        type="video/mp4"
-        onloadedmetadata="this.muted=true"
+  <ng-template ngbSlide id="mov2">
+    <video
+      #mov2
+      class="img-fluid"
+      width=1136
+      height=640
+      muted
+      [src]="this.scUrlService.getCardCostumeMovieUrl(this.enzaId)"
+      type="video/mp4"
+      onloadedmetadata="this.muted=true"
       (ended)="onMovieEnded()"></video>
-    </ng-template>
+  </ng-template>
   }
 </ngb-carousel>
