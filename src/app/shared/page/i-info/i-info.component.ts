@@ -139,7 +139,6 @@ export class IInfoComponent implements OnInit {
         .subscribe((data) => {
           if (!data) { return; }
           this.album = data;
-          this.album.communications.forEach(e => { if (!e.communicationId) {console.log(e)}});
         });
 
     });
@@ -206,9 +205,9 @@ export class IInfoComponent implements OnInit {
     }
   }
 
-  getEventViewerUrl(eventId: string, eventType: string): string {
+  getEventViewerUrl(e: Communication): string {
     //https://event.shinycolors.moe/?eventId=202100100391&eventType=produce_communication_promise_results
     //wing: produce_events
-    return `${environment.eventViewerUrl}?eventId=${eventId}&eventType=${this.getCategoryPath(eventType)}`;
+    return `${environment.eventViewerUrl}?eventId=${e.communicationId}&eventType=${this.getCategoryPath(e.communicationCategory)}`;
   }
 }

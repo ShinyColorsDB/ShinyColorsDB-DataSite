@@ -3,13 +3,12 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
-    "types": ["offscreencanvas"]
+    "types": ["offscreencanvas", "node"]
   },
   "files": [
     "src/main.ts",
     "src/main.server.ts",
     "server.ts",
-    "src/polyfills.ts"
   ],
   "include": [
     "src/**/*.d.ts"

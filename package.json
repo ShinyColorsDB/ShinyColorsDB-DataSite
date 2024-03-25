@@ -8,9 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "dev:ssr": "ng run ShinyColorsDB-DataSite:serve-ssr",
-    "serve:ssr": "node dist/ShinyColorsDB-DataSite/server/main.js",
-    "build:ssr": "ng build && ng run ShinyColorsDB-DataSite:server",
-    "prerender": "ng run ShinyColorsDB-DataSite:prerender"
+    "serve:ssr": "node dist/ShinyColorsDB-DataSite/server/server.mjs"
   },
   "private": true,
   "dependencies": {
@@ -62,6 +60,6 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
-    "typescript": "^5.3.3"
+    "typescript": "^5.2.2"
   }
 }
