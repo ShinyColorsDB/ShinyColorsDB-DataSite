@@ -1,5 +1,7 @@
 import { isPlatformServer } from '@angular/common';
 import { Component, OnInit, PLATFORM_ID } from '@angular/core';
+import { RouterModule } from '@angular/router';
+
 import { Optional, Inject } from '@angular/core';
 import { RESPONSE } from '../../../../express.tokens';
 import { Response } from 'express';
@@ -7,6 +9,9 @@ import { Response } from 'express';
 @Component({
   selector: 'app-notfound',
   standalone: true,
+  imports: [
+    RouterModule,
+  ],
   templateUrl: './notfound.component.html',
   styleUrls: ['./notfound.component.css'],
   host: {

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 import { ShinyColorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
@@ -14,7 +13,6 @@ import { CardItemComponent } from '../../components/card-item/card-item.componen
   standalone: true,
   imports: [
     CommonModule,
-    RouterModule,
     CardItemComponent,
   ],
   templateUrl: './home.component.html',
