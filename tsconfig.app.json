@@ -3,7 +3,11 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
-    "types": ["offscreencanvas", "node"]
+    "types": [
+      "offscreencanvas",
+      "node",
+      "@angular/localize"
+    ]
   },
   "files": [
     "src/main.ts",
