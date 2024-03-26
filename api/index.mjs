@@ -1,3 +1,3 @@
-const s = import('../dist/ShinyColorsDB-SfpSite/server/server.mjs');
+const s = import('../dist/ShinyColorsDB-DataSite/server/server.mjs');
 
 export default (await s).app();
