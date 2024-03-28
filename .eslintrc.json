@@ -9,9 +9,15 @@
     ],
     "parserOptions": {
         "ecmaVersion": "latest",
-        "sourceType": "module"
+        "sourceType": "module",
+        "project": "./tsconfig.json"
     },
     "rules": {
-        "semi": 0
+        "@typescript-eslint/semi": ["error", "always"],
+        "@typescript-eslint/space-before-function-paren": ["error", "never"],
+        "@typescript-eslint/prefer-readonly": "off",
+        "@typescript-eslint/strict-boolean-expressions": ["off"],
+        "eol-last": ["error", "always"]
+
     }
 }

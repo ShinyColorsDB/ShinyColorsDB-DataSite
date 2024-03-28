@@ -27,26 +27,26 @@
               <a
                 class="text-start list-group-item list-group-item-action w-100 ps-4 bg-light bg-gradient"
                 [routerLink]="['/']"
-                (click)="onSideBarClick()" i18n>首頁</a>
+                (click)="onSideBarClick()" i18n="@@sidebar_home">首頁</a>
               <a
                 class="text-start list-group-item list-group-item-action w-100 ps-4 bg-light bg-gradient"
                 [routerLink]="['/timetable']"
-                (click)="onSideBarClick()" i18n>歴史</a>
+                (click)="onSideBarClick()" i18n="@@sidebar_history">歴史</a>
               <a
                 class="text-start list-group-item list-group-item-action w-100 ps-4 bg-light bg-gradient"
                 [routerLink]="['/cardle']"
-                (click)="onSideBarClick()">Cardle</a>
+                (click)="onSideBarClick()" i18n="@@sidebar_cardle">Cardle</a>
               <a
                 class="text-start list-group-item list-group-item-action w-100 ps-4 bg-light bg-gradient"
                 [routerLink]="['/r-lookup']"
-                (click)="onSideBarClick()" i18n>技能篩選</a>
+                (click)="onSideBarClick()" i18n="@@sidebar_lookup">技能篩選</a>
             </div>
           </div>
         </div>
       </div>
       <div ngbAccordionItem cardClass="p-0" [collapsed]="false">
         <h2 ngbAccordionHeader>
-          <button ngbAccordionButton>角色列表</button>
+          <button ngbAccordionButton i18n="@@sidebar_charList">角色列表</button>
         </h2>
         <div ngbAccordionCollapse>
           <div ngbAccordionBody>
@@ -58,7 +58,7 @@
       </div>
       <div ngbAccordionItem>
         <h2 ngbAccordionHeader>
-          <button ngbAccordionButton>其他小玩具</button>
+          <button ngbAccordionButton i18n="@@sidebar_other">其他小玩具</button>
         </h2>
         <div ngbAccordionCollapse>
           <div ngbAccordionBody>

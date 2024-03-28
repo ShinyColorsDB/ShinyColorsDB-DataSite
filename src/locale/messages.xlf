@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="zh">
+  <file id="ngi18n" original="ng.template">
+    <unit id="ngb.alert.close">
+      <segment>
+        <source>Close</source>
+      </segment>
+    </unit>
+    <unit id="ngb.carousel.slide-number">
+      <notes>
+        <note category="description">Currently selected slide number read by screen reader</note>
+      </notes>
+      <segment>
+        <source> Slide <ph id="0" equiv="INTERPOLATION" disp="pauseOnFocus);"/> of <ph id="1" equiv="INTERPOLATION_1" disp="BehaviorSubjec"/> </source>
+      </segment>
+    </unit>
+    <unit id="ngb.carousel.previous">
+      <segment>
+        <source>Previous</source>
+      </segment>
+    </unit>
+    <unit id="ngb.carousel.next">
+      <segment>
+        <source>Next</source>
+      </segment>
+    </unit>
+    <unit id="ngb.datepicker.select-month">
+      <segment>
+        <source>Select month</source>
+      </segment>
+    </unit>
+    <unit id="ngb.datepicker.select-year">
+      <segment>
+        <source>Select year</source>
+      </segment>
+    </unit>
+    <unit id="ngb.datepicker.previous-month">
+      <segment>
+        <source>Previous month</source>
+      </segment>
+    </unit>
+    <unit id="ngb.datepicker.next-month">
+      <segment>
+        <source>Next month</source>
+      </segment>
+    </unit>
+    <unit id="ngb.pagination.first">
+      <segment>
+        <source>««</source>
+      </segment>
+    </unit>
+    <unit id="ngb.pagination.previous">
+      <segment>
+        <source>«</source>
+      </segment>
+    </unit>
+    <unit id="ngb.pagination.next">
+      <segment>
+        <source>»</source>
+      </segment>
+    </unit>
+    <unit id="ngb.pagination.last">
+      <segment>
+        <source>»»</source>
+      </segment>
+    </unit>
+    <unit id="ngb.pagination.first-aria">
+      <segment>
+        <source>First</source>
+      </segment>
+    </unit>
+    <unit id="ngb.pagination.previous-aria">
+      <segment>
+        <source>Previous</source>
+      </segment>
+    </unit>
+    <unit id="ngb.pagination.next-aria">
+      <segment>
+        <source>Next</source>
+      </segment>
+    </unit>
+    <unit id="ngb.pagination.last-aria">
+      <segment>
+        <source>Last</source>
+      </segment>
+    </unit>
+    <unit id="ngb.progressbar.value">
+      <segment>
+        <source>
+          <ph id="0" equiv="INTERPOLATION" disp="his._config.ani"/>
+        </source>
+      </segment>
+    </unit>
+    <unit id="ngb.timepicker.HH">
+      <segment>
+        <source>HH</source>
+      </segment>
+    </unit>
+    <unit id="ngb.timepicker.hours">
+      <segment>
+        <source>Hours</source>
+      </segment>
+    </unit>
+    <unit id="ngb.timepicker.MM">
+      <segment>
+        <source>MM</source>
+      </segment>
+    </unit>
+    <unit id="ngb.timepicker.minutes">
+      <segment>
+        <source>Minutes</source>
+      </segment>
+    </unit>
+    <unit id="ngb.timepicker.increment-hours">
+      <segment>
+        <source>Increment hours</source>
+      </segment>
+    </unit>
+    <unit id="ngb.timepicker.decrement-hours">
+      <segment>
+        <source>Decrement hours</source>
+      </segment>
+    </unit>
+    <unit id="ngb.timepicker.increment-minutes">
+      <segment>
+        <source>Increment minutes</source>
+      </segment>
+    </unit>
+    <unit id="ngb.timepicker.decrement-minutes">
+      <segment>
+        <source>Decrement minutes</source>
+      </segment>
+    </unit>
+    <unit id="ngb.timepicker.SS">
+      <segment>
+        <source>SS</source>
+      </segment>
+    </unit>
+    <unit id="ngb.timepicker.seconds">
+      <segment>
+        <source>Seconds</source>
+      </segment>
+    </unit>
+    <unit id="ngb.timepicker.increment-seconds">
+      <segment>
+        <source>Increment seconds</source>
+      </segment>
+    </unit>
+    <unit id="ngb.timepicker.decrement-seconds">
+      <segment>
+        <source>Decrement seconds</source>
+      </segment>
+    </unit>
+    <unit id="ngb.timepicker.PM">
+      <segment>
+        <source>
+          <ph id="0" equiv="INTERPOLATION"/>
+        </source>
+      </segment>
+    </unit>
+    <unit id="ngb.toast.close-aria">
+      <segment>
+        <source>Close</source>
+      </segment>
+    </unit>
+    <unit id="aptitudeType_music">
+      <segment>
+        <source>樂曲適性</source>
+      </segment>
+    </unit>
+    <unit id="aptitude_cute">
+      <segment>
+        <source>キュート</source>
+      </segment>
+    </unit>
+    <unit id="aptitude_cool">
+      <segment>
+        <source>クール</source>
+      </segment>
+    </unit>
+    <unit id="aptitude_positive">
+      <segment>
+        <source>ポジティブ</source>
+      </segment>
+    </unit>
+    <unit id="aptitude_relax">
+      <segment>
+        <source>リラックス</source>
+      </segment>
+    </unit>
+    <unit id="aptitude_emotional">
+      <segment>
+        <source>エモーショナル</source>
+      </segment>
+    </unit>
+    <unit id="aptitudeType_expression">
+      <segment>
+        <source>表現適性</source>
+      </segment>
+    </unit>
+    <unit id="aptitude_highPace">
+      <segment>
+        <source>ハイペース</source>
+      </segment>
+    </unit>
+    <unit id="aptitude_mediumPace">
+      <segment>
+        <source>ミドルペース</source>
+      </segment>
+    </unit>
+    <unit id="aptitude_slowPace">
+      <segment>
+        <source>スローペース</source>
+      </segment>
+    </unit>
+    <unit id="aptitudeType_environment">
+      <segment>
+        <source>環境適性</source>
+      </segment>
+    </unit>
+    <unit id="aptitude_fine">
+      <segment>
+        <source>快晴</source>
+      </segment>
+    </unit>
+    <unit id="aptitude_sunny">
+      <segment>
+        <source>晴れ</source>
+      </segment>
+    </unit>
+    <unit id="aptitude_cloudy">
+      <segment>
+        <source>くもり</source>
+      </segment>
+    </unit>
+    <unit id="aptitude_rain">
+      <segment>
+        <source>雨</source>
+      </segment>
+    </unit>
+    <unit id="cardStatus_status">
+      <segment>
+        <source> ステータス </source>
+      </segment>
+    </unit>
+    <unit id="statusShort_vocal">
+      <segment>
+        <source>Vo</source>
+      </segment>
+    </unit>
+    <unit id="statusShort_dance">
+      <segment>
+        <source>Da</source>
+      </segment>
+    </unit>
+    <unit id="statusShort_visual">
+      <segment>
+        <source>Vi</source>
+      </segment>
+    </unit>
+    <unit id="statusShort_mental">
+      <segment>
+        <source>Me</source>
+      </segment>
+    </unit>
+    <unit id="criteria_release">
+      <segment>
+        <source>實裝日</source>
+      </segment>
+    </unit>
+    <unit id="criteria_get">
+      <segment>
+        <source>取得</source>
+      </segment>
+    </unit>
+    <unit id="criteria_rarity">
+      <segment>
+        <source>稀有度</source>
+      </segment>
+    </unit>
+    <unit id="attr_skillName">
+      <segment>
+        <source>技能名稱</source>
+      </segment>
+    </unit>
+    <unit id="extra_link">
+      <segment>
+        <source>Link</source>
+      </segment>
+    </unit>
+    <unit id="extra_linkAppl">
+      <segment>
+        <source>リンクアピール</source>
+      </segment>
+    </unit>
+    <unit id="extra_plusAppl">
+      <segment>
+        <source>プラスアピール</source>
+      </segment>
+    </unit>
+    <unit id="extra_change">
+      <segment>
+        <source>チェンジ効果</source>
+      </segment>
+    </unit>
+    <unit id="search_result">
+      <segment>
+        <source>搜尋結果</source>
+      </segment>
+    </unit>
+    <unit id="search_empty">
+      <segment>
+        <source>沒有符合條件的結果</source>
+      </segment>
+    </unit>
+    <unit id="sidebar_home">
+      <segment>
+        <source>首頁</source>
+      </segment>
+    </unit>
+    <unit id="sidebar_history">
+      <segment>
+        <source>歴史</source>
+      </segment>
+    </unit>
+    <unit id="sidebar_lookup">
+      <segment>
+        <source>技能篩選</source>
+      </segment>
+    </unit>
+    <unit id="attr_skillDesc">
+      <segment>
+        <source>技能敘述</source>
+      </segment>
+    </unit>
+    <unit id="criteria_duration">
+      <segment>
+        <source>距今(天)</source>
+      </segment>
+    </unit>
+    <unit id="cardType_support">
+      <segment>
+        <source>Support</source>
+      </segment>
+    </unit>
+    <unit id="home_recentUpdate">
+      <segment>
+        <source>最近更新</source>
+      </segment>
+    </unit>
+    <unit id="home_latestCards">
+      <segment>
+        <source>最新卡面</source>
+      </segment>
+    </unit>
+    <unit id="list_produce">
+      <segment>
+        <source>P卡列表</source>
+      </segment>
+    </unit>
+    <unit id="list_support">
+      <segment>
+        <source>S卡列表</source>
+      </segment>
+    </unit>
+    <unit id="info_name">
+      <segment>
+        <source>姓名</source>
+      </segment>
+    </unit>
+    <unit id="info_age">
+      <segment>
+        <source>年齡</source>
+      </segment>
+    </unit>
+    <unit id="info_height">
+      <segment>
+        <source>身高</source>
+      </segment>
+    </unit>
+    <unit id="info_weight">
+      <segment>
+        <source>體重</source>
+      </segment>
+    </unit>
+    <unit id="info_birthday">
+      <segment>
+        <source>生日</source>
+      </segment>
+    </unit>
+    <unit id="info_bloodType">
+      <segment>
+        <source>血型</source>
+      </segment>
+    </unit>
+    <unit id="info_unit">
+      <segment>
+        <source>所屬</source>
+      </segment>
+    </unit>
+    <unit id="info_mesureament">
+      <segment>
+        <source>三圍</source>
+      </segment>
+    </unit>
+    <unit id="info_interest">
+      <segment>
+        <source>興趣</source>
+      </segment>
+    </unit>
+    <unit id="info_special">
+      <segment>
+        <source>特技</source>
+      </segment>
+    </unit>
+    <unit id="info_seiyuu">
+      <segment>
+        <source>聲優</source>
+      </segment>
+    </unit>
+    <unit id="tab_event">
+      <segment>
+        <source>劇情列表</source>
+      </segment>
+    </unit>
+    <unit id="8762868499684338014">
+      <segment>
+        <source>なし</source>
+      </segment>
+    </unit>
+    <unit id="title_event">
+      <segment>
+        <source>イベント</source>
+      </segment>
+    </unit>
+    <unit id="attr_eventName">
+      <segment>
+        <source>事件名稱</source>
+      </segment>
+    </unit>
+    <unit id="attr_aptitudes">
+      <segment>
+        <source>適性</source>
+      </segment>
+    </unit>
+    <unit id="attr_memory">
+      <segment>
+        <source>思い出</source>
+      </segment>
+    </unit>
+    <unit id="title_fightSkill">
+      <segment>
+        <source>ファイトスキル</source>
+      </segment>
+    </unit>
+    <unit id="attr_idea">
+      <segment>
+        <source>アイデア</source>
+      </segment>
+    </unit>
+    <unit id="attr_inspiration">
+      <segment>
+        <source>ひらめき</source>
+      </segment>
+    </unit>
+    <unit id="attr_profiency">
+      <segment>
+        <source>樂曲熟練度</source>
+      </segment>
+    </unit>
+    <unit id="title_supportSkill">
+      <segment>
+        <source>サポートスキル</source>
+      </segment>
+    </unit>
+    <unit id="tab_overview">
+      <segment>
+        <source>概覽</source>
+      </segment>
+    </unit>
+    <unit id="tab_limited">
+      <segment>
+        <source>限定</source>
+      </segment>
+    </unit>
+    <unit id="tab_general">
+      <segment>
+        <source>常駐</source>
+      </segment>
+    </unit>
+    <unit id="sidebar_cardle">
+      <segment>
+        <source>Cardle</source>
+      </segment>
+    </unit>
+    <unit id="sidebar_charList">
+      <segment>
+        <source>角色列表</source>
+      </segment>
+    </unit>
+    <unit id="sidebar_other">
+      <segment>
+        <source>其他小玩具</source>
+      </segment>
+    </unit>
+    <unit id="cardType_produce">
+      <segment>
+        <source>Produce</source>
+      </segment>
+    </unit>
+    <unit id="tab_produce">
+      <segment>
+        <source>P卡列表</source>
+      </segment>
+    </unit>
+    <unit id="tab_support">
+      <segment>
+        <source>S卡列表</source>
+      </segment>
+    </unit>
+  </file>
+</xliff>

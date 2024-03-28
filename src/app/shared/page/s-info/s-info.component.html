@@ -19,7 +19,7 @@
       @if (this.sCardInfo.cardSupportEvents.length) {
       <h3
         class="col-12 pt-2"
-        i18n>イベント</h3>
+        i18n="@@title_event">イベント</h3>
       }
       @if (this.sCardInfo.cardSupportEvents.length) {
       <div
@@ -27,7 +27,7 @@
         <table class="table table-hover p-2">
           <thead>
             <tr>
-              <th scope="col" class="col-7" i18n>事件名稱</th>
+              <th scope="col" class="col-7" i18n="@@attr_eventName">事件名稱</th>
               <th scope="col" class="col-1 color_vocal">Vo</th>
               <th scope="col" class="col-1 color_dance">Da</th>
               <th scope="col" class="col-1 color_visual">Vi</th>
@@ -57,7 +57,7 @@
         </table>
       </div>
       }
-      <h3 i18n>ファイトスキル</h3>
+      <h3 i18n="@@title_fightSkill">ファイトスキル</h3>
       <div class="col-12 p-2 size18">
         <table class="table table-hover">
           <tbody>
@@ -71,9 +71,9 @@
         <table class="table table-hover">
           <thead>
             <tr>
-              <th i18n>アイデア</th>
-              <th i18n>ひらめき</th>
-              <th i18n>樂曲熟練度</th>
+              <th i18n="@@attr_idea">アイデア</th>
+              <th i18n="@@attr_inspiration">ひらめき</th>
+              <th i18n="@@attr_profiency">樂曲熟練度</th>
             </tr>
           </thead>
           <tbody>
@@ -111,7 +111,7 @@
           </tbody>
         </table>
       </div>
-      <h3 class="pb-2" i18n>サポートスキル</h3>
+      <h3 class="pb-2" i18n="@@title_supportSkill">サポートスキル</h3>
       <app-supskill-card
         [rarity]="this.sCardInfo.cardType"
         [supskills]="this.sCardInfo.cardSupportSkills">

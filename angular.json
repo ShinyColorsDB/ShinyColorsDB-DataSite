@@ -7,10 +7,22 @@
   "projects": {
     "ShinyColorsDB-DataSite": {
       "projectType": "application",
-      "schematics": {
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
+      "i18n": {
+        "sourceLocale": "zh",
+        "locales": {
+          "ja": {
+            "translation": "src/locale/ja.xlf",
+            "baseHref": "/ja/"
+          },
+          "en": {
+            "translation": "src/locale/en.xlf",
+            "baseHref": "/en/"
+          }
+        }
+      },
       "prefix": "app",
       "architect": {
         "build": {
@@ -80,7 +92,11 @@
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "localize": [
+                "zh"
+              ],
+              "baseHref": "/"
             }
           },
           "defaultConfiguration": "production"
@@ -102,9 +118,15 @@
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "builder": "ng-extract-i18n-merge:ng-extract-i18n-merge",
           "options": {
-            "buildTarget": "ShinyColorsDB-DataSite:build"
+            "buildTarget": "ShinyColorsDB-DataSite:build",
+            "format": "xlf2",
+            "outputPath": "src/locale",
+            "targetFiles": [
+              "ja-JP.xlf",
+              "en-US.xlf"
+            ]
           }
         },
         "test": {

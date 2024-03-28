@@ -1,12 +1,12 @@
 <div class="row overflow-auto w-100 h-100">
   <div class="col-lg-3 container overflow-auto">
     <div class="row d-flex">
-      <h2 class="col m-2" style="font-family: Meiryo" i18n>最近更新</h2>
+      <h2 class="col m-2" style="font-family: Meiryo" i18n="@@home_recentUpdate">最近更新</h2>
     </div>
   </div>
   <div class="col-lg-9 container overflow-auto">
     <div class="row d-flex">
-      <h2 class="col m-2" style="font-family: Meiryo" i18n>最新卡面</h2>
+      <h2 class="col m-2" style="font-family: Meiryo" i18n="@@home_latestCards">最新卡面</h2>
     </div>
     <div class="row d-flex">
       @if (this.latestP) {
@@ -20,7 +20,7 @@
                   class="nav-link"
                   (click)="togglePS= true"
                   [ngClass]="{ disabled: togglePS, active: togglePS }"
-                  style="font-family: Meiryo" i18n>P卡列表</a>
+                  style="font-family: Meiryo" i18n="@@list_produce">P卡列表</a>
               </li>
               <li class="nav-item">
                 <a
@@ -28,7 +28,7 @@
                   class="nav-link"
                   (click)="togglePS= false"
                   [ngClass]="{ disabled: !togglePS, active: !togglePS }"
-                  style="font-family: Meiryo" i18n>S卡列表</a>
+                  style="font-family: Meiryo" i18n="@@list_support">S卡列表</a>
               </li>
             </ul>
           </div>
