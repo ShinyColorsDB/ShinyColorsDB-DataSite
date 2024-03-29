@@ -150,7 +150,8 @@
           </div>
           <div class="row w-100 m-0" [ngClass]="{'d-none': !isTabEvent()}">
             <div ngbAccordion class="bg-light p-0">
-              @for (k of this.album.albumCommunicationTitles; track k) {
+              @for (k of this.getEventTitles(); track k) {
+              @if (this.getEventsByType(k.albumType).length) {
               <div ngbAccordionItem>
                 <h3 ngbAccordionHeader>
                   <button ngbAccordionButton>{{k.title}}</button>
@@ -182,8 +183,15 @@
                   </div>
                 </div>
               </div>
-              }
+              }}
             </div>
+            @if (!this.album.communications.length) {
+            <div class="d-flex align-items-center justify-content-center w-100">
+              <div class="d-flex ">
+                <div class="display-4" i18n>なし</div>
+              </div>
+            </div>
+            }
           </div>
         </div>
       </div>
