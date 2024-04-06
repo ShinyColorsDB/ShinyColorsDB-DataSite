@@ -151,7 +151,7 @@
           <div class="row w-100 m-0" [ngClass]="{'d-none': !isTabEvent()}">
             <div ngbAccordion class="bg-light p-0">
               @for (k of this.getEventTitles(); track k) {
-              @if (this.getEventsByType(k.albumType).length) {
+              @if (this.getEventsByType(k.albumType).length != 0) {
               <div ngbAccordionItem>
                 <h3 ngbAccordionHeader>
                   <button ngbAccordionButton>{{k.title}}</button>
