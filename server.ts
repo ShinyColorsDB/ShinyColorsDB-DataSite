@@ -54,8 +54,8 @@ export function app(lang: string): express.Express {
 function run(): void {
   const port = process.env['PORT'] || 4000;
 
-  const appTW = app('zh-TW'),
-    appJP = app('ja-JP');
+  const appTW = app('zh-TW');
+  const appJP = app('ja-JP');
 
   // Start up the Node server
   const server = express();

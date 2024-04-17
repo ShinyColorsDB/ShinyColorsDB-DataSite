@@ -81,7 +81,7 @@ export class CardleComponent implements OnInit, AfterViewInit {
       { name: 'twitter:description', content: '每日卡牌猜猜樂, Daily Cardle Game from ShinyColors' },
       //{ name: 'twitter:image', content: 'https://shinycolors.moe/assets/images/cardle.png' },
       { name: 'twitter:url', content: 'https://shinycolors.moe/cardle/' },
-      { name: 'description', content: '每日卡牌猜猜樂, Daily Cardle Game from ShinyColors'}
+      { name: 'description', content: '每日卡牌猜猜樂, Daily Cardle Game from ShinyColors' }
     ]);
   }
 
@@ -137,21 +137,21 @@ export class CardleComponent implements OnInit, AfterViewInit {
     );
     const slices = [this.slice1, this.slice2, this.slice3, this.slice4, this.slice5, this.slice6];
     for (let i = 0; i < 6; i++) {
-      const thisCanvas = new Application();
-      await thisCanvas.init({
+      const thisCanvas = new Application({
         width: 100,
         height: 100,
-        canvas: slices[i].nativeElement,
+        view: slices[i].nativeElement,
       });
-      const newTex = new Texture({
-        source: this.cardleImage.texture.source,
-        frame: new Rectangle(
+      //await thisCanvas.init();
+      const newTex = new Texture(
+        this.cardleImage.texture.baseTexture,
+        new Rectangle(
           this.cardleInfo.cardleChunks[i].chunkX,
           this.cardleInfo.cardleChunks[i].chunkY,
           100,
           100
         )
-      });
+      );
       const thisChunk = new Sprite(newTex);
 
       thisChunk.alpha = i == 0 || i < this.guessResults.length ? 1 : 0;
@@ -310,6 +310,7 @@ export class CardleComponent implements OnInit, AfterViewInit {
   shareClipboard(): void {
     const shareText = `Shiny Colors Cardle #${this.cardleInfo.cardleIndex} ${this.guessResults.length}/6\n${this._generateBlock()}\nhttps://shinycolors.moe/cardle`;
     navigator.clipboard.writeText(shareText);
+    //
   }
 }
 

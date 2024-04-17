@@ -124,8 +124,8 @@
             "format": "xlf2",
             "outputPath": "src/locale",
             "targetFiles": [
-              "ja-JP.xlf",
-              "en-US.xlf"
+              "ja.xlf",
+              "en.xlf"
             ]
           }
         },

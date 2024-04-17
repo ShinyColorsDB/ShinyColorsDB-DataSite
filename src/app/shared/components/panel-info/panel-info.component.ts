@@ -19,7 +19,7 @@ import { ShinycolorsUrlService } from 'src/app/service/shinycolors-url/shinycolo
 
 import { PanelHex } from './panel-info-hex';
 
-import { Application, Assets, Container, Graphics, Sprite, Text, BackgroundSystem, HelloSystem } from 'pixi.js';
+import { Application, Assets, Container, Graphics, Sprite, Text, settings } from 'pixi.js';
 import { Grid } from 'honeycomb-grid';
 
 @Component({
@@ -48,7 +48,7 @@ export class PanelInfoComponent implements OnChanges, OnDestroy, AfterViewInit {
 
   grids!: Grid<PanelHex>;
 
-  font = new FontFaceObserver('lineGothic');
+  font!: FontFaceObserver;
 
   srAxis: [number, number][] = [
     [5, -0.95],
@@ -91,16 +91,13 @@ export class PanelInfoComponent implements OnChanges, OnDestroy, AfterViewInit {
       return;
     }
 
+    this.font = new FontFaceObserver('lineGothic');
+
     Assets.setPreferences({ crossOrigin: 'anonymous', preferCreateImageBitmap: false });
 
-    HelloSystem.defaultOptions = {
-      hello: false,
-    }
-    BackgroundSystem.defaultOptions = {
-      backgroundColor: 0xd9d9d9,
-      backgroundAlpha: 1,
-      clearBeforeRender: true,
-    }
+    settings.RENDER_OPTIONS!.background = 0xd9d9d9;
+    settings.RENDER_OPTIONS!.hello = false;
+
   }
 
   ngOnChanges(): void {
@@ -132,15 +129,13 @@ export class PanelInfoComponent implements OnChanges, OnDestroy, AfterViewInit {
     }
   }
 
-  async ngAfterViewInit(): Promise<void> {
-    if (!this.panelCanvas) {
+  ngAfterViewInit(): void {
+    if (!this.panelCanvas && this.app) {
       return;
     }
 
-    this.app = new Application();
-
-    await this.app.init({
-      canvas: this.panelCanvas.nativeElement,
+    this.app = new Application({
+      view: this.panelCanvas.nativeElement,
       width: 1136,
       height: 640,
     });
@@ -158,29 +153,22 @@ export class PanelInfoComponent implements OnChanges, OnDestroy, AfterViewInit {
 
       const graphics = new Graphics();
 
-      //const point = hex;
-      //const corners = hex.corners.map((corner) => corner.add(point));
-      const [firstCorner, ...otherCorners] = hex.corners;
+      graphics.lineStyle(3, 0x000);
 
-      // move the "pencil" to the first corner
-      graphics.moveTo(firstCorner.x, firstCorner.y);
-      // draw lines to the other corners
-      otherCorners.forEach(({ x, y }) => graphics.lineTo(x, y));
-      // finish at the first corner
-      graphics.lineTo(firstCorner.x, firstCorner.y);
+      const [firstCorner, ...otherCorners] = hex.corners;
 
       if (this.panelInfo.length > index) {
         //set slot color based on number
         switch (this.panelInfo[index].panelIsGold) {
           case 0:
           case 1:
-            graphics.fill(0xffffff);
+            graphics.beginFill(0xffffff, 1);
             break;
           case 2:
-            graphics.fill(0xffd700);
+            graphics.beginFill(0xffd700, 1);
             break;
           case 3:
-            graphics.fill(0xff94a2);
+            graphics.beginFill(0xff94a2, 1);
             break;
         }
 
@@ -200,15 +188,18 @@ export class PanelInfoComponent implements OnChanges, OnDestroy, AfterViewInit {
         });
       } else {
         //otherwise, simply color with grey
-        graphics.fill(0x787878);
+        graphics.beginFill(0x787878, 1);
         graphics.eventMode = "none";
         graphics.cursor = "default";
       }
 
-      graphics.stroke({
-        color: 0x000,
-        width: 3,
-      })
+      // move the "pencil" to the first corner
+      graphics.moveTo(firstCorner.x, firstCorner.y);
+      // draw lines to the other corners
+      otherCorners.forEach(({ x, y }) => graphics.lineTo(x, y));
+      // finish at the first corner
+      graphics.lineTo(firstCorner.x, firstCorner.y);
+      graphics.endFill();
 
       cont.addChild(graphics);
 
@@ -217,6 +208,8 @@ export class PanelInfoComponent implements OnChanges, OnDestroy, AfterViewInit {
 
         // generate trapezoid
         const rect = new Graphics();
+        rect.beginFill(0xc7c0ad, 1);
+        rect.lineStyle(0, 0xc7c0ad);
         rect.moveTo(hex.corners[2].x - 1, hex.corners[2].y);
         rect.lineTo(hex.corners[3].x + 2, hex.corners[3].y);
         rect.lineTo(
@@ -227,11 +220,7 @@ export class PanelInfoComponent implements OnChanges, OnDestroy, AfterViewInit {
           ((hex.corners[1].x * 3) + (hex.corners[2].x * 5)) / 8 - 1,
           ((hex.corners[1].y * 3) + (hex.corners[2].y * 5)) / 8
         );
-        rect.fill(0xc7c0ad);
-        rect.stroke({
-          color: 0xc7c0ad,
-          width: 0,
-        });
+        rect.endFill();
 
         rect.pivot.set(0.5, 0.5);
 
@@ -244,13 +233,7 @@ export class PanelInfoComponent implements OnChanges, OnDestroy, AfterViewInit {
         skillIcon.position.set(picX, picY - 10);
 
         // slot cost
-        const thisCost = new Text({
-          text: String(this.cost[index]),
-          style: {
-            fontFamily: 'lineGothic',
-            fontWeight: "bold"
-          }
-        });
+        const thisCost = new Text(String(this.cost[index]), { fontFamily: 'lineGothic', fontWeight: "bold" });
         thisCost.anchor.set(0.5, 0.5);
         thisCost.position.set(picX, picY + hex.width / 2 * (5 / 8) + 7);
 
@@ -286,6 +269,8 @@ export class PanelInfoComponent implements OnChanges, OnDestroy, AfterViewInit {
   //   ‾‾‾‾
   generateRect(hex: PanelHex): Graphics {
     const rect = new Graphics();
+    rect.beginFill(0xc7c0ad, 1);
+    rect.lineStyle(0, 0xc7c0ad);
     rect.moveTo(hex.x + hex.corners[1].x, hex.y + hex.corners[1].y);
     rect.lineTo(hex.x + hex.corners[2].x, hex.y + hex.corners[2].y);
     rect.lineTo(
@@ -296,11 +281,7 @@ export class PanelInfoComponent implements OnChanges, OnDestroy, AfterViewInit {
       hex.x + ((hex.corners[0].x * 3) + (hex.corners[1].x * 5)) / 8,
       hex.y + ((hex.corners[0].y * 3) + (hex.corners[1].y * 5)) / 8
     );
-    rect.fill(0xc7c0ad);
-    rect.stroke({
-      color: 0xc7c0ad,
-      width: 0,
-    });
+    rect.endFill();
 
     rect.pivot.set(0.5, 0.5);
 
