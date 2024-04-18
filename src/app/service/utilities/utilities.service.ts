@@ -211,6 +211,8 @@ export class UtilitiesService {
         return '動畫獎勵';
       case 'SituationDrama':
         return '情景劇卡池';
+      case 'ParallelCollection':
+        return '平行卡池';
       default:
         return '';
     }
