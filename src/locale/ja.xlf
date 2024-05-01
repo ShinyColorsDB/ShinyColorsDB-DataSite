@@ -1,0 +1,627 @@
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="tw" trgLang="ja">
+  <file id="ngi18n" original="ng.template">
+    <unit id="ngb.alert.close">
+      <segment state="initial">
+        <source>Close</source>
+        <target>Close</target>
+      </segment>
+    </unit>
+    <unit id="ngb.carousel.slide-number">
+      <notes>
+        <note category="description">Currently selected slide number read by screen reader</note>
+      </notes>
+      <segment state="initial">
+        <source> Slide <ph id="0" equiv="INTERPOLATION" disp="pauseOnFocus);"/> of <ph id="1" equiv="INTERPOLATION_1" disp="BehaviorSubjec"/> </source>
+        <target> Slide <ph id="0" equiv="INTERPOLATION" disp="pauseOnFocus);"/> of <ph id="1" equiv="INTERPOLATION_1" disp="BehaviorSubjec"/> </target>
+      </segment>
+    </unit>
+    <unit id="ngb.carousel.previous">
+      <segment state="initial">
+        <source>Previous</source>
+        <target>Previous</target>
+      </segment>
+    </unit>
+    <unit id="ngb.carousel.next">
+      <segment state="initial">
+        <source>Next</source>
+        <target>Next</target>
+      </segment>
+    </unit>
+    <unit id="ngb.datepicker.select-month">
+      <segment state="initial">
+        <source>Select month</source>
+        <target>Select month</target>
+      </segment>
+    </unit>
+    <unit id="ngb.datepicker.select-year">
+      <segment state="initial">
+        <source>Select year</source>
+        <target>Select year</target>
+      </segment>
+    </unit>
+    <unit id="ngb.datepicker.previous-month">
+      <segment state="initial">
+        <source>Previous month</source>
+        <target>Previous month</target>
+      </segment>
+    </unit>
+    <unit id="ngb.datepicker.next-month">
+      <segment state="initial">
+        <source>Next month</source>
+        <target>Next month</target>
+      </segment>
+    </unit>
+    <unit id="ngb.pagination.first">
+      <segment state="initial">
+        <source>««</source>
+        <target>««</target>
+      </segment>
+    </unit>
+    <unit id="ngb.pagination.previous">
+      <segment state="initial">
+        <source>«</source>
+        <target>«</target>
+      </segment>
+    </unit>
+    <unit id="ngb.pagination.next">
+      <segment state="initial">
+        <source>»</source>
+        <target>»</target>
+      </segment>
+    </unit>
+    <unit id="ngb.pagination.last">
+      <segment state="initial">
+        <source>»»</source>
+        <target>»»</target>
+      </segment>
+    </unit>
+    <unit id="ngb.pagination.first-aria">
+      <segment state="initial">
+        <source>First</source>
+        <target>First</target>
+      </segment>
+    </unit>
+    <unit id="ngb.pagination.previous-aria">
+      <segment state="initial">
+        <source>Previous</source>
+        <target>Previous</target>
+      </segment>
+    </unit>
+    <unit id="ngb.pagination.next-aria">
+      <segment state="initial">
+        <source>Next</source>
+        <target>Next</target>
+      </segment>
+    </unit>
+    <unit id="ngb.pagination.last-aria">
+      <segment state="initial">
+        <source>Last</source>
+        <target>Last</target>
+      </segment>
+    </unit>
+    <unit id="ngb.progressbar.value">
+      <segment state="initial">
+        <source>
+          <ph id="0" equiv="INTERPOLATION" disp="his._config.ani"/>
+        </source>
+        <target>
+          <ph id="0" equiv="INTERPOLATION" disp="his._config.ani"/>
+        </target>
+      </segment>
+    </unit>
+    <unit id="ngb.timepicker.HH">
+      <segment state="initial">
+        <source>HH</source>
+        <target>HH</target>
+      </segment>
+    </unit>
+    <unit id="ngb.timepicker.hours">
+      <segment state="initial">
+        <source>Hours</source>
+        <target>Hours</target>
+      </segment>
+    </unit>
+    <unit id="ngb.timepicker.MM">
+      <segment state="initial">
+        <source>MM</source>
+        <target>MM</target>
+      </segment>
+    </unit>
+    <unit id="ngb.timepicker.minutes">
+      <segment state="initial">
+        <source>Minutes</source>
+        <target>Minutes</target>
+      </segment>
+    </unit>
+    <unit id="ngb.timepicker.increment-hours">
+      <segment state="initial">
+        <source>Increment hours</source>
+        <target>Increment hours</target>
+      </segment>
+    </unit>
+    <unit id="ngb.timepicker.decrement-hours">
+      <segment state="initial">
+        <source>Decrement hours</source>
+        <target>Decrement hours</target>
+      </segment>
+    </unit>
+    <unit id="ngb.timepicker.increment-minutes">
+      <segment state="initial">
+        <source>Increment minutes</source>
+        <target>Increment minutes</target>
+      </segment>
+    </unit>
+    <unit id="ngb.timepicker.decrement-minutes">
+      <segment state="initial">
+        <source>Decrement minutes</source>
+        <target>Decrement minutes</target>
+      </segment>
+    </unit>
+    <unit id="ngb.timepicker.SS">
+      <segment state="initial">
+        <source>SS</source>
+        <target>SS</target>
+      </segment>
+    </unit>
+    <unit id="ngb.timepicker.seconds">
+      <segment state="initial">
+        <source>Seconds</source>
+        <target>Seconds</target>
+      </segment>
+    </unit>
+    <unit id="ngb.timepicker.increment-seconds">
+      <segment state="initial">
+        <source>Increment seconds</source>
+        <target>Increment seconds</target>
+      </segment>
+    </unit>
+    <unit id="ngb.timepicker.decrement-seconds">
+      <segment state="initial">
+        <source>Decrement seconds</source>
+        <target>Decrement seconds</target>
+      </segment>
+    </unit>
+    <unit id="ngb.timepicker.PM">
+      <segment state="initial">
+        <source>
+          <ph id="0" equiv="INTERPOLATION"/>
+        </source>
+        <target>
+          <ph id="0" equiv="INTERPOLATION"/>
+        </target>
+      </segment>
+    </unit>
+    <unit id="ngb.toast.close-aria">
+      <segment state="initial">
+        <source>Close</source>
+        <target>Close</target>
+      </segment>
+    </unit>
+    <unit id="aptitudeType_music">
+      <segment state="initial">
+        <source>樂曲適性</source>
+        <target>樂曲適性</target>
+      </segment>
+    </unit>
+    <unit id="aptitude_cute">
+      <segment state="initial">
+        <source>キュート</source>
+        <target>キュート</target>
+      </segment>
+    </unit>
+    <unit id="aptitude_cool">
+      <segment state="initial">
+        <source>クール</source>
+        <target>クール</target>
+      </segment>
+    </unit>
+    <unit id="aptitude_positive">
+      <segment state="initial">
+        <source>ポジティブ</source>
+        <target>ポジティブ</target>
+      </segment>
+    </unit>
+    <unit id="aptitude_relax">
+      <segment state="initial">
+        <source>リラックス</source>
+        <target>リラックス</target>
+      </segment>
+    </unit>
+    <unit id="aptitude_emotional">
+      <segment state="initial">
+        <source>エモーショナル</source>
+        <target>エモーショナル</target>
+      </segment>
+    </unit>
+    <unit id="aptitudeType_expression">
+      <segment state="initial">
+        <source>表現適性</source>
+        <target>表現適性</target>
+      </segment>
+    </unit>
+    <unit id="aptitude_highPace">
+      <segment state="initial">
+        <source>ハイペース</source>
+        <target>ハイペース</target>
+      </segment>
+    </unit>
+    <unit id="aptitude_mediumPace">
+      <segment state="initial">
+        <source>ミドルペース</source>
+        <target>ミドルペース</target>
+      </segment>
+    </unit>
+    <unit id="aptitude_slowPace">
+      <segment state="initial">
+        <source>スローペース</source>
+        <target>スローペース</target>
+      </segment>
+    </unit>
+    <unit id="aptitudeType_environment">
+      <segment state="initial">
+        <source>環境適性</source>
+        <target>環境適性</target>
+      </segment>
+    </unit>
+    <unit id="aptitude_fine">
+      <segment state="initial">
+        <source>快晴</source>
+        <target>快晴</target>
+      </segment>
+    </unit>
+    <unit id="aptitude_sunny">
+      <segment state="initial">
+        <source>晴れ</source>
+        <target>晴れ</target>
+      </segment>
+    </unit>
+    <unit id="aptitude_cloudy">
+      <segment state="initial">
+        <source>くもり</source>
+        <target>くもり</target>
+      </segment>
+    </unit>
+    <unit id="aptitude_rain">
+      <segment state="initial">
+        <source>雨</source>
+        <target>雨</target>
+      </segment>
+    </unit>
+    <unit id="cardStatus_status">
+      <segment state="initial">
+        <source> ステータス </source>
+        <target> ステータス </target>
+      </segment>
+    </unit>
+    <unit id="statusShort_vocal">
+      <segment state="initial">
+        <source>Vo</source>
+        <target>Vo</target>
+      </segment>
+    </unit>
+    <unit id="statusShort_dance">
+      <segment state="initial">
+        <source>Da</source>
+        <target>Da</target>
+      </segment>
+    </unit>
+    <unit id="statusShort_visual">
+      <segment state="initial">
+        <source>Vi</source>
+        <target>Vi</target>
+      </segment>
+    </unit>
+    <unit id="statusShort_mental">
+      <segment state="initial">
+        <source>Me</source>
+        <target>Me</target>
+      </segment>
+    </unit>
+    <unit id="criteria_release">
+      <segment state="initial">
+        <source>實裝日</source>
+        <target>リリース</target>
+      </segment>
+    </unit>
+    <unit id="criteria_get">
+      <segment state="initial">
+        <source>取得</source>
+        <target>取得</target>
+      </segment>
+    </unit>
+    <unit id="criteria_rarity">
+      <segment state="initial">
+        <source>稀有度</source>
+        <target>レアリティ</target>
+      </segment>
+    </unit>
+    <unit id="attr_skillName">
+      <segment state="initial">
+        <source>技能名稱</source>
+        <target>スキル</target>
+      </segment>
+    </unit>
+    <unit id="extra_link">
+      <segment state="initial">
+        <source>Link</source>
+        <target>リンク</target>
+      </segment>
+    </unit>
+    <unit id="extra_linkAppl">
+      <segment state="initial">
+        <source>リンクアピール</source>
+        <target>リンクアピール</target>
+      </segment>
+    </unit>
+    <unit id="extra_plusAppl">
+      <segment state="initial">
+        <source>プラスアピール</source>
+        <target>プラスアピール</target>
+      </segment>
+    </unit>
+    <unit id="extra_change">
+      <segment state="initial">
+        <source>チェンジ効果</source>
+        <target>チェンジ効果</target>
+      </segment>
+    </unit>
+    <unit id="search_result">
+      <segment state="initial">
+        <source>搜尋結果</source>
+        <target>搜尋結果</target>
+      </segment>
+    </unit>
+    <unit id="search_empty">
+      <segment state="initial">
+        <source>沒有符合條件的結果</source>
+        <target>該当なし</target>
+      </segment>
+    </unit>
+    <unit id="sidebar_home">
+      <segment state="initial">
+        <source>首頁</source>
+        <target>ホームページ</target>
+      </segment>
+    </unit>
+    <unit id="sidebar_history">
+      <segment state="initial">
+        <source>歴史</source>
+        <target>歴史</target>
+      </segment>
+    </unit>
+    <unit id="sidebar_lookup">
+      <segment state="initial">
+        <source>技能篩選</source>
+        <target>技能篩選</target>
+      </segment>
+    </unit>
+    <unit id="attr_skillDesc">
+      <segment state="initial">
+        <source>技能敘述</source>
+        <target>技能敘述</target>
+      </segment>
+    </unit>
+    <unit id="criteria_duration">
+      <segment state="initial">
+        <source>距今(天)</source>
+        <target>距今(天)</target>
+      </segment>
+    </unit>
+    <unit id="cardType_support">
+      <segment state="initial">
+        <source>Support</source>
+        <target>Support</target>
+      </segment>
+    </unit>
+    <unit id="home_recentUpdate">
+      <segment state="initial">
+        <source>最近更新</source>
+        <target>最近更新</target>
+      </segment>
+    </unit>
+    <unit id="home_latestCards">
+      <segment state="initial">
+        <source>最新卡面</source>
+        <target>最新卡面</target>
+      </segment>
+    </unit>
+    <unit id="list_produce">
+      <segment state="initial">
+        <source>P卡列表</source>
+        <target>プロデュース</target>
+      </segment>
+    </unit>
+    <unit id="list_support">
+      <segment state="initial">
+        <source>S卡列表</source>
+        <target>サポート</target>
+      </segment>
+    </unit>
+    <unit id="info_name">
+      <segment state="initial">
+        <source>姓名</source>
+        <target>名前</target>
+      </segment>
+    </unit>
+    <unit id="info_age">
+      <segment state="initial">
+        <source>年齡</source>
+        <target>年齢</target>
+      </segment>
+    </unit>
+    <unit id="info_height">
+      <segment state="initial">
+        <source>身高</source>
+        <target>身長</target>
+      </segment>
+    </unit>
+    <unit id="info_weight">
+      <segment state="initial">
+        <source>體重</source>
+        <target>体重</target>
+      </segment>
+    </unit>
+    <unit id="info_birthday">
+      <segment state="initial">
+        <source>生日</source>
+        <target>誕生日</target>
+      </segment>
+    </unit>
+    <unit id="info_bloodType">
+      <segment state="initial">
+        <source>血型</source>
+        <target>血液型</target>
+      </segment>
+    </unit>
+    <unit id="info_unit">
+      <segment state="initial">
+        <source>所屬</source>
+        <target>ユニット</target>
+      </segment>
+    </unit>
+    <unit id="info_mesureament">
+      <segment state="initial">
+        <source>三圍</source>
+        <target>スリーサイズ</target>
+      </segment>
+    </unit>
+    <unit id="info_interest">
+      <segment state="initial">
+        <source>興趣</source>
+        <target>趣味</target>
+      </segment>
+    </unit>
+    <unit id="info_special">
+      <segment state="initial">
+        <source>特技</source>
+        <target>特技</target>
+      </segment>
+    </unit>
+    <unit id="info_seiyuu">
+      <segment state="initial">
+        <source>聲優</source>
+        <target>ＣＶ</target>
+      </segment>
+    </unit>
+    <unit id="tab_event">
+      <segment state="initial">
+        <source>劇情列表</source>
+        <target>コミュ</target>
+      </segment>
+    </unit>
+    <unit id="8762868499684338014">
+      <segment state="initial">
+        <source>なし</source>
+        <target>なし</target>
+      </segment>
+    </unit>
+    <unit id="title_event">
+      <segment state="initial">
+        <source>イベント</source>
+        <target>イベント</target>
+      </segment>
+    </unit>
+    <unit id="attr_eventName">
+      <segment state="initial">
+        <source>事件名稱</source>
+        <target>事件名稱</target>
+      </segment>
+    </unit>
+    <unit id="attr_aptitudes">
+      <segment state="initial">
+        <source>適性</source>
+        <target>適性</target>
+      </segment>
+    </unit>
+    <unit id="attr_memory">
+      <segment state="initial">
+        <source>思い出</source>
+        <target>思い出</target>
+      </segment>
+    </unit>
+    <unit id="title_fightSkill">
+      <segment state="initial">
+        <source>ファイトスキル</source>
+        <target>ファイトスキル</target>
+      </segment>
+    </unit>
+    <unit id="attr_idea">
+      <segment state="initial">
+        <source>アイデア</source>
+        <target>アイデア</target>
+      </segment>
+    </unit>
+    <unit id="attr_inspiration">
+      <segment state="initial">
+        <source>ひらめき</source>
+        <target>ひらめき</target>
+      </segment>
+    </unit>
+    <unit id="attr_profiency">
+      <segment state="initial">
+        <source>樂曲熟練度</source>
+        <target>樂曲熟練度</target>
+      </segment>
+    </unit>
+    <unit id="title_supportSkill">
+      <segment state="initial">
+        <source>サポートスキル</source>
+        <target>サポートスキル</target>
+      </segment>
+    </unit>
+    <unit id="tab_overview">
+      <segment state="initial">
+        <source>概覽</source>
+        <target>概覽</target>
+      </segment>
+    </unit>
+    <unit id="tab_limited">
+      <segment state="initial">
+        <source>限定</source>
+        <target>限定</target>
+      </segment>
+    </unit>
+    <unit id="tab_general">
+      <segment state="initial">
+        <source>常駐</source>
+        <target>恆常</target>
+      </segment>
+    </unit>
+    <unit id="sidebar_cardle">
+      <segment state="initial">
+        <source>Cardle</source>
+        <target>Cardle</target>
+      </segment>
+    </unit>
+    <unit id="sidebar_charList">
+      <segment state="initial">
+        <source>角色列表</source>
+        <target>アイドル</target>
+      </segment>
+    </unit>
+    <unit id="sidebar_other">
+      <segment state="initial">
+        <source>其他小玩具</source>
+        <target>其他小玩具</target>
+      </segment>
+    </unit>
+    <unit id="cardType_produce">
+      <segment state="initial">
+        <source>Produce</source>
+        <target>Produce</target>
+      </segment>
+    </unit>
+    <unit id="tab_produce">
+      <segment state="initial">
+        <source>P卡列表</source>
+        <target>P卡列表</target>
+      </segment>
+    </unit>
+    <unit id="tab_support">
+      <segment state="initial">
+        <source>S卡列表</source>
+        <target>S卡列表</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

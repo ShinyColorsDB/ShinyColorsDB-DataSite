@@ -68,7 +68,6 @@ export class RLookupComponent implements OnInit {
         this.skillList = data;
       });
     this.scApiService.getUnitList().subscribe((data) => {
-      console.log(data);
       this.units = data;
     });
   }
