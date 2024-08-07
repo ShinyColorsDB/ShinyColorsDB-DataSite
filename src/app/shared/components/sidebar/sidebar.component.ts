@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
 import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
 import { CharlistComponent } from '../charlist/charlist.component';
+import { SettingsComponent } from '../settings/settings.component';
 
 @Component({
   selector: 'app-sidebar',
@@ -13,6 +14,7 @@ import { CharlistComponent } from '../charlist/charlist.component';
     CommonModule,
     NgbAccordionModule,
     CharlistComponent,
+    SettingsComponent
   ],
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css'],

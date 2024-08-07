@@ -4,6 +4,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-settings',
+  standalone: true,
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.css']
 })

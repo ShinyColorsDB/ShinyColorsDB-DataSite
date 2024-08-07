@@ -23,32 +23,38 @@
               <td class="col-10 d-flex align-items-center">{{ this.idolInfo.idolName }}</td>
             </tr>
             <tr class="row">
-              <th class="col-2  d-flex align-items-center" i18n>年齡</th>
-              <td class="col-10 d-flex align-items-center">{{ this.idolInfo.age }}</td>
-            </tr>
-            <tr class="row">
-              <th class="col-2  d-flex align-items-center" i18n>身高</th>
-              <td class="col-10 d-flex align-items-center">{{ this.idolInfo.height }}</td>
-            </tr>
-            <tr class="row">
-              <th class="col-2  d-flex align-items-center" i18n>體重</th>
-              <td class="col-10 d-flex align-items-center">{{ this.idolInfo.weight }}</td>
-            </tr>
-            <tr class="row">
-              <th class="col-2  d-flex align-items-center" i18n>生日</th>
-              <td class="col-10 d-flex align-items-center">{{ this.idolInfo.birthday }}</td>
-            </tr>
-            <tr class="row">
-              <th class="col-2  d-flex align-items-center" i18n>血型</th>
-              <td class="col-10 d-flex align-items-center">{{ this.idolInfo.bloodType }}</td>
+              <th class="col-2  d-flex align-items-center" i18n>色碼</th>
+              <td class="col-10 d-flex align-items-center" [ngStyle]="{color: this.idolInfo.color1}">■ {{ this.idolInfo.color2 }}</td>
             </tr>
             <tr class="row">
               <th class="col-2  d-flex align-items-center" i18n>所屬</th>
               <td class="col-10 d-flex align-items-center">{{ this.idolInfo.unit.unitName }}</td>
             </tr>
             <tr class="row">
+              <th class="col-2 d-flex align-items-center" i18n>年齡</th>
+              <td class="col-4 d-flex align-items-center">{{ this.idolInfo.age }}</td>
+              <th class="col-2 d-flex align-items-center border-start" i18n>血型</th>
+              <td class="col-4 d-flex align-items-center">{{ this.idolInfo.bloodType }}</td>
+            </tr>
+            <tr class="row">
+              <th class="col-2 d-flex align-items-center" i18n>生日</th>
+              <td class="col-4 d-flex align-items-center">{{ this.idolInfo.birthday }}</td>
+              <th class="col-2 d-flex align-items-center border-start" i18n>星座</th>
+              <td class="col-4 d-flex align-items-center">{{ this.idolInfo.starSign }}</td>
+            </tr>
+            <tr class="row">
+              <th class="col-2 d-flex align-items-center" i18n>身高</th>
+              <td class="col-4 d-flex align-items-center">{{ this.idolInfo.height }}</td>
+              <th class="col-2 d-flex align-items-center border-start" i18n>體重</th>
+              <td class="col-4 d-flex align-items-center">{{ this.idolInfo.weight }}</td>
+            </tr>
+            <tr class="row">
               <th class="col-2  d-flex align-items-center" i18n>三圍</th>
               <td class="col-10 d-flex align-items-center">{{ this.idolInfo.threeSize }}</td>
+            </tr>
+            <tr class="row">
+              <th class="col-2  d-flex align-items-center" i18n>出身</th>
+              <td class="col-10 d-flex align-items-center">{{ this.idolInfo.birthPlace }}</td>
             </tr>
             <tr class="row">
               <th class="col-2  d-flex align-items-center" i18n>興趣</th>
