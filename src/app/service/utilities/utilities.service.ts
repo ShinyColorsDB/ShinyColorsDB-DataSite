@@ -181,6 +181,8 @@ export class UtilitiesService {
 
   translateGetMethod(method: string): string {
     switch (method) {
+      case 'Default':
+        return '基礎卡牌';
       case 'IdolRoad':
         return '偶像之路';
       case 'GeneralGasha':
@@ -189,8 +191,6 @@ export class UtilitiesService {
         return '限定卡池';
       case 'Events':
         return '活動獎勵';
-      case 'Default':
-        return '基礎卡牌';
       case 'FesReward':
         return '天梯獎勵';
       case 'LiveReward':
@@ -203,10 +203,12 @@ export class UtilitiesService {
         return 'MSC卡池';
       case 'Present':
         return '營運贈送';
-      case 'Collabo':
+      case 'CollaboGasha':
         return '合作卡池';
       case 'CollaboEvents':
         return '合作活動';
+      case 'CollabTwilightCollection':
+        return '合作暮光';
       case 'AnimeReward':
         return '動畫獎勵';
       case 'SituationDrama':
@@ -214,7 +216,7 @@ export class UtilitiesService {
       case 'ParallelCollection':
         return '平行卡池';
       default:
-        return '';
+        return method;
     }
   }
 
