@@ -28,7 +28,7 @@ import { CardStatusComponent } from '../../components/card-status/card-status.co
     PanelListComponent,
     MemoryTableComponent,
     AptitudeComponent,
-    CardStatusComponent
+    CardStatusComponent,
   ],
   templateUrl: './p-info.component.html',
   styleUrls: ['./p-info.component.css'],

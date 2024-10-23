@@ -3,13 +3,13 @@
     <tr>
       <th>#</th>
       <th scope="col" i18n>技能名稱</th>
-      <th scope="col" i18n>Link</th>
+      <th scope="col" i18n>Link/Charge</th>
     </tr>
   </thead>
   @for(mem of memoryList; track mem; let i = $index) {
   <tbody>
     <tr>
-      <td rowspan="2" class="align-middle forLevel">Lv.{{ i + 1 }}</td>
+      <td [attr.rowspan]="this.chargeSkills.length == 0 ? 2 : 3" class="align-middle forLevel">Lv.{{ i + 1 }}</td>
       <td>{{ mem.memoryTitle }}</td>
       <td rowspan="2" class="align-middle">
         @if(mem.extraEffect) {
@@ -22,6 +22,18 @@
         <span class="wrapup">{{ this.addLineBreak(mem.memoryDesc) }}</span>
       </td>
     </tr>
+    @if (this.chargeSkills.length !== 0) {
+    <tr class="light-red">
+      <td class="align-middle">
+        <span class="wrapup">{{ this.chargeSkills[i].skillName }}</span>
+        <br>
+        <span class="wrapup forLevel">(☆{{ this.chargeSkills[i].releaseEvolution }})</span>
+      </td>
+      <td class="align-middle">
+        <span class="wrapup">{{ this.chargeSkills[i].skillDesc }}</span>
+      </td>
+    </tr>
+    }
   </tbody>
   }
 

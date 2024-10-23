@@ -24,7 +24,7 @@ tr.hover,
 th.hover,
 td.hover,
 tr.hoverable:hover {
-  background-color: #CCC;
+  background-color: #dedede;
 }
 
 .wrapup{

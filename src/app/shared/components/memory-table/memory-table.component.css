@@ -11,7 +11,11 @@ tr.hover,
 th.hover,
 td.hover,
 tr.hoverable:hover {
-  background-color: #CCC;
+  background-color: #dedede;
+}
+
+tbody:hover tr.light-red {
+  background-color: #ffcfd8;
 }
 
 .forLevel {
@@ -22,4 +26,8 @@ tr.hoverable:hover {
 
 .wrapup {
   white-space: pre-wrap;
+}
+
+.light-red {
+  background-color: #ffe9ed;
 }

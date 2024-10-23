@@ -4,6 +4,7 @@ import { CardMemoryAppeal } from "./cardmemoryappeal";
 import { PanelSlot } from "./panelslot";
 import { CardProduceAptitude } from "./cardproduceaptitude";
 import { Card } from "./card";
+import { MemoryChargeSkill } from "./memorychargeskill";
 
 export interface PCard extends Card {
   idol: Idol;
@@ -11,4 +12,5 @@ export interface PCard extends Card {
   cardMemoryAppeals: CardMemoryAppeal[];
   cardPanels: PanelSlot[];
   cardProduceAptitude: CardProduceAptitude[];
+  memoryChargeSkills: MemoryChargeSkill[];
 }
