@@ -12,15 +12,36 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "i18n": {
+        "sourceLocale": {
+          "code": "tw"
+        },
+        "locales": {
+          "en": {
+            "translation": "src/locale/messages.en.xlf",
+            "baseHref": "/en/"
+          },
+          "ja": {
+            "translation": "src/locale/messages.ja.xlf",
+            "baseHref": "/jp/"
+          },
+          "cn": {
+            "translation": "src/locale/messages.cn.xlf",
+            "baseHref": "/cn/"
+          }
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "localize": true,
             "outputPath": "dist/ShinyColorsDB-DataSite",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
-              "zone.js"
+              "zone.js",
+              "@angular/localize/init"
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
@@ -80,7 +101,11 @@
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "localize": [
+                "zh-Hant"
+              ],
+              "baseHref": "/"
             }
           },
           "defaultConfiguration": "production"
@@ -102,9 +127,16 @@
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "builder": "ng-extract-i18n-merge:ng-extract-i18n-merge",
           "options": {
-            "buildTarget": "ShinyColorsDB-DataSite:build"
+            "buildTarget": "ShinyColorsDB-DataSite:build",
+            "format": "xlf2",
+            "outputPath": "src/locale",
+            "targetFiles": [
+              "messages.en.xlf",
+              "messages.ja.xlf",
+              "messages.cn.xlf"
+            ]
           }
         },
         "test": {
@@ -120,7 +152,10 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "polyfills": [
+              "@angular/localize/init"
+            ]
           }
         }
       }

@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="zh-Hant">
+  <file id="ngi18n" original="ng.template">
+    <unit id="1067245641672244027">
+      <segment>
+        <source>アイデア</source>
+      </segment>
+    </unit>
+    <unit id="1079527125099609713">
+      <segment>
+        <source>最新卡面</source>
+      </segment>
+    </unit>
+    <unit id="1124357355083310553">
+      <segment>
+        <source>イベント</source>
+      </segment>
+    </unit>
+    <unit id="1206040673882999403">
+      <segment>
+        <source>身高</source>
+      </segment>
+    </unit>
+    <unit id="1353287152113938925">
+      <segment>
+        <source>くもり</source>
+      </segment>
+    </unit>
+    <unit id="1587728720213236541">
+      <segment>
+        <source>チェンジ効果</source>
+      </segment>
+    </unit>
+    <unit id="162294776373901363">
+      <segment>
+        <source>所屬</source>
+      </segment>
+    </unit>
+    <unit id="2130127019653828465">
+      <segment>
+        <source>サポートスキル</source>
+      </segment>
+    </unit>
+    <unit id="2288513108450439427">
+      <segment>
+        <source>Support</source>
+      </segment>
+    </unit>
+    <unit id="2439063854748420657">
+      <segment>
+        <source>環境適性</source>
+      </segment>
+    </unit>
+    <unit id="24935839329855588">
+      <segment>
+        <source>キュート</source>
+      </segment>
+    </unit>
+    <unit id="2509263906735978415">
+      <segment>
+        <source>首頁</source>
+      </segment>
+    </unit>
+    <unit id="2516384312793100453">
+      <segment>
+        <source>距今(天)</source>
+      </segment>
+    </unit>
+    <unit id="2566234578718710305">
+      <segment>
+        <source>樂曲熟練度</source>
+      </segment>
+    </unit>
+    <unit id="2715358803891925690">
+      <segment>
+        <source>雨</source>
+      </segment>
+    </unit>
+    <unit id="3074921901275209927">
+      <segment>
+        <source>技能</source>
+      </segment>
+    </unit>
+    <unit id="3240524019077122244">
+      <segment>
+        <source>興趣</source>
+      </segment>
+    </unit>
+    <unit id="3315813716723042808">
+      <segment>
+        <source>出身</source>
+      </segment>
+    </unit>
+    <unit id="3357058319557015352">
+      <segment>
+        <source>表現適性</source>
+      </segment>
+    </unit>
+    <unit id="3366773401496772564">
+      <segment>
+        <source>聲優</source>
+      </segment>
+    </unit>
+    <unit id="3395225392169853474">
+      <segment>
+        <source>ひらめき</source>
+      </segment>
+    </unit>
+    <unit id="3413124887850169525">
+      <segment>
+        <source>年齡</source>
+      </segment>
+    </unit>
+    <unit id="3416900144410455111">
+      <segment>
+        <source>技能篩選</source>
+      </segment>
+    </unit>
+    <unit id="3536510662821635953">
+      <segment>
+        <source>Link/Charge</source>
+      </segment>
+    </unit>
+    <unit id="3564379460372766589">
+      <segment>
+        <source>思い出</source>
+      </segment>
+    </unit>
+    <unit id="3586622887464907975">
+      <segment>
+        <source>體重</source>
+      </segment>
+    </unit>
+    <unit id="3832872034334045961">
+      <segment>
+        <source>S卡列表</source>
+      </segment>
+    </unit>
+    <unit id="3907382965661259770">
+      <segment>
+        <source>最近更新</source>
+      </segment>
+    </unit>
+    <unit id="414309968670794967">
+      <segment>
+        <source>クール</source>
+      </segment>
+    </unit>
+    <unit id="4191918322292039470">
+      <segment>
+        <source>晴れ</source>
+      </segment>
+    </unit>
+    <unit id="427033854969957383">
+      <segment>
+        <source>劇情列表</source>
+      </segment>
+    </unit>
+    <unit id="4375671806759660659">
+      <segment>
+        <source>三圍</source>
+      </segment>
+    </unit>
+    <unit id="4393917323755464378">
+      <segment>
+        <source>血型</source>
+      </segment>
+    </unit>
+    <unit id="4466762842188088108">
+      <segment>
+        <source>Produce</source>
+      </segment>
+    </unit>
+    <unit id="4638292233342859190">
+      <segment>
+        <source>星座</source>
+      </segment>
+    </unit>
+    <unit id="4756749894258010847">
+      <segment>
+        <source>樂曲適性</source>
+      </segment>
+    </unit>
+    <unit id="4811492376428427865">
+      <segment>
+        <source>(イベント)</source>
+      </segment>
+    </unit>
+    <unit id="4870844504570094109">
+      <segment>
+        <source>快晴</source>
+      </segment>
+    </unit>
+    <unit id="506045288784462723">
+      <segment>
+        <source>エモーショナル</source>
+      </segment>
+    </unit>
+    <unit id="5079357118759197807">
+      <segment>
+        <source>沒有符合條件的結果</source>
+      </segment>
+    </unit>
+    <unit id="5170623678845030267">
+      <segment>
+        <source>歴史</source>
+      </segment>
+    </unit>
+    <unit id="5466094103826978207">
+      <segment>
+        <source>P卡列表</source>
+      </segment>
+    </unit>
+    <unit id="5601254587589034652">
+      <segment>
+        <source>取消</source>
+      </segment>
+    </unit>
+    <unit id="5841301173063830690">
+      <segment>
+        <source>色碼</source>
+      </segment>
+    </unit>
+    <unit id="5849329280278379840">
+      <segment>
+        <source>實裝日</source>
+      </segment>
+    </unit>
+    <unit id="6047250377323744172">
+      <segment>
+        <source>稀有度</source>
+      </segment>
+    </unit>
+    <unit id="6103547994870885186">
+      <segment>
+        <source>概覽</source>
+      </segment>
+    </unit>
+    <unit id="613692042613217657">
+      <segment>
+        <source>特技</source>
+      </segment>
+    </unit>
+    <unit id="6276611849393476960">
+      <segment>
+        <source>リラックス</source>
+      </segment>
+    </unit>
+    <unit id="6496570600370810218">
+      <segment>
+        <source>ポジティブ</source>
+      </segment>
+    </unit>
+    <unit id="6515949245326935020">
+      <segment>
+        <source>リンクアピール</source>
+      </segment>
+    </unit>
+    <unit id="6565457279015221452">
+      <segment>
+        <source>生日</source>
+      </segment>
+    </unit>
+    <unit id="6651863896520978262">
+      <segment>
+        <source>スローペース</source>
+      </segment>
+    </unit>
+    <unit id="6957640009336141743">
+      <segment>
+        <source>ミドルペース</source>
+      </segment>
+    </unit>
+    <unit id="7066599083128800191">
+      <segment>
+        <source>確定</source>
+      </segment>
+    </unit>
+    <unit id="7209967242733944248">
+      <segment>
+        <source>技能敘述</source>
+      </segment>
+    </unit>
+    <unit id="7419080677613818373">
+      <segment>
+        <source>姓名</source>
+      </segment>
+    </unit>
+    <unit id="7574150242309412725">
+      <segment>
+        <source>Lv.</source>
+      </segment>
+    </unit>
+    <unit id="7938480534409351906">
+      <segment>
+        <source>常駐</source>
+      </segment>
+    </unit>
+    <unit id="8154003034454992027">
+      <segment>
+        <source>プラスアピール</source>
+      </segment>
+    </unit>
+    <unit id="8218684236244926394">
+      <segment>
+        <source>取得</source>
+      </segment>
+    </unit>
+    <unit id="8527862849898712983">
+      <segment>
+        <source>技能名稱</source>
+      </segment>
+    </unit>
+    <unit id="8722196926767397793">
+      <segment>
+        <source>ファイトスキル</source>
+      </segment>
+    </unit>
+    <unit id="8762868499684338014">
+      <segment>
+        <source>なし</source>
+      </segment>
+    </unit>
+    <unit id="877839966202950402">
+      <segment>
+        <source>適性</source>
+      </segment>
+    </unit>
+    <unit id="9061349531926962309">
+      <segment>
+        <source>ハイペース</source>
+      </segment>
+    </unit>
+    <unit id="9197313026531527529">
+      <segment>
+        <source>限定</source>
+      </segment>
+    </unit>
+    <unit id="926507038728596035">
+      <segment>
+        <source>事件名稱</source>
+      </segment>
+    </unit>
+    <unit id="ngb.alert.close">
+      <segment>
+        <source>Close</source>
+      </segment>
+    </unit>
+    <unit id="ngb.carousel.next">
+      <segment>
+        <source>Next</source>
+      </segment>
+    </unit>
+    <unit id="ngb.carousel.previous">
+      <segment>
+        <source>Previous</source>
+      </segment>
+    </unit>
+    <unit id="ngb.carousel.slide-number">
+      <notes>
+        <note category="description">Currently selected slide number read by screen reader</note>
+      </notes>
+      <segment>
+        <source> Slide <ph id="0" equiv="INTERPOLATION" disp="e$ = new Behavi"/> of <ph id="1" equiv="INTERPOLATION_1" disp="vate _wrap$ = n"/> </source>
+      </segment>
+    </unit>
+    <unit id="ngb.datepicker.next-month">
+      <segment>
+        <source>Next month</source>
+      </segment>
+    </unit>
+    <unit id="ngb.datepicker.previous-month">
+      <segment>
+        <source>Previous month</source>
+      </segment>
+    </unit>
+    <unit id="ngb.datepicker.select-month">
+      <segment>
+        <source>Select month</source>
+      </segment>
+    </unit>
+    <unit id="ngb.datepicker.select-year">
+      <segment>
+        <source>Select year</source>
+      </segment>
+    </unit>
+    <unit id="ngb.pagination.first">
+      <segment>
+        <source>««</source>
+      </segment>
+    </unit>
+    <unit id="ngb.pagination.first-aria">
+      <segment>
+        <source>First</source>
+      </segment>
+    </unit>
+    <unit id="ngb.pagination.last">
+      <segment>
+        <source>»»</source>
+      </segment>
+    </unit>
+    <unit id="ngb.pagination.last-aria">
+      <segment>
+        <source>Last</source>
+      </segment>
+    </unit>
+    <unit id="ngb.pagination.next">
+      <segment>
+        <source>»</source>
+      </segment>
+    </unit>
+    <unit id="ngb.pagination.next-aria">
+      <segment>
+        <source>Next</source>
+      </segment>
+    </unit>
+    <unit id="ngb.pagination.previous">
+      <segment>
+        <source>«</source>
+      </segment>
+    </unit>
+    <unit id="ngb.pagination.previous-aria">
+      <segment>
+        <source>Previous</source>
+      </segment>
+    </unit>
+    <unit id="ngb.progressbar.value">
+      <segment>
+        <source>
+          <ph id="0" equiv="INTERPOLATION" disp=". * * @sinc"/>
+        </source>
+      </segment>
+    </unit>
+    <unit id="ngb.timepicker.decrement-hours">
+      <segment>
+        <source>Decrement hours</source>
+      </segment>
+    </unit>
+    <unit id="ngb.timepicker.decrement-minutes">
+      <segment>
+        <source>Decrement minutes</source>
+      </segment>
+    </unit>
+    <unit id="ngb.timepicker.decrement-seconds">
+      <segment>
+        <source>Decrement seconds</source>
+      </segment>
+    </unit>
+    <unit id="ngb.timepicker.HH">
+      <segment>
+        <source>HH</source>
+      </segment>
+    </unit>
+    <unit id="ngb.timepicker.hours">
+      <segment>
+        <source>Hours</source>
+      </segment>
+    </unit>
+    <unit id="ngb.timepicker.increment-hours">
+      <segment>
+        <source>Increment hours</source>
+      </segment>
+    </unit>
+    <unit id="ngb.timepicker.increment-minutes">
+      <segment>
+        <source>Increment minutes</source>
+      </segment>
+    </unit>
+    <unit id="ngb.timepicker.increment-seconds">
+      <segment>
+        <source>Increment seconds</source>
+      </segment>
+    </unit>
+    <unit id="ngb.timepicker.minutes">
+      <segment>
+        <source>Minutes</source>
+      </segment>
+    </unit>
+    <unit id="ngb.timepicker.MM">
+      <segment>
+        <source>MM</source>
+      </segment>
+    </unit>
+    <unit id="ngb.timepicker.PM">
+      <segment>
+        <source>
+          <ph id="0" equiv="INTERPOLATION"/>
+        </source>
+      </segment>
+    </unit>
+    <unit id="ngb.timepicker.seconds">
+      <segment>
+        <source>Seconds</source>
+      </segment>
+    </unit>
+    <unit id="ngb.timepicker.SS">
+      <segment>
+        <source>SS</source>
+      </segment>
+    </unit>
+    <unit id="ngb.toast.close-aria">
+      <segment>
+        <source>Close</source>
+      </segment>
+    </unit>
+  </file>
+</xliff>
