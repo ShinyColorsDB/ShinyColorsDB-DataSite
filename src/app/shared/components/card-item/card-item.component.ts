@@ -7,15 +7,14 @@ import { Card } from '../../interfaces/card';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  standalone: true,
-  selector: 'app-card-item',
-  imports: [
-    RouterModule,
-    CommonModule,
-    DatePipe
-  ],
-  templateUrl: './card-item.component.html',
-  styleUrls: ['./card-item.component.css'],
+    selector: 'app-card-item',
+    imports: [
+        RouterModule,
+        CommonModule,
+        DatePipe
+    ],
+    templateUrl: './card-item.component.html',
+    styleUrls: ['./card-item.component.css']
 })
 export class CardItemComponent implements OnInit {
   @Input()

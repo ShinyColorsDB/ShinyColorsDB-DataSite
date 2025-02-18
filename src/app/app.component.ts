@@ -6,19 +6,17 @@ import { SidebarComponent } from './shared/components/sidebar/sidebar.component'
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  templateUrl: './app.component.html',
-  imports: [
-    SidebarComponent,
-    RouterModule,
-
-// TODO: `HttpClientModule` should not be imported into a component directly.
-// Please refactor the code to add `provideHttpClient()` call to the provider list in the
-// application bootstrap logic and remove the `HttpClientModule` import from this component.
-//HttpClientModule
-  ],
-  styleUrls: ['./app.component.css']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    imports: [
+        SidebarComponent,
+        RouterModule,
+        // TODO: `HttpClientModule` should not be imported into a component directly.
+        // Please refactor the code to add `provideHttpClient()` call to the provider list in the
+        // application bootstrap logic and remove the `HttpClientModule` import from this component.
+        //HttpClientModule
+    ],
+    styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   title = 'ShinyColorsDB-DataSite';

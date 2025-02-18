@@ -7,16 +7,15 @@ import { RESPONSE } from '../../../../express.tokens';
 import { Response } from 'express';
 
 @Component({
-  selector: 'app-notfound',
-  standalone: true,
-  imports: [
-    RouterModule,
-  ],
-  templateUrl: './notfound.component.html',
-  styleUrls: ['./notfound.component.css'],
-  host: {
-    class: 'col-lg-10 col-md-8 col-sm-12 d-flex h-100',
-  },
+    selector: 'app-notfound',
+    imports: [
+        RouterModule,
+    ],
+    templateUrl: './notfound.component.html',
+    styleUrls: ['./notfound.component.css'],
+    host: {
+        class: 'col-lg-10 col-md-8 col-sm-12 d-flex h-100',
+    }
 })
 export class NotfoundComponent implements OnInit {
   constructor(

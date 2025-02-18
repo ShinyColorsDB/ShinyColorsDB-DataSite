@@ -24,19 +24,18 @@ enum tabStatus {
 };
 
 @Component({
-  selector: 'app-i-info',
-  standalone: true,
-  imports: [
-    NgbAccordionModule,
-    CommonModule,
-    RouterModule,
-    CardItemComponent,
-  ],
-  templateUrl: './i-info.component.html',
-  styleUrls: ['./i-info.component.css'],
-  host: {
-    class: 'col-lg-10 col-md-8 col-sm-12 overflow-auto h-100',
-  },
+    selector: 'app-i-info',
+    imports: [
+        NgbAccordionModule,
+        CommonModule,
+        RouterModule,
+        CardItemComponent,
+    ],
+    templateUrl: './i-info.component.html',
+    styleUrls: ['./i-info.component.css'],
+    host: {
+        class: 'col-lg-10 col-md-8 col-sm-12 overflow-auto h-100',
+    }
 })
 export class IInfoComponent implements OnInit {
   idolInfo!: Idol;

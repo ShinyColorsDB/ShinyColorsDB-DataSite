@@ -19,20 +19,19 @@ import { SupskillCardComponent } from '../../components/supskill-card/supskill-c
 import { CardStatusComponent } from '../../components/card-status/card-status.component';
 
 @Component({
-  selector: 'app-s-info',
-  standalone: true,
-  imports: [
-    CommonCriteriaComponent,
-    PanelInfoComponent,
-    PanelListComponent,
-    SupskillCardComponent,
-    CardStatusComponent,
-  ],
-  templateUrl: './s-info.component.html',
-  styleUrls: ['./s-info.component.css'],
-  host: {
-    class: 'col-lg-10 col-md-8 col-sm-12 overflow-auto h-100',
-  },
+    selector: 'app-s-info',
+    imports: [
+        CommonCriteriaComponent,
+        PanelInfoComponent,
+        PanelListComponent,
+        SupskillCardComponent,
+        CardStatusComponent,
+    ],
+    templateUrl: './s-info.component.html',
+    styleUrls: ['./s-info.component.css'],
+    host: {
+        class: 'col-lg-10 col-md-8 col-sm-12 overflow-auto h-100',
+    }
 })
 export class SInfoComponent implements OnInit {
   sCardUuid!: string;

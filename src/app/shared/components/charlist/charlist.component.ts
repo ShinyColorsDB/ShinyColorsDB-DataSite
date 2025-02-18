@@ -10,15 +10,14 @@ import { ShinycolorsUrlService } from 'src/app/service/shinycolors-url/shinycolo
 import { NgbCollapse } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-charlist',
-  standalone: true,
-  imports: [
-    RouterModule,
-    CommonModule,
-    NgbCollapse
-  ],
-  templateUrl: './charlist.component.html',
-  styleUrls: ['./charlist.component.css'],
+    selector: 'app-charlist',
+    imports: [
+        RouterModule,
+        CommonModule,
+        NgbCollapse
+    ],
+    templateUrl: './charlist.component.html',
+    styleUrls: ['./charlist.component.css']
 })
 export class CharlistComponent implements OnInit {
   Units: Array<Unit> = [];

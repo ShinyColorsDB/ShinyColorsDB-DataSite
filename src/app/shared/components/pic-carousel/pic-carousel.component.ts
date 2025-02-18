@@ -6,13 +6,12 @@ import { ShinycolorsUrlService } from 'src/app/service/shinycolors-url/shinycolo
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-pic-carousel',
-  standalone: true,
-  imports: [
-    NgbCarouselModule
-  ],
-  templateUrl: './pic-carousel.component.html',
-  styleUrls: ['./pic-carousel.component.css']
+    selector: 'app-pic-carousel',
+    imports: [
+        NgbCarouselModule
+    ],
+    templateUrl: './pic-carousel.component.html',
+    styleUrls: ['./pic-carousel.component.css']
 })
 export class PicCarouselComponent implements OnInit, OnChanges {
   @ViewChild('picCarousel') picCarousel!: NgbCarousel;

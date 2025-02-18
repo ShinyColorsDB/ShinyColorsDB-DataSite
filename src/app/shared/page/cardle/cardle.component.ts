@@ -10,17 +10,16 @@ import { Meta, Title } from '@angular/platform-browser';
 import { isPlatformBrowser, CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-cardle',
-  standalone: true,
-  imports: [
-    NgbModalModule,
-    CommonModule
-  ],
-  templateUrl: './cardle.component.html',
-  styleUrls: ['./cardle.component.css'],
-  host: {
-    class: 'col-lg-10 col-md-8 col-sm-12 overflow-auto h-100',
-  }
+    selector: 'app-cardle',
+    imports: [
+        NgbModalModule,
+        CommonModule
+    ],
+    templateUrl: './cardle.component.html',
+    styleUrls: ['./cardle.component.css'],
+    host: {
+        class: 'col-lg-10 col-md-8 col-sm-12 overflow-auto h-100',
+    }
 })
 export class CardleComponent implements OnInit, AfterViewInit {
 

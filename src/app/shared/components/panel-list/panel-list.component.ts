@@ -4,17 +4,16 @@ import { NgbPopover } from '@ng-bootstrap/ng-bootstrap';
 import { ShinycolorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
 
 @Component({
-  selector: 'app-panel-list',
-  standalone: true,
-  imports: [
-    CommonModule,
-    NgbPopover,
-  ],
-  templateUrl: './panel-list.component.html',
-  styleUrls: ['./panel-list.component.css'],
-  host: {
-    class: 'col-12 mb-4'
-  }
+    selector: 'app-panel-list',
+    imports: [
+        CommonModule,
+        NgbPopover,
+    ],
+    templateUrl: './panel-list.component.html',
+    styleUrls: ['./panel-list.component.css'],
+    host: {
+        class: 'col-12 mb-4'
+    }
 })
 export class PanelListComponent implements OnInit, OnChanges {
   @ViewChild('scrollMe') scrollMe!: any;

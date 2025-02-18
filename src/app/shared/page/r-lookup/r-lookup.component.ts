@@ -16,18 +16,17 @@ import { SubIdolFormComponent } from '../../components/sub-idol-form/sub-idol-fo
 import { QueryResultModalComponent } from '../../components/query-result-modal/query-result-modal.component';
 
 @Component({
-  selector: 'app-r-lookup',
-  standalone: true,
-  imports: [
-    SubSkillFormComponent,
-    SubIdolFormComponent,
-    QueryResultModalComponent,
-  ],
-  templateUrl: './r-lookup.component.html',
-  styleUrls: ['./r-lookup.component.css'],
-  host: {
-    class: 'col-lg-10 col-md-8 col-sm-12 overflow-auto h-100 container-fluid p-0',
-  },
+    selector: 'app-r-lookup',
+    imports: [
+        SubSkillFormComponent,
+        SubIdolFormComponent,
+        QueryResultModalComponent,
+    ],
+    templateUrl: './r-lookup.component.html',
+    styleUrls: ['./r-lookup.component.css'],
+    host: {
+        class: 'col-lg-10 col-md-8 col-sm-12 overflow-auto h-100 container-fluid p-0',
+    }
 })
 export class RLookupComponent implements OnInit {
 

@@ -7,17 +7,16 @@ import { CharlistComponent } from '../charlist/charlist.component';
 import { SettingsComponent } from '../settings/settings.component';
 
 @Component({
-  selector: 'app-sidebar',
-  standalone: true,
-  imports: [
-    RouterModule,
-    CommonModule,
-    NgbAccordionModule,
-    CharlistComponent,
-    SettingsComponent
-  ],
-  templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css'],
+    selector: 'app-sidebar',
+    imports: [
+        RouterModule,
+        CommonModule,
+        NgbAccordionModule,
+        CharlistComponent,
+        SettingsComponent
+    ],
+    templateUrl: './sidebar.component.html',
+    styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
   @Input()

@@ -9,17 +9,16 @@ import { Card } from '../../interfaces/card';
 import { CardItemComponent } from '../../components/card-item/card-item.component';
 
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  imports: [
-    CommonModule,
-    CardItemComponent,
-  ],
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
-  host: {
-    class: 'col-lg-10 col-md-8 col-sm-12 h-100 d-flex justify-content-center',
-  },
+    selector: 'app-home',
+    imports: [
+        CommonModule,
+        CardItemComponent,
+    ],
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.css'],
+    host: {
+        class: 'col-lg-10 col-md-8 col-sm-12 h-100 d-flex justify-content-center',
+    }
 })
 export class HomeComponent implements OnInit {
   togglePS = true;

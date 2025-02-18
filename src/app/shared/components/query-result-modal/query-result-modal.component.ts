@@ -8,13 +8,12 @@ import { RouterModule } from '@angular/router';
 
 
 @Component({
-  selector: 'app-query-result-modal',
-  standalone: true,
-  imports: [
-    RouterModule
-  ],
-  templateUrl: './query-result-modal.component.html',
-  styleUrls: ['./query-result-modal.component.css']
+    selector: 'app-query-result-modal',
+    imports: [
+        RouterModule
+    ],
+    templateUrl: './query-result-modal.component.html',
+    styleUrls: ['./query-result-modal.component.css']
 })
 export class QueryResultModalComponent implements OnInit {
 
