@@ -1,0 +1,7 @@
+* {
+  font-family: LineGothic;
+}
+
+.ratio {
+  object-fit: scale-down;
+}

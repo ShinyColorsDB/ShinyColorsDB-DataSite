@@ -43,10 +43,10 @@ export class SubIdolFormComponent implements OnInit {
   }
 
   getUnitIconUri(unitId: number): string {
-    return `${environment.cloudFlareUrl}images/content/unit/icon/${unitId.toString().padStart(3, '0')}.png`;
+    return `https://${environment.cloudFlareUrl}/images/content/unit/icon/${unitId.toString().padStart(3, '0')}.png`;
   }
 
   getIdolSmlIcon(idolId: number): string {
-    return `${environment.cloudFlareUrl}images/content/characters/icon_circle_l/${idolId.toString().padStart(3, '0')}.png`;
+    return `https://${environment.cloudFlareUrl}/images/content/characters/icon_circle_l/${idolId.toString().padStart(3, '0')}.png`;
   }
 }

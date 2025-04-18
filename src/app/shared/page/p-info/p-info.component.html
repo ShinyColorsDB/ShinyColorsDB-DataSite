@@ -1,6 +1,6 @@
 @if (this.pCardInfo) {
-<div class="row d-flex justify-content-around align-items-start">
-  <div class="col-12 p-0 d-none d-md-block">
+<div class="p-0 row align-items-start container-fluid d-flex justify-content-around">
+  <div class="col-12 p-0">
     <h1 class="mt-2 m-0">{{ this.pCardInfo.cardName }}</h1>
   </div>
   <div class="col-lg-6 col-md-12 row p-0 m-0">
@@ -20,8 +20,7 @@
       <app-card-status [cardStatus]="this.pCardInfo.cardStatus"></app-card-status>
       @if (this.pCardInfo.cardIdolEvents.length) {
       <h3
-        class="col-12 pt-2"
-        i18n>イベント</h3>
+        class="col-12 pt-2">イベント</h3>
       }
       @if (this.pCardInfo.cardIdolEvents.length) {
       <div

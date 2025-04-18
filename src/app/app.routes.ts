@@ -8,6 +8,8 @@ import { TimetableComponent } from './shared/page/timetable/timetable.component'
 import { NotfoundComponent } from './shared/page/notfound/notfound.component';
 import { RLookupComponent } from './shared/page/r-lookup/r-lookup.component';
 import { CardleComponent } from './shared/page/cardle/cardle.component';
+import { LInfoComponent } from './shared/page/l-info/l-info.component';
+import { LListComponent } from './shared/page/l-list/l-list.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -18,5 +20,7 @@ export const routes: Routes = [
   { path: 'notfound', component: NotfoundComponent },
   { path: 'r-lookup', component: RLookupComponent },
   { path: 'cardle', component: CardleComponent },
+  { path: 'liveinfo', component: LInfoComponent },
+  { path: 'livelist', component: LListComponent },
   { path: '**', redirectTo: 'notfound' }
 ];

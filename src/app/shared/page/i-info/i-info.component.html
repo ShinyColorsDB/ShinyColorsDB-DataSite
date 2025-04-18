@@ -1,9 +1,9 @@
 @if (this.idolInfo && this.album) {
-<div class="row m-0 p-0">
-  <div class="d-flex col-lg-4 col-md-12 h-100 container justify-content-center" id="divIdolData">
-    <div class="row">
-      <div class="col-12 pt-2 d-block">
-        <h1 class=" w-100 d-none d-md-block text-center">{{ this.idolInfo.idolName }}</h1>
+<div class="row p-0 w-100">
+  <div class="d-flex col-lg-3 col-md-4 col-sm-12 container justify-content-center" id="divIdolData">
+    <div class="w-100">
+      <div class="pt-2 d-block">
+        <h1 class="w-100 text-center">{{ this.idolInfo.idolName }}</h1>
         <img
           [src]="this.scUrlService.getIdolIcon(this.idolInfo.idolId)"
           [alt]="'Icon of ' + this.idolInfo.idolName"
@@ -11,7 +11,7 @@
           width="400"
           height="400" />
       </div>
-      <div class="col-12 d-block">
+      <div class="d-block">
         <table class="table w-100">
           <tbody>
             <tr class="row">
@@ -73,7 +73,7 @@
       </div>
     </div>
   </div>
-  <div class="d-flex col-lg-8 col-md-12 min-vh-100 container justify-content-center pt-3 pb-5" id="divInfo">
+  <div class="d-flex col-lg-9 col-md-8 col-sm-12 min-vh-100 container justify-content-center pt-3 pb-5" id="divInfo">
     <div class="row w-100">
       <div class="card col-12 w-100 overflow-auto ps-0 pe-0 h-100">
         <div class="card-header w-100">
@@ -89,9 +89,15 @@
             </li>
           </ul>
         </div>
-        <div class="card-body w-100 container overflow-auto h-100 justify-content-center">
-          <div class="row w-100 m-0" [ngClass]="{'d-none': !isTabProduce()}">
-            @if (this.pSSR.length || this.pSR.length || this.pR.length) {
+        <div class="card-body container-fluid overflow-auto h-100 justify-content-center">
+          <div class="row" [ngClass]="{'d-none': !isTabProduce()}">
+            @if (this.pUR.length || this.pSSR.length || this.pSR.length || this.pR.length) {
+            @if (this.pUR.length) {
+            <h5 class="text-start pt-2">P_UR</h5>
+            }
+            @for (card of this.pUR; track card) {
+            <app-card-item [cardInfo]="card" [pathType]="'/pcardinfo'" class="col-md-6 col-lg-4 col-sm-12 pt-1 pb-1"></app-card-item>
+            }
             @if (this.pSSR.length) {
             <h5 class="text-start pt-2">P_SSR</h5>
             }
@@ -111,7 +117,7 @@
             <app-card-item [cardInfo]="card" [pathType]="'/pcardinfo'" class="col-md-6 col-lg-4 col-sm-12 pt-1 pb-1"></app-card-item>
             }
             }
-            @if (!this.pSSR.length && !this.pSR.length && !this.pR.length) {
+            @if (!this.pUR.length && !this.pSSR.length && !this.pSR.length && !this.pR.length) {
             <div class="d-flex align-items-center justify-content-center w-100">
               <div class="d-flex ">
                 <div class="display-4" i18n>なし</div>
@@ -119,8 +125,14 @@
             </div>
             }
           </div>
-          <div class="row w-100 m-0" [ngClass]="{'d-none': !isTabSupport()}">
-            @if (this.sSSR.length || this.sSR.length || this.sR.length || this.sN.length) {
+          <div class="row" [ngClass]="{'d-none': !isTabSupport()}">
+            @if (this.sUR.length || this.sSSR.length || this.sSR.length || this.sR.length || this.sN.length) {
+            @if (this.sUR.length) {
+            <h5 class="text-start pt-2">S_UR</h5>
+            }
+            @for (card of this.sUR; track card) {
+            <app-card-item [cardInfo]="card" [pathType]="'/scardinfo'" class="col-md-6 col-lg-4 col-sm-12 pt-1 pb-1"></app-card-item>
+            }
             @if (this.sSSR.length) {
             <h5 class="text-start pt-2">S_SSR</h5>
             }
@@ -163,29 +175,25 @@
                   <button ngbAccordionButton>{{k.title}}</button>
                 </h3>
                 <div ngbAccordionCollapse>
-                  <div ngbAccordionBody>
-                    <table class="table table-hover table-bordered m-0">
-                      <thead></thead>
-                      <tbody>
-                        @for (e of this.getEventsByType(k.albumType); track $index) {
+                  <div ngbAccordionBody class="pt-1 pb-1 ps-2 pe-2">
+                    <ng-template>
+                      <div class="list-group list-group-flush">
+                      @for (e of this.getEventsByType(k.albumType); track $index) {
                         @if (e) {
-                        <tr>
-                          <td>
-                            <a [href]="this.getEventViewerUrl(e)" target="_blank">
-                              <div class="d-inline-block p-1">
-                                <svg class="align-self-center" fill="#3880ff" height="20px" width="20px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-3 -3 66.00 66.00" xml:space="preserve" stroke="#3880ff" stroke-width="4.5"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path
-                                        d="M45.563,29.174l-22-15c-0.307-0.208-0.703-0.231-1.031-0.058C22.205,14.289,22,14.629,22,15v30 c0,0.371,0.205,0.711,0.533,0.884C22.679,45.962,22.84,46,23,46c0.197,0,0.394-0.059,0.563-0.174l22-15 C45.836,30.64,46,30.331,46,30S45.836,29.36,45.563,29.174z M24,43.107V16.893L43.225,30L24,43.107z"></path> <path
-                                        d="M30,0C13.458,0,0,13.458,0,30s13.458,30,30,30s30-13.458,30-30S46.542,0,30,0z M30,58C14.561,58,2,45.439,2,30 S14.561,2,30,2s28,12.561,28,28S45.439,58,30,58z"></path> </g> </g></svg>
-                              </div>
-                              <div class="d-inline-block align-middle">
-                                {{e.title}}
-                              </div>
-                            </a>
-                          </td>
-                        </tr>
-                        }}
-                      </tbody>
-                    </table>
+                        <a class="list-group-item d-flex justify-content-start align-items-center" [href]="this.getEventViewerUrl(e)" target="_blank">
+                          <div>
+                            <svg fill="#3880ff" height="20px" width="20px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-3 -3 66.00 66.00" xml:space="preserve" stroke="#3880ff" stroke-width="4.5"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path
+                                    d="M45.563,29.174l-22-15c-0.307-0.208-0.703-0.231-1.031-0.058C22.205,14.289,22,14.629,22,15v30 c0,0.371,0.205,0.711,0.533,0.884C22.679,45.962,22.84,46,23,46c0.197,0,0.394-0.059,0.563-0.174l22-15 C45.836,30.64,46,30.331,46,30S45.836,29.36,45.563,29.174z M24,43.107V16.893L43.225,30L24,43.107z"></path> <path
+                                    d="M30,0C13.458,0,0,13.458,0,30s13.458,30,30,30s30-13.458,30-30S46.542,0,30,0z M30,58C14.561,58,2,45.439,2,30 S14.561,2,30,2s28,12.561,28,28S45.439,58,30,58z"></path> </g> </g></svg>
+                          </div>
+                          <div class="ps-2 link">
+                            {{e.title}}
+                          </div>
+                        </a>
+                        }
+                      }
+                      </div>
+                    </ng-template>
                   </div>
                 </div>
               </div>

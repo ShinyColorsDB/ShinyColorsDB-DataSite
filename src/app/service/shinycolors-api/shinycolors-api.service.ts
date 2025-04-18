@@ -17,6 +17,8 @@ import { SupSkillList } from 'src/app/shared/interfaces/supskilllist';
 import { QuerySupportSkill } from 'src/app/shared/interfaces/querysupportskill';
 import { QueryResult } from 'src/app/shared/interfaces/queryresult';
 import { Album } from 'src/app/shared/interfaces/album';
+import { LiveInfo } from 'src/app/shared/interfaces/liveinfo';
+import { CD } from 'src/app/shared/interfaces/cd';
 
 @Injectable({
   providedIn: 'root',
@@ -29,13 +31,13 @@ export class ShinyColorsApiService {
 
   getUnitList(): Observable<Unit[]> {
     return this.http
-      .get<Unit[]>(`${environment.apiUrl}info/unitInfo`)
+      .get<Unit[]>(`https://${environment.apiUrl}/info/unitInfo`)
       .pipe(catchError(this.handleError<Unit[]>('getIdolList', [])));
   }
 
   getIdolInfo(idolID: number): Observable<Idol> {
     return this.http
-      .get<Idol>(`${environment.apiUrl}info/idolInfo?idolId=${idolID}`, {
+      .get<Idol>(`https://${environment.apiUrl}/info/idolInfo?idolId=${idolID}`, {
         responseType: 'json',
       })
       .pipe(catchError(this.handleError<Idol>('getIdolInfo')));
@@ -43,13 +45,13 @@ export class ShinyColorsApiService {
 
   getIdolAlbumInfo(idolID: number): Observable<Album> {
     return this.http
-      .get<Album>(`${environment.cloudFlareUrl}albums/album/${String(idolID).padStart(2, '0')}.json`)
+      .get<Album>(`https://${environment.cloudFlareUrl}/albums/album/${String(idolID).padStart(2, '0')}.json`)
       .pipe(catchError(this.handleError<Album>('getIdolAlbumInfo')));
   }
 
   getPCardInfo(cardId: string): Observable<PCard> {
     return this.http
-      .get<PCard>(`${environment.apiUrl}info/pCardInfo?cardId=${cardId}`, {
+      .get<PCard>(`https://${environment.apiUrl}/info/pCardInfo?cardId=${cardId}`, {
         responseType: 'json',
       })
       .pipe(catchError(this.handleError<PCard>('getPCardInfo')));
@@ -57,58 +59,82 @@ export class ShinyColorsApiService {
 
   getSCardInfo(cardId: string): Observable<SCard> {
     return this.http
-      .get<SCard>(`${environment.apiUrl}info/sCardInfo?cardId=${cardId}`, {
+      .get<SCard>(`https://${environment.apiUrl}/info/sCardInfo?cardId=${cardId}`, {
         responseType: 'json',
       })
       .pipe(catchError(this.handleError<SCard>('getSCardInfo')));
   }
 
+  getRecentUpdate(): Observable<Card[]> {
+    return this.http
+      .get<Card[]>(`https://${environment.apiUrl}/info/recentUpdate`)
+      .pipe(catchError(this.handleError<Card[]>('getRecentUpdate', [])));
+  }
+
+  getLiveInfos(): Observable<LiveInfo[]> {
+    return this.http
+      .get<LiveInfo[]>(`https://${environment.apiUrl}/info/liveInfos`)
+      .pipe(catchError(this.handleError<LiveInfo[]>('getLiveInfos', [])));
+  }
+
+  getLiveInfo(liveId: string): Observable<LiveInfo> {
+    return this.http
+      .get<LiveInfo>(`https://${environment.apiUrl}/info/liveInfo?liveId=${liveId}`)
+      .pipe(catchError(this.handleError<LiveInfo>('getLiveInfo')));
+  }
+
   getLatestPInfo(): Observable<Card[]> {
     return this.http
-      .get<Card[]>(`${environment.apiUrl}info/latestPInfo`)
+      .get<Card[]>(`https://${environment.apiUrl}/info/latestPInfo`)
       .pipe(catchError(this.handleError<Card[]>('getLatestPInfo', [])));
   }
 
   getLatestSInfo(): Observable<Card[]> {
     return this.http
-      .get<Card[]>(`${environment.apiUrl}info/latestSInfo`)
+      .get<Card[]>(`https://${environment.apiUrl}/info/latestSInfo`)
       .pipe(catchError(this.handleError<Card[]>('getLatestSInfo', [])));
   }
 
   getAllTable(): Observable<Timetable> {
     return this.http
-      .get<Timetable>(`${environment.apiUrl}info/getAllTable`)
+      .get<Timetable>(`https://${environment.apiUrl}/info/getAllTable`)
       .pipe(catchError(this.handleError<Timetable>('getAllTable')));
   }
 
   getLimitedTable(): Observable<Timetable> {
     return this.http
-      .get<Timetable>(`${environment.apiUrl}info/getLimitedTable`)
+      .get<Timetable>(`https://${environment.apiUrl}/info/getLimitedTable`)
       .pipe(catchError(this.handleError<Timetable>('getLimitedTable')));
   }
 
   getGeneralTable(): Observable<Timetable> {
     return this.http
-      .get<Timetable>(`${environment.apiUrl}info/getGeneralTable`)
+      .get<Timetable>(`https://${environment.apiUrl}/info/getGeneralTable`)
       .pipe(catchError(this.handleError<Timetable>('getGeneralTable')));
   }
 
   getSupportSkillList(): Observable<SupSkillList[]> {
     return this.http
-      .get<SupSkillList[]>(`${environment.apiUrl}info/supportSkillList`)
+      .get<SupSkillList[]>(`https://${environment.apiUrl}/info/supportSkillList`)
       .pipe(catchError(this.handleError<SupSkillList[]>(`getSupportSkillList`)));
   }
 
   querySupportSkills(queryParams: QuerySupportSkill): Observable<QueryResult[]> {
     return this.http
-      .post<QueryResult[]>(`${environment.apiUrl}info/querySupportSkill`, queryParams)
+      .post<QueryResult[]>(`https://${environment.apiUrl}/info/querySupportSkill`, queryParams)
       .pipe(catchError(this.handleError<QueryResult[]>(`querySupportSkill`)));
   }
 
   getCardleInfo(): Observable<Cardle> {
     return this.http
-      .get<Cardle>(`${environment.apiUrl}cardle/getCardle`)
+      .get<Cardle>(`https://${environment.apiUrl}/cardle/getCardle`)
       .pipe(catchError(this.handleError<Cardle>(`getCardleInfo`)));
+  }
+
+  getAlbumInfos(): Observable<CD[]> {
+    return this.http
+      .get<CD[]>(`https://${environment.apiUrl}/info/albumInfos`)
+      .pipe(catchError(this.handleError<CD[]>(`getAlbumInfos`)));
   }
 
   handleError<T>(operation = 'operation', result?: T) {

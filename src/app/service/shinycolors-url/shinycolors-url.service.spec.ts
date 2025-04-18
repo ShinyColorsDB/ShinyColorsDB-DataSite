@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ShinycolorsUrlService } from './shinycolors-url.service';
+import { ShinyColorsUrlService } from './shinycolors-url.service';
 
-describe('ShinycolorsUrlService', () => {
-  let service: ShinycolorsUrlService;
+describe('ShinyColorsUrlService', () => {
+  let service: ShinyColorsUrlService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(ShinycolorsUrlService);
+    service = TestBed.inject(ShinyColorsUrlService);
   });
 
   it('should be created', () => {

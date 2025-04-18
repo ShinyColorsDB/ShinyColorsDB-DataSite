@@ -3,17 +3,18 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { QueryResult } from '../../interfaces/queryresult';
 
 import { environment } from 'src/environments/environment';
-import { ShinycolorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
+import { ShinyColorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
 import { RouterModule } from '@angular/router';
+import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
 
 
 @Component({
-    selector: 'app-query-result-modal',
-    imports: [
-        RouterModule
-    ],
-    templateUrl: './query-result-modal.component.html',
-    styleUrls: ['./query-result-modal.component.css']
+  selector: 'app-query-result-modal',
+  imports: [
+    RouterModule
+  ],
+  templateUrl: './query-result-modal.component.html',
+  styleUrls: ['./query-result-modal.component.css']
 })
 export class QueryResultModalComponent implements OnInit {
 
@@ -25,17 +26,20 @@ export class QueryResultModalComponent implements OnInit {
 
   regExp: RegExp = /【(.*)】(.*)/;
 
-  supportSkillBound = environment.supportSkillBound;
+  supportSkillBound = {};
 
   constructor(
     private modalService: NgbModal,
-    public scUrlService: ShinycolorsUrlService
-  ) { }
+    public scUrlService: ShinyColorsUrlService,
+    public scUtilService: UtilitiesService
+  ) {
+    this.supportSkillBound = scUtilService.supportSkillBound();
+  }
 
   ngOnInit(): void { }
 
   open() {
-    this.modalService.open(this.resultModal, {size: "xl"}).result.then(
+    this.modalService.open(this.resultModal, { size: "xl" }).result.then(
       (result) => {
       },
       (reason) => {

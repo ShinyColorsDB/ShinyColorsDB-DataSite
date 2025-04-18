@@ -10,16 +10,16 @@ import { CommonModule } from '@angular/common';
 import { TimesubtableComponent } from '../../components/timesubtable/timesubtable.component';
 
 @Component({
-    selector: 'app-timetable',
-    imports: [
-        CommonModule,
-        TimesubtableComponent,
-    ],
-    templateUrl: './timetable.component.html',
-    styleUrls: ['./timetable.component.css'],
-    host: {
-        class: 'col-lg-10 col-md-8 col-sm-12 overflow-auto h-100',
-    }
+  selector: 'app-timetable',
+  imports: [
+    CommonModule,
+    TimesubtableComponent,
+  ],
+  templateUrl: './timetable.component.html',
+  styleUrls: ['./timetable.component.css'],
+  host: {
+    class: 'overflow-auto container-fluid d-flex justify-content-center',
+  }
 })
 export class TimetableComponent implements OnInit {
 

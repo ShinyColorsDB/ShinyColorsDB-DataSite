@@ -5,15 +5,15 @@ import { Timetable } from '../../interfaces/timetable';
 import { RouterModule } from '@angular/router';
 
 @Component({
-    selector: 'app-timesubtable',
-    imports: [
-        RouterModule,
-    ],
-    templateUrl: './timesubtable.component.html',
-    styleUrls: ['./timesubtable.component.css'],
-    host: {
-        class: 'row justify-content-center container',
-    }
+  selector: 'app-timesubtable',
+  imports: [
+    RouterModule,
+  ],
+  templateUrl: './timesubtable.component.html',
+  styleUrls: ['./timesubtable.component.css'],
+  host: {
+    class: 'row justify-content-center container',
+  }
 })
 export class TimesubtableComponent implements OnInit {
 

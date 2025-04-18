@@ -5,16 +5,17 @@ import { DatePipe, CommonModule } from '@angular/common';
 import { Card } from '../../interfaces/card';
 
 import { environment } from 'src/environments/environment';
+import { ShinyColorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
 
 @Component({
-    selector: 'app-card-item',
-    imports: [
-        RouterModule,
-        CommonModule,
-        DatePipe
-    ],
-    templateUrl: './card-item.component.html',
-    styleUrls: ['./card-item.component.css']
+  selector: 'app-card-item',
+  imports: [
+    RouterModule,
+    CommonModule,
+    DatePipe
+  ],
+  templateUrl: './card-item.component.html',
+  styleUrls: ['./card-item.component.css']
 })
 export class CardItemComponent implements OnInit {
   @Input()
@@ -28,16 +29,18 @@ export class CardItemComponent implements OnInit {
 
   regExp: RegExp = /(【.*】)(.*)/;
 
-  constructor() { }
+  constructor(
+    public scUrlService: ShinyColorsUrlService
+  ) { }
 
   ngOnInit(): void { }
 
   getPictureUrl(): string {
     if (this.pathType == '/pcardinfo') {
-      return `${environment.cloudFlareUrl}images/content/idols/card/${this.cardInfo.enzaId}.jpg`;
+      return `https://${environment.cloudFlareUrl}/images/content/idols/card/${this.cardInfo.enzaId}.jpg`;
     }
     else if (this.pathType == '/scardinfo') {
-      return `${environment.cloudFlareUrl}images/content/support_idols/card/${this.cardInfo.enzaId}.jpg`;
+      return `https://${environment.cloudFlareUrl}/images/content/support_idols/card/${this.cardInfo.enzaId}.jpg`;
     }
     else {
       return '';

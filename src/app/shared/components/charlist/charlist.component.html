@@ -1,38 +1,42 @@
-@for (unit of Units; track unit; let i = $index) {
-<div>
-  <button
-    class="btn w-100 text-start rounded-0"
-    [ngClass]="{ 'rounded-top': i == 0, 'rounded-bottom': i == Units.length - 1}"
-    [style]="'background-color:' + unit.color1 + ';'"
-    (click)="unitCollapse.toggle()"
-    [attr.aria-expanded]="!this.getCollapseStatus(unit.unitId)">
-    <img
-      [src]="this.scUrlService.getUnitIconUri(unit.unitId)"
-      width="20"
-      height="20"
-      [alt]="'Icon of unit ' + unit.unitName" />
-    {{ unit.unitHiragana }}
-  </button>
-  <div
-    class="list-group"
-    [id]="'unit' + unit.unitId"
-    [ngbCollapse]="this.getCollapseStatus(unit.unitId)"
-    #unitCollapse="ngbCollapse">
-    @for (idol of unit.idols; track idol) {
-    <a
-      class="ps-4 list-group-item-action list-group-item"
-      [ngClass]="{ active: this.currentIdolID === idol.idolId }"
-      [routerLink]="['/idolinfo']"
-      [queryParams]="{ idolid: idol.idolId }"
-      (click)="this.onIdolClicked()">
-      <img
-        [src]="this.scUrlService.getIdolSmlIcon(idol.idolId)"
-        [alt]="'Icon of idol ' + idol.idolName"
-        width="40"
-        height="40" />
-      {{ idol.idolName }}
-    </a>
-    }
+<div ngbAccordion>
+  @for (unit of Units; track unit; let i = $index) {
+  <div [ngbAccordionItem]="'unit'+i" [collapsed]="this.collapseStatus[i]">
+    <h2 ngbAccordionHeader>
+      <button ngbAccordionButton
+        class="d-flex align-items-center ps-3 pe-3 pb-2 pt-2"
+        [style]="'background-color:' + unit.color1 + ';'">
+        <img
+          [src]="this.scUrlService.getUnitIconUri(unit.unitId)"
+          width="25"
+          height="25"
+          [alt]="'Icon of unit ' + unit.unitName" />
+        <span class="ms-2">{{ unit.unitHiragana }}</span>
+      </button>
+    </h2>
+    <div ngbAccordionCollapse>
+      <div ngbAccordionBody class="p-0">
+        <ng-template>
+          <div class="list-group">
+            @for (idol of unit.idols; track idol) {
+            <a
+              class="p-2 ps-4 d-flex list-group-item align-items-center text-decoration-none"
+              style="color: #212529;"
+              [routerLink]="['/idolinfo']"
+              [ngClass]="{ active: this.currentIdolID === idol.idolId }"
+              (click)="this.onIdolClicked()"
+              [queryParams]="{ idolid: idol.idolId }">
+              <img
+                [src]="this.scUrlService.getIdolSmlIcon(idol.idolId)"
+                [alt]="'Icon of idol ' + idol.idolName"
+                width="40"
+                height="40" />
+              <span class="ms-2">{{ idol.idolName }}</span>
+            </a>
+            }
+          </div>
+        </ng-template>
+      </div>
+    </div>
   </div>
+  }
 </div>
-}

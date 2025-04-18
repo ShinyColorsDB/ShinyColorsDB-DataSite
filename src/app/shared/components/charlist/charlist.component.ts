@@ -6,22 +6,23 @@ import { Unit } from '../../interfaces/unit';
 
 import { ShinyColorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
 import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
-import { ShinycolorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
-import { NgbCollapse } from '@ng-bootstrap/ng-bootstrap';
+import { ShinyColorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
+import { NgbAccordionModule, NgbCollapse } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-    selector: 'app-charlist',
-    imports: [
-        RouterModule,
-        CommonModule,
-        NgbCollapse
-    ],
-    templateUrl: './charlist.component.html',
-    styleUrls: ['./charlist.component.css']
+  selector: 'app-charlist',
+  imports: [
+    RouterModule,
+    CommonModule,
+    NgbCollapse,
+    NgbAccordionModule
+  ],
+  templateUrl: './charlist.component.html',
+  styleUrls: ['./charlist.component.css']
 })
 export class CharlistComponent implements OnInit {
   Units: Array<Unit> = [];
-  collapseStatus: Map<number, boolean> = new Map<number, boolean>();
+  collapseStatus: Array<boolean> = [];
   currentIdolID!: number;
   currentUnitID!: number;
 
@@ -35,30 +36,26 @@ export class CharlistComponent implements OnInit {
     @Inject(PLATFORM_ID) private platformId: Object,
     private utilsService: UtilitiesService,
     private scApiService: ShinyColorsApiService,
-    public scUrlService: ShinycolorsUrlService
+    public scUrlService: ShinyColorsUrlService
   ) {
     this.scApiService.getUnitList().subscribe((data) => {
       this.Units = data;
-      this.Units.forEach(e => {
-        this.collapseStatus.set(e.unitId, true);
+      this.Units.forEach((e, index) => {
+        this.collapseStatus[index] = true;
       });
+      [this.currentIdolID, this.currentUnitID] = this.utilsService.storedIds;
+      this.collapseStatus[this.currentUnitID - 1] = false;
     });
   }
 
   ngOnInit(): void {
-    this.utilsService.activeIds.subscribe((data) => {
-      [this.currentIdolID, this.currentUnitID] = data;
-      this.collapseStatus.set(this.currentUnitID, false);
+    this.utilsService.activeIds.subscribe((ids) => {
+      [this.currentIdolID, this.currentUnitID] = ids;
+      this.collapseStatus[this.currentUnitID - 1] = false;
     });
   }
 
   onIdolClicked(): void {
-    if (isPlatformBrowser(this.platformId) && !this.isBigScreen) {
-      this.idolClicked.emit(true);
-    }
-  }
-
-  getCollapseStatus(unitId: number): boolean {
-    return this.collapseStatus.get(unitId) || false;
+    this.idolClicked.emit(true);
   }
 }

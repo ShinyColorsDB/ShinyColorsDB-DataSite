@@ -1,14 +1,28 @@
 <div class="card">
-  <a
-    [routerLink]="[this.pathType]"
-    [queryParams]="{ uuid: this.cardInfo.cardUuid }"
-    [title]="this.cardInfo.cardName.replace(this.regExp, '$2')">
-    @if (this.isHome) {
-    <div class="card-header">
+  @if (this.isHome) {
+  <div class="card-header d-flex justify-content-between align-items-center">
+    <a
+      [routerLink]="['/idolinfo']"
+      [queryParams]="{ idolid: this.cardInfo.idolId }">
+      <div class="d-flex align-items-center">
+        <img
+          [src]="this.scUrlService.getIdolSmlIcon(this.cardInfo.idolId)"
+          [alt]="'Icon of idol'"
+          width="30px"
+          height="30px">
+        <span class="ps-1">
+          {{this.cardInfo.cardName.replace(this.regExp,"$2")}}
+        </span>
+      </div>
+    </a>
+    <div>
       {{ this.cardInfo.releaseDate | date: "yyyy-MM-dd" }}
     </div>
-    }
-
+  </div>
+  }
+  <a
+    [routerLink]="[this.pathType]"
+    [queryParams]="{ uuid: this.cardInfo.cardUuid }">
     <img
       [src]="this.getPictureUrl()"
       [alt]="'Picture of ' + this.cardInfo.cardName"
@@ -16,8 +30,22 @@
       width="1136"
       height="640"
       class="img-fluid" />
-    <div class="card-body ps-0 pe-0">
-      <h5 class="card-text text-center">
+    <div class="card-body p-0 pb-2">
+      <div class="card-text p-2">
+        <span class="badge text-bg-info ms-1 me-1">
+          {{this.cardInfo.getMethod}}
+        </span>
+        <span class="badge ms-1 me-1"
+          [ngClass]="{
+            'bg-danger': this.cardInfo.cardType.endsWith('_UR'),
+            'bg-warning': this.cardInfo.cardType.endsWith('_SSR'),
+            'bg-primary': this.cardInfo.cardType.endsWith('_SR'),
+            'bg-secondary': this.cardInfo.cardType.endsWith('_R') || this.cardInfo.cardType.endsWith('_N'),
+          }">
+          {{this.cardInfo.cardType}}
+        </span>
+      </div>
+      <h5 class="card-title text-center">
         {{ this.cardInfo.cardName.replace(this.regExp, "$1") }}
       </h5>
     </div>

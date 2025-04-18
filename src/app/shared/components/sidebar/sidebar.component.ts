@@ -1,22 +1,22 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit, TemplateRef } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbAccordionModule, NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
 import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
 import { CharlistComponent } from '../charlist/charlist.component';
-import { SettingsComponent } from '../settings/settings.component';
+//import { SettingsComponent } from '../settings/settings.component';
 
 @Component({
-    selector: 'app-sidebar',
-    imports: [
-        RouterModule,
-        CommonModule,
-        NgbAccordionModule,
-        CharlistComponent,
-        SettingsComponent
-    ],
-    templateUrl: './sidebar.component.html',
-    styleUrls: ['./sidebar.component.css']
+  selector: 'app-sidebar',
+  imports: [
+    RouterModule,
+    CommonModule,
+    NgbAccordionModule,
+    CharlistComponent,
+    //SettingsComponent
+  ],
+  templateUrl: './sidebar.component.html',
+  styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
   @Input()
@@ -30,7 +30,9 @@ export class SidebarComponent implements OnInit {
 
   title!: string;
 
-  constructor(private utilsService: UtilitiesService) {}
+  private offcanvasService = inject(NgbOffcanvas);
+
+  constructor(private utilsService: UtilitiesService) { }
 
   ngOnInit(): void {
     this.utilsService.mobileTitle.subscribe((title) => {
@@ -43,6 +45,10 @@ export class SidebarComponent implements OnInit {
   }
 
   onCharlistClick(event: boolean) {
-    this.showSideBar = !event;
+    this.offcanvasService.dismiss();
+  }
+
+  open(content: TemplateRef<any>) {
+    this.offcanvasService.open(content, { panelClass: 'bg-light', position: 'end' });
   }
 }

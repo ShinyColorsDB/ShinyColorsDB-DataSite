@@ -2,14 +2,15 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
 import { CardSupportSkill } from '../../interfaces/cardsupportskill';
 import { environment } from 'src/environments/environment';
 import { CommonModule } from '@angular/common';
+import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
 
 @Component({
-    selector: 'app-supskill-card',
-    imports: [
-        CommonModule,
-    ],
-    templateUrl: './supskill-card.component.html',
-    styleUrls: ['./supskill-card.component.css']
+  selector: 'app-supskill-card',
+  imports: [
+    CommonModule,
+  ],
+  templateUrl: './supskill-card.component.html',
+  styleUrls: ['./supskill-card.component.css']
 })
 export class SupskillCardComponent implements OnInit, OnChanges {
 
@@ -21,9 +22,13 @@ export class SupskillCardComponent implements OnInit, OnChanges {
 
   activeArray: boolean[] = [];
 
-  supportSkillBound = environment.supportSkillBound;
+  supportSkillBound = {};
 
-  constructor() { }
+  constructor(
+    public scUtilService: UtilitiesService
+  ) { 
+    this.supportSkillBound = scUtilService.supportSkillBound();
+  }
 
   ngOnInit(): void {
   }

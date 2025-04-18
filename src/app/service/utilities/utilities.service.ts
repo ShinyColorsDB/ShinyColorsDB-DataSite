@@ -3,21 +3,23 @@ import { Idol } from 'src/app/shared/interfaces/idol';
 import { PCard } from 'src/app/shared/interfaces/pcard';
 import { SCard } from 'src/app/shared/interfaces/scard';
 
-import { ShinycolorsUrlService } from '../shinycolors-url/shinycolors-url.service';
+import { ShinyColorsUrlService } from '../shinycolors-url/shinycolors-url.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UtilitiesService {
   constructor(
-    public scUrlService: ShinycolorsUrlService,
+    public scUrlService: ShinyColorsUrlService,
   ) { }
 
   activeIds = new EventEmitter<number[]>();
+  storedIds: number[] = [];
 
   mobileTitle = new EventEmitter<string>();
 
   emitActiveIds(ids: number[]) {
+    this.storedIds = ids;
     this.activeIds.emit(ids);
   }
 
@@ -176,7 +178,7 @@ export class UtilitiesService {
   }
 
   isSsrCard(theType: string): boolean {
-    return theType.match(/_SSR/) !== null;
+    return theType.match(/_SSR/) !== null || theType.match(/_UR/) !== null;
   }
 
   translateGetMethod(method: string): string {
@@ -266,6 +268,16 @@ export class UtilitiesService {
         return '集中力';
       default:
         return '';
+    }
+  }
+
+  supportSkillBound() {
+    return {
+      "S_UR": [60, 65, 70, 75, 80],
+      "S_SSR": [60, 65, 70, 75, 80],
+      "S_SR": [50, 55, 60, 65, 70],
+      "S_R": [40, 45, 50, 55, 60],
+      "S_N": [5, 10],
     }
   }
 }

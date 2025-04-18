@@ -5,7 +5,7 @@ import { Meta, Title } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
 
 import { ShinyColorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
-import { ShinycolorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
+import { ShinyColorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
 import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
 
 import { SCard } from '../../interfaces/scard';
@@ -19,19 +19,19 @@ import { SupskillCardComponent } from '../../components/supskill-card/supskill-c
 import { CardStatusComponent } from '../../components/card-status/card-status.component';
 
 @Component({
-    selector: 'app-s-info',
-    imports: [
-        CommonCriteriaComponent,
-        PanelInfoComponent,
-        PanelListComponent,
-        SupskillCardComponent,
-        CardStatusComponent,
-    ],
-    templateUrl: './s-info.component.html',
-    styleUrls: ['./s-info.component.css'],
-    host: {
-        class: 'col-lg-10 col-md-8 col-sm-12 overflow-auto h-100',
-    }
+  selector: 'app-s-info',
+  imports: [
+    CommonCriteriaComponent,
+    PanelInfoComponent,
+    PanelListComponent,
+    SupskillCardComponent,
+    CardStatusComponent,
+  ],
+  templateUrl: './s-info.component.html',
+  styleUrls: ['./s-info.component.css'],
+  host: {
+    class: 'overflow-auto container-fluid d-flex justify-content-center',
+  }
 })
 export class SInfoComponent implements OnInit {
   sCardUuid!: string;
@@ -40,19 +40,21 @@ export class SInfoComponent implements OnInit {
 
   boundedSkillList: Map<string, CardSupportSkill>[] = [];
 
-  supportSkillBound = environment.supportSkillBound;
+  supportSkillBound = {};
 
   thisBound!: number[];
 
   constructor(
     private utilsService: UtilitiesService,
     private scApiService: ShinyColorsApiService,
+    public scUrlService: ShinyColorsUrlService,
     private route: ActivatedRoute,
     private router: Router,
     private meta: Meta,
     private title: Title,
-    public scUrlService: ShinycolorsUrlService
-  ) { }
+  ) { 
+    this.supportSkillBound = utilsService.supportSkillBound();
+  }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
@@ -71,7 +73,9 @@ export class SInfoComponent implements OnInit {
             this.meta.updateTag(e);
           });
           this.utilsService.emitActiveIds([this.sCardInfo.idol.idolId, this.sCardInfo.idol.unitId]);
-          this.utilsService.emitMobileTitle(this.sCardInfo.cardName, true);
+          // this.utilsService.emitMobileTitle(this.sCardInfo.cardName, true);
+          this.utilsService.emitMobileTitle("卡片情報");
+
         });
     });
   }
@@ -101,6 +105,6 @@ export class SInfoComponent implements OnInit {
   }
 
   getEventUrl(eventId: number): string {
-    return `${environment.eventViewerUrl}?eventId=${eventId}`;
+    return `https://${environment.eventViewerUrl}/?eventId=${eventId}`;
   }
 }

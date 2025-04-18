@@ -1,7 +1,5 @@
-import { Component, ElementRef, Input, OnInit, ViewChild, ViewChildren } from '@angular/core';
-import { Output, EventEmitter } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 
-import { ShinyColorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
 import { SupSkillList } from '../../interfaces/supskilllist';
 
 @Component({
@@ -26,7 +24,7 @@ export class SubSkillFormComponent implements OnInit {
   @ViewChild('skillLevelSelect')
   skillLevel!: ElementRef<HTMLInputElement>;
 
-  constructor(private scApiService: ShinyColorsApiService) {}
+  constructor() {}
 
   ngOnInit(): void {}
 

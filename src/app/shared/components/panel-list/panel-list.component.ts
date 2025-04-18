@@ -1,19 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { NgbPopover } from '@ng-bootstrap/ng-bootstrap';
-import { ShinycolorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
+import { ShinyColorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
 
 @Component({
-    selector: 'app-panel-list',
-    imports: [
-        CommonModule,
-        NgbPopover,
-    ],
-    templateUrl: './panel-list.component.html',
-    styleUrls: ['./panel-list.component.css'],
-    host: {
-        class: 'col-12 mb-4'
-    }
+  selector: 'app-panel-list',
+  imports: [
+    CommonModule,
+    NgbPopover,
+  ],
+  templateUrl: './panel-list.component.html',
+  styleUrls: ['./panel-list.component.css'],
+  host: {
+    class: 'col-12 mb-4'
+  }
 })
 export class PanelListComponent implements OnInit, OnChanges {
   @ViewChild('scrollMe') scrollMe!: any;
@@ -25,7 +25,7 @@ export class PanelListComponent implements OnInit, OnChanges {
   highlited: number = -1;
 
   constructor(
-    public scUrlService: ShinycolorsUrlService,
+    public scUrlService: ShinyColorsUrlService,
   ) { }
 
   ngOnChanges(changes: SimpleChanges): void {

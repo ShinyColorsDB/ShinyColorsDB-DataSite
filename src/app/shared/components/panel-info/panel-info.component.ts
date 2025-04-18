@@ -15,7 +15,7 @@ import { isPlatformBrowser } from '@angular/common';
 
 import FontFaceObserver from 'fontfaceobserver';
 
-import { ShinycolorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
+import { ShinyColorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
 
 import { PanelHex } from './panel-info-hex';
 
@@ -84,7 +84,7 @@ export class PanelInfoComponent implements OnChanges, OnDestroy, AfterViewInit {
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
-    private scUrlService: ShinycolorsUrlService
+    private scUrlService: ShinyColorsUrlService
   ) {
     if (!isPlatformBrowser(this.platformId)) {
       console.log('platform is not browser');
@@ -115,6 +115,11 @@ export class PanelInfoComponent implements OnChanges, OnDestroy, AfterViewInit {
     });
 
     if (this.app) {
+      for (let i = this.app.stage.children.length - 1; i >= 0; i--) {
+        const thisChild = this.app.stage.children[i];
+        this.app.stage.removeChild(thisChild);
+        thisChild.destroy();
+      }
       this.app.stage.removeChildren();
 
       this.font.load().then(() => {
@@ -175,7 +180,10 @@ export class PanelInfoComponent implements OnChanges, OnDestroy, AfterViewInit {
         graphics.eventMode = 'static';
         graphics.cursor = "pointer";
         graphics.on('pointerdown', () => {
+          document.getElementById(`skill${index}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
           this.stateChanged.emit(index);
+          
+          /*
           setTimeout(() => {
             const scrollMe = document.getElementById('scrollMe');
             if (scrollMe) {
@@ -185,6 +193,7 @@ export class PanelInfoComponent implements OnChanges, OnDestroy, AfterViewInit {
               });
             }
           }, 200);
+          */
         });
       } else {
         //otherwise, simply color with grey

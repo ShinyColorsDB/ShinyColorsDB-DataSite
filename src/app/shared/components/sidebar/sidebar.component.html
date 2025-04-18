@@ -1,141 +1,207 @@
-<div class="h-100">
-  <div class="h-100 d-flex justify-content-center overflow-hidden" [ngClass]="{ 'd-none': isBigScreen }">
-    <a (click)="onSideBarClick()" class="m-0 p-0 position-absolute top-0 start-0">
-      @if (!showSideBar) {
-      <svg class="menu-icon align-middle" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 6H20M4 12H20M4 18H20" stroke="#3880ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-      }
-      @else {
-      <svg class="menu-icon align-middle" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path
-            d="M20.7457 3.32851C20.3552 2.93798 19.722 2.93798 19.3315 3.32851L12.0371 10.6229L4.74275 3.32851C4.35223 2.93798 3.71906 2.93798 3.32854 3.32851C2.93801 3.71903 2.93801 4.3522 3.32854 4.74272L10.6229 12.0371L3.32856 19.3314C2.93803 19.722 2.93803 20.3551 3.32856 20.7457C3.71908 21.1362 4.35225 21.1362 4.74277 20.7457L12.0371 13.4513L19.3315 20.7457C19.722 21.1362 20.3552 21.1362 20.7457 20.7457C21.1362 20.3551 21.1362 19.722 20.7457 19.3315L13.4513 12.0371L20.7457 4.74272C21.1362 4.3522 21.1362 3.71903 20.7457 3.32851Z"
-            fill="#3880ff"></path> </g></svg>
-      }
-    </a>
-    <p class="h3 m-0 p-1 text-center titleFont">{{this.title}}</p>
-  </div>
-  <div class="d-flex justify-content-center" [ngClass]="{'d-none': !isBigScreen}">
-    <img src="/assets/283.png" width="233" height="233" alt="Icon of 283 production" class="img-fluid">
-  </div>
-  <div [ngClass]="{ active: showSideBar, sidebar: !isBigScreen, 'h-100': !isBigScreen }">
-    <div ngbAccordion>
-      <div ngbAccordionItem>
-        <h2 ngbAccordionHeader>
-          <button ngbAccordionButton>ShinyColorsDB</button>
-        </h2>
-        <div ngbAccordionCollapse>
-          <div ngbAccordionBody>
-            <div class="list-group">
-              <a
-                class="text-start list-group-item list-group-item-action w-100 ps-4 bg-light bg-gradient"
-                [routerLink]="['/']"
-                (click)="onSideBarClick()" i18n>首頁</a>
-              <a
-                class="text-start list-group-item list-group-item-action w-100 ps-4 bg-light bg-gradient"
-                [routerLink]="['/timetable']"
-                (click)="onSideBarClick()" i18n>歴史</a>
-              <a
-                class="text-start list-group-item list-group-item-action w-100 ps-4 bg-light bg-gradient"
-                [routerLink]="['/cardle']"
-                (click)="onSideBarClick()">Cardle</a>
-              <a
-                class="text-start list-group-item list-group-item-action w-100 ps-4 bg-light bg-gradient"
-                [routerLink]="['/r-lookup']"
-                (click)="onSideBarClick()" i18n>技能篩選</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div ngbAccordionItem cardClass="p-0" [collapsed]="false">
-        <h2 ngbAccordionHeader>
-          <button ngbAccordionButton>角色列表</button>
-        </h2>
-        <div ngbAccordionCollapse>
-          <div ngbAccordionBody>
-            <app-charlist
-              (idolClicked)="onCharlistClick($event)"
-              [isBigScreen]="this.isBigScreen"></app-charlist>
-          </div>
-        </div>
-      </div>
-      <div ngbAccordionItem>
-        <h2 ngbAccordionHeader>
-          <button ngbAccordionButton>其他小玩具</button>
-        </h2>
-        <div ngbAccordionCollapse>
-          <div ngbAccordionBody>
-            <div class="list-group">
-              <a
-                href="https://sfp.shinycolors.moe/"
-                class="text-start list-group-item list-group-item-action w-100 ps-4 bg-light bg-gradient"
-                target="_blank">
-                Song for Prism 資料庫
-              </a>
-              <a
-                href="https://spine.shinycolors.moe/"
-                class="text-start list-group-item list-group-item-action w-100 ps-4 bg-light bg-gradient"
-                target="_blank">
-                SpineViewer
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+<nav class="bg-light navbar w-100 justify-content-center sticky-top">
+  <div class="container-fluid d-flex align-items-center justify-content-between m-0">
+    <div>
+      <!--h3 class="h3 text-center titleFont">{{this.title}}</h3-->
+      <h2 class="h2 m-2">{{this.title}}</h2>
     </div>
-    <div class="text-center m-3" [ngClass]="{'text-white': isBigScreen}">&#64;Euphokumiko</div>
+    <button (click)="open(sidebar)" role="button"
+      class="navbar-brand btn d-inline-block align-text-top m-0">
+      <svg class="menu-icon align-middle" viewBox="0 0 24 24" fill="none"
+        xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier"
+          stroke-width="0"></g><g id="SVGRepo_tracerCarrier"
+          stroke-linecap="round" stroke-linejoin="round"></g><g
+          id="SVGRepo_iconCarrier"> <path d="M4 6H20M4 12H20M4 18H20"
+            stroke="#3880ff" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round"></path> </g></svg>
+    </button>
+  </div>
+</nav>
+<div class="d-flex justify-content-center d-none">
+  <img src="/assets/283.png" width="233" height="233"
+    alt="Icon of 283 production" class="img-fluid">
+</div>
+<ng-template #sidebar let-offcanvas>
+  <div class="offcanvas-header p-3">
+    <div class="container d-flex align-items-center justify-content-between">
+      <h3 class="h3 m-0">ShinyColorsDB</h3>
+      <button role="button" class="btn p-0"
+        aria-label="Close"
+        (click)="offcanvas.dismiss()">
+        <svg class="menu-icon align-middle" viewBox="0 0 24 24" fill="none"
+          xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier"
+            stroke-width="0"></g><g id="SVGRepo_tracerCarrier"
+            stroke-linecap="round" stroke-linejoin="round"></g><g
+            id="SVGRepo_iconCarrier"> <path
+              d="M20.7457 3.32851C20.3552 2.93798 19.722 2.93798 19.3315 3.32851L12.0371 10.6229L4.74275 3.32851C4.35223 2.93798 3.71906 2.93798 3.32854 3.32851C2.93801 3.71903 2.93801 4.3522 3.32854 4.74272L10.6229 12.0371L3.32856 19.3314C2.93803 19.722 2.93803 20.3551 3.32856 20.7457C3.71908 21.1362 4.35225 21.1362 4.74277 20.7457L12.0371 13.4513L19.3315 20.7457C19.722 21.1362 20.3552 21.1362 20.7457 20.7457C21.1362 20.3551 21.1362 19.722 20.7457 19.3315L13.4513 12.0371L20.7457 4.74272C21.1362 4.3522 21.1362 3.71903 20.7457 3.32851Z"
+              fill="#3880ff"></path> </g></svg>
+      </button>
+    </div>
+  </div>
+  <div
+    class="offcanvas-body"
+    style="background-color: #34eb3a;">
+    <nav class="nav">
+      <a class="nav-link" [routerLink]="['/']"
+        (click)="offcanvas.dismiss()">首頁</a>
+      <a class="nav-link" [routerLink]="['/timetable']"
+        (click)="offcanvas.dismiss()">歴史</a>
+      <a class="nav-link" [routerLink]="['/cardle']"
+        (click)="offcanvas.dismiss()">Cardle</a>
+      <a class="nav-link" [routerLink]="['/r-lookup']"
+        (click)="offcanvas.dismiss()">技能篩選</a>
+    </nav>
+    <nav class="nav flex-column">
+      <app-charlist
+        (idolClicked)="onCharlistClick($event)"></app-charlist>
+    </nav>
+    <div class="text-center m-3">&#64;Euphokumiko</div>
     <!--app-settings></app-settings-->
 
     <div class="d-flex justify-content-evenly pb-3">
-      <a href="https://github.com/ShinyColorsDB/ShinyColorsDB-DataSite" target="_blank">
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="40" height="40" viewBox="0 0 256 256" xml:space="preserve">
+      <a href="https://github.com/ShinyColorsDB/ShinyColorsDB-DataSite"
+        target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="40"
+          height="40" viewBox="0 0 256 256" xml:space="preserve">
           <defs>
           </defs>
-          <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
+          <g
+            style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;"
+            transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
             <path
               d="M 45 0 C 20.147 0 0 20.467 0 45.714 C 0 67.034 14.367 84.944 33.802 90 c -0.013 -5.283 -0.03 -11.763 -0.04 -13.782 c -12.986 2.869 -15.726 -5.595 -15.726 -5.595 c -2.123 -5.481 -5.183 -6.939 -5.183 -6.939 c -4.236 -2.943 0.319 -2.883 0.319 -2.883 c 4.687 0.334 7.156 4.887 7.156 4.887 c 4.163 7.249 10.92 5.153 13.584 3.942 c 0.419 -3.064 1.628 -5.157 2.964 -6.341 c -10.368 -1.199 -21.268 -5.265 -21.268 -23.435 c 0 -5.177 1.824 -9.407 4.81 -12.728 c -0.485 -1.195 -2.083 -6.018 0.452 -12.55 c 0 0 3.92 -1.274 12.84 4.861 c 3.724 -1.051 7.717 -1.578 11.684 -1.596 c 3.967 0.018 7.963 0.545 11.694 1.596 c 8.91 -6.135 12.824 -4.861 12.824 -4.861 c 2.541 6.532 0.943 11.355 0.458 12.55 c 2.993 3.321 4.804 7.551 4.804 12.728 c 0 18.214 -10.92 22.223 -21.315 23.398 c 1.674 1.472 3.166 4.357 3.166 8.781 c 0 3.513 -0.016 11.601 -0.031 17.74 C 76.021 84.439 90 66.74 90 45.714 C 90 20.467 69.853 0 45 0 z"
-              style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+              style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;"
+              transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
           </g>
         </svg>
       </a>
-      <a href="https://twitter.com/ShinyColorsDB" target="_blank" rel="noopener noreferrer">
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="40" height="40" viewBox="0 0 256 256" xml:space="preserve">
-
+      <a href="https://twitter.com/ShinyColorsDB" target="_blank"
+        rel="noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="40"
+          height="40" viewBox="0 0 256 256" xml:space="preserve">
           <defs>
           </defs>
-          <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
-            <polygon points="24.89,23.01 57.79,66.99 65.24,66.99 32.34,23.01 " style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform="  matrix(1 0 0 1 0 0) " />
-            <path d="M 45 0 L 45 0 C 20.147 0 0 20.147 0 45 v 0 c 0 24.853 20.147 45 45 45 h 0 c 24.853 0 45 -20.147 45 -45 v 0 C 90 20.147 69.853 0 45 0 z M 56.032 70.504 L 41.054 50.477 L 22.516 70.504 h -4.765 L 38.925 47.63 L 17.884 19.496 h 16.217 L 47.895 37.94 l 17.072 -18.444 h 4.765 L 50.024 40.788 l 22.225 29.716 H 56.032 z"
-              style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+          <g
+            style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;"
+            transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
+            <polygon points="24.89,23.01 57.79,66.99 65.24,66.99 32.34,23.01 "
+              style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;"
+              transform="  matrix(1 0 0 1 0 0) " />
+            <path
+              d="M 45 0 L 45 0 C 20.147 0 0 20.147 0 45 v 0 c 0 24.853 20.147 45 45 45 h 0 c 24.853 0 45 -20.147 45 -45 v 0 C 90 20.147 69.853 0 45 0 z M 56.032 70.504 L 41.054 50.477 L 22.516 70.504 h -4.765 L 38.925 47.63 L 17.884 19.496 h 16.217 L 47.895 37.94 l 17.072 -18.444 h 4.765 L 50.024 40.788 l 22.225 29.716 H 56.032 z"
+              style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;"
+              transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
           </g>
         </svg>
       </a>
       <a href="mailto:euphokumiko@shinycolors.moe" target="_blank">
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="40" height="40" viewBox="0 0 256 256" xml:space="preserve">
-
+        <svg xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="40"
+          height="40" viewBox="0 0 256 256" xml:space="preserve">
           <defs>
           </defs>
-          <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
-            <path d="M 45 0 C 20.147 0 0 20.147 0 45 c 0 24.853 20.147 45 45 45 s 45 -20.147 45 -45 C 90 20.147 69.853 0 45 0 z M 72 57.499 c 0 4.22 -3.434 7.653 -7.653 7.653 H 25.653 c -4.22 0 -7.653 -3.434 -7.653 -7.653 V 32.501 c 0 -4.22 3.433 -7.653 7.653 -7.653 h 38.693 c 4.22 0 7.653 3.433 7.653 7.653 V 57.499 z"
-              style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+          <g
+            style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;"
+            transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
+            <path
+              d="M 45 0 C 20.147 0 0 20.147 0 45 c 0 24.853 20.147 45 45 45 s 45 -20.147 45 -45 C 90 20.147 69.853 0 45 0 z M 72 57.499 c 0 4.22 -3.434 7.653 -7.653 7.653 H 25.653 c -4.22 0 -7.653 -3.434 -7.653 -7.653 V 32.501 c 0 -4.22 3.433 -7.653 7.653 -7.653 h 38.693 c 4.22 0 7.653 3.433 7.653 7.653 V 57.499 z"
+              style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;"
+              transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
             <path
               d="M 54.507 44.81 l 10.812 -10.615 c 0.896 -0.88 0.909 -2.319 0.029 -3.215 c -0.88 -0.896 -2.319 -0.91 -3.214 -0.029 L 47.957 44.87 c -1.629 1.601 -4.284 1.601 -5.914 0 L 27.866 30.95 c -0.896 -0.879 -2.335 -0.865 -3.215 0.029 c -0.88 0.896 -0.866 2.335 0.029 3.215 L 35.492 44.81 L 24.681 55.426 c -0.896 0.879 -0.909 2.319 -0.029 3.214 c 0.445 0.453 1.033 0.68 1.622 0.68 c 0.575 0 1.15 -0.216 1.593 -0.652 l 10.871 -10.673 l 0.121 0.119 c 1.693 1.662 3.917 2.493 6.142 2.493 s 4.449 -0.831 6.142 -2.494 l 0.12 -0.118 l 10.872 10.673 c 0.443 0.435 1.018 0.652 1.593 0.652 c 0.588 0 1.177 -0.228 1.622 -0.68 c 0.88 -0.896 0.867 -2.335 -0.029 -3.214 L 54.507 44.81 z"
-              style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+              style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;"
+              transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
           </g>
         </svg>
       </a>
       <a href="https://discord.gg/sdBJXcm">
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="40" height="40" viewBox="0 0 256 256" xml:space="preserve">
-
+        <svg xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="40"
+          height="40" viewBox="0 0 256 256" xml:space="preserve">
           <defs>
           </defs>
-          <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
+          <g
+            style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;"
+            transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
             <path
               d="M 45 0 C 20.147 0 0 20.147 0 45 c 0 24.853 20.147 45 45 45 s 45 -20.147 45 -45 C 90 20.147 69.853 0 45 0 z M 56.901 62.98 c 0 0 -1.541 -1.841 -2.825 -3.467 c 5.608 -1.584 7.748 -5.094 7.748 -5.094 c -1.755 1.156 -3.425 1.969 -4.923 2.526 c -2.14 0.899 -4.195 1.498 -6.207 1.841 c -4.11 0.771 -7.877 0.557 -11.087 -0.043 c -2.44 -0.471 -4.538 -1.156 -6.293 -1.841 c -0.985 -0.385 -2.055 -0.856 -3.125 -1.455 c -0.128 -0.086 -0.257 -0.128 -0.385 -0.214 c -0.086 -0.043 -0.128 -0.086 -0.171 -0.128 c -0.771 -0.428 -1.199 -0.728 -1.199 -0.728 s 2.055 3.425 7.491 5.051 c -1.284 1.627 -2.868 3.553 -2.868 3.553 C 23.596 62.68 20 56.473 20 56.473 c 0 -13.784 6.164 -24.957 6.164 -24.957 c 6.164 -4.623 12.029 -4.495 12.029 -4.495 l 0.428 0.514 c -7.706 2.226 -11.259 5.608 -11.259 5.608 s 0.942 -0.514 2.526 -1.241 c 4.581 -2.012 8.219 -2.568 9.717 -2.697 c 0.257 -0.043 0.471 -0.086 0.728 -0.086 c 2.611 -0.342 5.565 -0.428 8.647 -0.086 c 4.067 0.471 8.433 1.669 12.885 4.11 c 0 0 -3.382 -3.211 -10.659 -5.437 l 0.599 -0.685 c 0 0 5.865 -0.128 12.029 4.495 c 0 0 6.164 11.173 6.164 24.957 C 70 56.473 66.361 62.68 56.901 62.98 z"
-              style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
-            <path d="M 36.995 42.988 c -2.44 0 -4.366 2.14 -4.366 4.752 c 0 2.611 1.969 4.752 4.366 4.752 c 2.44 0 4.366 -2.14 4.366 -4.752 C 41.404 45.129 39.435 42.988 36.995 42.988 z M 52.62 42.988 c -2.44 0 -4.366 2.14 -4.366 4.752 c 0 2.611 1.969 4.752 4.366 4.752 c 2.44 0 4.366 -2.14 4.366 -4.752 C 56.986 45.129 55.06 42.988 52.62 42.988 z"
-              style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+              style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;"
+              transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+            <path
+              d="M 36.995 42.988 c -2.44 0 -4.366 2.14 -4.366 4.752 c 0 2.611 1.969 4.752 4.366 4.752 c 2.44 0 4.366 -2.14 4.366 -4.752 C 41.404 45.129 39.435 42.988 36.995 42.988 z M 52.62 42.988 c -2.44 0 -4.366 2.14 -4.366 4.752 c 0 2.611 1.969 4.752 4.366 4.752 c 2.44 0 4.366 -2.14 4.366 -4.752 C 56.986 45.129 55.06 42.988 52.62 42.988 z"
+              style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;"
+              transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
           </g>
         </svg>
       </a>
     </div>
-
   </div>
-</div>
+</ng-template>
+
+<!--template>
+  <div ngbAccordion>
+    <div ngbAccordionItem>
+      <h2 ngbAccordionHeader>
+        <button ngbAccordionButton>ShinyColorsDB</button>
+      </h2>
+      <div ngbAccordionCollapse>
+        <div ngbAccordionBody>
+          <div class="list-group">
+            <a
+              class="text-start list-group-item list-group-item-action w-100 ps-4 bg-light bg-gradient"
+              [routerLink]="['/']"
+              (click)="onSideBarClick()" i18n>首頁</a>
+            <a
+              class="text-start list-group-item list-group-item-action w-100 ps-4 bg-light bg-gradient"
+              [routerLink]="['/timetable']"
+              (click)="onSideBarClick()" i18n>歴史</a>
+            <a
+              class="text-start list-group-item list-group-item-action w-100 ps-4 bg-light bg-gradient"
+              [routerLink]="['/cardle']"
+              (click)="onSideBarClick()">Cardle</a>
+            <a
+              class="text-start list-group-item list-group-item-action w-100 ps-4 bg-light bg-gradient"
+              [routerLink]="['/r-lookup']"
+              (click)="onSideBarClick()" i18n>技能篩選</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div ngbAccordionItem cardClass="p-0" [collapsed]="false">
+      <h2 ngbAccordionHeader>
+        <button ngbAccordionButton>角色列表</button>
+      </h2>
+      <div ngbAccordionCollapse>
+        <div ngbAccordionBody>
+          <app-charlist
+            (idolClicked)="onCharlistClick($event)"
+            [isBigScreen]="this.isBigScreen"></app-charlist>
+        </div>
+      </div>
+    </div>
+    <div ngbAccordionItem>
+      <h2 ngbAccordionHeader>
+        <button ngbAccordionButton>其他小玩具</button>
+      </h2>
+      <div ngbAccordionCollapse>
+        <div ngbAccordionBody>
+          <div class="list-group">
+            <a
+              href="https://sfp.shinycolors.moe/"
+              class="text-start list-group-item list-group-item-action w-100 ps-4 bg-light bg-gradient"
+              target="_blank">
+              Song for Prism 資料庫
+            </a>
+            <a
+              href="https://spine.shinycolors.moe/"
+              class="text-start list-group-item list-group-item-action w-100 ps-4 bg-light bg-gradient"
+              target="_blank">
+              SpineViewer
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template-->

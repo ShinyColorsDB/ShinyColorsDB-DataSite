@@ -2,7 +2,7 @@ import { AfterViewInit, Component, ElementRef, Inject, OnInit, PLATFORM_ID, Quer
 import { NgbModal, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { Application, Sprite, Assets, Texture, Rectangle, BackgroundSystem } from 'pixi.js';
 import { ShinyColorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
-import { ShinycolorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
+import { ShinyColorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
 
 import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
 import { Cardle } from '../../interfaces/cardle';
@@ -18,7 +18,7 @@ import { isPlatformBrowser, CommonModule } from '@angular/common';
     templateUrl: './cardle.component.html',
     styleUrls: ['./cardle.component.css'],
     host: {
-        class: 'col-lg-10 col-md-8 col-sm-12 overflow-auto h-100',
+        class: 'overflow-auto container-fluid d-flex justify-content-center ',
     }
 })
 export class CardleComponent implements OnInit, AfterViewInit {
@@ -60,7 +60,7 @@ export class CardleComponent implements OnInit, AfterViewInit {
     @Inject(PLATFORM_ID) private platformId: Object,
     private utilitiesService: UtilitiesService,
     private scApiService: ShinyColorsApiService,
-    private scUrlService: ShinycolorsUrlService,
+    private scUrlService: ShinyColorsUrlService,
     private modalService: NgbModal,
     private meta: Meta,
     private title: Title,

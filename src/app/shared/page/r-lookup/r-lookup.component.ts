@@ -16,17 +16,17 @@ import { SubIdolFormComponent } from '../../components/sub-idol-form/sub-idol-fo
 import { QueryResultModalComponent } from '../../components/query-result-modal/query-result-modal.component';
 
 @Component({
-    selector: 'app-r-lookup',
-    imports: [
-        SubSkillFormComponent,
-        SubIdolFormComponent,
-        QueryResultModalComponent,
-    ],
-    templateUrl: './r-lookup.component.html',
-    styleUrls: ['./r-lookup.component.css'],
-    host: {
-        class: 'col-lg-10 col-md-8 col-sm-12 overflow-auto h-100 container-fluid p-0',
-    }
+  selector: 'app-r-lookup',
+  imports: [
+    SubSkillFormComponent,
+    SubIdolFormComponent,
+    QueryResultModalComponent,
+  ],
+  templateUrl: './r-lookup.component.html',
+  styleUrls: ['./r-lookup.component.css'],
+  host: {
+    class: 'overflow-auto container-fluid d-flex justify-content-center ',
+  }
 })
 export class RLookupComponent implements OnInit {
 
@@ -71,7 +71,7 @@ export class RLookupComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   getColspan(index: number, memberCount: number): number {
     return index == memberCount - 1 ? 5 - memberCount + 1 : 1;

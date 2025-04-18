@@ -2,16 +2,16 @@ import { isPlatformBrowser } from '@angular/common';
 import { Component, ElementRef, Inject, Input, OnChanges, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
 import { NgbCarousel, NgbCarouselModule, NgbSlideEvent } from '@ng-bootstrap/ng-bootstrap';
 
-import { ShinycolorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
+import { ShinyColorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
-    selector: 'app-pic-carousel',
-    imports: [
-        NgbCarouselModule
-    ],
-    templateUrl: './pic-carousel.component.html',
-    styleUrls: ['./pic-carousel.component.css']
+  selector: 'app-pic-carousel',
+  imports: [
+    NgbCarouselModule
+  ],
+  templateUrl: './pic-carousel.component.html',
+  styleUrls: ['./pic-carousel.component.css']
 })
 export class PicCarouselComponent implements OnInit, OnChanges {
   @ViewChild('picCarousel') picCarousel!: NgbCarousel;
@@ -35,7 +35,7 @@ export class PicCarouselComponent implements OnInit, OnChanges {
   cardName!: string;
 
   constructor(
-    public scUrlService: ShinycolorsUrlService,
+    public scUrlService: ShinyColorsUrlService,
     @Inject(PLATFORM_ID) private platformId: Object,
   ) {
   }

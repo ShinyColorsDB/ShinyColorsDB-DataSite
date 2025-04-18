@@ -1,0 +1,11 @@
+<div class="card">
+  <a [href]="'https://shinycolors.lantis.jp/releaseinfo/' + this.cdInfo.albumId" target="_blank" rel="noopener">
+    <img [src]="this.scUrlService.getCDCover(this.cdInfo.albumId)" alt class="card-img-top">
+    <div class="card-body">
+      <h5 class="card-title">{{this.cdInfo.albumTitle}}</h5>
+      <span class="card-text">
+        {{this.cdInfo.albumReleaseDate}}
+      </span>
+    </div>
+  </a>
+</div>

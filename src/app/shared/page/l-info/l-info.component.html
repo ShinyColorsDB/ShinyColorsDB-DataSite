@@ -1,0 +1,106 @@
+@if (this.liveInfo && this.unitInfo) {
+<div class="container-fluid row d-flex p-0 justify-content-center">
+  <h3 class="h3 col-12 text-center">
+    {{this.liveInfo.liveTitle}}
+  </h3>
+  @if (this.liveInfo.liveSubtitle) {
+  <h4 class="h4 col-12 text-center">
+    {{this.liveInfo.liveSubtitle}}
+  </h4>
+  }
+  <div class="col-12 d-flex justify-content-center row p-1">
+    <div class="col-md-4 d-sm-none d-md-block"></div>
+    <img
+      [src]="this.liveInfo.liveLogo"
+      class="col-md-4 col-sm-12 img-fluid p-0"
+      [style]="'background-color: ' + this.liveInfo.liveLogoBg + ';'">
+    <div class="col-md-4 d-sm-none d-md-block"></div>
+  </div>
+  <!--table class="table table-bordered">
+    <thead></thead>
+    <tbody>
+      <tr>
+        <th>地點</th>
+        <td>{{this.liveInfo.liveBuilding}}</td>
+      </tr>
+      <tr>
+        <th>票價</th>
+        <td></td>
+      </tr>
+    </tbody>
+  </table-->
+  <div class="row col-12 d-flex justify-content-center p-1">
+    <div class="col-md-2 d-sm-none d-md-block"></div>
+    <div class="card-group col-md-8 col-sm-12">
+      <div class="card">
+        <div class="card-header">
+          Day1 {{this.liveInfo.liveDay1}}
+        </div>
+        <div class="card-body p-2">
+          <ul class="list-group list-group-flush">
+            @for(unit of this.unitInfo; track unit; let i = $index) {
+            @if (i <= 7 && this.displayUnit(unit, 1)) {
+            <li class="list-group-item border-0 p-1">
+              <div
+                [style]="'background-color: ' + unit.color1 + ';'"
+                class="p-1">
+                {{unit.unitName}}
+              </div>
+              <ul class="list-group list-group-flush ps-2">
+                @for (idol of unit.idols; track idol) {
+                @if (!this.markIdol(idol.idolId, 0)) {
+                <li
+                  [ngClass]="{
+                      'text-white': !this.displayIdol(idol.idolId, 1),
+                      'text-dark': this.displayIdol(idol.idolId, 1)
+                    }"
+                  class="list-group-item border-0 p-1">
+                  {{idol.cv}} ({{idol.idolName}}役)
+                </li>
+                }}
+              </ul>
+            </li>
+            }}
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          Day2 {{this.liveInfo.liveDay2}}
+        </div>
+        <div class="card-body p-2">
+          <ul class="list-group list-group-flush">
+            @for(unit of this.unitInfo; track unit; let i = $index) {
+            @if (i <= 7 && this.displayUnit(unit, 2)) {
+            <li class="list-group-item border-0 p-1">
+              <div
+                [style]="'background-color: ' + unit.color1 + ';'"
+                class="p-1">
+                {{unit.unitName}}
+              </div>
+              <ul class="list-group list-group-flush ps-2">
+                @for (idol of unit.idols; track idol) {
+                @if (!this.markIdol(idol.idolId, 0)) {
+                <li
+                  [ngClass]="{
+                    'text-white': !this.displayIdol(idol.idolId, 2),
+                    'text-dark': this.displayIdol(idol.idolId, 2)
+                  }"
+                  class="list-group-item border-0 p-1">
+                  {{idol.cv}} ({{idol.idolName}}役)
+                </li>
+                }}
+              </ul>
+            </li>
+            }}
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2 d-sm-none d-md-block"></div>
+  </div>
+  <div class="col-12">
+    <h3 class="h4 text-center">歌單</h3>
+  </div>
+</div>
+}

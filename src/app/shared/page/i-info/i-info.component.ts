@@ -3,7 +3,7 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 
 import { ShinyColorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
-import { ShinycolorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
+import { ShinyColorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
 import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
 
 import { Card } from '../../interfaces/card';
@@ -34,7 +34,7 @@ enum tabStatus {
     templateUrl: './i-info.component.html',
     styleUrls: ['./i-info.component.css'],
     host: {
-        class: 'col-lg-10 col-md-8 col-sm-12 overflow-auto h-100',
+        class: 'overflow-auto container-fluid d-flex justify-content-center',
     }
 })
 export class IInfoComponent implements OnInit {
@@ -43,9 +43,11 @@ export class IInfoComponent implements OnInit {
 
   togglePS: tabStatus = tabStatus.Produce;
 
+  pUR: Card[] = []
   pSSR: Card[] = [];
   pSR: Card[] = [];
   pR: Card[] = [];
+  sUR: Card[] = [];
   sSSR: Card[] = [];
   sSR: Card[] = [];
   sR: Card[] = [];
@@ -56,7 +58,7 @@ export class IInfoComponent implements OnInit {
   constructor(
     private utilsService: UtilitiesService,
     private scApiService: ShinyColorsApiService,
-    public scUrlService: ShinycolorsUrlService,
+    public scUrlService: ShinyColorsUrlService,
     private router: Router,
     private route: ActivatedRoute,
     private title: Title,
@@ -65,6 +67,9 @@ export class IInfoComponent implements OnInit {
 
   private classifyType(card: Card): void {
     switch (card.cardType) {
+      case 'P_UR':
+        this.pUR.push(card);
+        break;
       case 'P_SSR':
         this.pSSR.push(card);
         break;
@@ -73,6 +78,9 @@ export class IInfoComponent implements OnInit {
         break;
       case 'P_R':
         this.pR.push(card);
+        break;
+      case 'S_UR':
+        this.sUR.push(card);
         break;
       case 'S_SSR':
         this.sSSR.push(card);
@@ -92,9 +100,11 @@ export class IInfoComponent implements OnInit {
   }
 
   private resetCards(): void {
+    this.pUR = [];
     this.pSSR = [];
     this.pSR = [];
     this.pR = [];
+    this.sUR = [];
     this.sSSR = [];
     this.sSR = [];
     this.sR = [];
@@ -123,7 +133,8 @@ export class IInfoComponent implements OnInit {
           });
 
           this.utilsService.emitActiveIds([this.idolId, this.idolInfo.unitId]);
-          this.utilsService.emitMobileTitle(this.idolInfo.idolName);
+          // this.utilsService.emitMobileTitle(this.idolInfo.idolName);
+          this.utilsService.mobileTitle.emit("偶像情報");
 
           this.idolInfo.cardLists.forEach((card) => {
             this.classifyType(card);
@@ -207,6 +218,6 @@ export class IInfoComponent implements OnInit {
   getEventViewerUrl(e: Communication): string {
     //https://event.shinycolors.moe/?eventId=202100100391&eventType=produce_communication_promise_results
     //wing: produce_events
-    return `${environment.eventViewerUrl}?eventId=${e.communicationId}&eventType=${this.getCategoryPath(e.communicationCategory)}`;
+    return `https://${environment.eventViewerUrl}/?eventId=${e.communicationId}&eventType=${this.getCategoryPath(e.communicationCategory)}`;
   }
 }

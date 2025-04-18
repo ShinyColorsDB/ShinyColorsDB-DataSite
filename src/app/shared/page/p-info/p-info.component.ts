@@ -19,21 +19,21 @@ import { AptitudeComponent } from '../../components/aptitude/aptitude.component'
 import { CardStatusComponent } from '../../components/card-status/card-status.component';
 
 @Component({
-    selector: 'app-p-info',
-    imports: [
-        PicCarouselComponent,
-        CommonCriteriaComponent,
-        PanelInfoComponent,
-        PanelListComponent,
-        MemoryTableComponent,
-        AptitudeComponent,
-        CardStatusComponent,
-    ],
-    templateUrl: './p-info.component.html',
-    styleUrls: ['./p-info.component.css'],
-    host: {
-        class: 'col-lg-10 col-md-8 col-sm-12 overflow-auto h-100 container-fluid',
-    }
+  selector: 'app-p-info',
+  imports: [
+    PicCarouselComponent,
+    CommonCriteriaComponent,
+    PanelInfoComponent,
+    PanelListComponent,
+    MemoryTableComponent,
+    AptitudeComponent,
+    CardStatusComponent,
+  ],
+  templateUrl: './p-info.component.html',
+  styleUrls: ['./p-info.component.css'],
+  host: {
+    class: 'overflow-auto container-fluid d-flex justify-content-center',
+  }
 })
 export class PInfoComponent implements OnInit {
 
@@ -49,7 +49,7 @@ export class PInfoComponent implements OnInit {
     private router: Router,
     private meta: Meta,
     private title: Title
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
@@ -68,7 +68,8 @@ export class PInfoComponent implements OnInit {
             this.meta.updateTag(e);
           });
           this.utilsService.emitActiveIds([this.pCardInfo.idol.idolId, this.pCardInfo.idol.unitId]);
-          this.utilsService.emitMobileTitle(this.pCardInfo.cardName, true);
+          // this.utilsService.emitMobileTitle(this.pCardInfo.cardName, true);
+          this.utilsService.mobileTitle.emit("卡片情報");
         });
     });
   }

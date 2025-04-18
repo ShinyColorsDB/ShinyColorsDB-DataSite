@@ -1,8 +1,7 @@
-.accordion-body {
-    padding: 0%;
+a:hover {
+  background-color: rgb(234, 234, 234);
 }
 
-::ng-deep button:focus, button:hover {
-    outline: none;
-    box-shadow: none;
+a:hover.active {
+  background-color: #0d6efd;
 }

@@ -1,3 +1,8 @@
 * {
   font-family: LineGothic;
 }
+
+.link {
+  color: #0D6EfD;
+  text-decoration: underline;
+}
