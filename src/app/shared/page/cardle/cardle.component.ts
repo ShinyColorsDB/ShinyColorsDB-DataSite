@@ -18,7 +18,7 @@ import { isPlatformBrowser, CommonModule } from '@angular/common';
     templateUrl: './cardle.component.html',
     styleUrls: ['./cardle.component.css'],
     host: {
-        class: 'overflow-auto container-fluid d-flex justify-content-center ',
+        class: 'justify-content-center ',
     }
 })
 export class CardleComponent implements OnInit, AfterViewInit {
