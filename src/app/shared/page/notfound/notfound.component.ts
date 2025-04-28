@@ -27,7 +27,8 @@ export class NotfoundComponent implements OnInit {
     private utilsService: UtilitiesService,
   ) {
     if (isPlatformServer(this.platformId)) {
-      this.response?.status(404);
+      if (this.response)
+        this.response.status(404);
     }
     this.title.setTitle("Error");
     this.utilsService.emitMobileTitle("Error", false);

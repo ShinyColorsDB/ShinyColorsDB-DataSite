@@ -199,7 +199,7 @@ export class UtilitiesService {
         return 'Live獎勵';
       case 'TwilightCollection':
         return '暮光卡池';
-      case 'PayedGasha':
+      case 'PaidGasha':
         return '有償卡池';
       case 'MySongCollection':
         return 'MSC卡池';
