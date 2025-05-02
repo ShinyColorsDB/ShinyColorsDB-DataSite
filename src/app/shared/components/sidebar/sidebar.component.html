@@ -38,9 +38,9 @@
     </div>
   </div>
   <div
-    class="offcanvas-body"
+    class="offcanvas-body pt-2"
     style="background-color: #34eb3a;">
-    <nav class="nav">
+    <nav class="nav justify-content-center">
       <a class="nav-link" [routerLink]="['/']"
         (click)="offcanvas.dismiss()">首頁</a>
       <a class="nav-link" [routerLink]="['/timetable']"
@@ -49,6 +49,10 @@
         (click)="offcanvas.dismiss()">Cardle</a>
       <a class="nav-link" [routerLink]="['/r-lookup']"
         (click)="offcanvas.dismiss()">技能篩選</a>
+    </nav>
+    <nav class="nav justify-content-center">
+      <a href="https://spine.shinycolors.moe/" target="_blank"
+        class="nav-link">SpineViewer</a>
     </nav>
     <nav class="nav flex-column">
       <app-charlist
