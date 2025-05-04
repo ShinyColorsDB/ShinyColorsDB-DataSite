@@ -23,7 +23,7 @@
               style="color: #212529;"
               [routerLink]="['/idolinfo']"
               [ngClass]="{ active: this.currentIdolID === idol.idolId }"
-              (click)="this.onIdolClicked()"
+              (click)="this.onIdolClicked(idol.idolId)"
               [queryParams]="{ idolid: idol.idolId }">
               <img
                 [src]="this.scUrlService.getIdolSmlIcon(idol.idolId)"

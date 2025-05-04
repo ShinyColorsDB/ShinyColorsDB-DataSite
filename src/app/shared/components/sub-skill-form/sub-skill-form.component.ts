@@ -1,6 +1,6 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 
-import { SupSkillList } from '../../interfaces/supskilllist';
+import { SupSkillList } from '../../interfaces/supSkillList';
 
 @Component({
   selector: 'app-sub-skill-form',

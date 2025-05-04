@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { CardStatus } from '../../interfaces/cardstatus';
+import { CardStatus } from '../../interfaces/cardStatus';
 
 @Component({
   selector: 'app-card-status',

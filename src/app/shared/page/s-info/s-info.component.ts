@@ -8,8 +8,8 @@ import { ShinyColorsApiService } from 'src/app/service/shinycolors-api/shinycolo
 import { ShinyColorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
 import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
 
-import { SCard } from '../../interfaces/scard';
-import { CardSupportSkill } from '../../interfaces/cardsupportskill';
+import { SCard } from '../../interfaces/sCard';
+import { CardSupportSkill } from '../../interfaces/cardSupportSkill';
 import { catchError, of } from 'rxjs';
 
 import { CommonCriteriaComponent } from '../../components/common-criteria/common-criteria.component';
@@ -52,7 +52,7 @@ export class SInfoComponent implements OnInit {
     private router: Router,
     private meta: Meta,
     private title: Title,
-  ) { 
+  ) {
     this.supportSkillBound = utilsService.supportSkillBound();
   }
 

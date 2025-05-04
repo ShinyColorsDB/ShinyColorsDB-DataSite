@@ -1,4 +1,4 @@
-import { CardStatus } from "./cardstatus";
+import { CardStatus } from "./cardStatus";
 
 export interface Card {
   cardIndex: number;

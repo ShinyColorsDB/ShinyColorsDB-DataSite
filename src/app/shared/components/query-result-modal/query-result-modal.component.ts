@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { QueryResult } from '../../interfaces/queryresult';
+import { QueryResult } from '../../interfaces/queryResult';
 
 import { environment } from 'src/environments/environment';
 import { ShinyColorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';

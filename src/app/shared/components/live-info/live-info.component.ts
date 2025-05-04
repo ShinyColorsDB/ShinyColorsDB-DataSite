@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { LiveInfo } from '../../interfaces/liveinfo';
+import { LiveInfo } from '../../interfaces/liveInfo';
 
 @Component({
   selector: 'app-live-info',

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CardMemoryAppeal } from '../../interfaces/cardmemoryappeal';
-import { MemoryChargeSkill } from '../../interfaces/memorychargeskill';
+import { CardMemoryAppeal } from '../../interfaces/cardMemoryAppeal';
+import { MemoryChargeSkill } from '../../interfaces/memoryChargeSkill';
 
 @Component({
   selector: 'app-memory-table',

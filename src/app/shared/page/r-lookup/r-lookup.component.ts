@@ -7,9 +7,9 @@ import { catchError, of } from 'rxjs';
 import { ShinyColorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
 import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
 
-import { SupSkillList } from '../../interfaces/supskilllist';
+import { SupSkillList } from '../../interfaces/supSkillList';
 import { Unit } from '../../interfaces/unit';
-import { QueryResult } from '../../interfaces/queryresult';
+import { QueryResult } from '../../interfaces/queryResult';
 
 import { SubSkillFormComponent } from '../../components/sub-skill-form/sub-skill-form.component';
 import { SubIdolFormComponent } from '../../components/sub-idol-form/sub-idol-form.component';

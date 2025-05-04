@@ -1,9 +1,9 @@
 import { Idol } from "./idol";
-import { PanelSlot } from "./panelslot";
-import { CardSupportEvent } from "./cardsupportevent"
-import { CardProficiency } from "./cardproficiency";
-import { CardSupportSkill } from "./cardsupportskill";
-import { CardSupportFightSkill } from "./cardsupportfightskill";
+import { PanelSlot } from "./panelSlot";
+import { CardSupportEvent } from "./cardSupportEvent"
+import { CardProficiency } from "./cardProficiency";
+import { CardSupportSkill } from "./cardSupportSkill";
+import { CardSupportFightSkill } from "./cardSupportFightSkill";
 import { Card } from "./card";
 
 export interface SCard extends Card {

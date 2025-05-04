@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 import { DateTime } from 'luxon';
-import { Timetable } from '../../interfaces/timetable';
+import { Timetable } from '../../interfaces/timeTable';
 import { RouterModule } from '@angular/router';
 
 @Component({

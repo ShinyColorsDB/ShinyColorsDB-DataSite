@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { CardSupportSkill } from '../../interfaces/cardsupportskill';
+import { CardSupportSkill } from '../../interfaces/cardSupportSkill';
 import { environment } from 'src/environments/environment';
 import { CommonModule } from '@angular/common';
 import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
@@ -26,7 +26,7 @@ export class SupskillCardComponent implements OnInit, OnChanges {
 
   constructor(
     public scUtilService: UtilitiesService
-  ) { 
+  ) {
     this.supportSkillBound = scUtilService.supportSkillBound();
   }
 

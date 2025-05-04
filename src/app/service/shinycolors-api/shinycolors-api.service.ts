@@ -9,15 +9,15 @@ import { catchError } from 'rxjs/operators';
 import { Unit } from 'src/app/shared/interfaces/unit';
 import { Idol } from 'src/app/shared/interfaces/idol';
 import { Card } from 'src/app/shared/interfaces/card';
-import { PCard } from 'src/app/shared/interfaces/pcard';
-import { SCard } from 'src/app/shared/interfaces/scard';
-import { Timetable } from 'src/app/shared/interfaces/timetable';
+import { PCard } from 'src/app/shared/interfaces/pCard';
+import { SCard } from 'src/app/shared/interfaces/sCard';
+import { Timetable } from 'src/app/shared/interfaces/timeTable';
 import { Cardle } from 'src/app/shared/interfaces/cardle';
-import { SupSkillList } from 'src/app/shared/interfaces/supskilllist';
-import { QuerySupportSkill } from 'src/app/shared/interfaces/querysupportskill';
-import { QueryResult } from 'src/app/shared/interfaces/queryresult';
+import { SupSkillList } from 'src/app/shared/interfaces/supSkillList';
+import { QuerySupportSkill } from 'src/app/shared/interfaces/querySupportSkill';
+import { QueryResult } from 'src/app/shared/interfaces/queryResult';
 import { Album } from 'src/app/shared/interfaces/album';
-import { LiveInfo } from 'src/app/shared/interfaces/liveinfo';
+import { LiveInfo } from 'src/app/shared/interfaces/liveInfo';
 import { CD } from 'src/app/shared/interfaces/cd';
 
 @Injectable({

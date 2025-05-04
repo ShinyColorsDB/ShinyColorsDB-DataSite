@@ -1,10 +1,10 @@
 import { Idol } from "./idol";
-import { CardIdolEvent } from "./cardidolevent";
-import { CardMemoryAppeal } from "./cardmemoryappeal";
-import { PanelSlot } from "./panelslot";
-import { CardProduceAptitude } from "./cardproduceaptitude";
+import { CardIdolEvent } from "./cardIdolEvent";
+import { CardMemoryAppeal } from "./cardMemoryAppeal";
+import { PanelSlot } from "./panelSlot";
+import { CardProduceAptitude } from "./cardProduceAptitude";
 import { Card } from "./card";
-import { MemoryChargeSkill } from "./memorychargeskill";
+import { MemoryChargeSkill } from "./memoryChargeSkill";
 
 export interface PCard extends Card {
   idol: Idol;

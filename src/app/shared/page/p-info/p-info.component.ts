@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
 import { ShinyColorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
 import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
 
-import { PCard } from '../../interfaces/pcard';
+import { PCard } from '../../interfaces/pCard';
 import { catchError, of } from 'rxjs';
 
 import { PicCarouselComponent } from '../../components/pic-carousel/pic-carousel.component';

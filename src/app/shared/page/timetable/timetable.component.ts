@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, of } from 'rxjs';
 
 import { ShinyColorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
-import { Timetable } from '../../interfaces/timetable';
+import { Timetable } from '../../interfaces/timeTable';
 import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
 import { CommonModule } from '@angular/common';
 import { TimesubtableComponent } from '../../components/timesubtable/timesubtable.component';

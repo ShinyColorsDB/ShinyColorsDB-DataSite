@@ -6,7 +6,7 @@ import { ShinyColorsApiService } from 'src/app/service/shinycolors-api/shinycolo
 import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
 
 import { Card } from '../../interfaces/card';
-import { LiveInfo } from '../../interfaces/liveinfo';
+import { LiveInfo } from '../../interfaces/liveInfo';
 import { CD } from '../../interfaces/cd';
 
 import { CardItemComponent } from '../../components/card-item/card-item.component';

@@ -1,5 +1,5 @@
 import { Card } from "./card";
-import { Cardlechunk } from "./cardlechunk";
+import { Cardlechunk } from "./cardleChunk";
 
 export interface Cardle {
   cardleIndex: number;

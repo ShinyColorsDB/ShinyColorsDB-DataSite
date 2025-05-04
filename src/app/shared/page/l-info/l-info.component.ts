@@ -4,7 +4,7 @@ import { Meta, Title } from '@angular/platform-browser';
 import { ShinyColorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
 import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
 import { CommonModule } from '@angular/common';
-import { LiveInfo } from '../../interfaces/liveinfo';
+import { LiveInfo } from '../../interfaces/liveInfo';
 import { Unit } from '../../interfaces/unit';
 
 @Component({

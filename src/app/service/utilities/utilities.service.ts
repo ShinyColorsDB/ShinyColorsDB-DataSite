@@ -1,7 +1,7 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { Idol } from 'src/app/shared/interfaces/idol';
-import { PCard } from 'src/app/shared/interfaces/pcard';
-import { SCard } from 'src/app/shared/interfaces/scard';
+import { PCard } from 'src/app/shared/interfaces/pCard';
+import { SCard } from 'src/app/shared/interfaces/sCard';
 
 import { ShinyColorsUrlService } from '../shinycolors-url/shinycolors-url.service';
 

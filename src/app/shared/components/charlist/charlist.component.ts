@@ -7,7 +7,10 @@ import { Unit } from '../../interfaces/unit';
 import { ShinyColorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
 import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
 import { ShinyColorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
+import { ShinyColorsStateService } from 'src/app/service/shinycolors-state/shinycolors-state.service';
+
 import { NgbAccordionModule, NgbCollapse } from '@ng-bootstrap/ng-bootstrap';
+import { TabStatus } from '../../enums/tabStatus';
 
 @Component({
   selector: 'app-charlist',
@@ -36,6 +39,7 @@ export class CharlistComponent implements OnInit {
     @Inject(PLATFORM_ID) private platformId: Object,
     private utilsService: UtilitiesService,
     private scApiService: ShinyColorsApiService,
+    private scStateService: ShinyColorsStateService,
     public scUrlService: ShinyColorsUrlService
   ) {
     this.scApiService.getUnitList().subscribe((data) => {
@@ -55,7 +59,8 @@ export class CharlistComponent implements OnInit {
     });
   }
 
-  onIdolClicked(): void {
+  onIdolClicked(id: number): void {
+    this.scStateService.setTabStatus(id, TabStatus.Produce);
     this.idolClicked.emit(true);
   }
 }

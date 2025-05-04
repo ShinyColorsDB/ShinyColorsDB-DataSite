@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
+import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { ShinyColorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
 import { ShinyColorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
+import { ShinyColorsStateService } from 'src/app/service/shinycolors-state/shinycolors-state.service';
 import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
 
 import { Card } from '../../interfaces/card';
@@ -14,14 +17,8 @@ import { environment } from 'src/environments/environment';
 
 import { catchError, of } from 'rxjs';
 import { CardItemComponent } from '../../components/card-item/card-item.component';
-import { CommonModule } from '@angular/common';
-import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
 
-enum tabStatus {
-  Produce,
-  Support,
-  Event
-};
+import { TabStatus } from '../../enums/tabStatus';
 
 @Component({
     selector: 'app-i-info',
@@ -41,7 +38,7 @@ export class IInfoComponent implements OnInit {
   idolInfo!: Idol;
   idolId!: number;
 
-  togglePS: tabStatus = tabStatus.Produce;
+  togglePS: TabStatus = TabStatus.Produce;
 
   pUR: Card[] = []
   pSSR: Card[] = [];
@@ -59,6 +56,7 @@ export class IInfoComponent implements OnInit {
     private utilsService: UtilitiesService,
     private scApiService: ShinyColorsApiService,
     public scUrlService: ShinyColorsUrlService,
+    public scStateService: ShinyColorsStateService,
     private router: Router,
     private route: ActivatedRoute,
     private title: Title,
@@ -125,7 +123,7 @@ export class IInfoComponent implements OnInit {
           this.resetCards();
 
           this.idolInfo = data;
-          this.togglePS = tabStatus.Produce;
+          this.togglePS = this.scStateService.getTabStatus(this.idolId);
 
           this.title.setTitle(this.idolInfo.idolName);
           this.utilsService.generateIdolMeta(this.idolInfo).forEach(e => {
@@ -163,27 +161,30 @@ export class IInfoComponent implements OnInit {
   }
 
   tabProduce(): void {
-    this.togglePS = tabStatus.Produce;
+    this.togglePS = TabStatus.Produce;
+    this.scStateService.setTabStatus(this.idolId, TabStatus.Produce);
   }
 
   isTabProduce(): boolean {
-    return this.togglePS === tabStatus.Produce;
+    return this.togglePS === TabStatus.Produce;
   }
 
   tabSupport(): void {
-    this.togglePS = tabStatus.Support;
+    this.togglePS = TabStatus.Support;
+    this.scStateService.setTabStatus(this.idolId, TabStatus.Support);
   }
 
   isTabSupport(): boolean {
-    return this.togglePS === tabStatus.Support;
+    return this.togglePS === TabStatus.Support;
   }
 
   tabEvent(): void {
-    this.togglePS = tabStatus.Event;
+    this.togglePS = TabStatus.Event;
+    this.scStateService.setTabStatus(this.idolId, TabStatus.Event);
   }
 
   isTabEvent(): boolean {
-    return this.togglePS === tabStatus.Event;
+    return this.togglePS === TabStatus.Event;
   }
 
   getCategoryPath(category: string): string {
