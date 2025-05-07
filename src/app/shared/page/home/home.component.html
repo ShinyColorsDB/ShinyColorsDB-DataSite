@@ -13,7 +13,7 @@
           [cardInfo]="card"
           [pathType]="card.cardType.startsWith('P') ? '/pcardinfo' : '/scardinfo'"
           [isHome]="true"
-          class="col-md-6 col-lg-4 col-xl-3 col-sm-12 p-1"></app-card-item>
+          class="col-12 col-md-6 col-lg-4 col-xl-3 p-1"></app-card-item>
         }
       </div>
       }
@@ -23,11 +23,15 @@
         ＣＤ情報
       </h2>
     </div>
-    <div class="d-flex w-75 mx-auto row row-cols-sm-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-3 g-2">
+    <div class="d-flex container-fluid row justify-content-center m-auto">
+      <div class="col-md-none col-lg-1"></div>
+      <div class="row g-2 col-12 col-lg-10">
       @for(cd of this.cdInfo; track cd) {
-      <app-cd-info
-        [cdInfo]="cd"></app-cd-info>
+        <app-cd-info [cdInfo]="cd"
+          class="col-6 col-sm-4 col-md-4 col-lg-3"></app-cd-info>
       }
+      </div>
+      <div class="col-md-none col-lg-1"></div>
     </div>
     <div class="d-flex justify-content-center">
       <h2 class="m-2 text-center">

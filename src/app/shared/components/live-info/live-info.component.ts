@@ -10,7 +10,7 @@ import { LiveInfo } from '../../interfaces/liveInfo';
   templateUrl: './live-info.component.html',
   styleUrl: './live-info.component.css',
   host: {
-    class: "col"
+    class: "col-12"
   }
 })
 export class LiveInfoComponent {

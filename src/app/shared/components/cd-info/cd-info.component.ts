@@ -8,9 +8,6 @@ import { ShinyColorsUrlService } from 'src/app/service/shinycolors-url/shinycolo
   imports: [],
   templateUrl: './cd-info.component.html',
   styleUrl: './cd-info.component.css',
-  host: {
-    class: "col"
-  }
 })
 export class CdInfoComponent {
   @Input()
