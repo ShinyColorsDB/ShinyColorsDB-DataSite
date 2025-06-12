@@ -1,4 +1,4 @@
-@if (this.liveInfo && this.unitInfo) {
+@if (this.liveInfo && this.unitInfo && this.idolInfo) {
 <div class="container-fluid row d-flex p-0 justify-content-center">
   <h3 class="h3 col-12 text-center">
     {{this.liveInfo.liveTitle}}
@@ -99,8 +99,62 @@
     </div>
     <div class="col-md-2 d-sm-none d-md-block"></div>
   </div>
-  <div class="col-12">
+  <div class="col-12 justify-content-center">
     <h3 class="h4 text-center">歌單</h3>
+    <div class="card">
+      <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs">
+          <li class="nav-item">
+            <a href="javascript: void(0);" (click)="this.dayTab = 0" [ngClass]="{'disabled': this.dayTab == 0, 'active': this.dayTab == 0 }" class="nav-link" style="font-family: Meiryo" i18n>Day1</a>
+          </li>
+          <li class="nav-item">
+            <a href="javascript: void(0);" (click)="this.dayTab = 1" [ngClass]="{'disabled': this.dayTab == 1, 'active': this.dayTab == 1 }" class="nav-link" style="font-family: Meiryo" i18n>Day2</a>
+          </li>
+        </ul>
+      </div>
+      <div class="card-body">
+        <div [ngClass]="{'d-none': this.dayTab != 0}">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Index</th>
+                <th>楽曲</th>
+                <th>出演</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for(song of this.liveInfo.day1SetList; track song; let i = $index) {
+              <tr>
+                <td>{{i}}</td>
+                <td>{{song.songName}}</td>
+                <td>{{displaySinger(song)}}</td>
+              </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+        <div [ngClass]="{'d-none': this.dayTab != 1}">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Index</th>
+                <th>楽曲</th>
+                <th>出演</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for(song of this.liveInfo.day2SetList; track song; let i = $index) {
+              <tr>
+                <td>{{i}}</td>
+                <td>{{song.songName}}</td>
+                <td>{{displaySinger(song)}}</td>
+              </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 }

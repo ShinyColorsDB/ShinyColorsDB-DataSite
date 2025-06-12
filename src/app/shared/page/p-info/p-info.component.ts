@@ -113,6 +113,6 @@ export class PInfoComponent implements OnInit {
   }
 
   getEventUrl(eventId: number): string {
-    return `${environment.eventViewerUrl}?eventId=${eventId}`;
+    return `https://${environment.eventViewerUrl}?eventId=${eventId}`;
   }
 }

@@ -1,18 +1,8 @@
-import { liveSetList } from "./liveSetList";
+export interface liveSetList {
+  songName: string;
 
-export interface LiveInfo {
-  liveIndex: number;
-
-  liveTitle: string;
-
-  liveSubtitle: string;
-
-  liveId: string;
-
-  liveDay1: string;
-
-  liveDay2: string;
-
+  songId: number | null;
+  
   idol01: number;
 
   idol02: number;
@@ -68,18 +58,4 @@ export interface LiveInfo {
   idol27: number;
 
   idol28: number;
-
-  liveLocation: string;
-
-  liveBuilding: string;
-
-  liveLogo: string;
-
-  liveLogoBg: string;
-
-  liveMemo: string;
-
-  day1SetList: liveSetList[];
-
-  day2SetList: liveSetList[];
 }

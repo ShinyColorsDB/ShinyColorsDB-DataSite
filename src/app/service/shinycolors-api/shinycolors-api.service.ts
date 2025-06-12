@@ -32,7 +32,13 @@ export class ShinyColorsApiService {
   getUnitList(): Observable<Unit[]> {
     return this.http
       .get<Unit[]>(`https://${environment.apiUrl}/info/unitInfo`)
-      .pipe(catchError(this.handleError<Unit[]>('getIdolList', [])));
+      .pipe(catchError(this.handleError<Unit[]>('getUnitList', [])));
+  }
+
+  getIdolList(): Observable<Idol[]> {
+    return this.http
+      .get<Idol[]>(`https://${environment.apiUrl}/info/idolList`)
+      .pipe(catchError(this.handleError<Idol[]>('getIdolLIst', [])))
   }
 
   getIdolInfo(idolID: number): Observable<Idol> {
