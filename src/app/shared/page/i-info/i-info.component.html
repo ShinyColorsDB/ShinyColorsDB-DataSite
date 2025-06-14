@@ -95,25 +95,25 @@
             @if (this.pUR.length) {
             <h5 class="text-start pt-2">P_UR</h5>
             }
-            @for (card of this.pUR; track card) {
+            @for (card of this.pUR; track card.enzaId) {
             <app-card-item [cardInfo]="card" [pathType]="'/pcardinfo'" class="col-md-6 col-lg-4 col-sm-12 pt-1 pb-1"></app-card-item>
             }
             @if (this.pSSR.length) {
             <h5 class="text-start pt-2">P_SSR</h5>
             }
-            @for (card of this.pSSR; track card) {
+            @for (card of this.pSSR; track card.enzaId) {
             <app-card-item [cardInfo]="card" [pathType]="'/pcardinfo'" class="col-md-6 col-lg-4 col-sm-12 pt-1 pb-1"></app-card-item>
             }
             @if (this.pSR.length) {
             <h5 class="text-start pt-2">P_SR</h5>
             }
-            @for (card of this.pSR; track card) {
+            @for (card of this.pSR; track card.enzaId) {
             <app-card-item [cardInfo]="card" [pathType]="'/pcardinfo'" class="col-md-6 col-lg-4 col-sm-12 pt-1 pb-1"></app-card-item>
             }
             @if (this.pR.length) {
             <h5 class="text-start pt-2">P_R</h5>
             }
-            @for (card of this.pR; track card) {
+            @for (card of this.pR; track card.enzaId) {
             <app-card-item [cardInfo]="card" [pathType]="'/pcardinfo'" class="col-md-6 col-lg-4 col-sm-12 pt-1 pb-1"></app-card-item>
             }
             }
@@ -130,31 +130,31 @@
             @if (this.sUR.length) {
             <h5 class="text-start pt-2">S_UR</h5>
             }
-            @for (card of this.sUR; track card) {
+            @for (card of this.sUR; track card.enzaId) {
             <app-card-item [cardInfo]="card" [pathType]="'/scardinfo'" class="col-md-6 col-lg-4 col-sm-12 pt-1 pb-1"></app-card-item>
             }
             @if (this.sSSR.length) {
             <h5 class="text-start pt-2">S_SSR</h5>
             }
-            @for (card of this.sSSR; track card) {
+            @for (card of this.sSSR; track card.enzaId) {
             <app-card-item [cardInfo]="card" [pathType]="'/scardinfo'" class="col-md-6 col-lg-4 col-sm-12 pt-1 pb-1"></app-card-item>
             }
             @if (this.sSR.length) {
             <h5 class="text-start pt-2">S_SR</h5>
             }
-            @for (card of this.sSR; track card) {
+            @for (card of this.sSR; track card.enzaId) {
             <app-card-item [cardInfo]="card" [pathType]="'/scardinfo'" class="col-md-6 col-lg-4 col-sm-12 pt-1 pb-1"></app-card-item>
             }
             @if (this.sR.length) {
             <h5 class="text-start pt-2">S_R</h5>
             }
-            @for (card of this.sR; track card) {
+            @for (card of this.sR; track card.enzaId) {
             <app-card-item [cardInfo]="card" [pathType]="'/scardinfo'" class="col-md-6 col-lg-4 col-sm-12 pt-1 pb-1"></app-card-item>
             }
             @if (this.sN.length) {
             <h5 class="text-start pt-2">S_N</h5>
             }
-            @for (card of this.sN; track card) {
+            @for (card of this.sN; track card.enzaId) {
             <app-card-item [cardInfo]="card" [pathType]="'/scardinfo'" class="col-md-6 col-lg-4 col-sm-12 pt-1 pb-1"></app-card-item>
             }
             }

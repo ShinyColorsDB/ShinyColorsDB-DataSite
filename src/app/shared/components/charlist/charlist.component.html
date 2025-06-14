@@ -1,5 +1,5 @@
 <div ngbAccordion>
-  @for (unit of Units; track unit; let i = $index) {
+  @for (unit of Units; track unit.unitId; let i = $index) {
   <div [ngbAccordionItem]="'unit'+i" [collapsed]="this.collapseStatus[i]">
     <h2 ngbAccordionHeader>
       <button ngbAccordionButton
@@ -17,7 +17,7 @@
       <div ngbAccordionBody class="p-0">
         <ng-template>
           <div class="list-group">
-            @for (idol of unit.idols; track idol) {
+            @for (idol of unit.idols; track idol.idolId) {
             <a
               class="p-2 ps-4 d-flex list-group-item align-items-center text-decoration-none"
               style="color: #212529;"

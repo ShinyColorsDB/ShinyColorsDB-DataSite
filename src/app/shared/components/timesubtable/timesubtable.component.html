@@ -8,7 +8,7 @@
       </tr>
     </thead>
     <tbody>
-      @for (card of this.timetable.produce; track card) {
+      @for (card of this.timetable.produce; track card.enzaId) {
       <tr>
         <td>
           <a
@@ -34,7 +34,7 @@
       </tr>
     </thead>
     <tbody>
-      @for (card of this.timetable.support; track card) {
+      @for (card of this.timetable.support; track card.enzaId) {
       <tr>
         <td>
           <a

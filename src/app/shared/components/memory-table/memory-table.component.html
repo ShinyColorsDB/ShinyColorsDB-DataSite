@@ -6,7 +6,7 @@
       <th scope="col" i18n>Link/Charge</th>
     </tr>
   </thead>
-  @for(mem of memoryList; track mem; let i = $index) {
+  @for(mem of memoryList; track mem.memoryIndex; let i = $index) {
   <tbody>
     <tr>
       <td [attr.rowspan]="this.chargeSkills.length == 0 ? 2 : 3" class="align-middle forLevel">Lv.{{ i + 1 }}</td>

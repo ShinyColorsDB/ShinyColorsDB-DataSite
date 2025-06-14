@@ -38,7 +38,7 @@
         </div>
         <div class="card-body p-2">
           <ul class="list-group list-group-flush">
-            @for(unit of this.unitInfo; track unit; let i = $index) {
+            @for(unit of this.unitInfo; track unit.unitId; let i = $index) {
             @if (i <= 7 && this.displayUnit(unit, 1)) {
             <li class="list-group-item border-0 p-1">
               <div
@@ -47,7 +47,7 @@
                 {{unit.unitName}}
               </div>
               <ul class="list-group list-group-flush ps-2">
-                @for (idol of unit.idols; track idol) {
+                @for (idol of unit.idols; track idol.idolId) {
                 @if (!this.markIdol(idol.idolId, 0)) {
                 <li
                   [ngClass]="{
@@ -70,7 +70,7 @@
         </div>
         <div class="card-body p-2">
           <ul class="list-group list-group-flush">
-            @for(unit of this.unitInfo; track unit; let i = $index) {
+            @for(unit of this.unitInfo; track unit.unitId; let i = $index) {
             @if (i <= 7 && this.displayUnit(unit, 2)) {
             <li class="list-group-item border-0 p-1">
               <div
@@ -79,7 +79,7 @@
                 {{unit.unitName}}
               </div>
               <ul class="list-group list-group-flush ps-2">
-                @for (idol of unit.idols; track idol) {
+                @for (idol of unit.idols; track idol.idolId) {
                 @if (!this.markIdol(idol.idolId, 0)) {
                 <li
                   [ngClass]="{

@@ -5,7 +5,7 @@
       <th i18n>技能</th>
     </tr>
   </thead>
-  @for (slot of this.panelInfo; track slot; let i = $index) {
+  @for (slot of this.panelInfo; track slot.tableIndex; let i = $index) {
   <tbody class="table-hover">
     <tr [ngClass]="{ 'bg-warning': i == this.highlited }"
       [id]="'skill' + i"

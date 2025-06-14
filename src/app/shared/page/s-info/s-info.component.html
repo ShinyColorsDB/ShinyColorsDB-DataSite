@@ -36,7 +36,7 @@
             </tr>
           </thead>
           <tbody>
-            @for (event of this.sCardInfo.cardSupportEvents; track event) {
+            @for (event of this.sCardInfo.cardSupportEvents; track event.eventId) {
             <tr>
               <td class="col-7">
                 <a [href]="this.getEventUrl(event.eventId)" target="_blank" class="d-flex">

@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { environment } from '../../../environments/environment';
 
 import { Observable, of, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 import { Unit } from 'src/app/shared/interfaces/unit';
 import { Idol } from 'src/app/shared/interfaces/idol';
 import { Card } from 'src/app/shared/interfaces/card';
@@ -24,29 +24,47 @@ import { CD } from 'src/app/shared/interfaces/cd';
   providedIn: 'root',
 })
 export class ShinyColorsApiService {
+  private unitListCache: Unit[] | null = null;
+  private idolListCache: Idol[] | null = null;
+  private idolCache: Map<number, Idol> = new Map();
   constructor(
     private http: HttpClient,
     private router: Router,
   ) { }
 
   getUnitList(): Observable<Unit[]> {
+    if (this.unitListCache !== null) {
+      return of(this.unitListCache);
+    }
     return this.http
       .get<Unit[]>(`https://${environment.apiUrl}/info/unitInfo`)
-      .pipe(catchError(this.handleError<Unit[]>('getUnitList', [])));
+      .pipe(tap(units => {
+        this.unitListCache = units;
+      }), catchError(this.handleError<Unit[]>('getUnitList', [])));
   }
 
   getIdolList(): Observable<Idol[]> {
+    if (this.idolListCache !== null) {
+      return of(this.idolListCache);
+    }
     return this.http
       .get<Idol[]>(`https://${environment.apiUrl}/info/idolList`)
-      .pipe(catchError(this.handleError<Idol[]>('getIdolLIst', [])))
+      .pipe(tap(idols => {
+        this.idolListCache = idols;
+      }), catchError(this.handleError<Idol[]>('getIdolLIst', [])))
   }
 
   getIdolInfo(idolID: number): Observable<Idol> {
+    if (this.idolCache.has(idolID)) {
+      return of(this.idolCache.get(idolID)!);
+    }
     return this.http
       .get<Idol>(`https://${environment.apiUrl}/info/idolInfo?idolId=${idolID}`, {
         responseType: 'json',
       })
-      .pipe(catchError(this.handleError<Idol>('getIdolInfo')));
+      .pipe(tap(idol => {
+        this.idolCache.set(idolID, idol);
+      }), catchError(this.handleError<Idol>('getIdolInfo')));
   }
 
   getIdolAlbumInfo(idolID: number): Observable<Album> {
