@@ -6,6 +6,13 @@
       </h2>
     </div>
     <div class="d-flex container-fluid">
+      @if(!this.recent || this.recent.length === 0) {
+      <div class="row">
+        @for (card of this.placeholder; track card) {
+        <app-card-item-holder class="col-12 col-md-6 col-lg-4 col-xl-3 p-1"></app-card-item-holder>
+        }
+      </div>
+      }
       @if(this.recent) {
       <div class="row">
         @for (card of this.recent; track card.enzaId) {

@@ -18,7 +18,7 @@ import { TimesubtableComponent } from '../../components/timesubtable/timesubtabl
   templateUrl: './timetable.component.html',
   styleUrls: ['./timetable.component.css'],
   host: {
-    class: 'overflow-auto container-fluid d-flex justify-content-center',
+    class: 'overflow-auto container d-flex justify-content-center',
   }
 })
 export class TimetableComponent implements OnInit {
@@ -29,6 +29,8 @@ export class TimetableComponent implements OnInit {
   overview = true;
   limited = false;
   general = false;
+
+  placeholder = Array(20).fill(0).map((x, i) => i);
 
   regExp = RegExp(/(【.*】)(.*)/);
 

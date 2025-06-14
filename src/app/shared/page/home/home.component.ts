@@ -12,13 +12,15 @@ import { CD } from '../../interfaces/cd';
 import { CardItemComponent } from '../../components/card-item/card-item.component';
 import { LiveInfoComponent } from '../../components/live-info/live-info.component';
 import { CdInfoComponent } from '../../components/cd-info/cd-info.component';
+import { CardItemHolderComponent } from "../../components/card-item-holder/card-item-holder.component";
 
 @Component({
   selector: 'app-home',
   imports: [
     CardItemComponent,
     LiveInfoComponent,
-    CdInfoComponent
+    CdInfoComponent,
+    CardItemHolderComponent
 ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
@@ -32,6 +34,8 @@ export class HomeComponent implements OnInit {
   recent: Card[] = [];
   liveInfo: LiveInfo[] = [];
   cdInfo: CD[] = [];
+
+  placeholder = Array(12).fill(0).map((x, i) => i);
 
   constructor(
     private utilsService: UtilitiesService,
