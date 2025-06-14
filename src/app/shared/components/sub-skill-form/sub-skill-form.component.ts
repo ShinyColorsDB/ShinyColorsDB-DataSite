@@ -29,7 +29,7 @@ export class SubSkillFormComponent implements OnInit {
   ngOnInit(): void {}
 
   subOption(): void {
-    if (this.skillNameSelect.nativeElement.selectedOptions[0].getAttribute("subOption") === '0') {
+    if (this.skillNameSelect.nativeElement.selectedOptions[0].getAttribute("subOption") == 'false') {
       this.skillSubOption.nativeElement.value = '';
       this.skillSubOption.nativeElement.setAttribute("disabled", '');
     }

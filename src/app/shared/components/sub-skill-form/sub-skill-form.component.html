@@ -1,6 +1,6 @@
 <div class="form-group d-flex" #skillForm>
   <select class="form-select d-inline-block m-1" style="width: 40%;" (change)="this.subOption(); this.updateQueryStr()" #skillNameSelect>
-    <option value subOption="0" selected>--</option>
+    <option value subOption="false" selected>--</option>
     @for (i of this.skillList; track i) {
     <option value={{i.supSkillName}} attr.subOption={{i.hasSubOption}}>{{i.supSkillName}}</option>
     }
