@@ -30,6 +30,9 @@ import { Grid } from 'honeycomb-grid';
 })
 export class PanelInfoComponent implements OnChanges, OnDestroy, AfterViewInit {
   @Input()
+  spOffset: number = 0;
+
+  @Input()
   panelInfo!: any[];
 
   @Input()
@@ -182,7 +185,7 @@ export class PanelInfoComponent implements OnChanges, OnDestroy, AfterViewInit {
         graphics.on('pointerdown', () => {
           document.getElementById(`skill${index}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
           this.stateChanged.emit(index);
-          
+
           /*
           setTimeout(() => {
             const scrollMe = document.getElementById('scrollMe');
@@ -242,7 +245,7 @@ export class PanelInfoComponent implements OnChanges, OnDestroy, AfterViewInit {
         skillIcon.position.set(picX, picY - 10);
 
         // slot cost
-        const thisCost = new Text(String(this.cost[index]), { fontFamily: 'lineGothic', fontWeight: "bold" });
+        const thisCost = new Text(String(this.cost[index] + this.spOffset), { fontFamily: 'lineGothic', fontWeight: "bold" });
         thisCost.anchor.set(0.5, 0.5);
         thisCost.position.set(picX, picY + hex.width / 2 * (5 / 8) + 7);
 

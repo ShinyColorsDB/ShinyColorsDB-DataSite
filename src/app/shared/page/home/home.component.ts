@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
-import { CommonModule } from '@angular/common';
+
 
 import { ShinyColorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
 import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
@@ -16,11 +16,10 @@ import { CdInfoComponent } from '../../components/cd-info/cd-info.component';
 @Component({
   selector: 'app-home',
   imports: [
-    CommonModule,
     CardItemComponent,
     LiveInfoComponent,
     CdInfoComponent
-  ],
+],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
   host: {

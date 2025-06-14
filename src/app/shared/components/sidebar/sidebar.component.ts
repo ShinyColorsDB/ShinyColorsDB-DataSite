@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, inject, Input, OnInit, TemplateRef } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgbAccordionModule, NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
@@ -10,11 +10,9 @@ import { CharlistComponent } from '../charlist/charlist.component';
   selector: 'app-sidebar',
   imports: [
     RouterModule,
-    CommonModule,
     NgbAccordionModule,
-    CharlistComponent,
-    //SettingsComponent
-  ],
+    CharlistComponent
+],
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css']
 })

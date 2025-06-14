@@ -93,6 +93,7 @@
   <div class="col-lg-6 col-md-12 row p-0 m-0">
     <app-panel-info
       class="col-12 noFontSize p-2"
+      [spOffset]="this.pCardInfo.panelSPOffset"
       [panelInfo]="this.pCardInfo.cardPanels"
       [isSr]="this.isSrCard()"
       (stateChanged)="updateState($event)"></app-panel-info>

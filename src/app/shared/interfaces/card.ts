@@ -13,4 +13,5 @@ export interface Card {
   getMethod: string;
   releaseDate: string;
   cardStatus: CardStatus;
+  panelSPOffset: number;
 }
