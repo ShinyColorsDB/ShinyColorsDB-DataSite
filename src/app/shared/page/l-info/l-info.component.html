@@ -8,13 +8,15 @@
     {{this.liveInfo.liveSubtitle}}
   </h4>
   }
-  <div class="col-12 d-flex justify-content-center row p-1">
-    <div class="col-md-4 d-sm-none d-md-block"></div>
-    <img
+  <div class="col-md-4 col-sm-12 d-flex justify-content-center row p-1">
+    <div class="col-sm-2 d-md-none"></div>
+    <div class="col-md-12 col-sm-8">
+      <img
       [src]="this.liveInfo.liveLogo"
-      class="col-md-4 col-sm-12 img-fluid p-0"
+      class="img-fluid"
       [style]="'background-color: ' + this.liveInfo.liveLogoBg + ';'">
-    <div class="col-md-4 d-sm-none d-md-block"></div>
+    </div>
+    <div class="col-sm-2 d-md-none"></div>
   </div>
   <!--table class="table table-bordered">
     <thead></thead>
@@ -29,14 +31,13 @@
       </tr>
     </tbody>
   </table-->
-  <div class="row col-12 d-flex justify-content-center p-1">
-    <div class="col-md-2 d-sm-none d-md-block"></div>
-    <div class="card-group col-md-8 col-sm-12">
-      <div class="card">
+  <div class="row col-md-8 col-sm-12 d-flex justify-content-center p-1">
+    <div class="card-group row p-0">
+      <div class="card p-0 col-6">
         <div class="card-header">
           Day1 {{this.liveInfo.liveDay1}}
         </div>
-        <div class="card-body p-2">
+        <div class="card-body p-1">
           <ul class="list-group list-group-flush">
             @for(unit of this.unitInfo; track unit.unitId; let i = $index) {
             @if (i <= 7 && this.displayUnit(unit, 1)) {
@@ -47,28 +48,33 @@
                 {{unit.unitName}}
               </div>
               <ul class="list-group list-group-flush ps-2">
-                @for (idol of unit.idols; track idol.idolId) {
+              @for (idol of unit.idols; track idol.idolId) {
                 @if (!this.markIdol(idol.idolId, 0)) {
-                <li
-                  [ngClass]="{
-                      'text-white': !this.displayIdol(idol.idolId, 1),
-                      'text-dark': this.displayIdol(idol.idolId, 1)
-                    }"
-                  class="list-group-item border-0 p-1">
-                  {{idol.cv}} ({{idol.idolName}}役)
-                </li>
-                }}
+                  @if (this.displayIdol(idol.idolId, 1)) {
+                    <li
+                      class="list-group-item border-0 p-1 text-dark">
+                      <div>{{idol.cv}} ({{idol.idolName}}役)</div>
+                    </li>
+                  }
+                  @else {
+                    <li
+                      class="list-group-item border-0 p-1">
+                      <div>&nbsp;</div>
+                    </li>
+                  }
+                }
+              }
               </ul>
             </li>
             }}
           </ul>
         </div>
       </div>
-      <div class="card">
+      <div class="card p-0 col-6">
         <div class="card-header">
           Day2 {{this.liveInfo.liveDay2}}
         </div>
-        <div class="card-body p-2">
+        <div class="card-body p-1">
           <ul class="list-group list-group-flush">
             @for(unit of this.unitInfo; track unit.unitId; let i = $index) {
             @if (i <= 7 && this.displayUnit(unit, 2)) {
@@ -79,17 +85,22 @@
                 {{unit.unitName}}
               </div>
               <ul class="list-group list-group-flush ps-2">
-                @for (idol of unit.idols; track idol.idolId) {
+              @for (idol of unit.idols; track idol.idolId) {
                 @if (!this.markIdol(idol.idolId, 0)) {
-                <li
-                  [ngClass]="{
-                    'text-white': !this.displayIdol(idol.idolId, 2),
-                    'text-dark': this.displayIdol(idol.idolId, 2)
-                  }"
-                  class="list-group-item border-0 p-1">
-                  {{idol.cv}} ({{idol.idolName}}役)
-                </li>
-                }}
+                  @if (this.displayIdol(idol.idolId, 2)) {
+                    <li
+                      class="list-group-item border-0 p-1 text-dark">
+                      <div>{{idol.cv}} ({{idol.idolName}}役)</div>
+                    </li>
+                  }
+                  @else {
+                    <li
+                      class="list-group-item border-0 p-1">
+                      <div>&nbsp;</div>
+                    </li>
+                  }
+                }
+              }
               </ul>
             </li>
             }}
@@ -97,9 +108,9 @@
         </div>
       </div>
     </div>
-    <div class="col-md-2 d-sm-none d-md-block"></div>
   </div>
-  <div class="col-12 justify-content-center">
+  @if (this.liveInfo.day1SetList && this.liveInfo.day2SetList && this.liveInfo.day1SetList.length > 0 && this.liveInfo.day2SetList.length > 0) {
+    <div class="col-12 justify-content-center">
     <h3 class="h4 text-center">歌單</h3>
     <div class="card">
       <div class="card-header">
@@ -125,7 +136,7 @@
             <tbody>
               @for(song of this.liveInfo.day1SetList; track song; let i = $index) {
               <tr>
-                <td>{{i}}</td>
+                <td>{{i + 1}}</td>
                 <td>{{song.songName}}</td>
                 <td>{{displaySinger(song)}}</td>
               </tr>
@@ -145,7 +156,7 @@
             <tbody>
               @for(song of this.liveInfo.day2SetList; track song; let i = $index) {
               <tr>
-                <td>{{i}}</td>
+                <td>{{i + 1}}</td>
                 <td>{{song.songName}}</td>
                 <td>{{displaySinger(song)}}</td>
               </tr>
@@ -156,5 +167,6 @@
       </div>
     </div>
   </div>
+  }
 </div>
 }

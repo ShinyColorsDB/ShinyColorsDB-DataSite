@@ -1,0 +1,13 @@
+.text-left {
+  text-align: right;
+}
+
+.text-right {
+  text-align: left;
+}
+
+@media screen and (max-width: 1000px) {
+  .text-left {
+    text-align: left;
+  }
+}

@@ -13,20 +13,36 @@
   </a>
 </div-->
 <div class="card h-100">
-  <div class="row g-0 h-100">
-    <div 
-      class="col-4 h-100 d-flex align-items-center"
-      [style]="'background-color: ' + this.liveInfo.liveLogoBg + ';'">
-      <img 
-        [src]="this.liveInfo.liveLogo"
-        height="300px"
-        class="img-fluid rounded-start" alt="...">
-    </div>
-    <div class="col-8">
-      <div class="card-body">
-        <h5 class="card-title">{{this.liveInfo.liveTitle}}</h5>
-        <p class="card-text">{{this.liveInfo.liveSubtitle}}</p>
+  <a 
+    [routerLink]="['/liveinfo']"
+    [queryParams]="{ liveId: this.liveInfo.liveId}">
+    <div class="row g-0 h-100">
+      <div class="col-12">
+        <div class="card-header" [ngClass]="{
+          'text-left': this.position === 'left', 
+          'text-right': this.position === 'right'
+        }">{{this.liveInfo.liveDay1}}</div>
       </div>
+      <div
+        class="col-4 h-100 d-flex flex-column"
+        [style]="'background-color: ' + this.liveInfo.liveLogoBg + ';'">
+        <img
+          [src]="this.liveInfo.liveLogo"
+          class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-8">
+        <div class="card-body">
+          <h6 class="card-title">{{this.trimTitle(this.liveInfo.liveTitle)}}</h6>
+          <p class="card-text h6 d-md-block d-none">{{this.liveInfo.liveSubtitle}}</p>
+        </div>
+      </div>
+      @if (this.liveInfo.liveSubtitle) {
+      <div class="col-12 d-sm-block d-md-none">
+        <div class="card-footer">
+          <p class="card-text h6 text-end">{{this.liveInfo.liveSubtitle}}</p>
+        </div>
+      </div>
+      }
     </div>
-  </div>
+  </a>
 </div>

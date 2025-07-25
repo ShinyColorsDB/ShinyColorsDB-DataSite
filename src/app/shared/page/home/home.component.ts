@@ -13,6 +13,7 @@ import { CardItemComponent } from '../../components/card-item/card-item.componen
 import { LiveInfoComponent } from '../../components/live-info/live-info.component';
 import { CdInfoComponent } from '../../components/cd-info/cd-info.component';
 import { CardItemHolderComponent } from "../../components/card-item-holder/card-item-holder.component";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -20,7 +21,8 @@ import { CardItemHolderComponent } from "../../components/card-item-holder/card-
     CardItemComponent,
     LiveInfoComponent,
     CdInfoComponent,
-    CardItemHolderComponent
+    CardItemHolderComponent,
+    CommonModule
 ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
