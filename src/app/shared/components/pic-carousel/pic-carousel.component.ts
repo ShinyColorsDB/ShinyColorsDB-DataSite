@@ -23,6 +23,9 @@ export class PicCarouselComponent implements OnInit, OnChanges {
   timeOutToClear: NodeJS.Timeout | null = null;
 
   @Input()
+  isIllust = false;
+
+  @Input()
   enzaId!: number;
 
   @Input()

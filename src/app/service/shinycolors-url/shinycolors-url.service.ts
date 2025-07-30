@@ -32,6 +32,10 @@ export class ShinyColorsUrlService {
     return `https://${environment.cloudFlareUrl}/images/content/support_idols/card/${cardId}.jpg`;
   }
 
+  getIllustCardUrl(illustId: number): string {
+    return `https://${environment.cloudFlareUrl}/images/content/support_idols/illust_release/${illustId}01.jpg`;
+  }
+
   getCardMovieUrl(cardId: number): string {
     return `https://${environment.cloudFlareUrl}/movies/idols/card/${cardId}.mp4`;
   }

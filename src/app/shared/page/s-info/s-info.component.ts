@@ -17,11 +17,13 @@ import { PanelInfoComponent } from '../../components/panel-info/panel-info.compo
 import { PanelListComponent } from '../../components/panel-list/panel-list.component';
 import { SupskillCardComponent } from '../../components/supskill-card/supskill-card.component';
 import { CardStatusComponent } from '../../components/card-status/card-status.component';
+import { PicCarouselComponent } from '../../components/pic-carousel/pic-carousel.component';
 
 @Component({
   selector: 'app-s-info',
   imports: [
     CommonCriteriaComponent,
+    PicCarouselComponent,
     PanelInfoComponent,
     PanelListComponent,
     SupskillCardComponent,

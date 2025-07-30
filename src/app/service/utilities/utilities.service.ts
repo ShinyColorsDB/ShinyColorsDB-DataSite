@@ -217,6 +217,8 @@ export class UtilitiesService {
         return '情景劇卡池';
       case 'ParallelCollection':
         return '平行卡池';
+      case 'IllustGasha':
+        return '變畫卡池';
       default:
         return method;
     }

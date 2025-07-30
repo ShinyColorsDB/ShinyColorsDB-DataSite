@@ -1,4 +1,15 @@
 <ngb-carousel class="col-12" [interval]="0" #picCarousel="ngbCarousel" (slid)="onSlid($event)" (slide)="onSlide($event)">
+  @if (this.isIllust) {
+  <ng-template ngbSlide id="img1">
+    <img
+      #pic1
+      [src]="this.scUrlService.getSupportCardUrl(this.enzaId)"
+      [alt]="'General image of ' + this.cardName"
+      class="img-fluid"
+      width="1136"
+      height="640" />
+  </ng-template>
+  } @else {
   <ng-template ngbSlide id="img1">
     <img
       #pic1
@@ -8,6 +19,7 @@
       width="1136"
       height="640" />
   </ng-template>
+  }
   @if (this.displayMov1) {
   <ng-template ngbSlide id="mov1">
     <video
@@ -22,6 +34,17 @@
       (ended)="this.onMovieEnded()"></video>
   </ng-template>
   }
+  @if (this.isIllust) {
+  <ng-template ngbSlide id="img2">
+    <img
+      #pic2
+      [src]="this.scUrlService.getIllustCardUrl(this.enzaId)"
+      [alt]="'Illust image of ' + this.cardName"
+      class="img-fluid"
+      width="1136"
+      height="640" />
+  </ng-template>
+  } @else {
   <ng-template ngbSlide id="img2">
     <img
       #pic2
@@ -31,6 +54,7 @@
       width="1136"
       height="640" />
   </ng-template>
+  }
   @if (this.displayMov2) {
   <ng-template ngbSlide id="mov2">
     <video
