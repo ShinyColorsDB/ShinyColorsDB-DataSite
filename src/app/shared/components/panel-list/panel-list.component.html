@@ -44,8 +44,9 @@
             }
           </div>
           <div class="pt-1">
-            <span class="wrapup forPopup">{{ slot.extraEffect.extraEffectDesc
-              }}</span>
+            <span class="forPopup">
+              {{slot.extraEffect.extraEffectDesc}}
+            </span>
           </div>
         </ng-template>
         }
@@ -59,8 +60,9 @@
         </ng-template>
         <ng-template #plusPop>
           <div>
-            <span class="wrapup forPopup">{{
-              this.addPlusRule(slot.extraEffect.extraEffectDesc) }}</span>
+            <span class="forPopup">
+              {{this.addPlusRule(slot.extraEffect.extraEffectDesc)}}
+            </span>
           </div>
         </ng-template>
         }
@@ -74,8 +76,33 @@
         </ng-template>
         <ng-template #exchangePop>
           <div>
-            <span class="wrapup forPopup">{{
-              this.addPlusRule(slot.extraEffect.extraEffectDesc) }}</span>
+            <span class="forPopup">
+              {{this.addPlusRule(slot.extraEffect.extraEffectDesc)}}
+            </span>
+          </div>
+        </ng-template>
+        }
+        @if (slot.extraEffect && slot.extraEffect.extraEffectType == 'growth') {
+        <img [src]="this.scUrlService.getLinkUI('growth')"
+          alt="Button showing exchange skill description"
+          [ngbPopover]="growthPop" [popoverTitle]="growthTitle"
+          placement="top" class="forCurser float-end align-middle img-fluid">
+        <ng-template #growthTitle class="widePopover">
+          <span class='forPopup' i18n>グローアップアピール</span>
+        </ng-template>
+        <ng-template #growthPop>
+          <div>
+            <span class="forPopup widePopover">
+              <table>
+                <tbody>
+                  @for(g of this.splitLevels(slot.extraEffect.extraEffectDesc); track g; let j = $index) {
+                  <tr>
+                    <td>{{g}}</td>
+                  </tr>
+                  }
+                </tbody>
+              </table>
+            </span>
           </div>
         </ng-template>
         }

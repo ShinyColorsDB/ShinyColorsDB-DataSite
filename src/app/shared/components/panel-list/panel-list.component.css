@@ -35,3 +35,9 @@ tr.hoverable:hover {
   font-family: lineGothic;
   font-size: 18px;
 }
+
+:host>>>.popover {
+  color: #000;
+  max-width: 500px;
+  white-space: pre-line;
+}

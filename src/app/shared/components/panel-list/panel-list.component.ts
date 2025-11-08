@@ -40,6 +40,10 @@ export class PanelListComponent implements OnInit, OnChanges {
     return content.replace(/\//g, '/\n');
   }
 
+  splitLevels(content: string): string[] {
+    return content.split(/\n/g);
+  }
+
   addPlusRule(content: string): string {
     return content.replace(/(.*)(\[.*\])/g, '$2\n$1');
   }
