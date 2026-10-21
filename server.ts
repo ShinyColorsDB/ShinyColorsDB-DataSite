@@ -12,7 +12,11 @@ export function app(): express.Express {
   const browserDistFolder = resolve(serverDistFolder, '../browser');
   const indexHtml = join(serverDistFolder, 'index.server.html');
 
-  const commonEngine = new CommonEngine();
+  // Only render SSR for known hosts (prevents Host-header injection / SSRF).
+  // Override with comma-separated ALLOWED_HOSTS env var if needed.
+  const allowedHosts = (process.env["ALLOWED_HOSTS"] ?? "shinycolors.moe,www.shinycolors.moe,localhost")
+    .split(",").map((h) => h.trim()).filter(Boolean);
+  const commonEngine = new CommonEngine({ allowedHosts });
 
   server.set('view engine', 'html');
   server.set('views', browserDistFolder);
