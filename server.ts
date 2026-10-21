@@ -1,62 +1,58 @@
-import { APP_BASE_HREF } from '@angular/common';
-import { CommonEngine } from '@angular/ssr/node';
+import {
+  AngularNodeAppEngine,
+  createNodeRequestHandler,
+  isMainModule,
+  writeResponseToNodeResponse,
+} from '@angular/ssr/node';
 import express from 'express';
-import { fileURLToPath } from 'node:url';
-import { dirname, join, resolve } from 'node:path';
-import bootstrap from './src/main.server';
+import { join } from 'node:path';
 
-// The Express app is exported so that it can be used by serverless Functions.
+const browserDistFolder = join(import.meta.dirname, '../browser');
+
+// Extra hosts on top of `security.allowedHosts` in angular.json
+// (comma-separated, e.g. ALLOWED_HOSTS="my-app.vercel.app").
+const extraAllowedHosts = (process.env['ALLOWED_HOSTS'] ?? '')
+  .split(',')
+  .map((h) => h.trim())
+  .filter(Boolean);
+
+// The Express app is exported so that it can be used by serverless Functions (api/index.mjs).
 export function app(): express.Express {
   const server = express();
-  const serverDistFolder = dirname(fileURLToPath(import.meta.url));
-  const browserDistFolder = resolve(serverDistFolder, '../browser');
-  const indexHtml = join(serverDistFolder, 'index.server.html');
+  const angularApp = new AngularNodeAppEngine({ allowedHosts: extraAllowedHosts });
 
-  // Only render SSR for known hosts (prevents Host-header injection / SSRF).
-  // Override with comma-separated ALLOWED_HOSTS env var if needed.
-  const allowedHosts = (process.env["ALLOWED_HOSTS"] ?? "shinycolors.moe,www.shinycolors.moe,localhost")
-    .split(",").map((h) => h.trim()).filter(Boolean);
-  const commonEngine = new CommonEngine({ allowedHosts });
+  server.disable('x-powered-by');
 
-  server.set('view engine', 'html');
-  server.set('views', browserDistFolder);
-
-  // Example Express Rest API endpoints
-  // server.get('/api/**', (req, res) => { });
   // Serve static files from /browser
-  server.get('*.*', express.static(browserDistFolder, {
-    maxAge: '1y'
-  }));
+  server.use(
+    express.static(browserDistFolder, {
+      maxAge: '1y',
+      index: false,
+      redirect: false,
+    }),
+  );
 
-  // All regular routes use the Angular engine
-  server.get('*', (req, res, next) => {
-    const { protocol, originalUrl, baseUrl, headers } = req;
-
-    commonEngine
-      .render({
-        bootstrap,
-        documentFilePath: indexHtml,
-        url: `${protocol}://${headers.host}${originalUrl}`,
-        publicPath: browserDistFolder,
-        providers: [{ provide: APP_BASE_HREF, useValue: baseUrl }],
-        inlineCriticalCss: false,
-      })
-      .then((html) => res.send(html))
-      .catch((err) => next(err));
+  // All other requests are rendered by Angular
+  server.use((req, res, next) => {
+    angularApp
+      .handle(req)
+      .then((response) => (response ? writeResponseToNodeResponse(response, res) : next()))
+      .catch(next);
   });
 
   return server;
 }
 
-function run(): void {
+// Start the server when run directly (node server.mjs) or under PM2.
+if (isMainModule(import.meta.url) || process.env['pm_id'] !== undefined) {
   const port = process.env['PORT'] || 4000;
-
-  // Start up the Node server
-  const server = app();
-  server.listen(port, () => {
-    console.log(`${(new Date()).toLocaleTimeString()}`);
+  app().listen(port, (error?: Error) => {
+    if (error) {
+      throw error;
+    }
+    console.log(`${new Date().toLocaleTimeString()}`);
     console.log(`Node Express server listening on http://localhost:${port}`);
   });
 }
 
-run();
+export const reqHandler = createNodeRequestHandler(app());

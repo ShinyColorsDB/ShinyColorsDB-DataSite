@@ -7,8 +7,7 @@
   "projects": {
     "ShinyColorsDB-DataSite": {
       "projectType": "application",
-      "schematics": {
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -41,7 +40,15 @@
             },
             "allowedCommonJsDependencies": [
               "url"
-            ]
+            ],
+            "security": {
+              "allowedHosts": [
+                "shinycolors.moe",
+                "www.shinycolors.moe",
+                "localhost"
+              ]
+            },
+            "outputMode": "server"
           },
           "configurations": {
             "production": {

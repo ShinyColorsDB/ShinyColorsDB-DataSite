@@ -1,10 +1,6 @@
-import { isPlatformServer } from '@angular/common';
-import { Component, OnInit, PLATFORM_ID, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { Optional, Inject } from '@angular/core';
-import { RESPONSE } from '../../../../express.tokens';
-import { Response } from 'express';
 import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
 import { Title } from '@angular/platform-browser';
 
@@ -22,15 +18,11 @@ import { Title } from '@angular/platform-browser';
 })
 export class NotfoundComponent implements OnInit {
   constructor(
-    @Inject(PLATFORM_ID) private platformId: Object,
-    @Optional() @Inject(RESPONSE) private response: Response,
     private title: Title,
     private utilsService: UtilitiesService,
   ) {
-    if (isPlatformServer(this.platformId)) {
-      if (this.response)
-        this.response.status(404);
-    }
+    // HTTP 404 status is set via serverRoutes (app.routes.server.ts). Setting it here
+    // would also apply to in-app redirects to /notfound and break them (404 + Location).
     this.title.setTitle("Error");
     this.utilsService.emitMobileTitle("Error", false);
   }
