@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, Inject, OnInit, PLATFORM_ID, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Inject, OnInit, PLATFORM_ID, QueryList, ViewChild, ViewChildren, ChangeDetectionStrategy } from '@angular/core';
 import { NgbModal, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { Application, Sprite, Assets, Texture, Rectangle, BackgroundSystem } from 'pixi.js';
 import { ShinyColorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
@@ -17,6 +17,7 @@ import { isPlatformBrowser, CommonModule } from '@angular/common';
     ],
     templateUrl: './cardle.component.html',
     styleUrls: ['./cardle.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     host: {
         class: 'justify-content-center ',
     }

@@ -1,4 +1,4 @@
-import { Inject, PLATFORM_ID } from '@angular/core';
+import { Inject, PLATFORM_ID, ChangeDetectionStrategy } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
 import { Component } from '@angular/core';
@@ -12,6 +12,7 @@ import { RouterModule } from '@angular/router';
     SidebarComponent,
     RouterModule
   ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {

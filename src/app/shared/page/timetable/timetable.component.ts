@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, of } from 'rxjs';
@@ -17,6 +17,7 @@ import { TimesubtableComponent } from '../../components/timesubtable/timesubtabl
   ],
   templateUrl: './timetable.component.html',
   styleUrls: ['./timetable.component.css'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   host: {
     class: 'overflow-auto container d-flex justify-content-center',
   }

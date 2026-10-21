@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { LiveInfo } from '../../interfaces/liveInfo';
 import { CommonModule } from '@angular/common';
@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
   ],
   templateUrl: './live-info.component.html',
   styleUrl: './live-info.component.css',
+  changeDetection: ChangeDetectionStrategy.Eager,
   host: {
     class: "col-12"
   }

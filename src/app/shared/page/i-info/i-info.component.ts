@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
@@ -30,6 +30,7 @@ import { TabStatus } from '../../enums/tabStatus';
     ],
     templateUrl: './i-info.component.html',
     styleUrls: ['./i-info.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     host: {
         class: 'overflow-auto container-fluid d-flex justify-content-center',
     }

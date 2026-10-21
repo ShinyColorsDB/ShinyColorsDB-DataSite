@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, ViewChildren } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChildren, ChangeDetectionStrategy } from '@angular/core';
 import { Unit } from '../../interfaces/unit';
 
 import { environment } from 'src/environments/environment';
@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
   standalone: true,
   templateUrl: './sub-idol-form.component.html',
   styleUrls: ['./sub-idol-form.component.css'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   host: {
     class: "col-xl-6 col-lg-12 p-0"
   }

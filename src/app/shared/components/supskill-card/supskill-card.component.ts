@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges, ChangeDetectionStrategy } from '@angular/core';
 import { CardSupportSkill } from '../../interfaces/cardSupportSkill';
 import { environment } from 'src/environments/environment';
 import { CommonModule } from '@angular/common';
@@ -10,6 +10,7 @@ import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
     CommonModule,
   ],
   templateUrl: './supskill-card.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./supskill-card.component.css']
 })
 export class SupskillCardComponent implements OnInit, OnChanges {

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { QueryResult } from '../../interfaces/queryResult';
 
@@ -14,6 +14,7 @@ import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
     RouterModule
   ],
   templateUrl: './query-result-modal.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./query-result-modal.component.css']
 })
 export class QueryResultModalComponent implements OnInit {

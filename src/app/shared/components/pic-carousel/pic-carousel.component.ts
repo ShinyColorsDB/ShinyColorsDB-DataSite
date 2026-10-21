@@ -1,5 +1,5 @@
 import { isPlatformBrowser } from '@angular/common';
-import { Component, ElementRef, Inject, Input, OnChanges, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
+import { Component, ElementRef, Inject, Input, OnChanges, OnInit, PLATFORM_ID, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { NgbCarousel, NgbCarouselModule, NgbSlideEvent } from '@ng-bootstrap/ng-bootstrap';
 
 import { ShinyColorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
@@ -11,6 +11,7 @@ import { environment } from 'src/environments/environment';
     NgbCarouselModule
   ],
   templateUrl: './pic-carousel.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./pic-carousel.component.css']
 })
 export class PicCarouselComponent implements OnInit, OnChanges {

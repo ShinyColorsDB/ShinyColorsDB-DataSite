@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 
@@ -31,6 +31,7 @@ import { PicCarouselComponent } from '../../components/pic-carousel/pic-carousel
   ],
   templateUrl: './s-info.component.html',
   styleUrls: ['./s-info.component.css'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   host: {
     class: 'overflow-auto container-fluid d-flex justify-content-center',
   }

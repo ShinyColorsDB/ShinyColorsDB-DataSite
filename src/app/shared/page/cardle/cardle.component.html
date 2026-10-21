@@ -34,7 +34,7 @@
 
 <ng-template #resultModal let-modal>
   <div class="modal-header">
-    <h1>{{this?.cardleInfo!.cardleDate | date: 'yyyy/MM/dd'}} #{{this.cardleInfo.cardleIndex}}</h1>
+    <h1>{{cardleInfo!.cardleDate | date: 'yyyy/MM/dd'}} #{{this.cardleInfo.cardleIndex}}</h1>
     <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
   </div>
   <div class="modal-body justify-content-center">

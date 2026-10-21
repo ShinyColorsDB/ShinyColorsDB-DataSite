@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { CardMemoryAppeal } from '../../interfaces/cardMemoryAppeal';
 import { MemoryChargeSkill } from '../../interfaces/memoryChargeSkill';
 
@@ -6,6 +6,7 @@ import { MemoryChargeSkill } from '../../interfaces/memoryChargeSkill';
   selector: 'app-memory-table',
   standalone: true,
   templateUrl: './memory-table.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./memory-table.component.css']
 })
 export class MemoryTableComponent implements OnInit {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 import { ShinyColorsApiService } from 'src/app/service/shinycolors-api/shinycolors-api.service';
@@ -17,6 +17,7 @@ import { liveSetList } from '../../interfaces/liveSetList';
   ],
   templateUrl: './l-info.component.html',
   styleUrl: './l-info.component.css',
+  changeDetection: ChangeDetectionStrategy.Eager,
   host: {
     class: 'overflow-auto container-fluid d-flex justify-content-center',
   }

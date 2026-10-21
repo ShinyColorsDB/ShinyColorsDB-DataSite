@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 
@@ -31,6 +31,7 @@ import { CardStatusComponent } from '../../components/card-status/card-status.co
   ],
   templateUrl: './p-info.component.html',
   styleUrls: ['./p-info.component.css'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   host: {
     class: 'overflow-auto container-fluid d-flex justify-content-center',
   }

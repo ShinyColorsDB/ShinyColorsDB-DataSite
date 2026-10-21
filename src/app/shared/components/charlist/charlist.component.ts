@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Inject, Input, OnInit, Output, PLATFORM_ID } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, OnInit, Output, PLATFORM_ID, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -21,6 +21,7 @@ import { TabStatus } from '../../enums/tabStatus';
     NgbAccordionModule
   ],
   templateUrl: './charlist.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./charlist.component.css']
 })
 export class CharlistComponent implements OnInit {

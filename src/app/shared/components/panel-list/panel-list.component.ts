@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { NgbPopover } from '@ng-bootstrap/ng-bootstrap';
 import { ShinyColorsUrlService } from 'src/app/service/shinycolors-url/shinycolors-url.service';
 
@@ -11,6 +11,7 @@ import { ShinyColorsUrlService } from 'src/app/service/shinycolors-url/shinycolo
   ],
   templateUrl: './panel-list.component.html',
   styleUrls: ['./panel-list.component.css'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   host: {
     class: 'col-12 mb-4'
   }

@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 
@@ -24,6 +24,7 @@ import { QueryResultModalComponent } from '../../components/query-result-modal/q
   ],
   templateUrl: './r-lookup.component.html',
   styleUrls: ['./r-lookup.component.css'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   host: {
     class: 'overflow-auto container-fluid d-flex justify-content-center ',
   }

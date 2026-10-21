@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 
 import { SupSkillList } from '../../interfaces/supSkillList';
 
@@ -6,6 +6,7 @@ import { SupSkillList } from '../../interfaces/supSkillList';
   selector: 'app-sub-skill-form',
   standalone: true,
   templateUrl: './sub-skill-form.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./sub-skill-form.component.css']
 })
 export class SubSkillFormComponent implements OnInit {

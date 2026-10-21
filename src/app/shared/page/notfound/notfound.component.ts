@@ -1,5 +1,5 @@
 import { isPlatformServer } from '@angular/common';
-import { Component, OnInit, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, PLATFORM_ID, ChangeDetectionStrategy } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { Optional, Inject } from '@angular/core';
@@ -15,6 +15,7 @@ import { Title } from '@angular/platform-browser';
   ],
   templateUrl: './notfound.component.html',
   styleUrls: ['./notfound.component.css'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   host: {
     class: 'overflow-auto container-fluid d-flex justify-content-center h-100',
   }

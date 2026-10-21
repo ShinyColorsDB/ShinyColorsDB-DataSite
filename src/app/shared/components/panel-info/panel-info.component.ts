@@ -9,6 +9,7 @@ import {
   ViewChild,
   OnDestroy,
   AfterViewInit,
+  ChangeDetectionStrategy
 } from '@angular/core';
 import { PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
@@ -26,6 +27,7 @@ import { Grid } from 'honeycomb-grid';
   selector: 'app-panel-info',
   standalone: true,
   templateUrl: './panel-info.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./panel-info.component.css'],
 })
 export class PanelInfoComponent implements OnChanges, OnDestroy, AfterViewInit {

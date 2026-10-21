@@ -1,10 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-common-criteria',
   standalone: true,
   templateUrl: './common-criteria.component.html',
   styleUrls: ['./common-criteria.component.css'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   host: {
     class: 'row'
   }

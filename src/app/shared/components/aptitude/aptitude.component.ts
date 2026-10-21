@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 import { CardProduceAptitude } from '../../interfaces/cardProduceAptitude';
 
@@ -7,6 +7,7 @@ import { CardProduceAptitude } from '../../interfaces/cardProduceAptitude';
   standalone: true,
   templateUrl: './aptitude.component.html',
   styleUrls: ['./aptitude.component.css'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   host: {
     class: 'justify-content-center d-flex',
   }

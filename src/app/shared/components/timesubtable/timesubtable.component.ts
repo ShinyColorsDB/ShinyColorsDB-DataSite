@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 import { DateTime } from 'luxon';
 import { Timetable } from '../../interfaces/timeTable';
@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
   ],
   templateUrl: './timesubtable.component.html',
   styleUrls: ['./timesubtable.component.css'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   host: {
     class: 'row justify-content-center container',
   }

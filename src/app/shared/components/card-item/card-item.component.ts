@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { DatePipe, CommonModule } from '@angular/common';
 
@@ -15,6 +15,7 @@ import { ShinyColorsUrlService } from 'src/app/service/shinycolors-url/shinycolo
     DatePipe
   ],
   templateUrl: './card-item.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./card-item.component.css']
 })
 export class CardItemComponent implements OnInit {

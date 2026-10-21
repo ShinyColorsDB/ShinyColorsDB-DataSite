@@ -2,12 +2,14 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
+      "src/*": [
+        "./src/*"
+      ],
       "mini-signals": [
-        "node_modules/resource-loader/typings/mini-signals.d.ts"
+        "./node_modules/resource-loader/typings/mini-signals.d.ts"
       ]
     },
     "esModuleInterop": true,
-    "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -24,7 +26,8 @@
     "module": "es2022",
     "types": [
       "offscreencanvas"
-    ]
+    ],
+    "skipLibCheck": true
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

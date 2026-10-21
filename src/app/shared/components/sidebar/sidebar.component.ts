@@ -1,5 +1,5 @@
 
-import { Component, inject, Input, OnInit, TemplateRef } from '@angular/core';
+import { Component, inject, Input, OnInit, TemplateRef, ChangeDetectionStrategy } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgbAccordionModule, NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
 import { UtilitiesService } from 'src/app/service/utilities/utilities.service';
@@ -14,6 +14,7 @@ import { CharlistComponent } from '../charlist/charlist.component';
     CharlistComponent
 ],
   templateUrl: './sidebar.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
