@@ -1,3 +1,6 @@
+import { provideRouter } from '@angular/router';
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PicCarouselComponent } from './pic-carousel.component';
@@ -8,7 +11,8 @@ describe('PicCarouselComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PicCarouselComponent ]
+      providers: [provideRouter([]), provideHttpClient(), provideHttpClientTesting()],
+      imports: [ PicCarouselComponent ]
     })
     .compileComponents();
 

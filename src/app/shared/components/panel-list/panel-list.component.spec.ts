@@ -1,3 +1,6 @@
+import { provideRouter } from '@angular/router';
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PanelListComponent } from './panel-list.component';
@@ -8,7 +11,8 @@ describe('PanelListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PanelListComponent ]
+      providers: [provideRouter([]), provideHttpClient(), provideHttpClientTesting()],
+      imports: [ PanelListComponent ]
     })
     .compileComponents();
 

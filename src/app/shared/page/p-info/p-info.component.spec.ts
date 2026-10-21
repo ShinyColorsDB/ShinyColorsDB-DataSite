@@ -1,3 +1,6 @@
+import { provideRouter } from '@angular/router';
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PInfoComponent } from './p-info.component';
@@ -8,7 +11,8 @@ describe('PInfoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PInfoComponent ]
+      providers: [provideRouter([]), provideHttpClient(), provideHttpClientTesting()],
+      imports: [ PInfoComponent ]
     })
     .compileComponents();
 

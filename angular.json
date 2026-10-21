@@ -2,7 +2,10 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "cli": {
-    "analytics": "181ac8d1-3598-4805-a484-363b48fc9698"
+    "analytics": "181ac8d1-3598-4805-a484-363b48fc9698",
+    "schematicCollections": [
+      "angular-eslint"
+    ]
   },
   "projects": {
     "ShinyColorsDB-DataSite": {
@@ -89,6 +92,18 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
+            },
+            "testing": {
+              "aot": false,
+              "optimization": false,
+              "extractLicenses": false,
+              "styles": [
+                "src/styles.css"
+              ],
+              "scripts": [],
+              "polyfills": [
+                "@angular/localize/init"
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -116,21 +131,26 @@
           }
         },
         "test": {
-          "builder": "@angular/build:karma",
+          "builder": "@angular/build:unit-test",
           "options": {
-            "main": "src/test.ts",
             "tsConfig": "tsconfig.spec.json",
-            "karmaConfig": "karma.conf.js",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
+            "reporters": [
+              "default"
             ],
-            "styles": [
-              "src/styles.css"
+            "coverageReporters": [
+              "html",
+              "text-summary"
             ],
-            "scripts": [],
-            "polyfills": [
-              "@angular/localize/init"
+            "buildTarget": ":build:testing",
+            "runner": "vitest"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
             ]
           }
         }

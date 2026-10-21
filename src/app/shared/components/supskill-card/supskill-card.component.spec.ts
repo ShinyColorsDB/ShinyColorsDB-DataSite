@@ -1,3 +1,6 @@
+import { provideRouter } from '@angular/router';
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SupskillCardComponent } from './supskill-card.component';
@@ -8,7 +11,8 @@ describe('SupskillCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SupskillCardComponent ]
+      providers: [provideRouter([]), provideHttpClient(), provideHttpClientTesting()],
+      imports: [ SupskillCardComponent ]
     })
     .compileComponents();
 
